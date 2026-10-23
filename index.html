@@ -366,14 +366,9 @@
   .pl-tolo{flex:none;align-self:center;background:none;border:none;color:var(--accent);
     font-size:12px;font-weight:700;cursor:pointer;padding:4px 2px;font-family:inherit;
     text-decoration:underline;white-space:nowrap}
-  .pl-prep-group{margin-bottom:12px}
-  .pl-prep-group:last-child{margin-bottom:0}
-  .pl-prep-line{margin:0;font-size:13.5px;line-height:1.5;font-weight:600}
-  .pl-prep-dishes{list-style:none;margin:5px 0 0;padding-left:14px}
-  .pl-prep-dishes li{margin:3px 0}
-  .pl-prep-dish{font-size:13px;font-weight:600;cursor:pointer}
+  .pl-prep-list li{margin:3px 0}
+  .pl-prep-dish{font-weight:600;cursor:pointer}
   .pl-prep-dish:hover{text-decoration:underline}
-  .pl-prep-url{font-size:11.5px;color:var(--muted);line-height:1.35;overflow-wrap:break-word}
   .pl-groc{margin-top:22px;border-top:1px solid var(--border);padding-top:14px}
   .pl-groc-h{margin:0 0 4px;font-size:16px;font-weight:800;letter-spacing:-.2px}
   .pl-groc-sec{margin:14px 0 4px;font-size:11.5px;font-weight:700;text-transform:uppercase;
@@ -3041,36 +3036,69 @@ function prepLead(dur){
   if(/hour/.test(t)) return 60;
   return 0;
 }
-// Session framing for a group line, from its longest stated lead:
-// overnight work is "the night before", a short soak happens "while
-// the mains cook", and everything else is "in the same session".
-function prepWhen(g){
-  if(g.lead >= 480) return "the night before";
-  if(g.verb === "Soak" && g.lead >= 120) return "earlier in the day";
-  if(g.verb === "Soak" && g.lead > 0) return "while the mains cook";
-  return "in the same session";
+// Lead-time framing for one hint, from that hint's own stated lead
+// alone — framing is never borrowed from another hint in its group:
+// an eight-hour-plus lead is "the night before", a soak of two hours
+// or more is "earlier in the day", and anything shorter carries none.
+function prepLeadFrame(verb, lead){
+  if(lead >= 480) return "the night before";
+  if(verb === "Soak" && lead >= 120) return "earlier in the day";
+  return "";
 }
-// One composed group line: family and framing, then every hint in its
-// own words — its ingredient with its own quantity, its dish, and its
-// own stated duration (or the fact that none is stated).
-function prepGroupLine(g){
-  const frame = g.verb === "Soak" ? ", each in its own bowl" :
-                g.verb === "Marinate" ? ", each in its own marinade" : "";
-  const items = g.items.map(it => {
-    let txt = it.ing || it.r.title;
-    if(it.qty) txt += " (" + it.qty + ")";
-    txt += " for " + it.r.title + " \u2014 " + g.verb.toLowerCase() +
-           (it.dur ? " " + it.dur : ", no time stated");
-    return txt;
-  });
-  return g.family + " \u2014 " + prepWhen(g) + ": " + g.verb + frame + ": " +
-         items.join("; ") + ".";
+// One bullet per prep hint (the "Sample B" layout): the hint's verb
+// first, then its ingredient as named — a leading past-tense
+// "soaked"/"marinated" drops away, since the verb already says it —
+// its own quantity in parentheses, a "soaked in …" method note the
+// ingredient line itself carries (its restated duration trimmed,
+// the duration itself rides at the end), the shared-session framing
+// when the hint's family + action group holds others too (each gets
+// its own bowl / marinade), and its own stated duration with its
+// lead-time framing. Nothing is invented and no hint is dropped.
+function prepBullet(g, it){
+  let name = (it.ing || it.r.title).trim();
+  let note = "";
+  const past = { Soak: "soaked", Marinate: "marinated", Ferment: "fermented",
+                 Rest: "rested", Thaw: "thawed", Proof: "proofed" }[g.verb];
+  if(past){
+    const nm = name.match(new RegExp("^(.*?)\\s*[-\\u2013\\u2014]\\s*" + past + "\\s+in\\s+(.+)$", "i"));
+    if(nm){
+      name = nm[1].trim();
+      note = nm[2].replace(/\s+/g, " ").trim()
+        .replace(/\s+for\s+(?:about\s+|around\s+|at least\s+|minimum\s+)?[\d\s\.\/\u2013\u2014-]+(?:hrs?|hours?|mins?|minutes?|secs?|seconds?)\.?$/i, "")
+        .replace(/\s+overnight\.?$/i, "").trim();
+      if(note) note = "in " + note;
+    }
+    name = name.replace(new RegExp("^" + past + "\\s+", "i"), "");
+  }
+  let txt = g.verb + " " + name;
+  if(it.qty) txt += " (" + it.qty + ")";
+  if(note) txt += ", " + note;
+  if(g.items.length > 1){
+    if(g.verb === "Soak") txt += ", in its own bowl";
+    else if(g.verb === "Marinate") txt += ", in its own marinade";
+  }
+  if(it.dur){
+    txt += " \u2014 " + it.dur;
+    const frame = prepLeadFrame(g.verb, it.lead);
+    if(frame) txt += ", " + frame;
+  }
+  return txt;
+}
+// The week's prep hints flattened to bullets: groups in their sorted
+// order (longest lead first), hints within a group in gather order.
+// Every hint appears exactly once.
+function planPrepBullets(groups){
+  const out = [];
+  for(const g of groups) for(const it of g.items) out.push({ text: prepBullet(g, it), r: it.r });
+  return out;
 }
 // The week's prep hints (the page's PREP data, the same hints behind
 // the preview's amber prep pills) gathered from the chosen recipes —
 // picked lunches included — and grouped by family + action, longest
-// lead time first. No hint is dropped: one that shares its family and
-// action with nothing else becomes a single-dish group of its own.
+// lead time first. The grouping only orders the bullets and decides
+// the shared-session framing; every hint still renders on its own
+// bullet. No hint is dropped: one that shares its family and action
+// with nothing else becomes a single-dish group of its own.
 function planPrepGroups(){
   const groups = new Map();
   for(const day of planWeek){
@@ -3089,18 +3117,16 @@ function planPrepGroups(){
         const fam = prepFamily(ing);
         const key = fam + "|" + verb;
         let g = groups.get(key);
-        if(!g){ g = { family: fam, verb, items: [], dishMap: new Map(), lead: 0 }; groups.set(key, g); }
+        if(!g){ g = { family: fam, verb, items: [], lead: 0 }; groups.set(key, g); }
         const itemKey = r.id + "|" + lineIdx;
         if(g.items.some(it => it.key === itemKey)) continue;
         const lead = prepLead(dur);
         g.items.push({ key: itemKey, r, ing, qty: prepQtyText(r, lineIdx), dur, lead });
         if(lead > g.lead) g.lead = lead;
-        if(!g.dishMap.has(r.id)) g.dishMap.set(r.id, r);
       }
     }
   }
   const out = [...groups.values()];
-  for(const g of out){ g.dishes = [...g.dishMap.values()]; g.line = prepGroupLine(g); }
   out.sort((a, b) => b.lead - a.lead || a.family.localeCompare(b.family));
   return out;
 }
@@ -3133,21 +3159,16 @@ function renderPlan(){
   prepBox.appendChild(el("h3", "Prep ahead", "pl-prep-h"));
   const groups = planPrepGroups();
   if(groups.length){
-    for(const g of groups){
-      const gd = el("div", null, "pl-prep-group");
-      gd.appendChild(el("p", g.line, "pl-prep-line"));
-      const ul = el("ul", null, "pl-prep-dishes");
-      for(const r of g.dishes){
-        const li = el("li");
-        const t = el("span", r.title, "pl-prep-dish");
-        t.addEventListener("click", () => openPlanPreview(r));
-        li.appendChild(t);
-        li.appendChild(el("div", r.link, "pl-prep-url"));
-        ul.appendChild(li);
-      }
-      gd.appendChild(ul);
-      prepBox.appendChild(gd);
+    const ul = el("ul", null, "pl-prep-list");
+    for(const b of planPrepBullets(groups)){
+      const li = el("li");
+      li.appendChild(document.createTextNode(b.text + " \u00B7 "));
+      const t = el("span", b.r.title, "pl-prep-dish");
+      t.addEventListener("click", () => openPlanPreview(b.r));
+      li.appendChild(t);
+      ul.appendChild(li);
     }
+    prepBox.appendChild(ul);
   } else {
     prepBox.appendChild(el("p", "No special prep \u2014 everything cooks fresh.", "pl-prep-none"));
   }
@@ -3195,15 +3216,14 @@ function openPlanPreview(r){
 }
 function planText(){
   // Plain text only, ready to paste anywhere: the prep-ahead list first
-  // (one "- …" line per hint), a blank line, then the week itself with
-  // every recipe's Instagram URL written out in full.
+  // (one "• …" bullet per hint, its dish's Instagram URL written out
+  // after the title), a blank line, then the week itself with every
+  // recipe's Instagram URL written out in full.
   const out = ["Meal prep ahead:"];
   const groups = planPrepGroups();
   if(groups.length){
-    for(const g of groups){
-      out.push(g.line);
-      for(const r of g.dishes){ out.push("  " + r.title); out.push("  " + r.link); }
-    }
+    for(const b of planPrepBullets(groups))
+      out.push("\u2022 " + b.text + " \u00B7 " + b.r.title + " \u2014 " + b.r.link);
   }
   else out.push("- No special prep \u2014 everything cooks fresh.");
   out.push("");
@@ -3655,25 +3675,18 @@ function drawPlanCanvas(){
   let y = PAD;
   texts.push({ text: "This week's plan", font: "800 54px " + FONT, fill: INK, x: PAD, y: y + 46 });
   y += 84;
-  // Prep ahead box: the grouped lines, each with its dishes listed
-  // underneath — title (a link in the PDF) and full URL written out.
+  // Prep ahead box: one bullet per hint, its dish title riding on the
+  // bullet as a tappable link in the PDF.
   const groups = planPrepGroups();
   const prepTop = y;
   let py = y + 24;
   texts.push({ text: "PREP AHEAD", font: "700 23px " + FONT, fill: GREEN, x: PAD + 22, y: py + 22 });
   py += 50;
   if(groups.length){
-    for(const g of groups){
-      py = rich([{ t: g.line }], "29px " + FONT, INK, PAD + 22, py, 40, CW - 44);
-      py += 2;
-      for(const r of g.dishes){
-        py = rich([{ t: r.title, url: r.link }], "600 26px " + FONT, INK, PAD + 44, py, 34, CW - 66);
-        for(const ln of wrap(r.link, "22px " + FONT, CW - 66)){
-          texts.push({ text: ln, font: "22px " + FONT, fill: MUTED, x: PAD + 44, y: py + 21 });
-          py += 28;
-        }
-      }
-      py += 12;
+    for(const b of planPrepBullets(groups)){
+      py = rich([{ t: "\u2022 " + b.text + " \u00B7 " }, { t: b.r.title, url: b.r.link }],
+                "28px " + FONT, INK, PAD + 22, py, 38, CW - 44);
+      py += 4;
     }
   } else {
     py = rich([{ t: "No special prep \u2014 everything cooks fresh." }], "29px " + FONT, INK, PAD + 22, py, 40, CW - 44);
