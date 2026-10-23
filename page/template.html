@@ -244,6 +244,14 @@
   @media (prefers-color-scheme: dark){
     .pv-prep{color:#f5c451;background:#3a2c0e;border-color:#7d5f16}
   }
+  /* Cooking numbers in Method steps (durations, temperatures): a soft
+     amber wash in the prep-pill family. Not bold — bold is reserved for
+     ingredient names — and only the number span itself is chipped. */
+  .pv-num{background:#fdeec4;border-radius:5px;padding:0 4px;
+    -webkit-box-decoration-break:clone;box-decoration-break:clone}
+  @media (prefers-color-scheme: dark){
+    .pv-num{background:#3a2c0e}
+  }
   #pvSrc{display:inline-block;font-size:12.5px;font-weight:700;color:var(--green);
     background:var(--green-soft);border:1px solid var(--green);border-radius:999px;
     padding:4px 12px;margin:4px 0 2px}
@@ -402,7 +410,7 @@
 <div class="wrap">
   <header>
     <h1>Reel to Meal</h1>
-    <p id="sub">1,394 saved recipes · tap ingredients to search</p>
+    <p id="sub">1,394 saved recipes · tap a tile, or search by ingredient</p>
   </header>
 
   <div class="searchbox hero collapsed" id="heroBox">
@@ -1392,6 +1400,50 @@ function boldMethodNames(){
     if(pos < text.length) p.appendChild(document.createTextNode(text.slice(pos)));
   });
 }
+// ---- Cooking numbers in the Method ----
+// Durations and temperatures inside Method steps get a soft amber chip
+// (the .pv-num wash, in the prep-pill family) so the numbers a cook hunts
+// for stand out. Only the number span itself is wrapped — never bold
+// (bold is reserved for ingredient names) and never quantities, sizes,
+// servings or bare numbers: a chip needs a time unit (min/hr/sec …,
+// incl. decimals like 1.5, fractions like ½, and ranges like 2–3 or
+// 8-10) or a temperature mark (°C / °F, or the written "180 degrees" /
+// "180 degrees Celsius" oven form). Render-time only, like the bolding
+// pass: it walks the method's text nodes after boldMethodNames() has
+// run, so chips compose with the bold ingredient names and re-apply on
+// every preview render.
+const PV_FRAC = "[\\u00bc\\u00bd\\u00be\\u2153\\u2154\\u215b\\u215c\\u215d\\u215e]";
+const PV_ATOM = "(?:\\d+(?:[.,]\\d+)?" + PV_FRAC + "?|" + PV_FRAC + "+)";
+const PV_SPAN = PV_ATOM + "(?:\\s*[\\u2013\\u2014-]\\s*" + PV_ATOM + ")?";
+const PV_NUM_RE = new RegExp(
+  PV_SPAN + "\\s*\\u00b0\\s*[CF](?![A-Za-z])" +
+  "|" + PV_SPAN + "\\s+degrees(?:\\s+(?:Celsius|Fahrenheit))?(?![A-Za-z])" +
+  "|" + PV_SPAN + "\\s*(?:minutes?|mins?|hours?|hrs?|seconds?|secs?)(?![A-Za-z])",
+  "gi");
+function chipMethodNumbers(){
+  document.querySelectorAll("#pvMethod p").forEach(p => {
+    const walker = document.createTreeWalker(p, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    let n;
+    while((n = walker.nextNode())) nodes.push(n);
+    for(const node of nodes){
+      const text = node.nodeValue;
+      PV_NUM_RE.lastIndex = 0;
+      if(!PV_NUM_RE.test(text)) continue;
+      const frag = document.createDocumentFragment();
+      let pos = 0;
+      PV_NUM_RE.lastIndex = 0;
+      let m;
+      while((m = PV_NUM_RE.exec(text))){
+        if(m.index > pos) frag.appendChild(document.createTextNode(text.slice(pos, m.index)));
+        frag.appendChild(el("span", m[0], "pv-num"));
+        pos = m.index + m[0].length;
+      }
+      if(pos < text.length) frag.appendChild(document.createTextNode(text.slice(pos)));
+      node.parentNode.replaceChild(frag, node);
+    }
+  });
+}
 function updateScaleUI(r){
   const qd = QUANT[r.id];
   const box = document.getElementById("pvScale");
@@ -1502,6 +1554,7 @@ function fillPreview(){
     methodWrap.hidden = false;
     setRecipeText(document.getElementById("pvMethod"), splitMethodText(r.recipe_method));
     boldMethodNames();
+    chipMethodNumbers();
   } else methodWrap.hidden = true;
   // Two columns only when both sections are present as extracted text:
   // Ingredients on the left, Method on the right, so the two headings
@@ -1523,7 +1576,7 @@ function fillPreview(){
 
 function init(){
   document.getElementById("sub").textContent =
-    INDEX.meta.total.toLocaleString() + " saved recipes · tap ingredients to search";
+    INDEX.meta.total.toLocaleString() + " saved recipes · tap a tile, or search by ingredient";
   const q = document.getElementById("q");
   function submitQuery(){
     const parts = q.value.split(/[,;\n]+/).map(s => s.trim()).filter(Boolean);
