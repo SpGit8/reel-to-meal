@@ -2251,16 +2251,20 @@ function renderNeeds(){
     box.appendChild(m);
   }
 }
-// The Cuisine column: one chip per judged label, alphabetical, bare
-// counts, collapsed to the first few behind Show more — the Ingredients
-// column's pattern. Only labeled recipes sit under a cuisine; tapping a
-// chip filters the grid and combines with search and the other columns.
+// The Cuisine column: one chip per judged label, ordered by recipe
+// count descending (ties broken alphabetically), bare counts, collapsed
+// to the first few behind Show more — the Ingredients column's pattern.
+// The order is computed from the live counts, so a data refresh that
+// changes the counts re-sorts the column on its own. Only labeled
+// recipes sit under a cuisine; tapping a chip filters the grid and
+// combines with search and the other columns.
 function renderCuisines(){
   const box = document.getElementById("cuisines");
   box.innerHTML = "";
   const counts = {};
   for(const r of RECIPES){ const c = CUISINE[r.id]; if(c) counts[c] = (counts[c] || 0) + 1; }
-  const names = Object.keys(counts).sort((a,b) => a.localeCompare(b, undefined, {sensitivity: "base"}));
+  const names = Object.keys(counts).sort((a,b) =>
+    (counts[b] - counts[a]) || a.localeCompare(b, undefined, {sensitivity: "base"}));
   const shown = browseOpen.cuisines ? names : names.slice(0, CUISINES_SHOWN);
   for(const name of shown){
     const b = el("button", null, "gtile" + (state.cuisine === name ? " on" : ""));
