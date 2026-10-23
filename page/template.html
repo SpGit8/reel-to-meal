@@ -1870,16 +1870,20 @@ function groQtyValue(str){
   }
   return any ? total : null;
 }
-const GROC_UNITS = "cups?|c|tablespoons?|tbsps?|tbsp|tbs|teaspoons?|tsps?|tsp|grams?|gm|kg|ml|litres?|liters?|oz|lbs?|g|l|cloves?|cans?|packets?|scoops?|slices?|inch(?:es)?|pinch(?:es)?";
+const GROC_UNITS = "cups?|c|tablespoons?|tbsps?|tbsp|tbs|teaspoons?|tsps?|tsp|grams?|gms?|kg|ml|litres?|liters?|oz|lbs?|g|l|cloves?|cans?|packets?|scoops?|slices?|inch(?:es)?|pinch(?:es)?";
 const GROC_QTY = "(?:\\d+\\s+\\d+\\/\\d+|\\d+\\/\\d+|\\d+(?:\\.\\d+)?\\s*[¼½¾⅓⅔⅛]?|[¼½¾⅓⅔⅛])";
 const GROC_LEAD = new RegExp("^(" + GROC_QTY + ")(?:(?:th|st|nd|rd)(?![a-z]))?(?:(?:\\s*[-–]\\s*|\\s+to\\s+)(" + GROC_QTY + "))?[\\s-]*(" + GROC_UNITS + ")?\\s+(.+)$", "i");
 const GROC_UNIT_LEAD = new RegExp("^(" + GROC_UNITS + ")\\s+(.+)$", "i");
+// A complete amount on its own — quantity, optional range and unit,
+// then nothing but an optional "(note)": the shape of the amount in a
+// colon-style line ("Sugar: 1 tsp", "Rice: 1.5 cups (soaked …)").
+const GROC_TAIL = new RegExp("^(" + GROC_QTY + ")(?:(?:th|st|nd|rd)(?![a-z]))?(?:(?:\\s*[-–]\\s*|\\s+to\\s+)(" + GROC_QTY + "))?[\\s-]*(" + GROC_UNITS + ")?\\s*(?:$|\\()", "i");
 function groNormUnit(u){
   u = u.toLowerCase();
   if(u === "cup" || u === "cups" || u === "c") return "cup";
   if(u.indexOf("table") === 0 || u === "tbsp" || u === "tbsps" || u === "tbs") return "tbsp";
   if(u.indexOf("tea") === 0 || u === "tsp" || u === "tsps") return "tsp";
-  if(u === "grams" || u === "gram" || u === "gm" || u === "g") return "g";
+  if(u === "grams" || u === "gram" || u === "gm" || u === "gms" || u === "g") return "g";
   if(u === "litres" || u === "litre" || u === "liters" || u === "liter" || u === "l") return "L";
   if(u === "lbs") return "lb";
   if(u === "inches") return "inch";
@@ -1916,6 +1920,30 @@ function groParseLine(r, lineIdx, line){
     if(oname) return { name: oname, amounts: [{ lo: parseFloat(ofm[1]), hi: null, unit: groNormUnit(ofm[2]) }] };
   }
   if(/^(each|serves?|makes|yields?|prep time|cook time|total time)\b/i.test(line)) return null;
+  // Some extracts write the amount after the name, colon-style:
+  // "Sugar: 1 tsp", "Rice: 250 gms", "Salt: to taste". Split the tail
+  // off and parse it as the quantity, so the line merges under the
+  // plain ingredient name instead of standing as its own
+  // "Sugar: 1 tsp" entry beside "Sugar". Only a clean amount tail
+  // qualifies (packed multi-ingredient lines only via their first
+  // segment); headers ("For the marinade: …") fall through untouched.
+  const colon = line.match(/^([^:\d]{2,40}?):\s*(.+)$/);
+  if(colon && !/^for\b/i.test(colon[1].trim())){
+    const cname = groCleanName(colon[1]);
+    const tail = colon[2].trim();
+    if(cname && !/^for\b/i.test(cname)){
+      if(/^(a pinch|pinch|to taste|as needed|as required)\b/i.test(tail))
+        return { name: cname, amounts: [] };
+      // The tail as a whole, or — for packed lines ("Red chili
+      // powder: 1 tsp, Turmeric powder: 1 tsp, …") — its first
+      // comma segment, which is this ingredient's own amount.
+      const tm = tail.match(GROC_TAIL) || tail.split(",")[0].trim().match(GROC_TAIL);
+      if(tm){
+        const lo = groQtyValue(tm[1]);
+        if(lo != null) return { name: cname, amounts: [{ lo, hi: tm[2] ? groQtyValue(tm[2]) : null, unit: tm[3] ? groNormUnit(tm[3]) : "" }] };
+      }
+    }
+  }
   const qd = QUANT[r.id];
   if(qd){
     for(const t of qd[2]){
