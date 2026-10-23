@@ -1,10 +1,10 @@
-# mealy
+# Reel to Meal
 A tool to help find recipes, plan out and generate weekly meals, generate a grocery list, share them and many more.
 
 ## How this works
 
-This repo is the source project for the Recipe Finder page served on
-GitHub Pages.
+This repo is the source project for the Reel to Meal page (formerly the
+Recipe Finder) served on GitHub Pages.
 
 - `data/` — the recipe data: the index of saved recipes, verbatim recipe
   extracts, parsed quantities, prep hints, and judged labels (meals,
