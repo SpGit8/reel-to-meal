@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="data:,">
-<title>Recipe Finder</title>
+<title>Reel to Meal</title>
 <style>
   :root{
     --bg:#faf6f0; --card:#ffffff; --ink:#2b2118; --muted:#8a7a68;
@@ -78,8 +78,9 @@
     padding:6px 12px;font-size:13px;cursor:pointer;color:var(--muted)}
   .groups-title{font-size:13px;font-weight:700;text-transform:uppercase;
     letter-spacing:.09em;color:var(--muted);margin:10px 2px 6px}
-  .browse-band{background:var(--band);border:1px solid var(--border);
-    border-radius:16px;padding:0 12px 10px;margin-top:14px;display:flex}
+  .browse-band{border-bottom:1px solid var(--border);
+    padding:0 12px 10px;margin-top:14px;display:flex}
+  .band-row-rule{display:none}
   .browse-band .groups-title{font-size:11px;margin:10px 0 6px}
   .browse-ing{flex:5;min-width:0}
   .browse-tod{flex:3.4;min-width:0;border-left:1px solid var(--border);
@@ -170,6 +171,8 @@
     .gtile .gname{font-size:11.5px}
     .gtile .gcount{font-size:10px}
     .browse-band{flex-wrap:wrap}
+    .band-row-rule{display:block;flex:0 0 100%;border-top:1px solid var(--border);
+      margin-top:12px}
     .browse-ing{flex:1 1 54%}
     .browse-tod{flex:1 1 36%}
     .browse-need{flex:1 1 54%;border-left:none;margin-left:0;padding-left:0}
@@ -301,10 +304,13 @@
   .hintline #examples{display:inline-flex;flex:none;flex-wrap:nowrap;gap:6px;margin-top:0}
   .hintline .example{flex:none;padding:4px 10px;font-size:12.5px}
 
-  /* ---- Meal plan generator: button in the results row + planner sheet
-     (same visual language as the recipe preview sheet) ---- */
-  #planBtn{flex:none;background:var(--field);border:1px solid var(--border);border-radius:999px;
-    padding:7px 16px;font-size:13.5px;font-weight:600;cursor:pointer;color:var(--ink);font-family:inherit}
+  /* ---- Meal plan generator: filled dark pill at the top right of the
+     sticky search bar (sized to the bar's existing height, so the bar
+     stays slim) + planner sheet (same visual language as the recipe
+     preview sheet) ---- */
+  #planBtn{flex:none;background:var(--ink);border:none;border-radius:999px;
+    height:38px;padding:0 15px;font-size:13.5px;font-weight:700;cursor:pointer;
+    color:var(--bg);font-family:inherit;white-space:nowrap;line-height:1}
   #planBtn:active{transform:scale(.97)}
   #resultline{min-width:0}
   #plOverlay{position:fixed;inset:0;background:rgba(20,13,8,.58);z-index:55;
@@ -385,7 +391,7 @@
     font-family:inherit;line-height:1.5;border:1px solid var(--border);border-radius:10px;
     background:var(--field);color:var(--ink)}
   @media(max-width:640px){
-    #planBtn{font-size:12px;padding:6px 11px}
+    #planBtn{font-size:12px;padding:0 11px}
     .pl-body{padding:14px 12px 18px}
     .pl-head{padding:8px 8px 8px 12px;gap:6px}
     .pl-head h2{font-size:15.5px}
@@ -401,7 +407,7 @@
 <body>
 <div class="wrap">
   <header>
-    <h1>Recipe Finder</h1>
+    <h1>Reel to Meal</h1>
     <p id="sub">1,394 saved recipes · tap ingredients to search</p>
   </header>
 
@@ -411,6 +417,7 @@
       <input id="q" type="text" placeholder="Search ingredients, separated by commas…" aria-label="Search ingredients" autocomplete="off" enterkeyhint="search">
       <button id="find" type="button">Find recipes</button>
       <button id="heroToggle" type="button" aria-expanded="false" aria-controls="heroBody" aria-label="Show ingredient chips">▾</button>
+      <button id="planBtn" type="button">Plan a week</button>
     </div>
     <div id="heroBody">
       <label for="q">What's in your kitchen?</label>
@@ -431,6 +438,7 @@
       <h2 class="groups-title">Time of day</h2>
       <div id="tod"></div>
     </div>
+    <div class="band-row-rule" aria-hidden="true"></div>
     <div class="browse-col browse-need">
       <h2 class="groups-title">Need &amp; diet</h2>
       <div id="needs"></div>
@@ -445,7 +453,6 @@
     <div id="resultline">Browsing 1,394 recipes</div>
     <div class="rowbtns">
       <button id="fullBtn" type="button" aria-pressed="false"><span class="mdot inl"></span>Full recipe</button>
-      <button id="planBtn" type="button">Meal plan</button>
       <button id="shuffleBtn" type="button" hidden>Shuffle</button>
     </div>
   </div>
