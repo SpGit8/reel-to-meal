@@ -168,23 +168,24 @@ def main():
         if r["id"] in meals_judged:
             r["meals"] = sorted(meals_judged[r["id"]])
 
-    # merge comment recipe texts (full recipe pulled from a post's comments,
-    # kept for recipe previews)
-    try:
-        comment_recipes = json.load(open(os.path.join(OUTDIR, "comment_recipes.json")))
-    except Exception:
-        comment_recipes = {}
-    for pid, entry in comment_recipes.items():
-        r = by_id.get(pid)
-        if r and entry.get("text"):
-            r["comment_recipe"] = entry["text"]
-
-    # merge verbatim recipe extracts (ingredients + method pulled from the
-    # caption text; previews show these instead of the raw caption)
+    # Verbatim recipe extracts are loaded here, ahead of their merge below,
+    # because comment recipe texts now live on the extract entries
+    # themselves — the comment_text field, folded in from the retired
+    # data/comment_recipes.json on 2026-10-23.
     try:
         recipe_extracts = json.load(open(os.path.join(OUTDIR, "recipe_extracts.json")))
     except Exception:
         recipe_extracts = {}
+    # merge comment recipe texts (full recipe pulled from a post's comments,
+    # kept for recipe previews)
+    for pid, entry in recipe_extracts.items():
+        r = by_id.get(pid)
+        if r and entry.get("comment_text"):
+            r["comment_recipe"] = entry["comment_text"]
+
+    # merge verbatim recipe extracts (ingredients + method pulled from the
+    # caption text; previews show these instead of the raw caption) —
+    # recipe_extracts was already loaded above
     for pid, entry in recipe_extracts.items():
         r = by_id.get(pid)
         if r:

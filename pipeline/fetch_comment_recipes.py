@@ -3,16 +3,18 @@
 
 The enrichment pass extracted ingredients from comments but discarded the
 text. For the 22 posts flagged recipe_in_comments, fetch the comments once
-more and keep the recipe comment's full text in data/comment_recipes.json so
-recipe previews can show it. Stops immediately on any fetch failure (the
-account was rate-limited earlier tonight); partial progress is saved.
+more and keep the recipe comment's full text as the comment_text field of
+the post's entry in data/recipe_extracts.json (folded in from the retired
+data/comment_recipes.json on 2026-10-23) so recipe previews can show it.
+Stops immediately on any fetch failure (the account was rate-limited
+earlier tonight); partial progress is saved.
 """
 import json, os, re, subprocess, sys, time
 
 ACCT = "17841405603303185"
 BASE = os.path.expanduser("~/workspace/recipe-finder/data")
 ENRICH = os.path.join(BASE, "comment_enrich.json")
-OUT = os.path.join(BASE, "comment_recipes.json")
+EXTRACTS = os.path.join(BASE, "recipe_extracts.json")
 IDX = os.path.join(BASE, "index.json")
 
 
@@ -74,10 +76,10 @@ def main():
                if isinstance(v, dict) and v.get("recipe_in_comments")]
     print(f"flagged posts: {len(flagged)}", flush=True)
     try:
-        saved = json.load(open(OUT))
+        saved = json.load(open(EXTRACTS))
     except Exception:
         saved = {}
-    todo = [p for p in flagged if p not in saved]
+    todo = [p for p in flagged if not (saved.get(p) or {}).get("comment_text")]
     print(f"to fetch: {len(todo)}", flush=True)
     stopped = False
     i = 0
@@ -94,15 +96,19 @@ def main():
             comments = (g.get("comments") if g else None) or []
             text = pick_recipe_text(comments, authors.get(pid))
             if text:
-                saved[pid] = {"text": text[:4000], "chars": len(text)}
+                entry = saved.setdefault(pid, {"ingredients": "",
+                                               "method": "",
+                                               "source": "comments"})
+                entry["comment_text"] = text[:4000]
                 print(f"  saved recipe text for {pid} ({len(text)} chars)", flush=True)
             else:
                 print(f"  no recipe-like comment found for {pid}", flush=True)
         i += len(batch)
         if i < len(todo):
             time.sleep(3)
-    json.dump(saved, open(OUT, "w"))
-    print(f"DONE saved={len(saved)} stopped_early={stopped}", flush=True)
+    with open(EXTRACTS, "w") as f:
+        json.dump(saved, f, indent=1, ensure_ascii=False)
+    print(f"DONE saved={sum(1 for v in saved.values() if v.get('comment_text'))} stopped_early={stopped}", flush=True)
 
 
 if __name__ == "__main__":
