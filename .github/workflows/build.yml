@@ -1,0 +1,58 @@
+name: Build and deploy Recipe Finder to Pages
+
+# The page is rebuilt from the committed data files + page template on
+# every data commit, then deployed to GitHub Pages. Data refreshes happen
+# on Juno's side (they need the owner's Instagram session, which never
+# goes to GitHub) and land here as ordinary commits.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/**'
+      - 'page/**'
+      - 'assets/**'
+      - 'build_page.py'
+      - 'index.html'
+      - '.github/workflows/build.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Pillow (for the WebP thumbnails)
+        run: pip install pillow
+
+      - name: Build the page from committed data
+        run: python3 build_page.py
+
+      - name: Stage the site (built page + full-size thumbs)
+        run: |
+          mkdir -p _site
+          cp index.html _site/
+          cp -r assets _site/
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - id: deployment
+        uses: actions/deploy-pages@v4

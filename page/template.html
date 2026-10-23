@@ -1,0 +1,2408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:,">
+<title>Recipe Finder</title>
+<style>
+  :root{
+    --bg:#faf6f0; --card:#ffffff; --ink:#2b2118; --muted:#8a7a68;
+    --accent:#c2540a; --accent-soft:#fbeadd; --border:#e9ddd0;
+    --green:#357a44; --green-soft:#e5f2e8; --chip:#f3ece2; --field:#ffffff;
+    --band:#f4ede1;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.45}
+  .wrap{max-width:880px;margin:0 auto;padding:20px 16px 60px}
+  header{margin:8px 0 18px}
+  header h1{margin:0;font-size:28px;letter-spacing:-.5px}
+  header p{margin:4px 0 0;color:var(--muted);font-size:14px}
+  .searchbox{background:var(--card);border:1px solid var(--border);border-radius:16px;
+    padding:16px;margin-bottom:14px}
+  .searchbox.hero{padding:6px 0;position:sticky;top:8px;z-index:30;
+    background:var(--bg);border:none;border-radius:0;
+    box-shadow:0 2px 12px rgba(43,33,24,.08)}
+  .searchbox.hero label{font-size:19px;font-weight:700;color:var(--ink);margin-bottom:10px}
+  .herobar{width:100%;display:flex;align-items:center;gap:8px;background:var(--field);
+    border:1px solid var(--border);border-radius:12px;padding:3px 3px 3px 12px}
+  .herobar svg{flex:none;color:var(--muted)}
+  .herobar:focus-within{outline:2px solid var(--accent);border-color:var(--accent)}
+  .herobar #q{flex:1;min-width:0;width:auto;font-size:16px;height:38px;padding:0;border:none;
+    border-radius:0;background:transparent;color:var(--ink)}
+  .herobar #q:focus{outline:none;border-color:transparent}
+  .herobar.hasq #q::placeholder{color:var(--ink);font-weight:600;opacity:1}
+  .herobar #find{height:38px;padding:0 12px;border-radius:9px;font-size:14px}
+  #heroToggle{flex:none;background:none;border:1px solid var(--border);border-radius:9px;
+    width:36px;height:36px;font-size:14px;cursor:pointer;color:var(--ink);font-family:inherit}
+  #heroBox.collapsed #heroBody{display:none}
+  #heroBody{margin-top:14px}
+  .searchrow{display:flex;gap:8px}
+  .searchrow #q{flex:1}
+  #find{background:var(--accent);color:#fff;border:none;border-radius:12px;
+    padding:0 20px;font-size:16px;font-weight:600;cursor:pointer;white-space:nowrap}
+  #find:active{transform:scale(.97)}
+  #examples{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+  .example{background:var(--green-soft);color:var(--green);border:1px dashed var(--green);
+    border-radius:999px;padding:6px 12px;font-size:13px;cursor:pointer}
+  .searchbox label{display:block;font-size:13px;color:var(--muted);margin-bottom:8px}
+  #q{width:100%;font-size:17px;padding:12px 14px;border:1px solid var(--border);
+    border-radius:12px;background:var(--field);color:var(--ink)}
+  #q:focus{outline:2px solid var(--accent);border-color:var(--accent)}
+  .hint{font-size:12px;color:var(--muted);margin-top:6px}
+  #pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .pill{display:inline-flex;align-items:center;gap:6px;background:var(--accent);
+    color:#fff;border-radius:999px;padding:6px 8px 6px 12px;font-size:14px}
+  .pill button{background:none;border:none;color:#fff;font-size:15px;cursor:pointer;
+    padding:0 4px;line-height:1}
+  .chips-label{font-size:13px;color:var(--muted);margin:14px 0 8px}
+  #chips{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:8px;max-width:100%;
+    scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  #chips::-webkit-scrollbar{display:none}
+  .chip{background:var(--chip);border:1px solid var(--border);color:var(--ink);
+    border-radius:999px;padding:7px 13px;font-size:14px;cursor:pointer;
+    flex:none;white-space:nowrap}
+  .chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
+  .filters{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+  .fgroup{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .fgroup .flabel{font-size:13px;color:var(--muted)}
+  select{font-size:14px;padding:8px 10px;border:1px solid var(--border);border-radius:10px;
+    background:var(--field);color:var(--ink)}
+  .tagchip{background:var(--field);border:1px solid var(--border);border-radius:999px;
+    padding:6px 12px;font-size:13px;cursor:pointer;color:var(--ink)}
+  .tagchip.on{background:var(--green);border-color:var(--green);color:#fff}
+  #clearAll{background:none;border:1px solid var(--border);border-radius:999px;
+    padding:6px 12px;font-size:13px;cursor:pointer;color:var(--muted)}
+  .groups-title{font-size:13px;font-weight:700;text-transform:uppercase;
+    letter-spacing:.09em;color:var(--muted);margin:10px 2px 6px}
+  .browse-band{background:var(--band);border:1px solid var(--border);
+    border-radius:16px;padding:0 12px 10px;margin-top:14px;display:flex}
+  .browse-band .groups-title{font-size:11px;margin:10px 0 6px}
+  .browse-ing{flex:5;min-width:0}
+  .browse-tod{flex:3.4;min-width:0;border-left:1px solid var(--border);
+    margin-left:12px;padding-left:12px}
+  .browse-need{flex:4.2;min-width:0;border-left:1px solid var(--border);
+    margin-left:12px;padding-left:12px}
+  .browse-cuis{flex:3.8;min-width:0;border-left:1px solid var(--border);
+    margin-left:12px;padding-left:12px}
+  #groups,#needs,#tod,#cuisines{display:flex;flex-wrap:wrap;gap:6px;align-items:flex-start}
+  .bmore{background:none;border:none;color:var(--accent);font-size:12.5px;
+    font-weight:700;cursor:pointer;padding:6px 2px 2px;text-align:left;
+    font-family:inherit;flex:0 0 100%}
+  .bmore:active{transform:scale(.97)}
+  .gtile{background:var(--card);border:1px solid var(--border);border-radius:999px;
+    padding:6px 11px;text-align:left;cursor:pointer;color:var(--ink);
+    font-family:inherit;flex:none;max-width:100%;line-height:1.35}
+  .gtile:active{transform:scale(.98)}
+  .gtile .gname{font-size:12px;font-weight:600;line-height:1.35;
+    overflow-wrap:break-word}
+  .gtile .gcount{font-size:11px;color:var(--muted);white-space:nowrap;margin-left:2px}
+  .gtile.on{border-color:var(--accent);background:var(--accent);color:#fff}
+  .gtile.on .gcount{color:rgba(255,255,255,.8)}
+  #resultrow{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:16px 2px 10px;scroll-margin-top:106px}
+  #resultline{font-size:14px;color:var(--muted)}
+  #shuffleBtn{flex:none;background:var(--field);border:1px solid var(--border);border-radius:999px;
+    padding:7px 16px;font-size:13.5px;font-weight:600;cursor:pointer;color:var(--ink);font-family:inherit}
+  #shuffleBtn:active{transform:scale(.97)}
+  #shuffleBtn[hidden]{display:none}
+  .rowbtns{display:flex;gap:8px;flex:none;align-items:center}
+  #fullBtn{flex:none;display:inline-flex;align-items:center;gap:7px;background:var(--field);
+    border:1px solid var(--border);border-radius:999px;padding:7px 14px;font-size:13.5px;
+    font-weight:600;cursor:pointer;color:var(--ink);font-family:inherit}
+  #fullBtn:active{transform:scale(.97)}
+  #fullBtn.on{background:var(--green);border-color:var(--green);color:#fff}
+  #fullBtn.on .mdot{background:#fff;border-color:transparent;box-shadow:none}
+  /* Green dot: the recipe lists exact quantities AND written instructions
+     (what the "Full recipe" toggle filters to). On the thumbnail's top-left
+     corner — the Instagram icon owns the top-right — with a white ring so
+     it reads on any photo. .inl is the in-flow variant used inside the
+     toggle button and on thumbnail-less cards. */
+  .mdot{position:absolute;top:13px;left:13px;width:11px;height:11px;border-radius:50%;
+    background:#2f9e44;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.35);z-index:2}
+  .mdot.inl{position:static;flex:none;align-self:center;box-shadow:none}
+  #results{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;scroll-margin-top:74px}
+  .caphead{grid-column:1/-1;font-size:17px;margin:12px 2px 0;letter-spacing:-.2px}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:12px;position:relative;
+    padding:9px;display:flex;flex-direction:column;gap:6px;min-width:0;overflow:hidden;cursor:pointer}
+  .card h3{margin:0;font-size:14px;line-height:1.3;display:-webkit-box;
+    -webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+    min-height:2.6em;overflow-wrap:break-word}
+  .thumb{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:8px;background:var(--chip);display:block}
+  .card .meta{font-size:11px;color:var(--muted);display:flex;flex-wrap:nowrap;gap:4px;min-width:0;overflow:hidden}
+  .badge{display:inline-block;background:var(--accent-soft);color:var(--accent);flex:0 1 auto;min-width:0;
+    border-radius:999px;padding:2px 7px;font-size:11px;line-height:1.35;margin:0;vertical-align:top;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+  .badge.alt{background:var(--chip);color:var(--muted)}
+  .card .meta .badge:nth-child(n+3){display:none}
+  .matchline{font-size:11.5px;line-height:1.35;background:var(--green-soft);color:var(--green);
+    border-radius:7px;padding:5px 7px;overflow-wrap:break-word}
+  .matchline b{font-weight:700}
+  .tagline{font-size:11px;line-height:1.35;color:var(--muted);display:-webkit-box;
+    -webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:break-word}
+  .iglink{position:absolute;top:13px;right:13px;width:30px;height:30px;border-radius:50%;
+    background:rgba(24,16,10,.62) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round'%3E%3Crect x='3' y='3' width='18' height='18' rx='5.5'/%3E%3Ccircle cx='12' cy='12' r='4.2'/%3E%3Ccircle cx='17.3' cy='6.7' r='1.15' fill='%23ffffff' stroke='none'/%3E%3C/svg%3E") center/17px 17px no-repeat;
+    box-shadow:0 1px 5px rgba(0,0,0,.3);z-index:2}
+  .iglink:active{transform:scale(.92)}
+  .cnote{font-size:11px;line-height:1.3;color:var(--muted);font-style:italic}
+  @media(max-width:640px){
+    .wrap{padding:14px 8px 48px}
+    #resultrow{margin:12px 2px 8px}
+    #resultline{font-size:12px}
+    #shuffleBtn{font-size:12px;padding:6px 13px}
+    #fullBtn{font-size:12px;padding:6px 11px;gap:6px}
+    .mdot{top:10px;left:10px;width:9px;height:9px}
+    #results{gap:8px}
+    .card{padding:6px;gap:5px;border-radius:10px}
+    .card h3{font-size:11px;line-height:1.25;min-height:2.5em}
+    .thumb{border-radius:6px}
+    .card .meta{font-size:9px;gap:3px}
+    .badge{font-size:9px;padding:1px 5px;line-height:1.3}
+    .card .meta .badge:nth-child(n+2){display:none}
+    .matchline{font-size:9.5px;padding:4px 5px;border-radius:6px}
+    .tagline{font-size:9px}
+    .iglink{top:9px;right:9px;width:24px;height:24px;background-size:14px 14px}
+    .cnote{font-size:9px}
+    .caphead{font-size:15px;margin:8px 2px 0}
+    .gtile{padding:5px 8px}
+    .gtile .gname{font-size:11.5px}
+    .gtile .gcount{font-size:10px}
+    .browse-band{flex-wrap:wrap}
+    .browse-ing{flex:1 1 54%}
+    .browse-tod{flex:1 1 36%}
+    .browse-need{flex:1 1 54%;border-left:none;margin-left:0;padding-left:0}
+    .browse-cuis{flex:1 1 36%}
+  }
+  #pager{display:flex;justify-content:center;align-items:center;gap:14px;margin:22px 0}
+  #pager button{border:1px solid var(--border);background:var(--field);border-radius:10px;
+    padding:8px 16px;font-size:14px;cursor:pointer;color:var(--ink)}
+  #pager button:disabled{opacity:.4;cursor:default}
+  #pagenum{font-size:14px;color:var(--muted)}
+  footer{margin-top:30px;font-size:12px;color:var(--muted);text-align:center}
+
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#1c1611; --card:#2a211a; --ink:#f3eadf; --muted:#b8a48d;
+      --accent:#e8863a; --accent-soft:#4a2c17; --border:#4a3a2b;
+      --green:#8fce9d; --green-soft:#24382a; --chip:#372b21; --field:#241c15;
+      --band:#211a13;
+    }
+  }
+  .empty{grid-column:1/-1;background:var(--card);border:1px dashed var(--border);border-radius:14px;
+    padding:30px;text-align:center;color:var(--muted)}
+
+  /* Recipe preview sheet */
+  #pvOverlay{position:fixed;inset:0;background:rgba(20,13,8,.58);z-index:60;
+    display:flex;align-items:flex-end;justify-content:center}
+  #pvOverlay[hidden]{display:none}
+  .pv-sheet{background:var(--card);color:var(--ink);width:100%;max-width:620px;max-height:92vh;
+    overflow-y:auto;border-radius:18px 18px 0 0;position:relative;
+    box-shadow:0 -6px 34px rgba(0,0,0,.35);-webkit-overflow-scrolling:touch}
+  @media(min-width:760px){
+    #pvOverlay{align-items:center;padding:24px}
+    .pv-sheet{border-radius:18px}
+  }
+  #pvClose{position:absolute;top:10px;right:10px;width:36px;height:36px;border-radius:50%;
+    border:none;background:rgba(24,16,10,.62);color:#fff;font-size:19px;line-height:1;
+    cursor:pointer;z-index:3;font-family:inherit}
+  #pvClose:active{transform:scale(.92)}
+  #pvImg{width:100%;max-height:46vh;object-fit:cover;display:block;background:var(--chip)}
+  .pv-body{padding:16px 18px 20px}
+  .pv-body h2{margin:0 34px 10px 0;font-size:23px;font-weight:800;line-height:1.22;letter-spacing:-.3px}
+  .pv-meta{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:6px}
+  .pv-meta .badge{font-size:12px;padding:3px 9px}
+  .pv-tags{font-size:13px;color:var(--muted);overflow-wrap:break-word}
+  .pv-h{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;
+    color:var(--muted);margin:18px 0 8px}
+  /* Two-column recipe text: when a recipe has both sections as text, the
+     narrow Ingredients list sits left (~40%) and Method right (~60%), so
+     the sheet needs less scrolling. A single section — or the ingredient
+     chips fallback — stays stacked full width. */
+  #pvCols.two{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);
+    gap:24px;align-items:start}
+  #pvCols.two .pv-h{margin-top:14px}
+  /* In the narrow left column the servings row wraps instead of spilling
+     over the Method column at phone width. */
+  #pvCols.two #pvScale{flex-wrap:wrap;row-gap:6px}
+  #pvIngs{display:flex;flex-wrap:wrap;gap:6px}
+  .pv-ing{background:var(--chip);border:1px solid var(--border);border-radius:999px;
+    padding:4px 11px;font-size:14px}
+  .pv-ing.hit{background:var(--green-soft);border-color:var(--green);color:var(--green);font-weight:700}
+  .pv-text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    overflow-wrap:break-word;font-size:14.5px;line-height:1.5}
+  .pv-text p{margin:0 0 .42em;position:relative;padding-left:15px}
+  .pv-text p::before{content:"\2022";position:absolute;left:1px;top:0;
+    color:var(--accent);font-weight:700}
+  .pv-text p:last-child{margin-bottom:0}
+  /* Prep pill: sits directly beneath the ingredient line it belongs to,
+     indented to align with the ingredient text (past the bullet). */
+  .pv-prep{display:inline-block;font-size:11.5px;font-weight:700;line-height:1.4;
+    color:#8a5a00;background:#fdeec4;border:1px solid #eac36a;border-radius:999px;
+    padding:2px 9px;margin:0 0 6px 15px}
+  @media (prefers-color-scheme: dark){
+    .pv-prep{color:#f5c451;background:#3a2c0e;border-color:#7d5f16}
+  }
+  #pvSrc{display:inline-block;font-size:12.5px;font-weight:700;color:var(--green);
+    background:var(--green-soft);border:1px solid var(--green);border-radius:999px;
+    padding:4px 12px;margin:4px 0 2px}
+  #pvSrc[hidden]{display:none}
+  #pvNote{font-size:13px;color:var(--muted);font-style:italic;margin-top:14px}
+  #pvScale{display:flex;align-items:center;gap:10px;margin:6px 0 0}
+  #pvScale[hidden]{display:none}
+  .pv-scale-label{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--muted)}
+  #pvScale button{width:34px;height:34px;border:1px solid var(--border);background:var(--field);
+    border-radius:10px;font-size:18px;line-height:1;cursor:pointer;color:var(--ink);font-family:inherit}
+  #pvScale button:disabled{opacity:.4;cursor:default}
+  #pvScale button:active{transform:scale(.94)}
+  #pvServNum{font-size:16px;font-weight:700;min-width:22px;text-align:center}
+  #pvScaleNote{font-size:12.5px;color:var(--muted);margin-top:7px}
+  #pvScaleNote[hidden]{display:none}
+  .pv-watch{display:block;text-align:center;margin-top:20px;background:var(--accent);color:#fff;
+    font-size:16px;font-weight:700;text-decoration:none;border-radius:12px;padding:13px 16px}
+  .pv-watch:active{transform:scale(.98)}
+  .pv-nav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px}
+  .pv-nav button{border:1px solid var(--border);background:var(--field);border-radius:10px;
+    padding:9px 16px;font-size:14px;cursor:pointer;color:var(--ink);font-family:inherit}
+  .pv-nav button:disabled{opacity:.4;cursor:default}
+  .pv-nav.top{margin:0;padding:12px 56px 10px 18px}
+  #pvCount{font-size:13px;color:var(--muted)}
+
+  /* ---- Search area redesign: one box when expanded, single-line search,
+     slim popular row, filter chip rows, dark active states ---- */
+  .searchbox.hero:not(.collapsed){background:var(--card);border:1px solid var(--border);
+    border-radius:16px;padding:8px 14px 14px;box-shadow:0 12px 32px rgba(43,33,24,.14)}
+  .searchbox.hero:not(.collapsed) .herobar{background:transparent;border:none;
+    border-bottom:2px solid var(--border);border-radius:0;padding:2px 2px 9px}
+  .searchbox.hero:not(.collapsed) .herobar:focus-within{outline:none;border-bottom-color:var(--accent)}
+  @media (prefers-color-scheme: dark){
+    .searchbox.hero:not(.collapsed){box-shadow:0 12px 32px rgba(0,0,0,.45)}
+  }
+  .chips-label{margin:12px 0 6px}
+  #chips{flex-wrap:nowrap;overflow-x:auto;gap:6px;padding:2px 1px 6px;
+    scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  #chips::-webkit-scrollbar{display:none}
+  .chip{flex:none;padding:5px 11px;font-size:13px}
+  .chip.on{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+  #activebar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:10px}
+  #activebar[hidden]{display:none}
+  .fpill{display:inline-flex;align-items:center;gap:5px;background:var(--ink);color:var(--bg);
+    border-radius:999px;padding:5px 6px 5px 11px;font-size:13px;font-weight:600}
+  .fpill button{background:none;border:none;color:inherit;font-size:15px;cursor:pointer;
+    padding:0 4px;line-height:1;font-family:inherit}
+  #clearAll{background:none;border:none;color:var(--accent);font-size:13.5px;font-weight:700;
+    cursor:pointer;padding:4px 6px;font-family:inherit;text-decoration:underline}
+  .browse-col{min-width:0}
+  .hintline{display:flex;align-items:center;gap:6px;flex-wrap:nowrap;overflow-x:auto;
+    margin-top:10px;white-space:nowrap;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .hintline::-webkit-scrollbar{display:none}
+  .hintline .hint{flex:none;margin-top:0}
+  .hintline #examples{display:inline-flex;flex:none;flex-wrap:nowrap;gap:6px;margin-top:0}
+  .hintline .example{flex:none;padding:4px 10px;font-size:12.5px}
+
+  /* ---- Meal plan generator: button in the results row + planner sheet
+     (same visual language as the recipe preview sheet) ---- */
+  #planBtn{flex:none;background:var(--field);border:1px solid var(--border);border-radius:999px;
+    padding:7px 16px;font-size:13.5px;font-weight:600;cursor:pointer;color:var(--ink);font-family:inherit}
+  #planBtn:active{transform:scale(.97)}
+  #resultline{min-width:0}
+  #plOverlay{position:fixed;inset:0;background:rgba(20,13,8,.58);z-index:55;
+    display:flex;align-items:flex-end;justify-content:center}
+  #plOverlay[hidden]{display:none}
+  .pl-sheet{background:var(--card);color:var(--ink);width:100%;max-width:620px;max-height:92vh;
+    overflow-y:auto;border-radius:18px 18px 0 0;position:relative;
+    box-shadow:0 -6px 34px rgba(0,0,0,.35);-webkit-overflow-scrolling:touch}
+  @media(min-width:760px){
+    #plOverlay{align-items:center;padding:24px}
+    .pl-sheet{border-radius:18px}
+  }
+  /* Sticky action header: the sheet's one header row, pinned to the top
+     of the sheet while the plan scrolls — title left, compact plan-level
+     actions right, all on a single slim line. */
+  .pl-head{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:8px;
+    background:var(--card);border-bottom:1px solid var(--border);border-radius:18px 18px 0 0;
+    padding:9px 10px 9px 18px}
+  .pl-head h2{margin:0;flex:1;min-width:0;font-size:19px;font-weight:800;line-height:1.2;
+    letter-spacing:-.3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .pl-acts{display:flex;align-items:center;gap:6px;flex:none}
+  .pl-acts button{background:var(--field);border:1px solid var(--border);color:var(--ink);
+    border-radius:999px;padding:6px 11px;font-size:12.5px;font-weight:600;cursor:pointer;
+    font-family:inherit;white-space:nowrap;line-height:1.25}
+  .pl-acts button:active{transform:scale(.95)}
+  .pl-acts button:disabled{opacity:.65}
+  #plRegen{width:32px;height:32px;padding:0;font-size:16px;border-radius:50%;
+    background:var(--accent);border-color:var(--accent);color:#fff}
+  #plClose{width:32px;height:32px;padding:0;border-radius:50%;border:none;
+    background:rgba(24,16,10,.62);color:#fff;font-size:16px;line-height:1;cursor:pointer}
+  .pl-body{padding:14px 18px 20px}
+  .pl-prep{background:var(--green-soft);border:1px solid var(--green);border-radius:12px;
+    padding:10px 12px;margin-bottom:4px}
+  .pl-prep-h{margin:0 0 6px;font-size:12px;font-weight:700;text-transform:uppercase;
+    letter-spacing:.08em;color:var(--green)}
+  .pl-prep-list{margin:0;padding-left:18px;font-size:13.5px;line-height:1.5}
+  .pl-prep-none{margin:0;font-size:13.5px}
+  .pl-day{margin-top:16px}
+  .pl-dayname{margin:0 0 2px;font-size:16px;font-weight:800;letter-spacing:-.2px}
+  .pl-row{display:flex;align-items:flex-start;gap:8px;padding:6px 0;
+    border-top:1px solid var(--border)}
+  .pl-meal{flex:none;width:80px;padding-top:3px;font-size:11px;font-weight:700;
+    text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+  .pl-dish{flex:1;min-width:0;cursor:pointer;font-size:14.5px;line-height:1.4}
+  .pl-dish .pl-title{color:var(--ink);font-weight:600;overflow-wrap:break-word}
+  .pl-dish .pl-title:hover{text-decoration:underline}
+  .pl-side{display:block;font-size:12.5px;color:var(--muted)}
+  .pl-plain{flex:1;min-width:0;font-size:14px;color:var(--muted);padding-top:1px}
+  .pl-reroll{flex:none;width:30px;height:30px;border:1px solid var(--border);
+    background:var(--field);border-radius:50%;cursor:pointer;color:var(--ink);
+    font-size:16px;line-height:1;font-family:inherit;padding:0}
+  .pl-reroll:active{transform:scale(.92)}
+  .pl-tolo{flex:none;align-self:center;background:none;border:none;color:var(--accent);
+    font-size:12px;font-weight:700;cursor:pointer;padding:4px 2px;font-family:inherit;
+    text-decoration:underline;white-space:nowrap}
+  .pl-prep-group{margin-bottom:12px}
+  .pl-prep-group:last-child{margin-bottom:0}
+  .pl-prep-line{margin:0;font-size:13.5px;line-height:1.5;font-weight:600}
+  .pl-prep-dishes{list-style:none;margin:5px 0 0;padding-left:14px}
+  .pl-prep-dishes li{margin:3px 0}
+  .pl-prep-dish{font-size:13px;font-weight:600;cursor:pointer}
+  .pl-prep-dish:hover{text-decoration:underline}
+  .pl-prep-url{font-size:11.5px;color:var(--muted);line-height:1.35;overflow-wrap:break-word}
+  .pl-groc{margin-top:22px;border-top:1px solid var(--border);padding-top:14px}
+  .pl-groc-h{margin:0 0 4px;font-size:16px;font-weight:800;letter-spacing:-.2px}
+  .pl-groc-sec{margin:14px 0 4px;font-size:11.5px;font-weight:700;text-transform:uppercase;
+    letter-spacing:.07em;color:var(--accent)}
+  .pl-groc-list{list-style:none;margin:0;padding:0}
+  .pl-groc-list li{position:relative;font-size:14px;line-height:1.45;padding:2px 0 2px 15px}
+  .pl-groc-list li::before{content:"\2022";position:absolute;left:1px;color:var(--accent);
+    font-weight:700}
+  #plGrocCopy{margin-top:16px;background:var(--field);color:var(--ink);
+    border:1px solid var(--border);border-radius:12px;padding:10px 16px;font-size:14.5px;
+    font-weight:600;cursor:pointer;font-family:inherit}
+  #plGrocCopy:active{transform:scale(.97)}
+  #plGrocCopy:disabled{opacity:.65}
+  #plCopyText{width:100%;height:120px;margin-top:12px;padding:9px 11px;font-size:12.5px;
+    font-family:inherit;line-height:1.5;border:1px solid var(--border);border-radius:10px;
+    background:var(--field);color:var(--ink)}
+  @media(max-width:640px){
+    #planBtn{font-size:12px;padding:6px 11px}
+    .pl-body{padding:14px 12px 18px}
+    .pl-head{padding:8px 8px 8px 12px;gap:6px}
+    .pl-head h2{font-size:15.5px}
+    .pl-acts{gap:4px}
+    .pl-acts button{font-size:11.5px;padding:5px 8px}
+    #plRegen,#plClose{width:28px;height:28px;font-size:14px}
+    .pl-meal{width:72px;font-size:10.5px}
+    .pl-dish{font-size:13.5px}
+    .pl-plain{font-size:13px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Recipe Finder</h1>
+    <p id="sub">1,394 saved recipes · tap ingredients to search</p>
+  </header>
+
+  <div class="searchbox hero collapsed" id="heroBox">
+    <div class="herobar" id="heroBar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
+      <input id="q" type="text" placeholder="Search ingredients, separated by commas…" aria-label="Search ingredients" autocomplete="off" enterkeyhint="search">
+      <button id="find" type="button">Find recipes</button>
+      <button id="heroToggle" type="button" aria-expanded="false" aria-controls="heroBody" aria-label="Show ingredient chips">▾</button>
+    </div>
+    <div id="heroBody">
+      <label for="q">What's in your kitchen?</label>
+      <div class="hintline"><span class="hint">Try:</span><span id="examples"></span></div>
+      <div id="pills"></div>
+      <div class="chips-label">Popular ingredients — tap to add</div>
+      <div id="chips"><button type="button" class="chip">onion</button><button type="button" class="chip">garlic</button><button type="button" class="chip">rice</button><button type="button" class="chip">milk</button><button type="button" class="chip">flour</button><button type="button" class="chip">egg</button><button type="button" class="chip">butter</button><button type="button" class="chip">ginger</button><button type="button" class="chip">clove</button><button type="button" class="chip">juice</button></div>
+    </div>
+    <div id="activebar" hidden></div>
+  </div>
+
+  <section class="browse-band" aria-label="Browse recipes">
+    <div class="browse-col browse-ing">
+      <h2 class="groups-title">Ingredients</h2>
+      <div id="groups"></div>
+    </div>
+    <div class="browse-col browse-tod">
+      <h2 class="groups-title">Time of day</h2>
+      <div id="tod"></div>
+    </div>
+    <div class="browse-col browse-need">
+      <h2 class="groups-title">Need &amp; diet</h2>
+      <div id="needs"></div>
+    </div>
+    <div class="browse-col browse-cuis">
+      <h2 class="groups-title">Cuisine</h2>
+      <div id="cuisines"></div>
+    </div>
+  </section>
+
+  <div id="resultrow">
+    <div id="resultline">Browsing 1,394 recipes</div>
+    <div class="rowbtns">
+      <button id="fullBtn" type="button" aria-pressed="false"><span class="mdot inl"></span>Full recipe</button>
+      <button id="planBtn" type="button">Meal plan</button>
+      <button id="shuffleBtn" type="button" hidden>Shuffle</button>
+    </div>
+  </div>
+  <div id="results">
+<!--__CARDS__-->
+</div>
+  <div id="pager" style="display:none">
+    <button id="prev">← Prev</button><span id="pagenum"></span><button id="next">Next →</button>
+  </div>
+
+  <footer>Ingredients are detected from post captions — a smart hint, not a full recipe. From your saved Instagram collection.</footer>
+</div>
+
+<div id="pvOverlay" hidden>
+  <div class="pv-sheet" role="dialog" aria-modal="true" aria-label="Recipe preview">
+    <button id="pvClose" type="button" aria-label="Close preview">✕</button>
+    <div class="pv-nav top">
+      <button id="pvPrevTop" type="button">← Prev</button>
+      <button id="pvNextTop" type="button">Next →</button>
+    </div>
+    <img id="pvImg" alt="" style="display:none">
+    <div class="pv-body">
+      <h2 id="pvTitle"></h2>
+      <div id="pvMeta" class="pv-meta"></div>
+      <div id="pvTags" class="pv-tags"></div>
+      <div id="pvSrc" hidden></div>
+      <div id="pvCols">
+      <div id="pvIngWrap">
+        <h3 class="pv-h">Ingredients</h3>
+        <div id="pvScale" hidden>
+          <span class="pv-scale-label">Servings</span>
+          <button id="pvServMinus" type="button" aria-label="Fewer servings">−</button>
+          <span id="pvServNum">1</span>
+          <button id="pvServPlus" type="button" aria-label="More servings">+</button>
+        </div>
+        <div id="pvScaleNote" hidden></div>
+        <div id="pvIngText" class="pv-text" hidden></div>
+        <div id="pvIngs"></div>
+      </div>
+      <div id="pvMethodWrap" hidden>
+        <h3 class="pv-h">Method</h3>
+        <div id="pvMethod" class="pv-text"></div>
+      </div>
+      </div>
+      <div id="pvNote" hidden>Full recipe is in the post's comments</div>
+      <a id="pvWatch" class="pv-watch" href="#" target="_blank" rel="noopener">Watch on Instagram</a>
+      <div class="pv-nav">
+        <button id="pvPrev" type="button">← Prev</button>
+        <span id="pvCount"></span>
+        <button id="pvNext" type="button">Next →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="plOverlay" hidden>
+  <div class="pl-sheet" role="dialog" aria-modal="true" aria-label="Weekly meal plan">
+    <div class="pl-head">
+      <h2>This week's plan</h2>
+      <div class="pl-acts">
+        <button id="plCopy" type="button">Copy</button>
+        <button id="plExport" type="button">Export</button>
+        <button id="plGroc" type="button">Groceries</button>
+        <button id="plRegen" type="button" aria-label="Regenerate week" title="Regenerate week">↻</button>
+        <button id="plClose" type="button" aria-label="Close meal plan">✕</button>
+      </div>
+    </div>
+    <div class="pl-body">
+      <div class="pl-prep" id="plPrep"></div>
+      <div id="plDays"></div>
+      <div class="pl-groc" id="plGrocSec" hidden>
+        <h3 class="pl-groc-h">Grocery list</h3>
+        <div id="plGrocBody"></div>
+        <button id="plGrocCopy" type="button">Copy grocery list</button>
+      </div>
+      <textarea id="plCopyText" hidden readonly aria-label="Meal plan as text"></textarea>
+    </div>
+  </div>
+</div>
+
+<script>
+const INDEX = /*__INDEX__*/null;
+const RECIPES = INDEX.recipes;
+// Serving-scaler data, keyed by recipe id: [baseServings, baseStated(1/0),
+// parsedLines]. Each parsed line is [lineIndex, lo, hi, restLen] — hi is
+// present only for ranges; a 3-element line is [lineIndex, lo, restLen].
+// restLen is the length (UTF-16 code units) of the line's remainder after
+// its quantity, sliced from the recipe's own ingredient line at render
+// time, so no ingredient text is duplicated here. Recipes absent from
+// QUANT have no parsed quantities and show no stepper.
+const QUANT = /*__QUANT__*/null;
+
+// Each photo exists exactly once in this page: in the pre-rendered static
+// card for its recipe in #results. The recipe data carries no thumbnail
+// reference of its own. Before the first render replaces those static
+// cards, harvest each card's <img> src keyed by the card's recipe id, so
+// JS-rendered cards reuse the very same image reference (an inline
+// data:image/webp URI here — the photos ride inside the page because
+// the separate assets/thumbs files never arrive in some app sessions,
+// while inlined photos always render; whatever the static card
+// carries).
+// Recipes whose static card has no <img> (the thumbnail-less ones) simply
+// get no entry and render without a photo, as before.
+// Cuisine labels from the classification pass (data/cuisine_judged.json):
+// recipe id -> cuisine for the 797 labeled recipes; the rest are
+// unclassified and appear under no cuisine tile.
+const CUISINE = /*__CUISINE__*/null;
+
+const THUMBS = {};
+document.querySelectorAll("#results article.card[data-id]").forEach(c => {
+  const img = c.querySelector("img.thumb");
+  if(!img) return;
+  const src = img.getAttribute("src");
+  if(src) THUMBS[c.getAttribute("data-id")] = src;
+});
+// Thumbnail delivery: card photos are inline data URIs (harvested
+// above), so they render even in sessions where requests for the
+// separate assets/thumbs/<id>.jpg files never arrive. Where a file
+// request DOES succeed, upgradeThumb() swaps the <img> to the full-size
+// file photo and keeps the inline photo in dataset.fb as a fallback.
+// Error events don't bubble, so the listener below runs in the capture
+// phase and guards that swap: a failed upgraded <img> falls back to its
+// inline photo. It never touches an inline image itself — appending a
+// retry query to a data URI would corrupt it, and there is no request
+// left to retry. The load sweep revives file photos that stalled
+// without firing an error (complete with zero natural size).
+function probeFile(id, ok){
+  const p = new Image();
+  p.onload = ok;
+  p.src = "assets/thumbs/" + id + ".jpg";
+}
+function upgradeThumb(img, id){
+  probeFile(id, () => {
+    if(!img.isConnected) return;
+    const cur = img.getAttribute("src") || "";
+    if(cur.indexOf("data:") !== 0) return;
+    img.dataset.fb = cur;
+    img.src = "assets/thumbs/" + id + ".jpg";
+  });
+}
+document.addEventListener("error", e => {
+  const t = e.target;
+  if(!t || t.tagName !== "IMG" || !t.classList || !t.classList.contains("thumb")) return;
+  const s = t.getAttribute("src") || "";
+  if(s.indexOf("data:") === 0) return;
+  if(t.dataset.fb){ t.src = t.dataset.fb; delete t.dataset.fb; delete t.dataset.r; return; }
+  if(!t.dataset.r){
+    t.dataset.r = "1";
+    if(s) t.src = s + (s.indexOf("?") >= 0 ? "&" : "?") + "r=1";
+  } else t.remove();
+}, true);
+function reviveThumbs(){
+  document.querySelectorAll("img.thumb").forEach(img => {
+    if(img.dataset.r || img.dataset.fb) return;
+    const s = img.getAttribute("src") || "";
+    if(s.indexOf("data:") === 0) return;
+    if(img.complete && img.naturalWidth === 0){
+      img.dataset.r = "1";
+      if(s) img.src = s + (s.indexOf("?") >= 0 ? "&" : "?") + "r=1";
+    }
+  });
+}
+window.addEventListener("load", () => setTimeout(reviveThumbs, 1200));
+setTimeout(reviveThumbs, 3000);
+const PAGE_SIZE = 48;
+const MEAL_CHIPS = [["Breakfast","breakfast"],["Lunch","lunch"],["Dinner","dinner"],["Snacks","snack"]];
+const TAGS = ["meal prep friendly","high protein","quick","one pot","kid friendly","postpartum friendly","vegan","vegetarian"];
+// "Browse by need & diet" tiles: [label, tag]. A recipe belongs to a tile
+// when its "tags" array carries the tag. Alphabetical by label.
+const NEED_TILES = [["High protein","high protein"],["Kid friendly","kid friendly"],["Meal prep friendly","meal prep friendly"],["Menstruation friendly","menstruation friendly"],["One pot","one pot"],["Postpartum friendly","postpartum friendly"],["Quick","quick"],["Vegan","vegan"],["Vegetarian","vegetarian"]];
+// The need & diet tags on their own: a recipe carrying any of these has a
+// home under its "Browse by need & diet" tile, even when it has no dish
+// category or feature group of its own.
+const NEED_TAGS = NEED_TILES.map(t => t[1]);
+
+const state = { q: [], meal: "all", cat: "all", cuisine: "all", tags: new Set(), full: false, page: 0 };
+// The recipes in the order they are currently displayed (search results or
+// filtered browse list, across all pages). The preview sheet steps through
+// this list; it is rebuilt by every sync().
+let displayList = [];
+// A shuffled ordering of the current list, made by the Shuffle button. It
+// carries the filter signature it was made under; sync() drops it the
+// moment the search text or any filter changes, so a shuffle never
+// outlives the result set it shuffled. Paging and preview flipping do not
+// touch the search/filter state, so the shuffled order persists through
+// both.
+let shuffled = null;
+
+const norm = s => (s||"").toLowerCase().trim();
+const sing = s => (s.length > 4 && s.endsWith("s") && !s.endsWith("ss")) ? s.slice(0,-1) : s;
+function termHits(term, text){
+  const t = sing(norm(term));
+  if(!t) return false;
+  const words = norm(text).split(/[^a-z]+/);
+  if(words.some(w => sing(w) === t)) return true;
+  return norm(text).includes(t);
+}
+function recipeHay(r){ return r.ingredients.join(" ") + " " + r.title; }
+function matchCount(r){
+  let n = 0;
+  for(const t of state.q){ if(termHits(t, recipeHay(r))) n++; }
+  return n;
+}
+
+// Group membership comes from each recipe's "groups" field, computed in the
+// data pipeline: a recipe belongs to an ingredient group only when the dish
+// features that ingredient. Seasoning forms (lemon juice, sesame oil) and
+// plain aromatics do not confer membership; an ingredient named in the
+// title always does. A recipe can belong to several ingredient groups at
+// once. The dish-type groups (DISH_GROUPS) are not listed in "groups": a
+// recipe belongs to one exactly when it is the recipe's lead category.
+// "Other / unclear" holds whatever has no home anywhere: lead category
+// "Other / unclear", no feature group, and no need & diet tag.
+const INGREDIENT_GROUPS = ["Chicken", "Paneer & Cheese", "Eggs", "Fish & Seafood", "Meat (other)", "Tofu & Soy", "Potatoes", "Pasta & Noodles", "Rice & Grains", "Lentils, Beans & Chickpeas", "Nuts & Seeds", "Fruits", "Vegetables", "Chocolate & Sweets", "Bread & Baking", "Drinks & Smoothies"];
+// Dish types, assigned as a recipe's lead category (a soup is a soup because
+// that is the dish, not because a soup ingredient appears in the list).
+const DISH_GROUPS = ["Soups", "Sides & Dips", "Snacks", "Salads", "Curries"];
+const GROUP_NAMES = [...INGREDIENT_GROUPS, ...DISH_GROUPS, "Other / unclear"];
+function inGroup(r, name){
+  if(name === "Other / unclear"){
+    // No home anywhere: the recipe's lead category is "Other / unclear",
+    // it belongs to no feature group, and it carries no need & diet tag.
+    // A post with a need & diet tag (e.g. Happy Hormones Challenge, tagged
+    // menstruation friendly) lives under that tile only, not here.
+    if(r.category !== "Other / unclear") return false;
+    if(GROUP_NAMES.some(g => g !== "Other / unclear" && inGroup(r, g))) return false;
+    return !(Array.isArray(r.tags) && r.tags.some(t => NEED_TAGS.includes(t)));
+  }
+  // The lead category always confers membership in the group of the same
+  // name: it is the pipeline's main-ingredient / dish-type call for the
+  // recipe, so an empty or partial "groups" list must never drop the
+  // recipe out of its own category (or exile it to "Other / unclear",
+  // which previously swallowed every recipe whose "groups" was empty).
+  if(r.category === name) return true;
+  if(DISH_GROUPS.includes(name)) return false;
+  return Array.isArray(r.groups) && r.groups.includes(name);
+}
+// A recipe can belong to several ingredient groups at once (e.g. chicken and
+// cottage cheese), so its card carries a badge for every group it belongs to,
+// with its main category first.
+function cardGroups(r){
+  let gs = GROUP_NAMES.filter(name => name !== "Other / unclear" && inGroup(r, name));
+  if(!gs.length) gs = ["Other / unclear"];
+  const out = [];
+  if(r.category && r.category !== "Other / unclear") out.push(r.category);
+  for(const g of gs){
+    if(g === "Other / unclear" && out.length) continue;
+    if(!out.includes(g)) out.push(g);
+  }
+  if(!out.length) out.push("Other / unclear");
+  return out;
+}
+function passesFilters(r){
+  if(state.full && !hasFullRecipe(r)) return false;
+  if(state.meal !== "all" && !r.meals.includes(state.meal)) return false;
+  if(state.cat !== "all" && !inGroup(r, state.cat)) return false;
+  if(state.cuisine !== "all" && CUISINE[r.id] !== state.cuisine) return false;
+  for(const t of state.tags){ if(!r.tags.includes(t)) return false; }
+  return true;
+}
+function el(tag, text, cls){
+  const e = document.createElement(tag);
+  if(cls) e.className = cls;
+  if(text != null) e.textContent = text;
+  return e;
+}
+
+// Scroll the results to the top of the viewport, leaving room for the
+// sticky search bar. The scroll target is the results row itself (the
+// "Browsing N recipes" line with the Shuffle button), not the card grid:
+// targeting the grid parks the row above it underneath the stuck bar.
+// Offset by the bar's current height (measured at tap time, so it holds
+// whether the bar is collapsed or expanded) plus a small gap, so the
+// results row lands fully visible below the bar with the cards under it.
+function scrollToResults(){
+  const box = document.getElementById("resultrow") ||
+    document.getElementById("results");
+  const bar = document.getElementById("heroBox");
+  const y = box.getBoundingClientRect().top + window.scrollY -
+    (bar ? bar.offsetHeight : 0) - 18;
+  window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
+}
+function renderChips(){
+  const box = document.getElementById("chips");
+  box.innerHTML = "";
+  for(const ing of INDEX.meta.top_ingredients.slice(0, 10)){
+    const b = el("button", ing, "chip" + (state.q.some(q => sing(norm(q)) === sing(ing)) ? " on" : ""));
+    b.onclick = () => toggleQuery(ing);
+    box.appendChild(b);
+  }
+}
+function renderPills(){
+  const box = document.getElementById("pills");
+  box.innerHTML = "";
+  for(const q of state.q){
+    const p = el("span", null, "pill");
+    p.appendChild(el("span", q));
+    const x = el("button", "×");
+    x.onclick = () => { state.q = state.q.filter(v => v !== q); state.page = 0; sync(); };
+    p.appendChild(x);
+    box.appendChild(p);
+  }
+}
+function clearAllFilters(){
+  state.q = []; state.meal = "all"; state.cat = "all"; state.cuisine = "all"; state.tags.clear(); state.full = false; state.page = 0;
+  sync();
+}
+function renderActiveBar(){
+  const bar = document.getElementById("activebar");
+  bar.innerHTML = "";
+  const items = [];
+  if(state.meal !== "all"){
+    const found = MEAL_CHIPS.find(mchip => mchip[1] === state.meal);
+    items.push({ label: found ? found[0] : state.meal, clear: () => { state.meal = "all"; } });
+  }
+  if(state.cat !== "all") items.push({ label: state.cat, clear: () => { state.cat = "all"; } });
+  if(state.cuisine !== "all") items.push({ label: state.cuisine, clear: () => { state.cuisine = "all"; } });
+  if(state.full) items.push({ label: "Full recipe", clear: () => { state.full = false; } });
+  for(const t of [...state.tags]) items.push({ label: t, clear: () => state.tags.delete(t) });
+  if(!items.length && !state.q.length){ bar.hidden = true; return; }
+  bar.hidden = false;
+  for(const it of items){
+    const p = el("span", null, "fpill");
+    p.appendChild(el("span", it.label));
+    const x = el("button", "×");
+    x.setAttribute("aria-label", "Remove filter " + it.label);
+    x.onclick = () => { it.clear(); state.page = 0; sync(); };
+    p.appendChild(x);
+    bar.appendChild(p);
+  }
+  const c = el("button", "Clear all");
+  c.id = "clearAll";
+  c.onclick = clearAllFilters;
+  bar.appendChild(c);
+}
+function renderTod(){
+  const box = document.getElementById("tod");
+  box.innerHTML = "";
+  for(const [label, val] of MEAL_CHIPS){
+    const n = RECIPES.filter(r => Array.isArray(r.meals) && r.meals.includes(val)).length;
+    const b = el("button", null, "gtile" + (state.meal === val ? " on" : ""));
+    b.appendChild(el("span", label, "gname"));
+    b.appendChild(document.createTextNode(" "));
+    b.appendChild(el("span", n.toLocaleString(), "gcount"));
+    b.onclick = () => {
+      state.meal = (state.meal === val) ? "all" : val;
+      state.page = 0; sync();
+      scrollToResults();
+    };
+    box.appendChild(b);
+  }
+}
+// Browse-band columns collapse to their first alphabetical tiles; "Show more" opens a
+// column in place. The open flags live outside state so a re-render (e.g.
+// after tapping a tile) never slams a column the user just opened.
+const browseOpen = { groups: false, needs: false, cuisines: false };
+const GROUPS_SHOWN = 6, NEEDS_SHOWN = 5, CUISINES_SHOWN = 6;
+function renderGroups(){
+  const box = document.getElementById("groups");
+  box.innerHTML = "";
+  const counts = {};
+  for(const name of GROUP_NAMES) counts[name] = RECIPES.filter(r => inGroup(r, name)).length;
+  const names = Object.keys(counts).sort((a,b) => a.localeCompare(b, undefined, {sensitivity: "base"}));
+  const shown = browseOpen.groups ? names : names.slice(0, GROUPS_SHOWN);
+  for(const name of shown){
+    const b = el("button", null, "gtile" + (state.cat === name ? " on" : ""));
+    b.appendChild(el("span", name, "gname"));
+    b.appendChild(document.createTextNode(" "));
+    b.appendChild(el("span", counts[name].toLocaleString(), "gcount"));
+    b.onclick = () => {
+      state.cat = (state.cat === name) ? "all" : name;
+      state.page = 0; sync();
+      scrollToResults();
+    };
+    box.appendChild(b);
+  }
+  if(names.length > GROUPS_SHOWN){
+    const m = el("button", browseOpen.groups ? "Show less" : "Show more", "bmore");
+    m.setAttribute("aria-expanded", browseOpen.groups ? "true" : "false");
+    m.onclick = () => { browseOpen.groups = !browseOpen.groups; renderGroups(); };
+    box.appendChild(m);
+  }
+}
+function renderNeeds(){
+  const box = document.getElementById("needs");
+  box.innerHTML = "";
+  const tiles = NEED_TILES.map(([label, tag]) => ({
+    label, tag,
+    n: RECIPES.filter(r => Array.isArray(r.tags) && r.tags.includes(tag)).length
+  })).sort((a,b) => a.label.localeCompare(b.label, undefined, {sensitivity: "base"}));
+  const shown = browseOpen.needs ? tiles : tiles.slice(0, NEEDS_SHOWN);
+  for(const {label, tag, n} of shown){
+    const b = el("button", null, "gtile" + (state.tags.has(tag) ? " on" : ""));
+    b.appendChild(el("span", label, "gname"));
+    b.appendChild(document.createTextNode(" "));
+    b.appendChild(el("span", n.toLocaleString(), "gcount"));
+    b.onclick = () => {
+      state.tags.has(tag) ? state.tags.delete(tag) : state.tags.add(tag);
+      state.page = 0; sync();
+      scrollToResults();
+    };
+    box.appendChild(b);
+  }
+  if(tiles.length > NEEDS_SHOWN){
+    const m = el("button", browseOpen.needs ? "Show less" : "Show more", "bmore");
+    m.setAttribute("aria-expanded", browseOpen.needs ? "true" : "false");
+    m.onclick = () => { browseOpen.needs = !browseOpen.needs; renderNeeds(); };
+    box.appendChild(m);
+  }
+}
+// The Cuisine column: one chip per judged label, alphabetical, bare
+// counts, collapsed to the first few behind Show more — the Ingredients
+// column's pattern. Only labeled recipes sit under a cuisine; tapping a
+// chip filters the grid and combines with search and the other columns.
+function renderCuisines(){
+  const box = document.getElementById("cuisines");
+  box.innerHTML = "";
+  const counts = {};
+  for(const r of RECIPES){ const c = CUISINE[r.id]; if(c) counts[c] = (counts[c] || 0) + 1; }
+  const names = Object.keys(counts).sort((a,b) => a.localeCompare(b, undefined, {sensitivity: "base"}));
+  const shown = browseOpen.cuisines ? names : names.slice(0, CUISINES_SHOWN);
+  for(const name of shown){
+    const b = el("button", null, "gtile" + (state.cuisine === name ? " on" : ""));
+    b.appendChild(el("span", name, "gname"));
+    b.appendChild(document.createTextNode(" "));
+    b.appendChild(el("span", counts[name].toLocaleString(), "gcount"));
+    b.onclick = () => {
+      state.cuisine = (state.cuisine === name) ? "all" : name;
+      state.page = 0; sync();
+      scrollToResults();
+    };
+    box.appendChild(b);
+  }
+  if(names.length > CUISINES_SHOWN){
+    const m = el("button", browseOpen.cuisines ? "Show less" : "Show more", "bmore");
+    m.setAttribute("aria-expanded", browseOpen.cuisines ? "true" : "false");
+    m.onclick = () => { browseOpen.cuisines = !browseOpen.cuisines; renderCuisines(); };
+    box.appendChild(m);
+  }
+}
+
+function toggleQuery(ing){
+  const i = state.q.findIndex(q => sing(norm(q)) === sing(ing));
+  if(i >= 0) state.q.splice(i,1); else state.q.push(ing);
+  state.page = 0; sync();
+}
+
+const heroBox = document.getElementById("heroBox");
+const heroBar = document.getElementById("heroBar");
+const heroToggle = document.getElementById("heroToggle");
+const heroInput = document.getElementById("q");
+function updateHeroMini(){
+  heroInput.placeholder = state.q.length ? state.q.join(", ") : "Search ingredients, separated by commas…";
+  heroBar.classList.toggle("hasq", !!state.q.length);
+}
+function setHero(collapsed){
+  if(heroBox.classList.contains("collapsed") === collapsed){ updateHeroMini(); return; }
+  heroBox.classList.toggle("collapsed", collapsed);
+  heroToggle.setAttribute("aria-expanded", collapsed ? "false" : "true");
+  heroToggle.textContent = collapsed ? "▾" : "▴";
+  updateHeroMini();
+  if(!collapsed) heroInput.focus();
+}
+heroToggle.onclick = () => setHero(!heroBox.classList.contains("collapsed"));
+heroInput.addEventListener("focus", () => setHero(false));
+heroInput.addEventListener("keydown", e => {
+  if(e.key === "Escape"){ setHero(true); heroInput.blur(); }
+});
+
+function card(r, matchedTerms, listIndex){
+  const c = el("article", null, "card");
+  const thumbSrc = THUMBS[r.id];
+  if(thumbSrc){
+    const img = document.createElement("img");
+    // Eager, not lazy: these cards are built by script after page load, and
+    // some in-app webviews never start lazy loads for script-inserted
+    // images — the grid then shows titles with no photos at all. A page
+    // renders at most PAGE_SIZE cards, so eager loading stays cheap.
+    // The inline photo renders at once; upgradeThumb then swaps in the
+    // full-size file photo in sessions where the asset files load, and
+    // the capture-phase error handler restores the inline photo if that
+    // file request fails.
+    img.className = "thumb"; img.loading = "eager"; img.decoding = "async"; img.alt = "";
+    img.src = thumbSrc;
+    c.appendChild(img);
+    if(thumbSrc.indexOf("data:") === 0) upgradeThumb(img, r.id);
+  }
+  // Green dot: this recipe lists exact quantities AND written instructions
+  // — exactly what the results row's "Full recipe" toggle filters to. The
+  // dot sits on the thumbnail's top-left corner, clear of the Instagram
+  // icon at the top-right; a thumbnail-less card carries it in its meta row
+  // instead, so the marker never overlaps the title.
+  const isFull = hasFullRecipe(r);
+  if(isFull && thumbSrc){
+    const d = el("span", null, "mdot");
+    d.title = "Full recipe";
+    c.appendChild(d);
+  }
+  c.appendChild(el("h3", r.title));
+  const meta = el("div", null, "meta");
+  if(isFull && !thumbSrc){
+    const d = el("span", null, "mdot inl");
+    d.title = "Full recipe";
+    meta.appendChild(d);
+  }
+  cardGroups(r).slice(0, 2).forEach((g, i) => {
+    meta.appendChild(el("span", g, "badge" + (i ? " alt" : "")));
+  });
+  c.appendChild(meta);
+  if(matchedTerms && matchedTerms.length){
+    const m = el("div", null, "matchline");
+    m.appendChild(el("span", "Uses " + matchedTerms.length + " of your ingredient" +
+      (matchedTerms.length > 1 ? "s: " : ": ")));
+    matchedTerms.forEach((t,i) => {
+      if(i) m.appendChild(el("span", ", "));
+      m.appendChild(el("b", t));
+    });
+    c.appendChild(m);
+  }
+  const bits = [];
+  if(r.meals.length) bits.push(r.meals.join(", "));
+  if(r.tags.length) bits.push(r.tags.map(t => "#" + t).join(" "));
+  if(bits.length) c.appendChild(el("div", bits.join(" · "), "tagline"));
+  if(r.recipe_in_comments) c.appendChild(el("div", "Full recipe in the post's comments", "cnote"));
+  // Corner icon: one tap straight to the Instagram post; the rest of the
+  // card opens the preview sheet instead.
+  const ig = el("a", null, "iglink");
+  ig.href = r.link; ig.target = "_blank"; ig.rel = "noopener";
+  ig.setAttribute("aria-label", "Open on Instagram");
+  ig.title = "Open on Instagram";
+  c.appendChild(ig);
+  c.tabIndex = 0;
+  c.addEventListener("click", e => {
+    if(e.target.closest(".iglink")) return;
+    onCardTap(r, listIndex);
+  });
+  c.addEventListener("keydown", e => {
+    if(e.key === "Enter" || e.key === " "){ e.preventDefault(); onCardTap(r, listIndex); }
+  });
+  return c;
+}
+
+// A "full recipe" lists both exact quantities (a parsed entry in the
+// quantities data behind the serving scaler) and written instructions.
+// These are the recipes the green card dot marks and the results row's
+// "Full recipe" toggle filters to.
+function hasFullRecipe(r){
+  return !!QUANT[r.id] && !!(r.recipe_method && r.recipe_method.trim());
+}
+// A recipe is worth previewing when it has an extracted recipe (ingredients
+// and/or method pulled from its caption) or detected ingredients to show.
+// With neither, the card tap goes straight to the Instagram post instead.
+function hasPreview(r){
+  if(r.recipe_ingredients || r.recipe_method) return true;
+  return !!(r.ingredients && r.ingredients.length);
+}
+function onCardTap(r, listIndex){
+  if(hasPreview(r)){ pvList = displayList; openPreview(listIndex); }
+  else window.open(r.link, "_blank", "noopener");
+}
+
+function currentList(){
+  const filtered = RECIPES.filter(passesFilters);
+  if(!state.q.length){
+    return { mode: "browse", items: filtered, caption: [] };
+  }
+  const scored = [];
+  const caption = [];
+  for(const r of filtered){
+    const terms = state.q.filter(t => termHits(t, recipeHay(r)));
+    if(terms.length){ scored.push({ r, terms, n: terms.length }); continue; }
+    // Secondary pass: the query appears only in the recipe's caption prose,
+    // not in its ingredients or title. These rank below every ingredient match.
+    const cterms = state.q.filter(t => termHits(t, r.text || ""));
+    if(cterms.length) caption.push({ r, terms: cterms, n: cterms.length });
+  }
+  scored.sort((a,b) => b.n - a.n || a.r.title.localeCompare(b.r.title));
+  caption.sort((a,b) => b.n - a.n || a.r.title.localeCompare(b.r.title));
+  return { mode: "search", items: scored, caption };
+}
+
+// The search/filter state a shuffle belongs to, as one comparable string.
+function filterSig(){
+  return JSON.stringify([state.q, state.meal, state.cat, state.cuisine, [...state.tags].sort(), state.full]);
+}
+// Whether the list is being narrowed by anything the user chose: a typed
+// search, an ingredient/group/tag tile, or the Filters controls.
+function filtersActive(){
+  return state.q.length > 0 || state.meal !== "all" || state.cat !== "all" || state.cuisine !== "all" || state.tags.size > 0 || state.full;
+}
+function fyShuffle(arr){
+  const a = arr.slice();
+  for(let i = a.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    const t = a[i]; a[i] = a[j]; a[j] = t;
+  }
+  return a;
+}
+
+function sync(){
+  renderChips(); renderPills(); renderGroups(); renderNeeds(); renderTod(); renderCuisines(); renderActiveBar(); updateHeroMini();
+  const fullBtn = document.getElementById("fullBtn");
+  fullBtn.classList.toggle("on", state.full);
+  fullBtn.setAttribute("aria-pressed", state.full ? "true" : "false");
+  const { mode, items, caption } = currentList();
+  const line = document.getElementById("resultline");
+  const box = document.getElementById("results");
+  const pager = document.getElementById("pager");
+  const shuffleBtn = document.getElementById("shuffleBtn");
+  // A shuffle is tied to the exact search/filter state it was made under;
+  // any change to the query or filters discards it and restores the
+  // normal order.
+  if(shuffled && shuffled.sig !== filterSig()) shuffled = null;
+  box.innerHTML = "";
+  const total = mode === "search" ? items.length + caption.length : items.length;
+  if(!total){
+    displayList = [];
+    line.textContent = "";
+    pager.style.display = "none";
+    shuffleBtn.hidden = true;
+    const e = el("div", "No recipes match. Try fewer ingredients or clearing a filter.", "empty");
+    box.appendChild(e);
+    return;
+  }
+  const pages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+  state.page = Math.min(state.page, pages - 1);
+  // One sequence for the whole list: ingredient matches first, then
+  // caption-only matches; a plain browse list is the filtered recipes
+  // as-is. Pagination flows through the sequence, and the caption section
+  // gets its heading the first time a caption-only card appears on a page.
+  let seq;
+  if(mode === "search"){
+    if(items.length){
+      line.textContent = items.length + " recipe" + (items.length > 1 ? "s" : "") +
+        " match your ingredients (ranked by most matches)" +
+        (caption.length ? " · " + caption.length + " more below mention it in the caption" : "");
+    } else {
+      line.textContent = "No ingredient matches — " + caption.length + " recipe" +
+        (caption.length > 1 ? "s" : "") + " mention it in the caption";
+    }
+    seq = items.map(s => ({ s, cap: false })).concat(caption.map(s => ({ s, cap: true })));
+  } else {
+    line.textContent = "Browsing " + items.length + " recipes";
+    seq = items.map(r => ({ s: { r, terms: null }, cap: false }));
+  }
+  if(shuffled && shuffled.seq.length === total) seq = shuffled.seq;
+  displayList = seq.map(it => it.s.r);
+  const slice = seq.slice(state.page * PAGE_SIZE, state.page * PAGE_SIZE + PAGE_SIZE);
+  let capHeadShown = false;
+  slice.forEach((it, k) => {
+    if(it.cap && !capHeadShown){
+      box.appendChild(el("h2", "Also mentioned in caption", "caphead"));
+      capHeadShown = true;
+    }
+    box.appendChild(card(it.s.r, it.cap ? null : it.s.terms, state.page * PAGE_SIZE + k));
+  });
+  // The Shuffle button belongs to the results row and is always visible
+  // whenever there is a list to shuffle, including the untouched landing
+  // browse (which shuffles the full collection order).
+  shuffleBtn.hidden = false;
+  if(pages > 1){
+    pager.style.display = "flex";
+    document.getElementById("pagenum").textContent = "Page " + (state.page+1) + " of " + pages;
+    document.getElementById("prev").disabled = state.page === 0;
+    document.getElementById("next").disabled = state.page === pages - 1;
+  } else pager.style.display = "none";
+}
+
+// ---- Recipe preview sheet ----
+// Opening the sheet never re-renders the grid, so closing it returns to the
+// exact scroll position, page and filter/search state the user left.
+let pvList = [], pvIdx = 0, pvScrollY = 0;
+function openPreview(i){
+  pvIdx = i;
+  pvScrollY = window.scrollY;
+  fillPreview();
+  document.getElementById("pvOverlay").hidden = false;
+  document.body.style.overflow = "hidden";
+}
+function closePreview(){
+  document.getElementById("pvOverlay").hidden = true;
+  document.body.style.overflow = "";
+  window.scrollTo(0, pvScrollY);
+}
+function stepPreview(d){
+  const n = pvIdx + d;
+  if(n < 0 || n >= pvList.length) return;
+  pvIdx = n;
+  fillPreview();
+  document.querySelector(".pv-sheet").scrollTop = 0;
+}
+// A stored method paragraph often bundles several instructions into one
+// block of prose ("...stir fry for 3-4 minutes until golden. Remove to a
+// plate. Add the eggs..."), which used to render as a single bullet with
+// many instructions under it. For the Method only, split the text at
+// instruction boundaries — sentence-ending punctuation (or a semicolon
+// between steps) followed by a new sentence or a numbered step — so each
+// instruction gets its own bullet. The words themselves are never touched;
+// only breaks are added. Guards keep non-boundaries intact: a single letter
+// before the period (initials, "e.g."), a bare step number at a segment's
+// start ("1. Preheat..."), and abbreviations before a lowercase
+// continuation ("etc. and"). A temperature ("165°F.") may end a sentence.
+function splitMethodText(text){
+  const ABBREV = { etc: true, vs: true, approx: true };
+  const out = [];
+  for(const raw of text.split(/\r?\n+/)){
+    const line = raw.trim();
+    if(!line) continue;
+    let start = 0;
+    const re = /([.!?;])\s+/g;
+    let m;
+    while((m = re.exec(line))){
+      const punct = m[1];
+      const nxt = line.slice(re.lastIndex);
+      if(!nxt) break;
+      const pre = line.slice(start, m.index);
+      const wm = /([A-Za-z]+)$/.exec(pre);
+      const word = wm ? wm[1].toLowerCase() : "";
+      const bw = wm && m.index - wm[1].length > 0 ? line[m.index - wm[1].length - 1] : "";
+      const nm = /(\d+)$/.exec(pre);
+      const bareNum = !!nm && nm[1].length <= 2 &&
+        (nm.index === 0 || pre[nm.index - 1] === " ");
+      let split = false;
+      if(punct === ";") split = true;
+      else if(/^\d{1,2}[.)]\s/.test(nxt)) split = true;
+      else if(/^[A-Z"“'(]/.test(nxt)) split = (word.length !== 1 || /[0-9°]/.test(bw)) && !bareNum;
+      else if(/^[a-z]/.test(nxt)) split = word.length > 1 && !ABBREV[word];
+      if(split){
+        out.push(line.slice(start, re.lastIndex).trim());
+        start = re.lastIndex;
+      }
+    }
+    out.push(line.slice(start).trim());
+  }
+  return out.filter(Boolean).join("\n");
+}
+// Recipe text is rendered as real paragraphs: each of the extract's own
+// line breaks becomes paragraph spacing, so it reads like a cookbook page
+// instead of one flat block. The text itself is left exactly as written.
+function setRecipeText(container, text){
+  container.innerHTML = "";
+  text.split(/\r?\n+/).map(s => s.trim()).filter(Boolean)
+    .forEach(line => container.appendChild(el("p", line)));
+}
+// Prep-pill data, keyed by recipe id then ingredient line index;
+// only recipes with a text-supported prep step appear at all
+// (generated by data/detect_prep.py; see data/prep_hints.json).
+const PREP = /*__PREP__*/null;
+// ---- Serving scaler ----
+// pvServ is the serving count chosen in the open preview; fillPreview
+// resets it to the recipe's base count on every open/flip.
+let pvServ = 0;
+function fmtQty(v){
+  if(v >= 100) return String(Math.round(v));
+  const whole = Math.floor(v);
+  const frac = v - whole;
+  if(frac < 0.02) return String(whole);
+  if(frac > 0.98) return String(whole + 1);
+  const FRACS = [[0.25, "\u00bc"], [1 / 3, "\u2153"], [0.5, "\u00bd"], [2 / 3, "\u2154"], [0.75, "\u00be"]];
+  for(const [f, ch] of FRACS){
+    if(Math.abs(frac - f) <= 0.02) return whole ? String(whole) + ch : ch;
+  }
+  return String(Math.round(v * 100) / 100);
+}
+function ingLinesOf(r){
+  return (r.recipe_ingredients || "").split(/\r?\n+/).map(s => s.trim()).filter(Boolean);
+}
+function renderIngs(r){
+  const ingText = document.getElementById("pvIngText");
+  const qd = QUANT[r.id];
+  if(!qd || pvServ === qd[0]){
+    // At the recipe's own serving count, the lines are the creator's text,
+    // rendered exactly as written.
+    setRecipeText(ingText, r.recipe_ingredients);
+    addPrepPills(r);
+    return;
+  }
+  const f = pvServ / qd[0];
+  const byIdx = {};
+  for(const t of qd[2]) byIdx[t[0]] = t;
+  const lines = ingLinesOf(r).map((line, i) => {
+    const t = byIdx[i];
+    if(!t) return line;
+    const hasRange = t.length === 4;
+    const lo = t[1];
+    const hi = hasRange ? t[2] : null;
+    const rl = hasRange ? t[3] : t[2];
+    const rest = line.slice(line.length - rl);
+    let qtxt = fmtQty(lo * f);
+    if(hi !== null) qtxt += "\u2013" + fmtQty(hi * f);
+    return qtxt + rest;
+  });
+  setRecipeText(ingText, lines.join("\n"));
+  addPrepPills(r);
+}
+// Prep pills: PREP maps recipe id -> {ingredient line index -> label},
+// detected from the recipe's own text (an ingredient line that itself says
+// soaked/marinated/fermented, or a method step that soaks/marinates/
+// ferments/rests/thaws/proofs that ingredient). Only recipes whose text
+// supports a pill appear in PREP at all; the pill renders directly under
+// its ingredient line. Line indices match ingLinesOf()'s split.
+function addPrepPills(r){
+  const hints = PREP[r.id];
+  if(!hints) return;
+  const ps = Array.from(document.getElementById("pvIngText").children);
+  for(const k of Object.keys(hints)){
+    const p = ps[Number(k)];
+    if(!p) continue;
+    p.parentNode.insertBefore(el("span", hints[k], "pv-prep"), p.nextSibling);
+  }
+}
+function updateScaleUI(r){
+  const qd = QUANT[r.id];
+  const box = document.getElementById("pvScale");
+  const note = document.getElementById("pvScaleNote");
+  if(!qd){ box.hidden = true; note.hidden = true; return; }
+  box.hidden = false;
+  document.getElementById("pvServNum").textContent = pvServ;
+  document.getElementById("pvServMinus").disabled = pvServ <= 1;
+  document.getElementById("pvServPlus").disabled = pvServ >= 24;
+  if(pvServ === qd[0]){ note.hidden = true; return; }
+  let txt = "Quantities scaled \u00d7" + fmtQty(pvServ / qd[0]);
+  if(!qd[1]) txt += ". The recipe as written counts as 1 serving.";
+  note.textContent = txt;
+  note.hidden = false;
+}
+function hideScale(){
+  document.getElementById("pvScale").hidden = true;
+  document.getElementById("pvScaleNote").hidden = true;
+}
+function stepServ(d){
+  const r = pvList[pvIdx];
+  if(!r || !QUANT[r.id]) return;
+  pvServ = d > 0 ? Math.min(24, pvServ + 1) : Math.max(1, pvServ - 1);
+  updateScaleUI(r);
+  renderIngs(r);
+}
+function fillPreview(){
+  const r = pvList[pvIdx];
+  if(!r) return;
+  const img = document.getElementById("pvImg");
+  const src = THUMBS[r.id];
+  if(src){
+    img.onerror = () => { img.style.display = "none"; };
+    img.src = src;
+    img.style.display = "";
+    if(src.indexOf("data:") === 0){
+      // Same upgrade as the grid: the inline photo is already showing;
+      // swap in the full-size file photo if it loads, and only while
+      // this recipe's preview is still the one on screen. If the file
+      // request then fails, fall back to the inline photo.
+      const wantId = r.id;
+      probeFile(wantId, () => {
+        const cur = pvList[pvIdx];
+        if(!cur || cur.id !== wantId) return;
+        img.onerror = () => { img.onerror = null; img.src = src; img.style.display = ""; };
+        img.src = "assets/thumbs/" + wantId + ".jpg";
+      });
+    }
+  } else {
+    img.removeAttribute("src");
+    img.style.display = "none";
+  }
+  document.getElementById("pvTitle").textContent = r.title;
+  const meta = document.getElementById("pvMeta");
+  meta.innerHTML = "";
+  cardGroups(r).forEach((g, i) => meta.appendChild(el("span", g, "badge" + (i ? " alt" : ""))));
+  const bits = [];
+  if(r.meals.length) bits.push(r.meals.join(", "));
+  if(r.tags.length) bits.push(r.tags.map(t => "#" + t).join(" "));
+  const tagsEl = document.getElementById("pvTags");
+  tagsEl.textContent = bits.join(" · ");
+  tagsEl.style.display = bits.length ? "" : "none";
+  // Every preview that shows recipe text names where that text came from,
+  // as a pill at the very top of the text section. Chips-only previews
+  // (no extract) get no label.
+  const SRC_LABELS = {
+    caption: "Recipe source: Post caption",
+    blog: "Recipe source: Creator's blog",
+    comments: "Recipe source: Post comments",
+    video: "Recipe source: Video summary"
+  };
+  const hasText = !!((r.recipe_ingredients && r.recipe_ingredients.trim()) ||
+                     (r.recipe_method && r.recipe_method.trim()));
+  const srcEl = document.getElementById("pvSrc");
+  const srcLabel = hasText ? SRC_LABELS[r.extract_source] : null;
+  if(srcLabel){ srcEl.textContent = srcLabel; srcEl.hidden = false; }
+  else srcEl.hidden = true;
+  const ingWrap = document.getElementById("pvIngWrap");
+  const ingText = document.getElementById("pvIngText");
+  const ings = document.getElementById("pvIngs");
+  ings.innerHTML = "";
+  if(r.recipe_ingredients && r.recipe_ingredients.trim()){
+    // Extracted ingredient lines, shown verbatim as plain text lines.
+    ingWrap.style.display = "";
+    ingText.hidden = false;
+    ings.style.display = "none";
+    // Recipes with parsed quantities get the serving scaler; it starts at
+    // the recipe's base count, where lines render verbatim.
+    const qd = QUANT[r.id];
+    pvServ = qd ? qd[0] : 0;
+    updateScaleUI(r);
+    renderIngs(r);
+  } else if(r.ingredients && r.ingredients.length){
+    // No extract: fall back to the detected-ingredient chips.
+    hideScale();
+    ingWrap.style.display = "";
+    ingText.hidden = true;
+    ings.style.display = "";
+    // Ingredients the user searched for are highlighted.
+    for(const ing of r.ingredients){
+      const hit = state.q.length && state.q.some(t => termHits(t, ing));
+      ings.appendChild(el("span", ing, "pv-ing" + (hit ? " hit" : "")));
+    }
+  } else { hideScale(); ingWrap.style.display = "none"; }
+  const methodWrap = document.getElementById("pvMethodWrap");
+  if(r.recipe_method && r.recipe_method.trim()){
+    methodWrap.hidden = false;
+    setRecipeText(document.getElementById("pvMethod"), splitMethodText(r.recipe_method));
+  } else methodWrap.hidden = true;
+  // Two columns only when both sections are present as extracted text:
+  // Ingredients on the left (its heading first, the servings scaler under
+  // it, above the list), Method on the right, so the two headings share
+  // one line. Ingredients-only, method-only and chips-only previews keep
+  // the stacked full-width layout.
+  const bothText = !!((r.recipe_ingredients && r.recipe_ingredients.trim()) &&
+                      (r.recipe_method && r.recipe_method.trim()));
+  document.getElementById("pvCols").classList.toggle("two", bothText);
+  document.getElementById("pvNote").hidden =
+    !(r.recipe_in_comments && !r.recipe_ingredients && !r.recipe_method);
+  document.getElementById("pvWatch").href = r.link;
+  document.getElementById("pvCount").textContent = (pvIdx + 1) + " of " + pvList.length;
+  document.getElementById("pvPrev").disabled = pvIdx === 0;
+  document.getElementById("pvNext").disabled = pvIdx === pvList.length - 1;
+  document.getElementById("pvPrevTop").disabled = pvIdx === 0;
+  document.getElementById("pvNextTop").disabled = pvIdx === pvList.length - 1;
+}
+
+function init(){
+  document.getElementById("sub").textContent =
+    INDEX.meta.total.toLocaleString() + " saved recipes · tap ingredients to search";
+  const q = document.getElementById("q");
+  function submitQuery(){
+    const parts = q.value.split(/[,;\n]+/).map(s => s.trim()).filter(Boolean);
+    for(const p of parts){
+      if(!state.q.some(v => sing(norm(v)) === sing(norm(p)))) state.q.push(p);
+    }
+    q.value = ""; state.page = 0; setHero(true); sync();
+    scrollToResults();
+  }
+  q.addEventListener("keydown", e => { if(e.key === "Enter") submitQuery(); });
+  document.getElementById("find").onclick = submitQuery;
+  const ex = document.getElementById("examples");
+  ["chicken, rice", "peanut butter, oats"].forEach(txt => {
+    const b = el("button", txt.replace(/,\s*/g, " + "), "example");
+    b.onclick = () => {
+      state.q = txt.split(",").map(s => s.trim());
+      state.page = 0; setHero(true); sync();
+      scrollToResults();
+    };
+    ex.appendChild(b);
+  });
+  document.getElementById("prev").onclick = () => { state.page--; sync(); window.scrollTo(0,0); };
+  document.getElementById("next").onclick = () => { state.page++; sync(); window.scrollTo(0,0); };
+  document.getElementById("fullBtn").onclick = () => {
+    state.full = !state.full; state.page = 0; sync();
+  };
+  document.getElementById("shuffleBtn").onclick = () => {
+    const { mode, items, caption } = currentList();
+    // Tier-preserving: the ingredient matches and the caption-only
+    // matches are shuffled within themselves, so the ingredient block
+    // still comes before the caption block as a whole.
+    const seq = mode === "search"
+      ? fyShuffle(items).map(s => ({ s, cap: false }))
+          .concat(fyShuffle(caption).map(s => ({ s, cap: true })))
+      : fyShuffle(items).map(r => ({ s: { r, terms: null }, cap: false }));
+    shuffled = { sig: filterSig(), seq };
+    state.page = 0;
+    sync();
+  };
+  document.getElementById("pvServMinus").onclick = () => stepServ(-1);
+  document.getElementById("pvServPlus").onclick = () => stepServ(1);
+  document.getElementById("pvClose").onclick = closePreview;
+  document.getElementById("pvPrev").onclick = () => stepPreview(-1);
+  document.getElementById("pvNext").onclick = () => stepPreview(1);
+  document.getElementById("pvPrevTop").onclick = () => stepPreview(-1);
+  document.getElementById("pvNextTop").onclick = () => stepPreview(1);
+  document.getElementById("pvOverlay").addEventListener("click", e => {
+    if(e.target.id === "pvOverlay") closePreview();
+  });
+  document.addEventListener("keydown", e => {
+    if(document.getElementById("pvOverlay").hidden) return;
+    if(e.key === "Escape") closePreview();
+    else if(e.key === "ArrowLeft") stepPreview(-1);
+    else if(e.key === "ArrowRight") stepPreview(1);
+  });
+  sync();
+}
+// ---- Meal plan generator ----
+// Stateless: a fresh week is dealt from the recipe data every time the
+// panel opens (and on Regenerate); nothing is stored anywhere. Lunches
+// default to last night's leftovers, per the household template, but
+// any lunch slot can instead pick a real recipe; each dinner gets a
+// veggie side from a fixed rotation.
+const PLAN_DAYS = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+const PLAN_SIDES = ["roasted broccoli","edamame with sea salt","garlic green beans",
+  "cucumber salad","sweet potato wedges","sautéed spinach","corn on the cob"];
+let planWeek = null; // [{ b, l, d, s, side }] — recipe objects, one entry per day;
+// l is null while that day's lunch is leftovers, a recipe once picked
+let plScrollY = 0;
+
+function planHasText(r){
+  return !!((r.recipe_ingredients && r.recipe_ingredients.trim()) ||
+            (r.recipe_method && r.recipe_method.trim()));
+}
+// Template families, judged from the dish's own title: breakfasts spread
+// across waffles / oats / pancakes / cottage cheese / dosa-style, dinners
+// across tacos / curry / noodles / pasta / baked & other meat / kheema /
+// fish / soup / one-pot.
+function breakfastFamily(r){
+  const t = r.title.toLowerCase();
+  if(/waffle/.test(t)) return "waffles";
+  if(/pancake|hotcake/.test(t)) return "pancakes";
+  if(/cottage cheese/.test(t)) return "cottage cheese";
+  if(/dosa|idli|uttapam|pesarattu|adai/.test(t)) return "dosa-style";
+  if(/oat|porridge|muesli|granola/.test(t)) return "oats";
+  return "other";
+}
+function dinnerFamily(r){
+  const t = r.title.toLowerCase();
+  if(/kheema|keema/.test(t)) return "kheema-style";
+  if(/taco|burrito|quesadilla/.test(t)) return "tacos";
+  if(/curry|chole|kadhi/.test(t)) return "curry";
+  if(/noodle/.test(t)) return "noodles";
+  if(/pasta|spaghetti|penne|macaroni|lasagn|orzo|rigatoni|fettuccine/.test(t)) return "pasta";
+  if((r.groups && r.groups.includes("Fish & Seafood")) ||
+     /fish|salmon|prawn|shrimp|tuna/.test(t)) return "fish";
+  if(/soup|stew/.test(t)) return "soup";
+  if((r.tags && r.tags.includes("one pot")) || /one[-\s]?pot/.test(t)) return "one-pot";
+  return "other";
+}
+const PLAN_POOLS = {
+  b: RECIPES.filter(r => r.meals && r.meals.includes("breakfast")),
+  l: RECIPES.filter(r => r.meals && r.meals.includes("lunch")),
+  d: RECIPES.filter(r => r.meals && r.meals.includes("dinner") && planHasText(r)),
+  s: RECIPES.filter(r => r.meals && r.meals.includes("snack"))
+};
+// "Meal prep friendly" and "high protein" tags weigh a recipe up, and a
+// full recipe (green dot: quantities + method) weighs it up a little
+// more — a preference, never a requirement.
+function planWeight(r){
+  let w = 1;
+  if(r.tags && r.tags.includes("meal prep friendly")) w += 2;
+  if(r.tags && r.tags.includes("high protein")) w += 2;
+  if(hasFullRecipe(r)) w += 1.5;
+  return w;
+}
+// Weighted pick from a pool, skipping recipes already in the week; when
+// any candidate comes from a family the week hasn't used yet, the pick
+// is restricted to those, so families spread before they repeat.
+function planPick(pool, usedIds, familyOf, usedFams){
+  let cands = pool.filter(r => !usedIds.has(r.id));
+  if(!cands.length) return null;
+  if(familyOf){
+    const fresh = cands.filter(r => !usedFams.has(familyOf(r)));
+    if(fresh.length) cands = fresh;
+  }
+  let total = 0;
+  for(const r of cands) total += planWeight(r);
+  let x = Math.random() * total;
+  for(const r of cands){ x -= planWeight(r); if(x <= 0) return r; }
+  return cands[cands.length - 1];
+}
+function generatePlan(){
+  const used = new Set();
+  const bFams = new Set(), dFams = new Set();
+  // Random starting point, then straight through the rotation: with 7
+  // sides and 7 days no side repeats, let alone back-to-back.
+  const off = Math.floor(Math.random() * PLAN_SIDES.length);
+  planWeek = PLAN_DAYS.map((_, i) => {
+    const b = planPick(PLAN_POOLS.b, used, breakfastFamily, bFams);
+    if(b){ used.add(b.id); bFams.add(breakfastFamily(b)); }
+    const d = planPick(PLAN_POOLS.d, used, dinnerFamily, dFams);
+    if(d){ used.add(d.id); dFams.add(dinnerFamily(d)); }
+    const s = planPick(PLAN_POOLS.s, used, null, null);
+    if(s) used.add(s.id);
+    return { b, l: null, d, s, side: PLAN_SIDES[(off + i) % PLAN_SIDES.length] };
+  });
+  renderPlan();
+}
+// Swap one slot for another recipe from the same pool. Every recipe
+// currently in the week (including this slot's own dish) is excluded,
+// so the swap always lands on something new to the week; the day's
+// side stays as dealt.
+// Send a lunch slot back to leftovers; the freed recipe leaves the
+// week's pool with the next render.
+function clearLunch(dayIdx){
+  planWeek[dayIdx].l = null;
+  renderPlan();
+}
+function rerollSlot(dayIdx, slot){
+  const used = new Set();
+  const fams = new Set();
+  const familyOf = slot === "b" ? breakfastFamily : slot === "d" ? dinnerFamily : null;
+  planWeek.forEach((d2, i2) => {
+    for(const k of ["b","l","d","s"]) if(d2[k]) used.add(d2[k].id);
+    if(familyOf && i2 !== dayIdx && d2[slot]) fams.add(familyOf(d2[slot]));
+  });
+  const pick = planPick(PLAN_POOLS[slot], used, familyOf, fams);
+  if(pick) planWeek[dayIdx][slot] = pick;
+  renderPlan();
+}
+// The ingredient a prep hint belongs to, named the way the preview's
+// serving scaler recovers it: the line's own text after its quantity
+// (QUANT stores that remainder's length). Without parsed quantities,
+// strip a leading amount by hand; failing that, use the line as written.
+function prepIngredientName(r, lineIdx){
+  const line = ingLinesOf(r)[lineIdx];
+  if(!line) return "";
+  const qd = QUANT[r.id];
+  if(qd){
+    for(const t of qd[2]){
+      if(t[0] === lineIdx){
+        const rest = line.slice(line.length - t[t.length - 1]).trim()
+          .replace(/^(cups?|tbsp|tsp|tablespoons?|teaspoons?|grams?|kg|ml|litres?|liters?|oz|lbs?|g)\s+/i, "");
+        if(rest) return rest;
+      }
+    }
+  }
+  return line.replace(/^[\d\s\/\.\-–—¼½¾⅓⅔⅛]+(cups?|tbsp|tsp|tablespoons?|teaspoons?|grams?|g|kg|ml|litres?|liters?|l|oz|lbs?|pinch|handful|cloves?|cans?|packets?|pieces?)?\s*/i, "").trim() || line;
+}
+// The quantity a prep hint's ingredient line states, in the line's own
+// terms: the scaler's parsed amount plus its unit word where QUANT has
+// one, else the amount written at the head of the line. "" when the
+// line states no amount. Quantities stay attached to their own dish
+// and are never summed across dishes.
+function prepQtyText(r, lineIdx){
+  const line = ingLinesOf(r)[lineIdx];
+  if(!line) return "";
+  const qd = QUANT[r.id];
+  if(qd){
+    for(const t of qd[2]){
+      if(t[0] !== lineIdx) continue;
+      const rest = line.slice(line.length - t[t.length - 1]).trim();
+      const um = rest.match(/^(cups?|tbsp|tsp|tablespoons?|teaspoons?|grams?|gm|kg|ml|litres?|liters?|oz|lbs?|g)\b/i);
+      let q = fmtQty(t[1]);
+      if(t.length === 4) q += "\u2013" + fmtQty(t[2]);
+      return um ? q + " " + um[1].toLowerCase() : q;
+    }
+  }
+  const m = line.match(/^([\d\s\/\.\-\u2013\u2014\u00BC\u00BD\u00BE\u2153\u2154\u215B]+(?:cups?|tbsp|tsp|tablespoons?|teaspoons?|grams?|gm|g|kg|ml|litres?|liters?|l|oz|lbs?|pinch|handful|cloves?|cans?|packets?|pieces?)?)/i);
+  return m ? m[1].trim() : "";
+}
+// Prep hints group by ingredient family + action: legumes to soak,
+// chicken to marinate, rice to soak, nuts/seeds/chillies for pastes.
+// A hint's family is judged from its ingredient's name alone.
+const PREP_FAMILIES = [
+  ["Soya", /\bsoya\b|soy chunks|soybean/],
+  ["Legumes", /chickpea|chana|moong|mung|\bdal\b|lentil|rajma|kidney bean|black bean|green gram|horse gram|urad|toor|masoor|lobia|cowpea|chole|dried peas/],
+  ["Chicken", /chicken/],
+  ["Fish & seafood", /shrimp|prawn|fish|salmon|tuna|\bcod\b|crab|squid|mackerel|sardine|anchov/],
+  ["Meat", /mutton|lamb|beef|pork|keema|kheema/],
+  ["Eggs", /\beggs?\b/],
+  ["Nuts, seeds & chillies", /cashew|almond|badam|walnut|pistachio|peanut|sesame|\btil\b|chia|basil seed|sabja|flax|poppy|khus khus|melon seed|sunflower seed|pumpkin seed|fennel seed|chilli|chili/],
+  ["Dried fruit", /\bdates?\b|raisin|fig|apricot|prune/],
+  ["Rice & grains", /rice|basmati|quinoa|\boats?\b|amaranth|millet|ragi|jowar|poha|sabudana|semolina|rava|wheat|barley|bulgur|couscous|buckwheat/],
+  ["Dairy", /paneer|curd|yogurt|yoghurt|\bmilk\b|cheese|cream/],
+  ["Dough & batter", /dough|batter|flour|yeast/],
+  ["Vegetables", /potato|onion|tomato|carrot|\bpeas\b|spinach|sweet potato|beetroot|pumpkin|lauki|gourd|vegetable/]
+];
+function prepFamily(ing){
+  const n = " " + (ing || "").toLowerCase() + " ";
+  for(const [fam, re] of PREP_FAMILIES) if(re.test(n)) return fam;
+  const t = (ing || "").trim();
+  return t ? t.charAt(0).toUpperCase() + t.slice(1) : "Prep";
+}
+// A hint's stated lead time in minutes, used only to order the group
+// lines longest first. Only what the pill itself states counts:
+// "overnight" reads as 12 hours, a range reads as its longer end, and
+// a hint with no stated duration gets 0 — durations are never borrowed
+// from another hint or fused together.
+function prepLead(dur){
+  if(!dur) return 0;
+  const t = dur.toLowerCase();
+  if(/overnight/.test(t)) return 720;
+  let m = t.match(/(\d+(?:\.\d+)?)\s*[\u2013-]\s*(\d+(?:\.\d+)?)\s*(hrs?|hours?|min|sec)/);
+  if(!m) m = t.match(/(\d+(?:\.\d+)?)\s*(hrs?|hours?|min|sec)/);
+  if(m){
+    const v = parseFloat(m[m.length - 2]);
+    const u = m[m.length - 1];
+    return u.indexOf("h") === 0 ? v * 60 : u === "sec" ? 1 : v;
+  }
+  if(/hour/.test(t)) return 60;
+  return 0;
+}
+// Session framing for a group line, from its longest stated lead:
+// overnight work is "the night before", a short soak happens "while
+// the mains cook", and everything else is "in the same session".
+function prepWhen(g){
+  if(g.lead >= 480) return "the night before";
+  if(g.verb === "Soak" && g.lead >= 120) return "earlier in the day";
+  if(g.verb === "Soak" && g.lead > 0) return "while the mains cook";
+  return "in the same session";
+}
+// One composed group line: family and framing, then every hint in its
+// own words — its ingredient with its own quantity, its dish, and its
+// own stated duration (or the fact that none is stated).
+function prepGroupLine(g){
+  const frame = g.verb === "Soak" ? ", each in its own bowl" :
+                g.verb === "Marinate" ? ", each in its own marinade" : "";
+  const items = g.items.map(it => {
+    let txt = it.ing || it.r.title;
+    if(it.qty) txt += " (" + it.qty + ")";
+    txt += " for " + it.r.title + " \u2014 " + g.verb.toLowerCase() +
+           (it.dur ? " " + it.dur : ", no time stated");
+    return txt;
+  });
+  return g.family + " \u2014 " + prepWhen(g) + ": " + g.verb + frame + ": " +
+         items.join("; ") + ".";
+}
+// The week's prep hints (the page's PREP data, the same hints behind
+// the preview's amber prep pills) gathered from the chosen recipes —
+// picked lunches included — and grouped by family + action, longest
+// lead time first. No hint is dropped: one that shares its family and
+// action with nothing else becomes a single-dish group of its own.
+function planPrepGroups(){
+  const groups = new Map();
+  for(const day of planWeek){
+    for(const k of ["b","l","d","s"]){
+      const r = day[k];
+      if(!r) continue;
+      const hints = PREP[r.id];
+      if(!hints) continue;
+      for(const idx of Object.keys(hints)){
+        const lineIdx = Number(idx);
+        const ing = prepIngredientName(r, lineIdx);
+        const act = hints[idx].replace(/^Prep \u00B7 /, "");
+        const sp = act.indexOf(" ");
+        const verb = sp < 0 ? act : act.slice(0, sp);
+        const dur = sp < 0 ? "" : act.slice(sp + 1);
+        const fam = prepFamily(ing);
+        const key = fam + "|" + verb;
+        let g = groups.get(key);
+        if(!g){ g = { family: fam, verb, items: [], dishMap: new Map(), lead: 0 }; groups.set(key, g); }
+        const itemKey = r.id + "|" + lineIdx;
+        if(g.items.some(it => it.key === itemKey)) continue;
+        const lead = prepLead(dur);
+        g.items.push({ key: itemKey, r, ing, qty: prepQtyText(r, lineIdx), dur, lead });
+        if(lead > g.lead) g.lead = lead;
+        if(!g.dishMap.has(r.id)) g.dishMap.set(r.id, r);
+      }
+    }
+  }
+  const out = [...groups.values()];
+  for(const g of out){ g.dishes = [...g.dishMap.values()]; g.line = prepGroupLine(g); }
+  out.sort((a, b) => b.lead - a.lead || a.family.localeCompare(b.family));
+  return out;
+}
+function planRow(dayIdx, slot, label, r, side){
+  const row = el("div", null, "pl-row");
+  row.appendChild(el("span", label, "pl-meal"));
+  const dish = el("div", null, "pl-dish");
+  if(r){
+    dish.appendChild(el("span", r.title, "pl-title"));
+    if(side) dish.appendChild(el("span", "Side: " + side, "pl-side"));
+    // Tapping the dish — title included — opens the recipe's preview
+    // sheet; Prev/Next there flips through the week's dishes. Instagram
+    // stays one tap further on, via the preview's "Watch on Instagram".
+    dish.addEventListener("click", () => openPlanPreview(r));
+  }
+  row.appendChild(dish);
+  if(r){
+    const btn = el("button", "\u21BB", "pl-reroll");
+    btn.type = "button";
+    btn.title = "Swap this dish";
+    btn.setAttribute("aria-label", "Swap this " + label.toLowerCase());
+    btn.onclick = () => rerollSlot(dayIdx, slot);
+    row.appendChild(btn);
+  }
+  return row;
+}
+function renderPlan(){
+  const prepBox = document.getElementById("plPrep");
+  prepBox.innerHTML = "";
+  prepBox.appendChild(el("h3", "Prep ahead", "pl-prep-h"));
+  const groups = planPrepGroups();
+  if(groups.length){
+    for(const g of groups){
+      const gd = el("div", null, "pl-prep-group");
+      gd.appendChild(el("p", g.line, "pl-prep-line"));
+      const ul = el("ul", null, "pl-prep-dishes");
+      for(const r of g.dishes){
+        const li = el("li");
+        const t = el("span", r.title, "pl-prep-dish");
+        t.addEventListener("click", () => openPlanPreview(r));
+        li.appendChild(t);
+        li.appendChild(el("div", r.link, "pl-prep-url"));
+        ul.appendChild(li);
+      }
+      gd.appendChild(ul);
+      prepBox.appendChild(gd);
+    }
+  } else {
+    prepBox.appendChild(el("p", "No special prep \u2014 everything cooks fresh.", "pl-prep-none"));
+  }
+  const box = document.getElementById("plDays");
+  box.innerHTML = "";
+  planWeek.forEach((day, i) => {
+    const sec = el("section", null, "pl-day");
+    sec.appendChild(el("h3", PLAN_DAYS[i], "pl-dayname"));
+    sec.appendChild(planRow(i, "b", "Breakfast", day.b, null));
+    if(day.l){
+      const lrow = planRow(i, "l", "Lunch", day.l, null);
+      const back = el("button", "Leftovers", "pl-tolo");
+      back.type = "button";
+      back.title = "Back to leftovers";
+      back.setAttribute("aria-label", "Back to leftovers for " + PLAN_DAYS[i] + " lunch");
+      back.onclick = () => clearLunch(i);
+      lrow.insertBefore(back, lrow.lastChild);
+      sec.appendChild(lrow);
+    } else {
+      const lr = el("div", null, "pl-row");
+      lr.appendChild(el("span", "Lunch", "pl-meal"));
+      lr.appendChild(el("span",
+        i === 0 ? "Prep-day leftovers / eggs + toast" : "Leftovers from last night's dinner",
+        "pl-plain"));
+      const pick = el("button", "\u21BB", "pl-reroll");
+      pick.type = "button";
+      pick.title = "Pick a recipe for lunch";
+      pick.setAttribute("aria-label", "Pick a recipe for " + PLAN_DAYS[i] + " lunch");
+      pick.onclick = () => rerollSlot(i, "l");
+      lr.appendChild(pick);
+      sec.appendChild(lr);
+    }
+    sec.appendChild(planRow(i, "d", "Dinner", day.d, day.side));
+    sec.appendChild(planRow(i, "s", "Snack", day.s, null));
+    box.appendChild(sec);
+  });
+  renderGrocery();
+}
+function openPlanPreview(r){
+  if(!hasPreview(r)){ window.open(r.link, "_blank", "noopener"); return; }
+  const dishes = [];
+  planWeek.forEach(day => { for(const k of ["b","l","d","s"]) if(day[k]) dishes.push(day[k]); });
+  pvList = dishes;
+  openPreview(dishes.indexOf(r));
+}
+function planText(){
+  // Plain text only, ready to paste anywhere: the prep-ahead list first
+  // (one "- …" line per hint), a blank line, then the week itself with
+  // every recipe's Instagram URL written out in full.
+  const out = ["Meal prep ahead:"];
+  const groups = planPrepGroups();
+  if(groups.length){
+    for(const g of groups){
+      out.push(g.line);
+      for(const r of g.dishes){ out.push("  " + r.title); out.push("  " + r.link); }
+    }
+  }
+  else out.push("- No special prep \u2014 everything cooks fresh.");
+  out.push("");
+  out.push("WEEK MEAL PLAN");
+  planWeek.forEach((day, i) => {
+    out.push(PLAN_DAYS[i].toUpperCase());
+    out.push("Breakfast: " + (day.b ? day.b.title + " \u2014 " + day.b.link : "\u2014"));
+    out.push("Lunch: " + (day.l ? day.l.title + " (picked) \u2014 " + day.l.link :
+      (i === 0 ? "Prep-day leftovers / eggs + toast" : "Leftovers from last night's dinner")));
+    out.push("Dinner: " + (day.d ? day.d.title + " \u2014 " + day.d.link : "\u2014") + " \u00B7 Side: " + day.side);
+    out.push("Snack: " + (day.s ? day.s.title + " \u2014 " + day.s.link : "\u2014"));
+  });
+  return out.join("\n");
+}
+function flashCopied(btn){
+  const old = btn.textContent;
+  btn.textContent = "Copied";
+  btn.disabled = true;
+  setTimeout(() => { btn.textContent = old; btn.disabled = false; }, 1600);
+}
+// Shared clipboard path for the plan copy and both grocery copies: the
+// async Clipboard API where it exists, otherwise the selectable-textarea
+// fallback for web views without it, with the same brief "Copied" state.
+function copyTextWithFallback(text, btn){
+  const fallback = () => {
+    const ta = document.getElementById("plCopyText");
+    ta.hidden = false;
+    ta.value = text;
+    ta.focus();
+    ta.select();
+    try { document.execCommand("copy"); } catch(e) {}
+    flashCopied(btn);
+  };
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(() => flashCopied(btn), fallback);
+  } else fallback();
+}
+function copyPlan(){
+  copyTextWithFallback(planText(), document.getElementById("plCopy"));
+}
+
+// ---- Grocery list ----
+// Built live from the current plan (renderPlan calls renderGrocery, so it
+// recomputes on Regenerate and on every slot swap): the recipe-text
+// ingredient lines of the week's dishes — a leftovers lunch adds
+// nothing, a picked lunch counts like any other dish — plus the
+// week's 7 veggie sides as produce items. Quantities
+// come only from what the page already has: the serving scaler's parsed
+// quantities (QUANT) where they exist, a leading amount read off the line
+// itself otherwise; a line with no amount contributes its ingredient
+// name alone. Amounts are never invented.
+const GROC_SECTIONS = ["Produce", "Protein", "Dairy & eggs", "Pantry & spices", "Other", "Probably already home"];
+const GROC_FRACS = { "¼": 0.25, "½": 0.5, "¾": 0.75, "⅓": 1 / 3, "⅔": 2 / 3, "⅛": 0.125 };
+function groQtyValue(str){
+  let total = 0, any = false;
+  for(const part of String(str).trim().split(/\s+/)){
+    if(GROC_FRACS[part] != null){ total += GROC_FRACS[part]; any = true; continue; }
+    const fm = part.match(/^(\d+(?:\.\d+)?)\/(\d+(?:\.\d+)?)$/);
+    if(fm){ total += parseFloat(fm[1]) / parseFloat(fm[2]); any = true; continue; }
+    const cm = part.match(/^(\d+)([¼½¾⅓⅔⅛])$/);
+    if(cm){ total += parseFloat(cm[1]) + GROC_FRACS[cm[2]]; any = true; continue; }
+    if(/^\d+(?:\.\d+)?$/.test(part)){ total += parseFloat(part); any = true; continue; }
+    return null;
+  }
+  return any ? total : null;
+}
+const GROC_UNITS = "cups?|c|tablespoons?|tbsps?|tbsp|tbs|teaspoons?|tsps?|tsp|grams?|gm|kg|ml|litres?|liters?|oz|lbs?|g|l|cloves?|cans?|packets?|scoops?|slices?|inch(?:es)?|pinch(?:es)?";
+const GROC_QTY = "(?:\\d+\\s+\\d+\\/\\d+|\\d+\\/\\d+|\\d+(?:\\.\\d+)?\\s*[¼½¾⅓⅔⅛]?|[¼½¾⅓⅔⅛])";
+const GROC_LEAD = new RegExp("^(" + GROC_QTY + ")(?:(?:th|st|nd|rd)(?![a-z]))?(?:(?:\\s*[-–]\\s*|\\s+to\\s+)(" + GROC_QTY + "))?[\\s-]*(" + GROC_UNITS + ")?\\s+(.+)$", "i");
+const GROC_UNIT_LEAD = new RegExp("^(" + GROC_UNITS + ")\\s+(.+)$", "i");
+function groNormUnit(u){
+  u = u.toLowerCase();
+  if(u === "cup" || u === "cups" || u === "c") return "cup";
+  if(u.indexOf("table") === 0 || u === "tbsp" || u === "tbsps" || u === "tbs") return "tbsp";
+  if(u.indexOf("tea") === 0 || u === "tsp" || u === "tsps") return "tsp";
+  if(u === "grams" || u === "gram" || u === "gm" || u === "g") return "g";
+  if(u === "litres" || u === "litre" || u === "liters" || u === "liter" || u === "l") return "L";
+  if(u === "lbs") return "lb";
+  if(u === "inches") return "inch";
+  return u.replace(/s$/, "");
+}
+function groCleanName(s){
+  return String(s || "")
+    .replace(/\(@[^)]*\)/g, " ")
+    .replace(/\([^)]*\)/g, " ")
+    .replace(/\s+/g, " ").trim()
+    .replace(/^\d+\s*[.)]\s*/, "")
+    .replace(/^[\d\s\/\.+\-]+(cups?|tbsp|tsp|tablespoons?|teaspoons?|grams?|gm|g|kg|ml|oz|lbs?)\s+/i, "")
+    .replace(/^[\d.]+%\s*/, "")
+    .replace(/^of\s+/i, "")
+    .replace(/^the\s+/i, "")
+    .split(",")[0].trim()
+    .replace(/\s+or\s+your\s+.*$/i, "")
+    .replace(/^(fresh|large|small|medium|minced|chopped|finely chopped|roughly chopped|grated|sliced|diced|peeled|crushed|cubed|piece of|piece)\s+/i, "")
+    .replace(/\s+(finely chopped|roughly chopped|chopped|diced|minced|sliced|grated|peeled|cubed|crushed|to taste|as needed|for garnish|for serving)$/i, "")
+    .replace(/[.\s:;-]+$/, "")
+    .trim();
+}
+// One ingredient line -> { name, amounts: [{lo, hi, unit}] } (amounts
+// empty when the line lists no quantity), or null for lines that are not
+// ingredients at all (extract sub-headers, serving notes, sentences).
+function groParseLine(r, lineIdx, line){
+  if(/:\s*$/.test(line)) return null;
+  // "Each marinade is for 250 g of cubed chicken thighs." — a quantity
+  // buried in a sentence still names a real ingredient; rescue just that
+  // "<amount> <unit> of <ingredient>" tail, exactly as written.
+  const ofm = line.match(/(\d+(?:\.\d+)?)\s*(grams?|kg|ml|cups?|tbsp|tsp|oz|lbs?|g)\s+of\s+(.+?)\.?$/i);
+  if(ofm){
+    const oname = groCleanName(ofm[3]);
+    if(oname) return { name: oname, amounts: [{ lo: parseFloat(ofm[1]), hi: null, unit: groNormUnit(ofm[2]) }] };
+  }
+  if(/^(each|serves?|makes|yields?|prep time|cook time|total time)\b/i.test(line)) return null;
+  const qd = QUANT[r.id];
+  if(qd){
+    for(const t of qd[2]){
+      if(t[0] !== lineIdx) continue;
+      const hasRange = t.length === 4;
+      // The scaler's remainder can still carry a range tail the parser
+      // did not store ("2 to 3 tbsp …" quantified as just 2): drop it so
+      // it doesn't end up in the ingredient's name.
+      const rest = line.slice(line.length - (hasRange ? t[3] : t[2])).trim()
+        .replace(/^(?:to\s+|[-–]\s*)(?:\d+\s+\d+\/\d+|\d+\/\d+|\d+(?:\.\d+)?[¼½¾⅓⅔⅛]?|[¼½¾⅓⅔⅛])\s*/i, "");
+      const um = rest.match(GROC_UNIT_LEAD);
+      const name = groCleanName(um ? um[2] : rest);
+      if(!name) return null;
+      return { name, amounts: [{ lo: t[1], hi: hasRange ? t[2] : null, unit: um ? groNormUnit(um[1]) : "" }] };
+    }
+  }
+  const line2 = line.replace(/(\d)\s*["”]\s*/g, "$1 inch "); // 1" ginger -> 1 inch ginger
+  const m = line2.match(GROC_LEAD);
+  if(m){
+    const lo = groQtyValue(m[1]);
+    if(lo != null){
+      const name = groCleanName(m[4]);
+      if(name) return { name, amounts: [{ lo, hi: m[2] ? groQtyValue(m[2]) : null, unit: m[3] ? groNormUnit(m[3]) : "" }] };
+    }
+  }
+  // A numbered line that carried no parseable amount is a sub-recipe
+  // header ("1. Asian-Inspired Soy Chicken"), not an ingredient.
+  if(/^\d+\s*[.)]\s/.test(line2)) return null;
+  const name = groCleanName(line2);
+  if(!name || name.length > 42 || !/[a-z]/i.test(name)) return null;
+  // Section headers that don't end in a colon ("For tempering",
+  // "FOR THE PASTE") and stray bare quantities ("180ml") are not items.
+  if(/^for\b/i.test(name)) return null;
+  if(/^[\d.]+\s*(ml|gm|g|kg|l|oz)?$/i.test(name)) return null;
+  return { name, amounts: [] };
+}
+// The merge key behind the grocery list: one ingredient, one line.
+// Names are canonicalized token by token — case and plurals folded,
+// spelling variants unified (chillies/chilies, yoghurt, capsicum),
+// preparation and form words dropped wherever they sit in the name
+// (finely chopped, dried, ground, powder) — and a short alias table
+// folds the remaining variant names (red onion, basmati rice, garlic
+// cloves, sea salt) onto the ingredient they are a variant of.
+// Genuinely different items (coconut milk vs milk, chicken breast
+// vs chicken) keep lines of their own.
+const GRO_FIX = { chillies: "chilli", chilies: "chilli", chili: "chilli",
+  tomatoes: "tomato", potatoes: "potato", mangoes: "mango", leaves: "leaf",
+  yoghurt: "yogurt", capsicum: "bell pepper", capsicums: "bell pepper",
+  aubergine: "eggplant", brinjal: "eggplant", cilantro: "coriander" };
+const GRO_DROP = new Set(["fresh", "dried", "dry", "ground", "finely",
+  "roughly", "coarsely", "chopped", "minced", "diced", "sliced", "grated",
+  "crushed", "peeled", "cubed", "large", "small", "medium", "whole",
+  "raw", "baby", "boneless", "skinless", "unsalted", "salted", "powder",
+  "powdered", "thinly", "julienned", "torn", "washed", "soaked", "boiled",
+  "steamed", "roasted", "toasted", "melted", "softened", "frozen",
+  "canned", "ripe", "organic"]);
+const GRO_ALIAS = {
+  "red onion": "onion", "yellow onion": "onion", "white onion": "onion",
+  "brown onion": "onion", "garlic clove": "garlic",
+  "sea salt": "salt", "rock salt": "salt", "pink salt": "salt",
+  "kosher salt": "salt",
+  "basmati rice": "rice", "jasmine rice": "rice", "brown rice": "rice",
+  "white rice": "rice", "sona masoori rice": "rice",
+  "jeeraga samba rice": "rice", "red rice": "rice",
+  "parboiled rice": "rice", "long grain rice": "rice",
+  "short grain rice": "rice", "cooked rice": "rice" };
+function groSingTok(w){
+  if(GRO_FIX[w]) return GRO_FIX[w];
+  if(w.length > 3 && w.endsWith("s") && !/(ss|us|is)$/.test(w)) return w.slice(0, -1);
+  return w;
+}
+function groKey(name){
+  const toks = name.toLowerCase().replace(/[^a-z\s]/g, " ").split(/\s+/)
+    .filter(Boolean).map(groSingTok).filter(t => !GRO_DROP.has(t));
+  const key = toks.join(" ");
+  return GRO_ALIAS[key] || key || name.toLowerCase().trim();
+}
+// Store-section sorting by ingredient name. Staples (salt, water, oils,
+// common dry spices) are checked before the buy sections so they land in
+// "Probably already home"; a few produce exceptions (bell pepper, garlic,
+// green beans) are checked before them so "pepper"/"cloves" in the spice
+// list can't pull fresh produce out of Produce.
+const GROC_RULES = [
+  ["Pantry & spices", /\b(coconut milk|oat milk|almond milk|soy milk|broth|stock)\b/],
+  ["Produce", /\b(bell pepper|capsicum|garlic|green beans?|edamame|methi leaves|fenugreek leaves)\b/],
+  ["Dairy & eggs", /\b(eggs?|paneer|cheese|yogurt|yoghurt|curds?|butter|ghee|cream|milk|mozzarella|parmesan|cheddar|feta|ricotta|buttermilk|malai)\b/],
+  ["Probably already home", /\b(salt|water|turmeric|cumin|jeera|garam masala|paprika|cayenne|chili powder|chilli powder|coriander powder|coriander seeds?|chili flakes|chilli flakes|red chili flakes|cinnamon|cardamom|mustard seeds?|cumin seeds?|fennel seeds?|fenugreek|asafoetida|hing|bay lea(?:f|ves)|cloves?|nutmeg|oregano|chaat masala|amchur|black salt|curry powder|kasuri methi|black pepper|white pepper|peppercorns?|pepper)\b|\boil\b|\bdried (?:red )?(?:chili|chilli|chilies|chillies)\b/],
+  ["Protein", /\b(chicken|mutton|lamb|beef|pork|turkey|bacon|ham|sausages?|fish|salmon|tuna|cod|haddock|tilapia|trout|mackerel|sardines?|anchov\w*|prawns?|shrimps?|crab|squid|octopus|scallops?|mussels?|clams?|tofu|tempeh|lentils?|dal|chickpeas?|chana|rajma|kidney beans?|black beans?|pinto beans?|cannellini|soya|soy chunks?|beans?)\b/],
+  ["Produce", /\b(onions?|ginger|tomatoes?|potatoes?|sweet potatoes?|spinach|kale|cabbage|cauliflower|broccoli|carrots?|cucumbers?|zucchini|mushrooms?|peas|peppers?|corn|chil[il]|chilies|chillies|lemons?|limes?|avocados?|apples?|bananas?|mangoes?|strawberr\w*|blueberr\w*|raspberr\w*|grapes?|oranges?|pineapples?|papayas?|peaches?|pears?|plums?|melons?|cilantro|coriander|mint|curry leaves|basil|parsley|dill|spring onions?|scallions?|green onions?|leeks?|celery|lettuce|arugula|beetroot|beets?|radish|turnips?|pumpkin|squash|bottle gourd|lauki|ridge gourd|bitter gourd|okra|bhindi|eggplants?|brinjals?|aubergines?|drumsticks?|plantains?|jackfruit|herbs?|greens)\b/],
+  ["Pantry & spices", /\b(rice|flour|pasta|noodles?|spaghetti|penne|macaroni|orzo|lasagna|oats?|oatmeal|quinoa|couscous|bulgur|semolina|rava|suji|poha|sabudana|sago|bread|sourdough|tortillas?|wraps?|roti|naan|pita|buns?|bagels?|sugar|jaggery|honey|maple syrup|soy sauce|sauces?|ketchup|mustard|vinegar|miso|mirin|sake|gochujang|sriracha|mayonnaise|mayo|peanut butter|tahini|almonds?|cashews?|walnuts?|peanuts?|pistachios?|hazelnuts?|pecans?|sesame|flax|chia|sunflower seeds?|pumpkin seeds?|raisins?|dates?|cocoa|chocolate|coffee|tea|protein powder|whey|coconuts?|baking powder|baking soda|yeast|vanilla|cornstarch|cornflour|breadcrumbs|panko|cereal|granola|muesli|makhana|popcorn|crackers?|biscuits?|cookies?|chips)\b/]
+];
+function groSectionFor(name){
+  const n = name.toLowerCase();
+  for(const [sec, re] of GROC_RULES) if(re.test(n)) return sec;
+  return "Other";
+}
+// "roasted broccoli" -> "broccoli", "edamame with sea salt" -> "edamame":
+// the dinner sides join the list as plain produce items.
+function groSideName(side){
+  return side.toLowerCase()
+    .replace(/^(roasted|garlic|sauteed|sautéed|grilled|steamed)\s+/, "")
+    .replace(/\s+(with sea salt|salad|wedges|on the cob)$/, "")
+    .trim();
+}
+function buildGrocery(){
+  const items = new Map(); // key -> {name, section, amounts: Map unit->{lo,hi}, plain}
+  const add = (name, amounts, section) => {
+    if(!name) return;
+    let it = items.get(groKey(name));
+    if(!it){
+      it = { name, section: section || groSectionFor(name), amounts: new Map(), plain: false };
+      items.set(groKey(name), it);
+    }
+    if(amounts && amounts.length){
+      for(const a of amounts){
+        const cur = it.amounts.get(a.unit);
+        if(!cur) it.amounts.set(a.unit, { lo: a.lo, hi: a.hi });
+        else {
+          const h1 = cur.hi != null ? cur.hi : cur.lo;
+          const h2 = a.hi != null ? a.hi : a.lo;
+          cur.lo += a.lo;
+          cur.hi = (cur.hi == null && a.hi == null) ? null : h1 + h2;
+        }
+      }
+    } else it.plain = true;
+  };
+  const addRecipe = r => {
+    if(!r) return;
+    let added = 0;
+    ingLinesOf(r).forEach((line, idx) => {
+      const p = groParseLine(r, idx, line);
+      if(p){ add(p.name, p.amounts); added++; }
+    });
+    // No usable recipe-text lines: fall back to the recipe's detected
+    // ingredient names, without amounts.
+    if(!added && r.ingredients) for(const nm of r.ingredients) add(groCleanName(nm), null);
+  };
+  for(const day of planWeek){
+    addRecipe(day.b);
+    addRecipe(day.l);
+    addRecipe(day.d);
+    addRecipe(day.s);
+    add(groSideName(day.side), null, "Produce");
+  }
+  const secs = {};
+  for(const it of items.values()){
+    const parts = [];
+    for(const [unit, a] of it.amounts){
+      let s = fmtQty(a.lo);
+      if(a.hi != null && a.hi !== a.lo) s += "–" + fmtQty(a.hi);
+      if(unit) s += " " + unit;
+      parts.push(s);
+    }
+    let line = it.name;
+    if(parts.length) line += " — " + parts.join(" + ");
+    if(it.plain && parts.length) line += " + more";
+    (secs[it.section] = secs[it.section] || []).push(line);
+  }
+  for(const s of Object.keys(secs)) secs[s].sort((a, b) => a.localeCompare(b));
+  return secs;
+}
+function renderGrocery(){
+  if(!planWeek) return;
+  const body = document.getElementById("plGrocBody");
+  body.innerHTML = "";
+  const secs = buildGrocery();
+  let any = false;
+  for(const s of GROC_SECTIONS){
+    const list = secs[s];
+    if(!list || !list.length) continue;
+    any = true;
+    body.appendChild(el("h4", s, "pl-groc-sec"));
+    const ul = el("ul", null, "pl-groc-list");
+    for(const line of list) ul.appendChild(el("li", line));
+    body.appendChild(ul);
+  }
+  document.getElementById("plGrocSec").hidden = !any;
+}
+function groceryText(){
+  const secs = buildGrocery();
+  const out = ["GROCERY LIST"];
+  for(const s of GROC_SECTIONS){
+    const list = secs[s];
+    if(!list || !list.length) continue;
+    out.push(s);
+    for(const line of list) out.push("- " + line);
+  }
+  return out.join("\n");
+}
+function copyGrocery(btn){
+  copyTextWithFallback(groceryText(), btn);
+}
+
+// ---- Export plan as PDF ----
+// The plan drawn as one tall card with the page's own canvas code (no
+// libraries) — the layout the old photo export used: header, Prep
+// ahead box, the 7 days, and now the full grocery list too — then
+// rasterized into a single PDF page where every dish name carries a
+// real link annotation over its drawn text, tappable through to the
+// Instagram post. (A flat photo cannot hold links; a PDF can.) Shared
+// via the Web Share API with files where supported, else a download.
+function planExport(){
+  const btn = document.getElementById("plExport");
+  if(btn.disabled || !planWeek) return;
+  btn.disabled = true;
+  const finish = blob => {
+    btn.disabled = false;
+    if(!blob) return;
+    const download = () => {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "this-weeks-plan.pdf";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 5000);
+    };
+    const file = new File([blob], "this-weeks-plan.pdf", { type: "application/pdf" });
+    if(navigator.canShare && navigator.canShare({ files: [file] }) && navigator.share){
+      navigator.share({ files: [file], title: "This week's plan" })
+        .catch(err => { if(!err || err.name !== "AbortError") download(); });
+    } else download();
+  };
+  try {
+    const plan = drawPlanCanvas();
+    if(!plan.cv.toBlob){ finish(null); return; }
+    plan.cv.toBlob(jpeg => {
+      if(!jpeg){ finish(null); return; }
+      jpeg.arrayBuffer().then(buf => {
+        let pdf = null;
+        try { pdf = buildPlanPdf(new Uint8Array(buf), plan.cv.width, plan.cv.height, plan.links); }
+        catch(e){ pdf = null; }
+        finish(pdf);
+      }, () => finish(null));
+    }, "image/jpeg", 0.92);
+  } catch(e){ btn.disabled = false; }
+}
+// Draws the card and returns { cv, links }; links are the dish-name
+// rectangles in canvas pixels ({x, y, w, h, url}, y from the top) that
+// become the PDF's link annotations.
+function drawPlanCanvas(){
+  const W = 1080, PAD = 64, CW = W - PAD * 2;
+  const INK = "#2b2118", MUTED = "#8a7a68", BG = "#faf6f0", BORDER = "#e9ddd0",
+        GREEN = "#357a44", GREENSOFT = "#e5f2e8", ACCENT = "#c2571b";
+  const FONT = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif";
+  const cv = document.createElement("canvas");
+  cv.width = W;
+  cv.height = 100;
+  const ctx = cv.getContext("2d");
+  const wrap = (text, font, maxW) => {
+    ctx.font = font;
+    const lines = [];
+    let cur = "";
+    for(const w of String(text).split(/\s+/)){
+      const t = cur ? cur + " " + w : w;
+      if(cur && ctx.measureText(t).width > maxW){ lines.push(cur); cur = w; }
+      else cur = t;
+    }
+    if(cur) lines.push(cur);
+    return lines.length ? lines : [""];
+  };
+  const texts = []; // {text, font, fill, x, y} — y is the baseline
+  const boxes = []; // {x, y, w, h, fill, stroke} rounded rects
+  const rules = []; // {y} hairlines
+  const links = []; // {x, y, w, h, url} canvas px, y from the top
+  // Rich text: runs of {t, url} word-wrapped as one paragraph starting
+  // at (x, yTop); returns the y just past the last line. Words from a
+  // url run register one link rect per drawn line segment.
+  function rich(runs, font, fill, x, yTop, lh, maxW){
+    ctx.font = font;
+    const fs = parseInt(/(\d+)px/.exec(font)[1], 10);
+    const words = [];
+    for(const run of runs){
+      for(const w of String(run.t).split(/\s+/)){
+        if(w) words.push({ w, url: run.url || null });
+      }
+    }
+    if(!words.length) return yTop;
+    const spaceW = ctx.measureText(" ").width;
+    const lines = [];
+    let line = [], lineW = 0;
+    for(const wd of words){
+      const ww = ctx.measureText(wd.w).width;
+      const add = (line.length ? spaceW : 0) + ww;
+      if(line.length && lineW + add > maxW){ lines.push(line); line = [wd]; lineW = ww; }
+      else { line.push(wd); lineW += add; }
+    }
+    if(line.length) lines.push(line);
+    lines.forEach((ln, li) => {
+      const baseline = yTop + li * lh + fs * 0.92;
+      let cx = x, seg = null;
+      const flushSeg = () => {
+        if(!seg) return;
+        texts.push({ text: seg.text, font, fill, x: seg.x, y: baseline });
+        if(seg.url) links.push({ x: seg.x, y: baseline - fs * 0.92, w: seg.w, h: fs * 1.2, url: seg.url });
+        seg = null;
+      };
+      for(const wd of ln){
+        const ww = ctx.measureText(wd.w).width;
+        if(seg && seg.url === wd.url){ seg.text += " " + wd.w; seg.w += spaceW + ww; }
+        else { flushSeg(); seg = { text: wd.w, url: wd.url, x: cx, w: ww }; }
+        cx += ww + spaceW;
+      }
+      flushSeg();
+    });
+    return yTop + lines.length * lh;
+  }
+  let y = PAD;
+  texts.push({ text: "This week's plan", font: "800 54px " + FONT, fill: INK, x: PAD, y: y + 46 });
+  y += 84;
+  // Prep ahead box: the grouped lines, each with its dishes listed
+  // underneath — title (a link in the PDF) and full URL written out.
+  const groups = planPrepGroups();
+  const prepTop = y;
+  let py = y + 24;
+  texts.push({ text: "PREP AHEAD", font: "700 23px " + FONT, fill: GREEN, x: PAD + 22, y: py + 22 });
+  py += 50;
+  if(groups.length){
+    for(const g of groups){
+      py = rich([{ t: g.line }], "29px " + FONT, INK, PAD + 22, py, 40, CW - 44);
+      py += 2;
+      for(const r of g.dishes){
+        py = rich([{ t: r.title, url: r.link }], "600 26px " + FONT, INK, PAD + 44, py, 34, CW - 66);
+        for(const ln of wrap(r.link, "22px " + FONT, CW - 66)){
+          texts.push({ text: ln, font: "22px " + FONT, fill: MUTED, x: PAD + 44, y: py + 21 });
+          py += 28;
+        }
+      }
+      py += 12;
+    }
+  } else {
+    py = rich([{ t: "No special prep \u2014 everything cooks fresh." }], "29px " + FONT, INK, PAD + 22, py, 40, CW - 44);
+  }
+  const prepH = py - prepTop + 14;
+  boxes.push({ x: PAD, y: prepTop, w: CW, h: prepH, fill: GREENSOFT, stroke: GREEN });
+  y = prepTop + prepH + 38;
+  // Days
+  planWeek.forEach((day, i) => {
+    texts.push({ text: PLAN_DAYS[i], font: "800 38px " + FONT, fill: INK, x: PAD, y: y + 36 });
+    y += 58;
+    const rows = [
+      ["BREAKFAST", day.b ? [{ t: day.b.title, url: day.b.link }] : [{ t: "\u2014" }], null],
+      ["LUNCH", day.l ? [{ t: day.l.title, url: day.l.link }, { t: "(picked)" }] :
+        [{ t: i === 0 ? "Prep-day leftovers / eggs + toast" : "Leftovers from last night's dinner" }], null],
+      ["DINNER", day.d ? [{ t: day.d.title, url: day.d.link }] : [{ t: "\u2014" }], "Side: " + day.side],
+      ["SNACK", day.s ? [{ t: day.s.title, url: day.s.link }] : [{ t: "\u2014" }], null]
+    ];
+    for(const [label, runs, sub] of rows){
+      texts.push({ text: label, font: "700 21px " + FONT, fill: MUTED, x: PAD, y: y + 25 });
+      y = rich(runs, "600 31px " + FONT, INK, PAD + 196, y, 40, CW - 196);
+      if(sub){
+        texts.push({ text: sub, font: "27px " + FONT, fill: MUTED, x: PAD + 196, y: y + 24 });
+        y += 38;
+      }
+      y += 12;
+    }
+    y += 24;
+    if(i < planWeek.length - 1) rules.push(y - 12);
+  });
+  // Grocery list: every section, "Probably already home" included.
+  const secs = buildGrocery();
+  const secNames = GROC_SECTIONS.filter(sn => secs[sn] && secs[sn].length);
+  if(secNames.length){
+    texts.push({ text: "Grocery list", font: "800 34px " + FONT, fill: INK, x: PAD, y: y + 32 });
+    y += 54;
+    for(const sn of secNames){
+      texts.push({ text: sn.toUpperCase(), font: "700 22px " + FONT, fill: ACCENT, x: PAD, y: y + 21 });
+      y += 34;
+      for(const line of secs[sn]){
+        for(const ln of wrap("\u2022 " + line, "28px " + FONT, CW)){
+          texts.push({ text: ln, font: "28px " + FONT, fill: INK, x: PAD, y: y + 26 });
+          y += 36;
+        }
+      }
+      y += 14;
+    }
+  }
+  const H = y + PAD - 24;
+  cv.height = H;
+  const c = cv.getContext("2d");
+  c.fillStyle = BG;
+  c.fillRect(0, 0, W, H);
+  for(const b of boxes){
+    c.beginPath();
+    if(c.roundRect) c.roundRect(b.x, b.y, b.w, b.h, 20);
+    else c.rect(b.x, b.y, b.w, b.h);
+    c.fillStyle = b.fill;
+    c.fill();
+    c.strokeStyle = b.stroke;
+    c.lineWidth = 2;
+    c.stroke();
+  }
+  c.strokeStyle = BORDER;
+  c.lineWidth = 2;
+  for(const ry of rules){
+    c.beginPath();
+    c.moveTo(PAD, ry);
+    c.lineTo(W - PAD, ry);
+    c.stroke();
+  }
+  for(const t of texts){
+    c.font = t.font;
+    c.fillStyle = t.fill;
+    c.fillText(t.text, t.x, t.y);
+  }
+  return { cv, links };
+}
+// Minimal PDF writer: one tall page holding the drawn card as a JPEG,
+// with a link annotation over every dish name. The page is 540pt
+// wide; its height follows the card's, capped within PDF page limits.
+function buildPlanPdf(jpeg, wPx, hPx, links){
+  const pageW = 540;
+  let scale = pageW / wPx;
+  let pageH = hPx * scale;
+  if(pageH > 13500){ scale = 13500 / hPx; pageH = 13500; }
+  const PW = Math.round(pageW * 100) / 100, PH = Math.round(pageH * 100) / 100;
+  const esc = v => String(v).replace(/\\/g, "\\\\").replace(/\(/g, "\\(").replace(/\)/g, "\\)");
+  const enc = new TextEncoder();
+  const parts = [];
+  const offsets = {};
+  let len = 0;
+  const pushStr = v => { const b = enc.encode(v); parts.push(b); len += b.length; };
+  const obj = (id, body) => { offsets[id] = len; pushStr(id + " 0 obj\n" + body + "\nendobj\n"); };
+  pushStr("%PDF-1.4\n%\u00FF\u00FF\u00FF\u00FF\n");
+  obj(1, "<< /Type /Catalog /Pages 2 0 R >>");
+  obj(2, "<< /Type /Pages /Kids [3 0 R] /Count 1 >>");
+  obj(3, "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 " + PW + " " + PH + "] " +
+         "/Resources << /XObject << /Im1 5 0 R >> >> /Contents 4 0 R /Annots [" +
+         links.map((_, i) => (6 + i) + " 0 R").join(" ") + "] >>");
+  const content = "q " + PW + " 0 0 " + PH + " 0 0 cm /Im1 Do Q";
+  obj(4, "<< /Length " + content.length + " >>\nstream\n" + content + "\nendstream");
+  offsets[5] = len;
+  pushStr("5 0 obj\n<< /Type /XObject /Subtype /Image /Width " + wPx + " /Height " + hPx +
+          " /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length " +
+          jpeg.length + " >>\nstream\n");
+  parts.push(jpeg); len += jpeg.length;
+  pushStr("\nendstream\nendobj\n");
+  links.forEach((L, i) => {
+    const x1 = (L.x * scale).toFixed(2), x2 = ((L.x + L.w) * scale).toFixed(2);
+    const yTop = (PH - L.y * scale).toFixed(2), yBot = (PH - (L.y + L.h) * scale).toFixed(2);
+    obj(6 + i, "<< /Type /Annot /Subtype /Link /Rect [" + x1 + " " + yBot + " " + x2 + " " + yTop +
+               "] /Border [0 0 0] /A << /S /URI /URI (" + esc(L.url) + ") >> >>");
+  });
+  const xrefAt = len;
+  const n = 6 + links.length;
+  let xref = "xref\n0 " + n + "\n0000000000 65535 f \n";
+  for(let i = 1; i < n; i++) xref += String(offsets[i]).padStart(10, "0") + " 00000 n \n";
+  pushStr(xref + "trailer\n<< /Size " + n + " /Root 1 0 R >>\nstartxref\n" + xrefAt + "\n%%EOF");
+  return new Blob(parts, { type: "application/pdf" });
+}
+function openPlan(){
+  generatePlan();
+  plScrollY = window.scrollY;
+  document.getElementById("plOverlay").hidden = false;
+  document.body.style.overflow = "hidden";
+  document.querySelector(".pl-sheet").scrollTop = 0;
+}
+function closePlan(){
+  document.getElementById("plOverlay").hidden = true;
+  document.body.style.overflow = "";
+  window.scrollTo(0, plScrollY);
+}
+document.getElementById("planBtn").onclick = openPlan;
+document.getElementById("plClose").onclick = closePlan;
+document.getElementById("plRegen").onclick = generatePlan;
+document.getElementById("plCopy").onclick = copyPlan;
+document.getElementById("plExport").onclick = planExport;
+document.getElementById("plGroc").onclick = e => copyGrocery(e.currentTarget);
+document.getElementById("plGrocCopy").onclick = e => copyGrocery(e.currentTarget);
+document.getElementById("plOverlay").addEventListener("click", e => {
+  if(e.target.id === "plOverlay") closePlan();
+});
+document.addEventListener("keydown", e => {
+  if(e.key !== "Escape") return;
+  if(!document.getElementById("pvOverlay").hidden) return; // the preview handles its own Escape
+  if(!document.getElementById("plOverlay").hidden) closePlan();
+});
+// The preview can open on top of the planner; when it closes it restores
+// the body's scroll, so re-lock it while the planner is still open.
+new MutationObserver(() => {
+  if(!document.getElementById("plOverlay").hidden &&
+     document.getElementById("pvOverlay").hidden)
+    document.body.style.overflow = "hidden";
+}).observe(document.getElementById("pvOverlay"), { attributes: true, attributeFilter: ["hidden"] });
+
+init();
+</script>
+</body>
+</html>
