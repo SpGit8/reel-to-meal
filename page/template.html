@@ -226,9 +226,6 @@
   #pvCols.two{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);
     gap:24px;align-items:start}
   #pvCols.two .pv-h{margin-top:14px}
-  /* In the narrow left column the servings row wraps instead of spilling
-     over the Method column at phone width. */
-  #pvCols.two #pvScale{flex-wrap:wrap;row-gap:6px}
   #pvIngs{display:flex;flex-wrap:wrap;gap:6px}
   .pv-ing{background:var(--chip);border:1px solid var(--border);border-radius:999px;
     padding:4px 11px;font-size:14px}
@@ -252,7 +249,9 @@
     padding:4px 12px;margin:4px 0 2px}
   #pvSrc[hidden]{display:none}
   #pvNote{font-size:13px;color:var(--muted);font-style:italic;margin-top:14px}
-  #pvScale{display:flex;align-items:center;gap:10px;margin:6px 0 0}
+  /* The servings scaler sits on its own full-width line above the
+     Ingredients / Method columns, not inside either column. */
+  #pvScale{display:flex;align-items:center;gap:10px;margin:12px 0 0}
   #pvScale[hidden]{display:none}
   .pv-scale-label{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--muted)}
   #pvScale button{width:34px;height:34px;border:1px solid var(--border);background:var(--field);
@@ -474,16 +473,16 @@
       <div id="pvMeta" class="pv-meta"></div>
       <div id="pvTags" class="pv-tags"></div>
       <div id="pvSrc" hidden></div>
+      <div id="pvScale" hidden>
+        <span class="pv-scale-label">Servings</span>
+        <button id="pvServMinus" type="button" aria-label="Fewer servings">−</button>
+        <span id="pvServNum">1</span>
+        <button id="pvServPlus" type="button" aria-label="More servings">+</button>
+      </div>
+      <div id="pvScaleNote" hidden></div>
       <div id="pvCols">
       <div id="pvIngWrap">
         <h3 class="pv-h">Ingredients</h3>
-        <div id="pvScale" hidden>
-          <span class="pv-scale-label">Servings</span>
-          <button id="pvServMinus" type="button" aria-label="Fewer servings">−</button>
-          <span id="pvServNum">1</span>
-          <button id="pvServPlus" type="button" aria-label="More servings">+</button>
-        </div>
-        <div id="pvScaleNote" hidden></div>
         <div id="pvIngText" class="pv-text" hidden></div>
         <div id="pvIngs"></div>
       </div>
@@ -1227,6 +1226,7 @@ function renderIngs(r){
     // rendered exactly as written.
     setRecipeText(ingText, r.recipe_ingredients);
     addPrepPills(r);
+    boldIngLines(r);
     return;
   }
   const f = pvServ / qd[0];
@@ -1246,6 +1246,7 @@ function renderIngs(r){
   });
   setRecipeText(ingText, lines.join("\n"));
   addPrepPills(r);
+  boldIngLines(r);
 }
 // Prep pills: PREP maps recipe id -> {ingredient line index -> label},
 // detected from the recipe's own text (an ingredient line that itself says
@@ -1262,6 +1263,134 @@ function addPrepPills(r){
     if(!p) continue;
     p.parentNode.insertBefore(el("span", hints[k], "pv-prep"), p.nextSibling);
   }
+}
+// ---- Bold ingredient names in the preview ----
+// In each ingredient line the ingredient's NAME is bolded: the words after
+// the quantity and unit, up to the first comma (prep notes after the comma
+// stay plain). The name itself is located with the page's existing parses:
+// QUANT's remainder (the line after its quantity) and the recipe's own
+// "ingredients" list — the same names grouping and search use — so a
+// leading adjective in front of the name noun ("6–8 fresh figs") stays
+// plain while the name ("figs") bolds, and a name like "garlic clove"
+// bolds whole. The same names are then bolded wherever the Method steps
+// use them, matched whole-word and case-insensitively (the termHits/sing
+// conventions). pvNames carries the open preview's names from the
+// ingredient render to the method render.
+let pvNames = [];
+const PV_UNITS = new Set(["cup","cups","tbsp","tablespoon","tablespoons","tsp","teaspoon","teaspoons","g","gram","grams","kg","ml","l","litre","litres","liter","liters","oz","lb","lbs","can","cans","packet","packets","pack","packs","piece","pieces","clove","cloves","pinch","pinches","dash","dashes","bunch","bunches","slice","slices","sprig","sprigs","head","heads","stalk","stalks","scoop","scoops","drop","drops","sheet","sheets","tin","tins","box","boxes","bag","bags"]);
+// Words that end a name when they follow it: qualifiers and prep participles
+// trailing the noun ("olive oil for frying", "rice cooked …") stay plain.
+const PV_NAME_STOP = new Set(["for","with","of","in","on","and","or","to","topping","garnish","cooked","chopped","sliced","diced","minced","grated","crushed","peeled","washed","rinsed","soaked","boiled","roasted","toasted","ground","beaten","whisked","melted","softened","drained","trimmed","halved","quartered","deveined","cleaned","cubed","shredded","torn","mashed","blanched","steamed","fried","baked","grilled","frozen","dried","canned"]);
+function pvNameSpans(r, line){
+  // [start, end) spans of the ingredient name(s) within one line, or null.
+  let i = 0;
+  const qm = /^\s*(?:\d+(?:[.,]\d+)?(?:\s+\d+\s*\/\s*\d+|\s*\/\s*\d+)?|\d+\s*\/\s*\d+|[¼½¾⅓⅔⅛⅜⅝⅞]+)(?:\s*[–—-]\s*(?:\d+(?:[.,]\d+)?(?:\s*\/\s*\d+)?|[¼½¾⅓⅔⅛⅜⅝⅞]+))?/.exec(line);
+  if(qm) i = qm[0].length;
+  else {
+    const wm = /^\s*(?:pinch of|dash of|drizzle of|squeeze of|handful of|sprinkle of|an?)\s+/i.exec(line);
+    if(wm) i = wm[0].length;
+  }
+  const uw = /^\s*([A-Za-z]+)\b/.exec(line.slice(i));
+  if(uw && PV_UNITS.has(uw[1].toLowerCase())){
+    i += uw[0].length;
+    const ofm = /^\s+of\s+/i.exec(line.slice(i));
+    if(ofm) i += ofm[0].length;
+  }
+  let end = line.length;
+  for(const ch of [",", "("]){ const k = line.indexOf(ch, i); if(k >= 0 && k < end) end = k; }
+  const rawRegion = line.slice(i, end);
+  const start0 = i + (rawRegion.length - rawRegion.replace(/^\s+/, "").length);
+  const region = rawRegion.trim();
+  if(!region || region.endsWith(":")) return null;
+  if(region.split(/\s+/).length > 6) return null;
+  const regionEnd = start0 + region.length;
+  const regWords = [...region.matchAll(/[A-Za-zÀ-ÿ]+/g)]
+    .map(m => ({ w: m[0], at: m.index }));
+  if(!regWords.length) return null;
+  const spans = [];
+  let s = 0;
+  while(s < regWords.length){
+    let hit = null;
+    for(const ing of (r.ingredients || [])){
+      const iw = norm(ing).split(/[^a-z]+/).filter(Boolean);
+      if(!iw.length || s + iw.length > regWords.length) continue;
+      if(hit && iw.length <= hit.n) continue;
+      let ok = true;
+      for(let k = 0; k < iw.length; k++){
+        if(sing(regWords[s + k].w.toLowerCase()) !== sing(iw[k])){ ok = false; break; }
+      }
+      if(ok) hit = { n: iw.length };
+    }
+    if(!hit){ s++; continue; }
+    let last = s + hit.n - 1, ext = 0;
+    while(last + 1 < regWords.length && ext < 2 &&
+          !PV_NAME_STOP.has(regWords[last + 1].w.toLowerCase())){
+      last++; ext++;
+    }
+    spans.push([start0 + regWords[s].at,
+                start0 + regWords[last].at + regWords[last].w.length]);
+    s = last + 1;
+  }
+  if(!spans.length) return [[start0, regionEnd]];
+  const merged = [spans[0]];
+  for(let k = 1; k < spans.length; k++){
+    const prev = merged[merged.length - 1];
+    const gap = line.slice(prev[1], spans[k][0]);
+    if(/^\s*$/.test(gap) || /^\s*(?:and|or|&)\s*$/i.test(gap)) prev[1] = spans[k][1];
+    else merged.push(spans[k]);
+  }
+  return merged;
+}
+function boldIngLines(r){
+  const box = document.getElementById("pvIngText");
+  const names = [];
+  Array.from(box.querySelectorAll("p")).forEach(p => {
+    const line = p.textContent;
+    const spans = pvNameSpans(r, line);
+    if(!spans) return;
+    for(const [a, b] of spans) names.push(line.slice(a, b));
+    p.innerHTML = "";
+    let pos = 0;
+    for(const [a, b] of spans){
+      if(a > pos) p.appendChild(document.createTextNode(line.slice(pos, a)));
+      p.appendChild(el("b", line.slice(a, b)));
+      pos = b;
+    }
+    if(pos < line.length) p.appendChild(document.createTextNode(line.slice(pos)));
+  });
+  pvNames = names;
+}
+function escRe(s){ return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }
+function boldMethodNames(){
+  const terms = new Set();
+  for(const n of pvNames){
+    const bases = [n.trim(), n.trim().replace(/\s+cloves?$/i, "")];
+    for(const base of bases){
+      if(base.length < 3) continue;
+      terms.add(base);
+      const w = base.split(/\s+/);
+      const sg = sing(w[w.length - 1].toLowerCase());
+      if(sg && sg !== w[w.length - 1].toLowerCase())
+        terms.add(w.slice(0, -1).concat(sg).join(" "));
+    }
+  }
+  const list = [...terms].sort((a, b) => b.length - a.length);
+  if(!list.length) return;
+  const re = new RegExp("(^|[^A-Za-z])(" + list.map(escRe).join("|") + ")(?![A-Za-z])", "gi");
+  document.querySelectorAll("#pvMethod p").forEach(p => {
+    const text = p.textContent;
+    const matches = [...text.matchAll(re)];
+    if(!matches.length) return;
+    p.innerHTML = "";
+    let pos = 0;
+    for(const m of matches){
+      const start = m.index + m[1].length;
+      if(start > pos) p.appendChild(document.createTextNode(text.slice(pos, start)));
+      p.appendChild(el("b", m[2]));
+      pos = start + m[2].length;
+    }
+    if(pos < text.length) p.appendChild(document.createTextNode(text.slice(pos)));
+  });
 }
 function updateScaleUI(r){
   const qd = QUANT[r.id];
@@ -1292,6 +1421,7 @@ function stepServ(d){
 function fillPreview(){
   const r = pvList[pvIdx];
   if(!r) return;
+  pvNames = [];
   const img = document.getElementById("pvImg");
   const src = THUMBS[r.id];
   if(src){
@@ -1371,12 +1501,13 @@ function fillPreview(){
   if(r.recipe_method && r.recipe_method.trim()){
     methodWrap.hidden = false;
     setRecipeText(document.getElementById("pvMethod"), splitMethodText(r.recipe_method));
+    boldMethodNames();
   } else methodWrap.hidden = true;
   // Two columns only when both sections are present as extracted text:
-  // Ingredients on the left (its heading first, the servings scaler under
-  // it, above the list), Method on the right, so the two headings share
-  // one line. Ingredients-only, method-only and chips-only previews keep
-  // the stacked full-width layout.
+  // Ingredients on the left, Method on the right, so the two headings
+  // share one line; the servings scaler sits on its own full-width line
+  // above the columns. Ingredients-only, method-only and chips-only
+  // previews keep the stacked full-width layout.
   const bothText = !!((r.recipe_ingredients && r.recipe_ingredients.trim()) &&
                       (r.recipe_method && r.recipe_method.trim()));
   document.getElementById("pvCols").classList.toggle("two", bothText);
