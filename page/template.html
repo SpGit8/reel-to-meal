@@ -372,9 +372,65 @@
   .pl-tolo{flex:none;align-self:center;background:none;border:none;color:var(--accent);
     font-size:12px;font-weight:700;cursor:pointer;padding:4px 2px;font-family:inherit;
     text-decoration:underline;white-space:nowrap}
+  .pl-pick{flex:none;align-self:flex-start;background:var(--field);
+    border:1px solid var(--border);color:var(--ink);border-radius:999px;
+    padding:6px 11px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;
+    white-space:nowrap;line-height:1.25}
+  .pl-pick:active{transform:scale(.95)}
+  /* Pick-a-recipe panel: a small search over the whole collection,
+     opened from any plan slot's Pick button, inside the plan sheet. */
+  #plPick{border:1px solid var(--border);border-radius:12px;padding:12px;
+    margin-bottom:14px;background:var(--field);scroll-margin-top:64px}
+  #plPick[hidden]{display:none}
+  .pl-pick-head{display:flex;align-items:center;gap:8px;margin-bottom:9px}
+  .pl-pick-head h3{margin:0;flex:1;min-width:0;font-size:15px;font-weight:800;letter-spacing:-.2px}
+  #plPickCancel{flex:none;background:none;border:none;color:var(--accent);font-size:13px;
+    font-weight:700;cursor:pointer;padding:4px 2px;font-family:inherit;text-decoration:underline}
+  #plPickInput{width:100%;box-sizing:border-box;border:1px solid var(--border);
+    border-radius:10px;background:var(--card);color:var(--ink);padding:10px 12px;
+    font-size:15px;font-family:inherit}
+  #plPickResults{margin-top:6px;max-height:300px;overflow-y:auto;-webkit-overflow-scrolling:touch}
+  .pl-pick-row{display:flex;align-items:center;gap:8px;width:100%;text-align:left;
+    background:none;border:none;border-top:1px solid var(--border);padding:10px 4px;
+    font-size:14.5px;font-weight:600;color:var(--ink);cursor:pointer;font-family:inherit}
+  .pl-pick-row:first-child{border-top:none}
+  .pl-pick-row:active{background:var(--chip)}
+  .pl-pick-t{flex:1;min-width:0;overflow-wrap:break-word}
+  .pl-pick-msg{font-size:13.5px;color:var(--muted);padding:10px 4px 4px;margin:0}
+  /* "Add to this week's plan" in the recipe preview: button under the
+     Watch link, opening a day/slot chooser inside the preview sheet. */
+  .pv-addplan{display:block;width:100%;text-align:center;margin-top:10px;background:var(--field);
+    color:var(--ink);border:1px solid var(--border);font-size:15px;font-weight:700;
+    border-radius:12px;padding:12px 16px;cursor:pointer;font-family:inherit}
+  .pv-addplan:active{transform:scale(.98)}
+  #pvPlanPick{margin-top:14px;border:1px solid var(--border);border-radius:12px;padding:12px}
+  #pvPlanPick[hidden]{display:none}
+  #pvPlanPick .pv-h{margin-top:2px}
+  .pv-plan-day{margin-top:10px}
+  .pv-plan-dayname{font-size:11px;font-weight:700;text-transform:uppercase;
+    letter-spacing:.06em;color:var(--muted);margin-bottom:5px}
+  .pv-plan-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+  .pv-plan-slot{display:flex;flex-direction:column;align-items:flex-start;gap:1px;min-width:0;
+    background:var(--field);border:1px solid var(--border);border-radius:10px;
+    padding:7px 9px;cursor:pointer;font-family:inherit;text-align:left;color:var(--ink)}
+  .pv-plan-slot:active{transform:scale(.97)}
+  .pv-plan-slot:disabled{opacity:.45;cursor:default;transform:none}
+  .pv-plan-slot .pp-s{font-size:10.5px;font-weight:700;text-transform:uppercase;
+    letter-spacing:.05em;color:var(--muted)}
+  .pv-plan-slot .pp-o{font-size:13px;font-weight:600;line-height:1.3;overflow-wrap:break-word}
+  #pvPlanNote{font-size:13px;color:var(--muted);margin:10px 0 0}
+  #pvPlanNote[hidden]{display:none}
+  #pvPlanCancel{margin-top:12px;background:none;border:none;color:var(--accent);font-size:13.5px;
+    font-weight:700;cursor:pointer;padding:4px 2px;font-family:inherit;text-decoration:underline}
   .pl-prep-list li{margin:3px 0}
   .pl-prep-dish{font-weight:600;cursor:pointer}
   .pl-prep-dish:hover{text-decoration:underline}
+  /* Replace control on each Prep ahead bullet: swaps that bullet's
+     dish for a picked recipe, in the dish's own slot. */
+  .pl-prep-rep{margin-left:8px;background:var(--card);border:1px solid var(--green);
+    color:var(--green);border-radius:999px;padding:2px 9px;font-size:11.5px;font-weight:700;
+    cursor:pointer;font-family:inherit;white-space:nowrap;line-height:1.4}
+  .pl-prep-rep:active{transform:scale(.95)}
   .pl-groc{margin-top:22px;border-top:1px solid var(--border);padding-top:14px}
   .pl-groc-h{margin:0 0 4px;font-size:16px;font-weight:800;letter-spacing:-.2px}
   .pl-groc-sec{margin:14px 0 4px;font-size:11.5px;font-weight:700;text-transform:uppercase;
@@ -500,6 +556,13 @@
       </div>
       <div id="pvNote" hidden>Full recipe is in the post's comments</div>
       <a id="pvWatch" class="pv-watch" href="#" target="_blank" rel="noopener">Watch on Instagram</a>
+      <button id="pvAddPlan" class="pv-addplan" type="button">Add to this week's plan</button>
+      <div id="pvPlanPick" hidden>
+        <h3 class="pv-h">Add to which day?</h3>
+        <div id="pvPlanDays"></div>
+        <p id="pvPlanNote" hidden></p>
+        <button id="pvPlanCancel" type="button">Cancel</button>
+      </div>
       <div class="pv-nav">
         <button id="pvPrev" type="button">← Prev</button>
         <span id="pvCount"></span>
@@ -522,6 +585,14 @@
       </div>
     </div>
     <div class="pl-body">
+      <div id="plPick" hidden>
+        <div class="pl-pick-head">
+          <h3 id="plPickTitle">Pick a recipe</h3>
+          <button id="plPickCancel" type="button">Cancel</button>
+        </div>
+        <input id="plPickInput" type="text" placeholder="Dish name or ingredient…" autocomplete="off" aria-label="Search recipes to pick">
+        <div id="plPickResults"></div>
+      </div>
       <div class="pl-prep" id="plPrep"></div>
       <div id="plDays"></div>
       <div class="pl-groc" id="plGrocSec" hidden>
@@ -1505,6 +1576,10 @@ function fillPreview(){
     img.style.display = "none";
   }
   document.getElementById("pvTitle").textContent = r.title;
+  // The add-to-plan chooser belongs to the recipe it was opened for;
+  // stepping to another recipe closes it and restores the button.
+  document.getElementById("pvPlanPick").hidden = true;
+  document.getElementById("pvAddPlan").textContent = "Add to this week's plan";
   const meta = document.getElementById("pvMeta");
   meta.innerHTML = "";
   cardGroups(r).forEach((g, i) => meta.appendChild(el("span", g, "badge" + (i ? " alt" : ""))));
@@ -1665,6 +1740,18 @@ const PLAN_SIDES = ["roasted broccoli","edamame with sea salt","garlic green bea
 let planWeek = null; // [{ b, l, d, s, side }] — recipe objects, one entry per day;
 // l is null while that day's lunch is leftovers, a recipe once picked
 let plScrollY = 0;
+// Slots the user filled by name — via a slot's Pick button or via
+// "Add to this week's plan" in a preview — keyed "dayIdx:slot". The
+// text copy marks them "(picked)"; re-rolling a slot or regenerating
+// the week clears its flag. (A lunch holding any real recipe counts
+// as picked in the copy, as it always has.)
+let planPicked = new Set();
+// True when a preview-add changed the week while the plan sheet was
+// closed: the next "Plan a week" open shows that week instead of
+// dealing a fresh one. Any other open deals fresh, as before.
+let planKeepOnOpen = false;
+const SLOT_LABEL = { b: "Breakfast", l: "Lunch", d: "Dinner", s: "Snack" };
+let pickTarget = null; // { day, slot } while the pick search is open
 
 function planHasText(r){
   return !!((r.recipe_ingredients && r.recipe_ingredients.trim()) ||
@@ -1729,6 +1816,7 @@ function planPick(pool, usedIds, familyOf, usedFams){
   return cands[cands.length - 1];
 }
 function generatePlan(){
+  planPicked.clear(); // a freshly dealt week has no picks in it
   const used = new Set();
   const bFams = new Set(), dFams = new Set();
   // Random starting point, then straight through the rotation: with 7
@@ -1753,6 +1841,7 @@ function generatePlan(){
 // week's pool with the next render.
 function clearLunch(dayIdx){
   planWeek[dayIdx].l = null;
+  planPicked.delete(dayIdx + ":l");
   renderPlan();
 }
 function rerollSlot(dayIdx, slot){
@@ -1764,8 +1853,165 @@ function rerollSlot(dayIdx, slot){
     if(familyOf && i2 !== dayIdx && d2[slot]) fams.add(familyOf(d2[slot]));
   });
   const pick = planPick(PLAN_POOLS[slot], used, familyOf, fams);
-  if(pick) planWeek[dayIdx][slot] = pick;
+  if(pick){
+    planWeek[dayIdx][slot] = pick;
+    // The re-roll dealt this dish, so the slot is no longer a named
+    // pick — except lunch, where any real dish in the slot counts as
+    // picked (the copy has always labeled it that way).
+    if(slot === "l") planPicked.add(dayIdx + ":l");
+    else planPicked.delete(dayIdx + ":" + slot);
+  }
   renderPlan();
+}
+// ---- Pick a recipe by name ----
+// Every id currently sitting in the week, any slot, any day: the
+// no-repeat rule the re-rolls already follow, applied to picking too.
+function planUsedIds(){
+  const used = new Set();
+  if(planWeek) for(const day of planWeek)
+    for(const k of ["b","l","d","s"]) if(day[k]) used.add(day[k].id);
+  return used;
+}
+// Where a recipe sits in the week ({ day, slot }) or null. The week
+// never holds a recipe twice, so the answer is unambiguous — the
+// Prep ahead bullets use it to aim their Replace control at the
+// dish's own slot.
+function planSlotOf(r){
+  if(!planWeek) return null;
+  for(let i = 0; i < planWeek.length; i++)
+    for(const k of ["b","l","d","s"])
+      if(planWeek[i][k] && planWeek[i][k].id === r.id) return { day: i, slot: k };
+  return null;
+}
+function ensurePlanWeek(){
+  if(!planWeek) generatePlan();
+}
+// Open the in-sheet pick search for one slot. The search matches the
+// way the finder's own search does — comma-separated terms, each one
+// matched against the recipe's title + ingredients (termHits over
+// recipeHay) — and never offers a recipe already in the week.
+function openPick(dayIdx, slot){
+  pickTarget = { day: dayIdx, slot };
+  document.getElementById("plPickTitle").textContent =
+    "Pick for " + PLAN_DAYS[dayIdx] + " \u00B7 " + SLOT_LABEL[slot];
+  const panel = document.getElementById("plPick");
+  panel.hidden = false;
+  const input = document.getElementById("plPickInput");
+  input.value = "";
+  renderPickResults();
+  panel.scrollIntoView({ block: "start" });
+  input.focus({ preventScroll: true });
+}
+function closePick(){
+  document.getElementById("plPick").hidden = true;
+  pickTarget = null;
+}
+function renderPickResults(){
+  const box = document.getElementById("plPickResults");
+  const q = document.getElementById("plPickInput").value;
+  box.innerHTML = "";
+  const terms = q.split(",").map(s => s.trim()).filter(Boolean);
+  if(!terms.length){
+    box.appendChild(el("p", "Type a dish name or an ingredient.", "pl-pick-msg"));
+    return;
+  }
+  const used = planUsedIds();
+  const hits = [];
+  for(const r of RECIPES){
+    if(used.has(r.id)) continue;
+    if(terms.every(t => termHits(t, recipeHay(r)))) hits.push(r);
+  }
+  hits.sort((a, b) => a.title.localeCompare(b.title));
+  if(!hits.length){
+    box.appendChild(el("p", "No matches \u2014 try another name or ingredient.", "pl-pick-msg"));
+    return;
+  }
+  const show = hits.slice(0, 40);
+  for(const r of show){
+    const b = el("button", null, "pl-pick-row");
+    b.type = "button";
+    if(hasFullRecipe(r)){
+      const d = el("span", null, "mdot inl");
+      d.title = "Full recipe";
+      b.appendChild(d);
+    }
+    b.appendChild(el("span", r.title, "pl-pick-t"));
+    b.onclick = () => choosePick(r);
+    box.appendChild(b);
+  }
+  if(hits.length > show.length)
+    box.appendChild(el("p", "First " + show.length + " of " + hits.length +
+      " matches \u2014 keep typing to narrow it down.", "pl-pick-msg"));
+}
+// A picked recipe takes the slot exactly as a dealt one would: the
+// same week state feeds Prep ahead and the grocery list on the next
+// renderPlan, and a picked dinner keeps its day's rotating side.
+function choosePick(r){
+  if(!pickTarget || !planWeek) return;
+  planWeek[pickTarget.day][pickTarget.slot] = r;
+  planPicked.add(pickTarget.day + ":" + pickTarget.slot);
+  closePick();
+  renderPlan();
+}
+// ---- "Add to this week's plan" from a recipe preview ----
+// The chooser lists all 7 days × 4 slots with each slot's current
+// occupant ("Leftovers" for an empty lunch). When the recipe is
+// already in the week, only its own slot stays tappable — the
+// no-repeat rule leaves nowhere else for it to go.
+function renderPlanChooser(r){
+  ensurePlanWeek();
+  const box = document.getElementById("pvPlanDays");
+  box.innerHTML = "";
+  let home = null;
+  planWeek.forEach((day, i) => {
+    for(const k of ["b","l","d","s"])
+      if(day[k] && day[k].id === r.id) home = { day: i, slot: k };
+  });
+  planWeek.forEach((day, i) => {
+    const wrap = el("div", null, "pv-plan-day");
+    wrap.appendChild(el("div", PLAN_DAYS[i], "pv-plan-dayname"));
+    const grid = el("div", null, "pv-plan-grid");
+    for(const k of ["b","l","d","s"]){
+      const occ = day[k];
+      const b = el("button", null, "pv-plan-slot");
+      b.type = "button";
+      b.appendChild(el("span", SLOT_LABEL[k], "pp-s"));
+      b.appendChild(el("span", occ ? occ.title : (k === "l" ? "Leftovers" : "\u2014"), "pp-o"));
+      if(home && (home.day !== i || home.slot !== k)) b.disabled = true;
+      b.onclick = () => addFromPreview(i, k);
+      grid.appendChild(b);
+    }
+    wrap.appendChild(grid);
+    box.appendChild(wrap);
+  });
+  const note = document.getElementById("pvPlanNote");
+  if(home){
+    note.textContent = "Already in the plan \u2014 " + PLAN_DAYS[home.day] +
+      " " + SLOT_LABEL[home.slot].toLowerCase() + ".";
+    note.hidden = false;
+  } else note.hidden = true;
+}
+function addFromPreview(dayIdx, slot){
+  const r = pvList[pvIdx];
+  if(!r) return;
+  ensurePlanWeek();
+  planWeek[dayIdx][slot] = r;
+  planPicked.add(dayIdx + ":" + slot);
+  renderPlan();
+  document.getElementById("pvPlanPick").hidden = true;
+  if(!document.getElementById("plOverlay").hidden){
+    // The preview was opened over the plan: go back to the plan,
+    // which now shows the recipe in its slot.
+    closePreview();
+    return;
+  }
+  // The plan sheet is closed: keep this week for the next open, and
+  // confirm the add on the button itself.
+  planKeepOnOpen = true;
+  const btn = document.getElementById("pvAddPlan");
+  btn.textContent = "Added \u2014 " + PLAN_DAYS[dayIdx].slice(0, 3) + " " +
+    SLOT_LABEL[slot].toLowerCase() + " \u2713";
+  setTimeout(() => { btn.textContent = "Add to this week's plan"; }, 1800);
 }
 // The ingredient a prep hint belongs to, named the way the preview's
 // serving scaler recovers it: the line's own text after its quantity
@@ -1964,6 +2210,12 @@ function planRow(dayIdx, slot, label, r, side){
     btn.setAttribute("aria-label", "Swap this " + label.toLowerCase());
     btn.onclick = () => rerollSlot(dayIdx, slot);
     row.appendChild(btn);
+    const pk = el("button", "Pick", "pl-pick");
+    pk.type = "button";
+    pk.title = "Pick a specific recipe";
+    pk.setAttribute("aria-label", "Pick a recipe for " + PLAN_DAYS[dayIdx] + " " + label.toLowerCase());
+    pk.onclick = () => openPick(dayIdx, slot);
+    row.appendChild(pk);
   }
   return row;
 }
@@ -1980,6 +2232,18 @@ function renderPlan(){
       const t = el("span", b.r.title, "pl-prep-dish");
       t.addEventListener("click", () => openPlanPreview(b.r));
       li.appendChild(t);
+      // Third door into the same pick search: replace this bullet's
+      // dish in its own slot (same day, same slot — a dinner keeps
+      // its side), marked picked like any other pick.
+      const rep = el("button", "Replace", "pl-prep-rep");
+      rep.type = "button";
+      rep.title = "Replace this dish with a recipe you pick";
+      rep.setAttribute("aria-label", "Replace " + b.r.title + " in the plan");
+      rep.onclick = () => {
+        const loc = planSlotOf(b.r);
+        if(loc) openPick(loc.day, loc.slot);
+      };
+      li.appendChild(rep);
       ul.appendChild(li);
     }
     prepBox.appendChild(ul);
@@ -2013,6 +2277,12 @@ function renderPlan(){
       pick.setAttribute("aria-label", "Pick a recipe for " + PLAN_DAYS[i] + " lunch");
       pick.onclick = () => rerollSlot(i, "l");
       lr.appendChild(pick);
+      const pkBtn = el("button", "Pick", "pl-pick");
+      pkBtn.type = "button";
+      pkBtn.title = "Pick a specific recipe for lunch";
+      pkBtn.setAttribute("aria-label", "Pick a specific recipe for " + PLAN_DAYS[i] + " lunch");
+      pkBtn.onclick = () => openPick(i, "l");
+      lr.appendChild(pkBtn);
       sec.appendChild(lr);
     }
     sec.appendChild(planRow(i, "d", "Dinner", day.d, day.side));
@@ -2043,12 +2313,13 @@ function planText(){
   out.push("");
   out.push("WEEK MEAL PLAN");
   planWeek.forEach((day, i) => {
+    const pm = s2 => planPicked.has(i + ":" + s2) ? " (picked)" : "";
     out.push(PLAN_DAYS[i].toUpperCase());
-    out.push("Breakfast: " + (day.b ? day.b.title + " \u2014 " + day.b.link : "\u2014"));
+    out.push("Breakfast: " + (day.b ? day.b.title + pm("b") + " \u2014 " + day.b.link : "\u2014"));
     out.push("Lunch: " + (day.l ? day.l.title + " (picked) \u2014 " + day.l.link :
       (i === 0 ? "Prep-day leftovers / eggs + toast" : "Leftovers from last night's dinner")));
-    out.push("Dinner: " + (day.d ? day.d.title + " \u2014 " + day.d.link : "\u2014") + " \u00B7 Side: " + day.side);
-    out.push("Snack: " + (day.s ? day.s.title + " \u2014 " + day.s.link : "\u2014"));
+    out.push("Dinner: " + (day.d ? day.d.title + pm("d") + " \u2014 " + day.d.link : "\u2014") + " \u00B7 Side: " + day.side);
+    out.push("Snack: " + (day.s ? day.s.title + pm("s") + " \u2014 " + day.s.link : "\u2014"));
   });
   return out.join("\n");
 }
@@ -2512,12 +2783,13 @@ function drawPlanCanvas(){
   planWeek.forEach((day, i) => {
     texts.push({ text: PLAN_DAYS[i], font: "800 38px " + FONT, fill: INK, x: PAD, y: y + 36 });
     y += 58;
+    const pm = s2 => planPicked.has(i + ":" + s2) ? [{ t: "(picked)" }] : [];
     const rows = [
-      ["BREAKFAST", day.b ? [{ t: day.b.title, url: day.b.link }] : [{ t: "\u2014" }], null],
+      ["BREAKFAST", day.b ? [{ t: day.b.title, url: day.b.link }, ...pm("b")] : [{ t: "\u2014" }], null],
       ["LUNCH", day.l ? [{ t: day.l.title, url: day.l.link }, { t: "(picked)" }] :
         [{ t: i === 0 ? "Prep-day leftovers / eggs + toast" : "Leftovers from last night's dinner" }], null],
-      ["DINNER", day.d ? [{ t: day.d.title, url: day.d.link }] : [{ t: "\u2014" }], "Side: " + day.side],
-      ["SNACK", day.s ? [{ t: day.s.title, url: day.s.link }] : [{ t: "\u2014" }], null]
+      ["DINNER", day.d ? [{ t: day.d.title, url: day.d.link }, ...pm("d")] : [{ t: "\u2014" }], "Side: " + day.side],
+      ["SNACK", day.s ? [{ t: day.s.title, url: day.s.link }, ...pm("s")] : [{ t: "\u2014" }], null]
     ];
     for(const [label, runs, sub] of rows){
       texts.push({ text: label, font: "700 21px " + FONT, fill: MUTED, x: PAD, y: y + 25 });
@@ -2623,7 +2895,10 @@ function buildPlanPdf(jpeg, wPx, hPx, links){
   return new Blob(parts, { type: "application/pdf" });
 }
 function openPlan(){
-  generatePlan();
+  // A week a preview-add just built or changed (while this sheet was
+  // closed) is the week to show; any other open deals a fresh week.
+  if(!planWeek || !planKeepOnOpen) generatePlan();
+  planKeepOnOpen = false;
   plScrollY = window.scrollY;
   document.getElementById("plOverlay").hidden = false;
   document.body.style.overflow = "hidden";
@@ -2639,6 +2914,21 @@ document.getElementById("plClose").onclick = closePlan;
 document.getElementById("plRegen").onclick = generatePlan;
 document.getElementById("plCopy").onclick = copyPlan;
 document.getElementById("plExport").onclick = planExport;
+document.getElementById("plPickCancel").onclick = closePick;
+document.getElementById("plPickInput").addEventListener("input", renderPickResults);
+document.getElementById("pvAddPlan").onclick = () => {
+  const r = pvList[pvIdx];
+  if(!r) return;
+  const box = document.getElementById("pvPlanPick");
+  if(box.hidden){
+    renderPlanChooser(r);
+    box.hidden = false;
+    box.scrollIntoView({ block: "nearest" });
+  } else box.hidden = true;
+};
+document.getElementById("pvPlanCancel").onclick = () => {
+  document.getElementById("pvPlanPick").hidden = true;
+};
 document.getElementById("plGroc").onclick = e => copyGrocery(e.currentTarget);
 document.getElementById("plGrocCopy").onclick = e => copyGrocery(e.currentTarget);
 document.getElementById("plOverlay").addEventListener("click", e => {
@@ -2647,6 +2937,7 @@ document.getElementById("plOverlay").addEventListener("click", e => {
 document.addEventListener("keydown", e => {
   if(e.key !== "Escape") return;
   if(!document.getElementById("pvOverlay").hidden) return; // the preview handles its own Escape
+  if(!document.getElementById("plPick").hidden){ closePick(); return; }
   if(!document.getElementById("plOverlay").hidden) closePlan();
 });
 // The preview can open on top of the planner; when it closes it restores
