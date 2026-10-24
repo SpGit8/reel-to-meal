@@ -3139,10 +3139,6 @@ let plScrollY = 0;
 // the week clears its flag. (A lunch holding any real recipe counts
 // as picked in the copy, as it always has.)
 let planPicked = new Set();
-// True when a preview-add changed the week while the plan sheet was
-// closed: the next "Plan a week" open shows that week instead of
-// dealing a fresh one. Any other open deals fresh, as before.
-let planKeepOnOpen = false;
 const SLOT_LABEL = { b: "Breakfast", l: "Lunch", d: "Dinner", s: "Snack" };
 let pickTarget = null; // { day, slot } while the pick search is open
 
@@ -3398,9 +3394,9 @@ function addFromPreview(dayIdx, slot){
     closePreview();
     return;
   }
-  // The plan sheet is closed: keep this week for the next open, and
-  // confirm the add on the button itself.
-  planKeepOnOpen = true;
+  // The plan sheet is closed: the week stays as-is for the next open
+  // (only Regenerate deals a fresh one); confirm the add on the
+  // button itself.
   const btn = document.getElementById("pvAddPlan");
   btn.textContent = "Added \u2014 " + PLAN_DAYS[dayIdx].slice(0, 3) + " " +
     SLOT_LABEL[slot].toLowerCase() + " \u2713";
@@ -4288,10 +4284,10 @@ function buildPlanPdf(jpeg, wPx, hPx, links){
   return new Blob(parts, { type: "application/pdf" });
 }
 function openPlan(){
-  // A week a preview-add just built or changed (while this sheet was
-  // closed) is the week to show; any other open deals a fresh week.
-  if(!planWeek || !planKeepOnOpen) generatePlan();
-  planKeepOnOpen = false;
+  // Opening shows the week already in hand — dealt, picked into, or
+  // preview-added into — and deals a fresh one only when no week
+  // exists yet. Regenerate (plRegen) is the only re-deal path.
+  ensurePlanWeek();
   plScrollY = window.scrollY;
   document.getElementById("plOverlay").hidden = false;
   document.body.style.overflow = "hidden";
