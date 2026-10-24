@@ -397,6 +397,23 @@
   .pl-pick-row:active{background:var(--chip)}
   .pl-pick-t{flex:1;min-width:0;overflow-wrap:break-word}
   .pl-pick-msg{font-size:13.5px;color:var(--muted);padding:10px 4px 4px;margin:0}
+  /* Custom meal name inside the pick panel: a name-only entry for a
+     meal that isn't in the collection. */
+  #plPickCustomBtn{margin-top:10px;background:none;border:none;color:var(--accent);
+    font-size:13.5px;font-weight:700;cursor:pointer;padding:4px 2px;font-family:inherit;
+    text-decoration:underline}
+  #plPickCustom{margin-top:8px}
+  #plPickCustom[hidden]{display:none}
+  .pl-custom-row{display:flex;gap:8px;align-items:stretch}
+  #plCustomInput{flex:1;min-width:0;box-sizing:border-box;border:1px solid var(--border);
+    border-radius:10px;background:var(--card);color:var(--ink);padding:10px 12px;
+    font-size:15px;font-family:inherit}
+  #plCustomGo{flex:none;background:var(--accent);border:1px solid var(--accent);color:#fff;
+    border-radius:999px;padding:8px 14px;font-size:13px;font-weight:700;cursor:pointer;
+    font-family:inherit;white-space:nowrap;line-height:1.25}
+  #plCustomGo:active{transform:scale(.95)}
+  .pl-custom-note{margin:8px 2px 0;font-size:13px;font-weight:600;color:var(--accent)}
+  .pl-custom-note[hidden]{display:none}
   /* "Add to this week's plan" in the recipe preview: button under the
      Watch link, opening a day/slot chooser inside the preview sheet. */
   .pv-addplan{display:block;width:100%;text-align:center;margin-top:10px;background:var(--field);
@@ -1984,6 +2001,14 @@
           <button id="plPickCancel" type="button">Cancel</button>
         </div>
         <input id="plPickInput" type="text" placeholder="Dish name or ingredient…" autocomplete="off" aria-label="Search recipes to pick">
+        <button id="plPickCustomBtn" type="button">Use a custom name</button>
+        <div id="plPickCustom" hidden>
+          <div class="pl-custom-row">
+            <input id="plCustomInput" type="text" maxlength="80" placeholder="A meal not in the collection…" autocomplete="off" aria-label="Custom meal name">
+            <button id="plCustomGo" type="button">Use this name</button>
+          </div>
+          <p id="plCustomNote" class="pl-custom-note" hidden></p>
+        </div>
         <div id="plPickResults"></div>
       </div>
       <div class="pl-prep" id="plPrep"></div>
@@ -3287,6 +3312,9 @@ function openPick(dayIdx, slot){
   panel.hidden = false;
   const input = document.getElementById("plPickInput");
   input.value = "";
+  document.getElementById("plPickCustom").hidden = true;
+  document.getElementById("plCustomInput").value = "";
+  document.getElementById("plCustomNote").hidden = true;
   renderPickResults();
   panel.scrollIntoView({ block: "start" });
   input.focus({ preventScroll: true });
@@ -3339,6 +3367,41 @@ function choosePick(r){
   if(!pickTarget || !planWeek) return;
   planWeek[pickTarget.day][pickTarget.slot] = r;
   planPicked.add(pickTarget.day + ":" + pickTarget.slot);
+  closePick();
+  renderPlan();
+}
+// ---- Custom meal names ----
+// A custom entry is name-only and week-local: an object shaped
+// { custom: true, title } sitting in a slot where a recipe would go.
+// It has no id and no link, so the recipe-data consumers skip it
+// cleanly — Prep ahead finds no hints for it, the grocery builder
+// finds no ingredient lines — while slot rendering shows the plain
+// name, the text copy marks it "(custom)" with no URL, and the PDF
+// draws it as unlinked text. It never enters RECIPES, so no search
+// can offer it back; Regenerate and re-rolls clear it exactly like
+// a dealt or picked dish.
+function customNote(msg){
+  const n = document.getElementById("plCustomNote");
+  n.textContent = msg;
+  n.hidden = false;
+}
+function chooseCustom(){
+  if(!pickTarget || !planWeek) return;
+  const input = document.getElementById("plCustomInput");
+  const name = input.value.trim();
+  if(!name){ customNote("Type a name first."); input.focus(); return; }
+  if(name.length > 80){ customNote("Keep it to 80 characters or fewer."); return; }
+  // No-repeat by name, against every title already in the week —
+  // dealt, picked, or custom — compared trimmed and case-insensitive.
+  const low = name.toLowerCase();
+  for(const day of planWeek)
+    for(const k of ["b","l","d","s"])
+      if(day[k] && day[k].title && day[k].title.trim().toLowerCase() === low){
+        customNote("\u201C" + name + "\u201D is already in this week's plan.");
+        return;
+      }
+  planWeek[pickTarget.day][pickTarget.slot] = { custom: true, title: name };
+  planPicked.delete(pickTarget.day + ":" + pickTarget.slot);
   closePick();
   renderPlan();
 }
@@ -3589,7 +3652,9 @@ function planRow(dayIdx, slot, label, r, side){
     // Tapping the dish — title included — opens the recipe's preview
     // sheet; Prev/Next there flips through the week's dishes. Instagram
     // stays one tap further on, via the preview's "Watch on Instagram".
-    dish.addEventListener("click", () => openPlanPreview(r));
+    // A custom entry is name-only: plain text, nothing to tap through to.
+    if(r.custom) dish.style.cursor = "default";
+    else dish.addEventListener("click", () => openPlanPreview(r));
   }
   row.appendChild(dish);
   if(r){
@@ -3683,7 +3748,7 @@ function renderPlan(){
 function openPlanPreview(r){
   if(!hasPreview(r)){ window.open(r.link, "_blank", "noopener"); return; }
   const dishes = [];
-  planWeek.forEach(day => { for(const k of ["b","l","d","s"]) if(day[k]) dishes.push(day[k]); });
+  planWeek.forEach(day => { for(const k of ["b","l","d","s"]) if(day[k] && !day[k].custom) dishes.push(day[k]); });
   pvList = dishes;
   openPreview(dishes.indexOf(r));
 }
@@ -3703,12 +3768,17 @@ function planText(){
   out.push("WEEK MEAL PLAN");
   planWeek.forEach((day, i) => {
     const pm = s2 => planPicked.has(i + ":" + s2) ? " (picked)" : "";
+    // A custom entry copies as its plain name + " (custom)" and no
+    // URL — it has none to give.
+    const dishTxt = (r, s2) => r.custom ? r.title + " (custom)" :
+      r.title + pm(s2) + " \u2014 " + r.link;
     out.push(PLAN_DAYS[i].toUpperCase());
-    out.push("Breakfast: " + (day.b ? day.b.title + pm("b") + " \u2014 " + day.b.link : "\u2014"));
-    out.push("Lunch: " + (day.l ? day.l.title + " (picked) \u2014 " + day.l.link :
+    out.push("Breakfast: " + (day.b ? dishTxt(day.b, "b") : "\u2014"));
+    out.push("Lunch: " + (day.l ? (day.l.custom ? day.l.title + " (custom)" :
+      day.l.title + " (picked) \u2014 " + day.l.link) :
       (i === 0 ? "Prep-day leftovers / eggs + toast" : "Leftovers from last night's dinner")));
-    out.push("Dinner: " + (day.d ? day.d.title + pm("d") + " \u2014 " + day.d.link : "\u2014") + " \u00B7 Side: " + day.side);
-    out.push("Snack: " + (day.s ? day.s.title + pm("s") + " \u2014 " + day.s.link : "\u2014"));
+    out.push("Dinner: " + (day.d ? dishTxt(day.d, "d") : "\u2014") + " \u00B7 Side: " + day.side);
+    out.push("Snack: " + (day.s ? dishTxt(day.s, "s") : "\u2014"));
   });
   return out.join("\n");
 }
@@ -4173,12 +4243,17 @@ function drawPlanCanvas(){
     texts.push({ text: PLAN_DAYS[i], font: "800 38px " + FONT, fill: INK, x: PAD, y: y + 36 });
     y += 58;
     const pm = s2 => planPicked.has(i + ":" + s2) ? [{ t: "(picked)" }] : [];
+    // A custom entry draws as plain text with a "(custom)" tag and
+    // no link run, so the PDF gets no annotation for it.
+    const dishRuns = (r, s2) => r.custom ? [{ t: r.title }, { t: "(custom)" }] :
+      [{ t: r.title, url: r.link }, ...pm(s2)];
     const rows = [
-      ["BREAKFAST", day.b ? [{ t: day.b.title, url: day.b.link }, ...pm("b")] : [{ t: "\u2014" }], null],
-      ["LUNCH", day.l ? [{ t: day.l.title, url: day.l.link }, { t: "(picked)" }] :
+      ["BREAKFAST", day.b ? dishRuns(day.b, "b") : [{ t: "\u2014" }], null],
+      ["LUNCH", day.l ? (day.l.custom ? [{ t: day.l.title }, { t: "(custom)" }] :
+        [{ t: day.l.title, url: day.l.link }, { t: "(picked)" }]) :
         [{ t: i === 0 ? "Prep-day leftovers / eggs + toast" : "Leftovers from last night's dinner" }], null],
-      ["DINNER", day.d ? [{ t: day.d.title, url: day.d.link }, ...pm("d")] : [{ t: "\u2014" }], "Side: " + day.side],
-      ["SNACK", day.s ? [{ t: day.s.title, url: day.s.link }, ...pm("s")] : [{ t: "\u2014" }], null]
+      ["DINNER", day.d ? dishRuns(day.d, "d") : [{ t: "\u2014" }], "Side: " + day.side],
+      ["SNACK", day.s ? dishRuns(day.s, "s") : [{ t: "\u2014" }], null]
     ];
     for(const [label, runs, sub] of rows){
       texts.push({ text: label, font: "700 21px " + FONT, fill: MUTED, x: PAD, y: y + 25 });
@@ -4305,6 +4380,18 @@ document.getElementById("plCopy").onclick = copyPlan;
 document.getElementById("plExport").onclick = planExport;
 document.getElementById("plPickCancel").onclick = closePick;
 document.getElementById("plPickInput").addEventListener("input", renderPickResults);
+document.getElementById("plPickCustomBtn").onclick = () => {
+  const form = document.getElementById("plPickCustom");
+  form.hidden = !form.hidden;
+  if(!form.hidden) document.getElementById("plCustomInput").focus();
+};
+document.getElementById("plCustomGo").onclick = chooseCustom;
+document.getElementById("plCustomInput").addEventListener("keydown", e => {
+  if(e.key === "Enter"){ e.preventDefault(); chooseCustom(); }
+});
+document.getElementById("plCustomInput").addEventListener("input", () => {
+  document.getElementById("plCustomNote").hidden = true;
+});
 document.getElementById("pvAddPlan").onclick = () => {
   const r = pvList[pvIdx];
   if(!r) return;
