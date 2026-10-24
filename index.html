@@ -463,12 +463,6 @@
   .pl-prep-list li{margin:3px 0}
   .pl-prep-dish{font-weight:600;cursor:pointer}
   .pl-prep-dish:hover{text-decoration:underline}
-  /* Replace control on each Prep ahead bullet: swaps that bullet's
-     dish for a picked recipe, in the dish's own slot. */
-  .pl-prep-rep{margin-left:8px;background:var(--card);border:1px solid var(--green);
-    color:var(--green);border-radius:999px;padding:2px 9px;font-size:11.5px;font-weight:700;
-    cursor:pointer;font-family:inherit;white-space:nowrap;line-height:1.4}
-  .pl-prep-rep:active{transform:scale(.95)}
   .pl-groc{margin-top:22px;border-top:1px solid var(--border);padding-top:14px}
   .pl-groc-h{margin:0 0 4px;font-size:16px;font-weight:800;letter-spacing:-.2px}
   .pl-groc-sec{margin:14px 0 4px;font-size:11.5px;font-weight:700;text-transform:uppercase;
@@ -3322,17 +3316,6 @@ function planUsedIds(){
     for(const k of ["b","l","d","s"]) if(day[k]) used.add(day[k].id);
   return used;
 }
-// Where a recipe sits in the week ({ day, slot }) or null. The week
-// never holds a recipe twice, so the answer is unambiguous — the
-// Prep ahead bullets use it to aim their Replace control at the
-// dish's own slot.
-function planSlotOf(r){
-  if(!planWeek) return null;
-  for(let i = 0; i < planWeek.length; i++)
-    for(const k of ["b","l","d","s"])
-      if(planWeek[i][k] && planWeek[i][k].id === r.id) return { day: i, slot: k };
-  return null;
-}
 function ensurePlanWeek(){
   if(!planWeek) generatePlan();
 }
@@ -3593,6 +3576,23 @@ function prepLeadFrame(verb, lead){
   if(verb === "Soak" && lead >= 120) return "earlier in the day";
   return "";
 }
+// A duration reduced to number + unit stem, so "10 mins" and
+// "10 min" compare equal; "" when the string carries no
+// number-plus-unit duration at all.
+function prepDurKey(s){
+  const m = String(s).match(/(\d+(?:\.\d+)?)\s*(hours?|hrs?|minutes?|mins?|seconds?|secs?)\b/i);
+  return m ? m[1] + m[2].charAt(0).toLowerCase() : "";
+}
+// True when the bullet text composed so far already states the
+// duration (same number + unit stem anywhere in it) — then the
+// trailing "— <duration>" suffix is not appended a second time.
+function prepDurStated(txt, dur){
+  const key = prepDurKey(dur);
+  if(!key) return false;
+  const units = { h: "hours?|hrs?", m: "minutes?|mins?", s: "seconds?|secs?" }[key.slice(-1)];
+  return new RegExp("\\b" + key.slice(0, -1).replace(".", "\\.") +
+    "\\s*(?:" + units + ")\\b", "i").test(txt);
+}
 // One bullet per prep hint (the "Sample B" layout): the hint's verb
 // first, then its ingredient as named — a leading past-tense
 // "soaked"/"marinated" drops away, since the verb already says it —
@@ -3626,7 +3626,7 @@ function prepBullet(g, it){
     else if(g.verb === "Marinate") txt += ", in its own marinade";
   }
   if(it.dur){
-    txt += " \u2014 " + it.dur;
+    if(!prepDurStated(txt, it.dur)) txt += " \u2014 " + it.dur;
     const frame = prepLeadFrame(g.verb, it.lead);
     if(frame) txt += ", " + frame;
   }
@@ -3722,18 +3722,6 @@ function renderPlan(){
       const t = el("span", b.r.title, "pl-prep-dish");
       t.addEventListener("click", () => openPlanPreview(b.r));
       li.appendChild(t);
-      // Third door into the same pick search: replace this bullet's
-      // dish in its own slot (same day, same slot — a dinner keeps
-      // its side), marked picked like any other pick.
-      const rep = el("button", "Replace", "pl-prep-rep");
-      rep.type = "button";
-      rep.title = "Replace this dish with a recipe you pick";
-      rep.setAttribute("aria-label", "Replace " + b.r.title + " in the plan");
-      rep.onclick = () => {
-        const loc = planSlotOf(b.r);
-        if(loc) openPick(loc.day, loc.slot);
-      };
-      li.appendChild(rep);
       ul.appendChild(li);
     }
     prepBox.appendChild(ul);
