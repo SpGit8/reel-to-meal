@@ -1578,9 +1578,21 @@ function init(){
   document.getElementById("sub").textContent =
     INDEX.meta.total.toLocaleString() + " saved recipes · tap a tile, or search by ingredient";
   const q = document.getElementById("q");
+  // Typed facet routing: a whole comma-separated segment that exactly
+  // names a browse facet (case-insensitive) sets that facet's state
+  // instead of searching as text — the same state the tiles set, so the
+  // active pills, tile highlighting and Clear all handle it unchanged.
+  // Anything else flows into state.q exactly as before.
+  const FACET_MEAL = { "breakfast": "breakfast", "lunch": "lunch", "dinner": "dinner", "snack": "snack", "snacks": "snack" };
+  const FACET_CUISINE = { "indian": "Indian", "chinese": "Chinese", "japanese": "Japanese", "italian": "Italian", "thai": "Thai", "middle eastern": "Middle Eastern", "korean": "Korean", "mexican": "Mexican", "vietnamese": "Vietnamese", "american": "American", "nepali": "Nepali", "french": "French", "bhutanese": "Bhutanese", "indonesian": "Indonesian", "bangladeshi": "Bangladeshi", "greek": "Greek", "burmese": "Burmese", "lao": "Lao", "hungarian": "Hungarian", "malaysian": "Malaysian" };
+  const FACET_TAG = { "vegetarian": "vegetarian", "vegan": "vegan", "high protein": "high protein", "quick": "quick", "kid friendly": "kid friendly", "one pot": "one pot", "menstruation friendly": "menstruation friendly", "meal prep": "meal prep friendly", "meal prep friendly": "meal prep friendly", "postpartum": "postpartum friendly", "postpartum friendly": "postpartum friendly" };
   function submitQuery(){
     const parts = q.value.split(/[,;\n]+/).map(s => s.trim()).filter(Boolean);
     for(const p of parts){
+      const key = norm(p);
+      if(Object.prototype.hasOwnProperty.call(FACET_MEAL, key)){ state.meal = FACET_MEAL[key]; continue; }
+      if(Object.prototype.hasOwnProperty.call(FACET_CUISINE, key)){ state.cuisine = FACET_CUISINE[key]; continue; }
+      if(Object.prototype.hasOwnProperty.call(FACET_TAG, key)){ state.tags.add(FACET_TAG[key]); continue; }
       if(!state.q.some(v => sing(norm(v)) === sing(norm(p)))) state.q.push(p);
     }
     q.value = ""; state.page = 0; setHero(true); sync();
