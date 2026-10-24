@@ -347,6 +347,27 @@
     background:var(--accent);border-color:var(--accent);color:#fff}
   #plClose{width:32px;height:32px;padding:0;border-radius:50%;border:none;
     background:rgba(24,16,10,.62);color:#fff;font-size:16px;line-height:1;cursor:pointer}
+  /* Export format chooser: a small menu hanging off the sticky header
+     under the Export button (the head is the containing block, so the
+     menu stays pinned with it). One Export button in the header; the
+     three formats live here. */
+  #plExpMenu{position:absolute;top:calc(100% + 6px);right:8px;width:252px;
+    max-width:calc(100vw - 20px);background:var(--card);border:1px solid var(--border);
+    border-radius:14px;box-shadow:0 12px 32px rgba(0,0,0,.30);padding:6px;z-index:20}
+  #plExpMenu[hidden]{display:none}
+  .pl-exp-head{display:flex;align-items:center;gap:8px;padding:5px 8px 3px}
+  .pl-exp-head span{flex:1;min-width:0;font-size:11.5px;font-weight:700;
+    text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
+  #plExpCancel{flex:none;width:26px;height:26px;padding:0;border-radius:50%;border:none;
+    background:var(--field);color:var(--ink);font-size:13px;line-height:1;cursor:pointer;
+    font-family:inherit}
+  #plExpCancel:active{transform:scale(.92)}
+  .pl-exp-opt{display:flex;flex-direction:column;align-items:flex-start;gap:1px;
+    width:100%;box-sizing:border-box;text-align:left;background:none;border:none;
+    border-radius:10px;padding:9px 10px;cursor:pointer;font-family:inherit;color:var(--ink)}
+  .pl-exp-opt:hover,.pl-exp-opt:active{background:var(--field)}
+  .pl-exp-opt b{font-size:14.5px;font-weight:700;line-height:1.3}
+  .pl-exp-opt small{font-size:12px;font-weight:500;color:var(--muted);line-height:1.35}
   .pl-body{padding:14px 18px 20px}
   .pl-prep{background:var(--green-soft);border:1px solid var(--green);border-radius:12px;
     padding:10px 12px;margin-bottom:4px}
@@ -1988,10 +2009,25 @@
       <h2>This week's plan</h2>
       <div class="pl-acts">
         <button id="plCopy" type="button">Copy</button>
-        <button id="plExport" type="button">Export</button>
+        <button id="plExport" type="button" aria-haspopup="menu" aria-expanded="false">Export</button>
         <button id="plGroc" type="button">Groceries</button>
         <button id="plRegen" type="button" aria-label="Regenerate week" title="Regenerate week">↻</button>
         <button id="plClose" type="button" aria-label="Close meal plan">✕</button>
+      </div>
+      <div id="plExpMenu" hidden role="menu" aria-label="Choose export format">
+        <div class="pl-exp-head">
+          <span>Export as</span>
+          <button id="plExpCancel" type="button" aria-label="Cancel export">✕</button>
+        </div>
+        <button class="pl-exp-opt" id="plExpPdf" type="button" role="menuitem">
+          <b>PDF</b><small>Clickable links · week, prep &amp; groceries</small>
+        </button>
+        <button class="pl-exp-opt" id="plExpPhoto" type="button" role="menuitem">
+          <b>Photo</b><small>The plan card as an image</small>
+        </button>
+        <button class="pl-exp-opt" id="plExpMd" type="button" role="menuitem">
+          <b>Markdown file</b><small>This week's plan.md</small>
+        </button>
       </div>
     </div>
     <div class="pl-body">
@@ -4101,36 +4137,45 @@ function copyGrocery(btn){
   copyTextWithFallback(groceryText(), btn);
 }
 
+// ---- Export plan: one Export button, three formats ----
+// Tapping Export opens a small chooser (PDF / Photo / Markdown); each
+// format then runs its own flow below. PDF and Photo share the drawn
+// plan card (drawPlanCanvas — the layout the old photo export used);
+// PDF wraps the raster in a page whose dish names carry real link
+// annotations, Photo ships the raster itself, and Markdown is a text
+// file built like the plain-text copy. Delivery for PDF and Photo is
+// the Web Share API with files where supported, else a download.
+function downloadBlob(blob, filename){
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 5000);
+}
+function shareOrDownload(blob, filename){
+  const file = new File([blob], filename, { type: blob.type });
+  if(navigator.canShare && navigator.canShare({ files: [file] }) && navigator.share){
+    navigator.share({ files: [file], title: "This week's plan" })
+      .catch(err => { if(!err || err.name !== "AbortError") downloadBlob(blob, filename); });
+  } else downloadBlob(blob, filename);
+}
 // ---- Export plan as PDF ----
 // The plan drawn as one tall card with the page's own canvas code (no
-// libraries) — the layout the old photo export used: header, Prep
-// ahead box, the 7 days, and now the full grocery list too — then
-// rasterized into a single PDF page where every dish name carries a
-// real link annotation over its drawn text, tappable through to the
-// Instagram post. (A flat photo cannot hold links; a PDF can.) Shared
-// via the Web Share API with files where supported, else a download.
+// libraries) — header, Prep ahead box, the 7 days, and the full
+// grocery list too — then rasterized into a single PDF page where
+// every dish name carries a real link annotation over its drawn text,
+// tappable through to the Instagram post. (A flat photo cannot hold
+// links; a PDF can.)
 function planExport(){
   const btn = document.getElementById("plExport");
   if(btn.disabled || !planWeek) return;
   btn.disabled = true;
   const finish = blob => {
     btn.disabled = false;
-    if(!blob) return;
-    const download = () => {
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "this-weeks-plan.pdf";
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      setTimeout(() => URL.revokeObjectURL(url), 5000);
-    };
-    const file = new File([blob], "this-weeks-plan.pdf", { type: "application/pdf" });
-    if(navigator.canShare && navigator.canShare({ files: [file] }) && navigator.share){
-      navigator.share({ files: [file], title: "This week's plan" })
-        .catch(err => { if(!err || err.name !== "AbortError") download(); });
-    } else download();
+    if(blob) shareOrDownload(blob, "this-weeks-plan.pdf");
   };
   try {
     const plan = drawPlanCanvas();
@@ -4145,6 +4190,77 @@ function planExport(){
       }, () => finish(null));
     }, "image/jpeg", 0.92);
   } catch(e){ btn.disabled = false; }
+}
+// ---- Export plan as a photo ----
+// The same drawn card as the PDF, shipped as the image itself.
+function planExportPhoto(){
+  const btn = document.getElementById("plExport");
+  if(btn.disabled || !planWeek) return;
+  btn.disabled = true;
+  try {
+    const plan = drawPlanCanvas();
+    if(!plan.cv.toBlob){ btn.disabled = false; return; }
+    plan.cv.toBlob(blob => {
+      btn.disabled = false;
+      if(blob) shareOrDownload(blob, "this-weeks-plan.png");
+    }, "image/png");
+  } catch(e){ btn.disabled = false; }
+}
+// ---- Export plan as Markdown ----
+// The plain-text copy's content (planText) plus the grocery list,
+// formatted as Markdown: a heading each for Prep ahead, every day and
+// every grocery section, bullets throughout, dish names as links,
+// "(picked)" kept, custom meals plain with "(custom)", sides plain.
+function planMarkdown(){
+  const out = ["# This week's plan", "", "## Prep ahead"];
+  const groups = planPrepGroups();
+  if(groups.length){
+    for(const b of planPrepBullets(groups))
+      out.push("- " + b.text + " \u00B7 [" + b.r.title + "](" + b.r.link + ")");
+  }
+  else out.push("- No special prep \u2014 everything cooks fresh.");
+  out.push("");
+  planWeek.forEach((day, i) => {
+    const pm = s2 => planPicked.has(i + ":" + s2) ? " (picked)" : "";
+    const dishMd = (r, s2) => r.custom ? r.title + " (custom)" :
+      "[" + r.title + "](" + r.link + ")" + pm(s2);
+    out.push("## " + PLAN_DAYS[i]);
+    out.push("- Breakfast: " + (day.b ? dishMd(day.b, "b") : "\u2014"));
+    out.push("- Lunch: " + (day.l ? (day.l.custom ? day.l.title + " (custom)" :
+      "[" + day.l.title + "](" + day.l.link + ") (picked)") :
+      (i === 0 ? "Prep-day leftovers / eggs + toast" : "Leftovers from last night's dinner")));
+    out.push("- Dinner: " + (day.d ? dishMd(day.d, "d") : "\u2014") + " \u00B7 Side: " + day.side);
+    out.push("- Snack: " + (day.s ? dishMd(day.s, "s") : "\u2014"));
+    out.push("");
+  });
+  out.push("## Grocery list");
+  const secs = buildGrocery();
+  for(const s of GROC_SECTIONS){
+    const list = secs[s];
+    if(!list || !list.length) continue;
+    out.push("### " + s);
+    for(const line of list) out.push("- " + line);
+  }
+  return out.join("\n") + "\n";
+}
+function planExportMd(){
+  if(!planWeek) return;
+  downloadBlob(new Blob([planMarkdown()], { type: "text/markdown" }), "This week's plan.md");
+}
+// ---- Export format chooser ----
+function closeExportMenu(){
+  const m = document.getElementById("plExpMenu");
+  if(m.hidden) return;
+  m.hidden = true;
+  document.getElementById("plExport").setAttribute("aria-expanded", "false");
+}
+function toggleExportMenu(){
+  if(!planWeek) return;
+  const m = document.getElementById("plExpMenu");
+  if(m.hidden){
+    m.hidden = false;
+    document.getElementById("plExport").setAttribute("aria-expanded", "true");
+  } else closeExportMenu();
 }
 // Draws the card and returns { cv, links }; links are the dish-name
 // rectangles in canvas pixels ({x, y, w, h, url}, y from the top) that
@@ -4369,6 +4485,7 @@ function openPlan(){
   document.querySelector(".pl-sheet").scrollTop = 0;
 }
 function closePlan(){
+  closeExportMenu();
   document.getElementById("plOverlay").hidden = true;
   document.body.style.overflow = "";
   window.scrollTo(0, plScrollY);
@@ -4377,7 +4494,18 @@ document.getElementById("planBtn").onclick = openPlan;
 document.getElementById("plClose").onclick = closePlan;
 document.getElementById("plRegen").onclick = generatePlan;
 document.getElementById("plCopy").onclick = copyPlan;
-document.getElementById("plExport").onclick = planExport;
+document.getElementById("plExport").onclick = toggleExportMenu;
+document.getElementById("plExpCancel").onclick = closeExportMenu;
+document.getElementById("plExpPdf").onclick = () => { closeExportMenu(); planExport(); };
+document.getElementById("plExpPhoto").onclick = () => { closeExportMenu(); planExportPhoto(); };
+document.getElementById("plExpMd").onclick = () => { closeExportMenu(); planExportMd(); };
+// A tap anywhere outside the chooser (and not on the Export button,
+// which toggles it) dismisses it without exporting.
+document.addEventListener("click", e => {
+  if(document.getElementById("plExpMenu").hidden) return;
+  if(e.target.closest && (e.target.closest("#plExpMenu") || e.target.closest("#plExport"))) return;
+  closeExportMenu();
+});
 document.getElementById("plPickCancel").onclick = closePick;
 document.getElementById("plPickInput").addEventListener("input", renderPickResults);
 document.getElementById("plPickCustomBtn").onclick = () => {
@@ -4413,6 +4541,7 @@ document.getElementById("plOverlay").addEventListener("click", e => {
 document.addEventListener("keydown", e => {
   if(e.key !== "Escape") return;
   if(!document.getElementById("pvOverlay").hidden) return; // the preview handles its own Escape
+  if(!document.getElementById("plExpMenu").hidden){ closeExportMenu(); return; }
   if(!document.getElementById("plPick").hidden){ closePick(); return; }
   if(!document.getElementById("plOverlay").hidden) closePlan();
 });
