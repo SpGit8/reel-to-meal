@@ -2610,11 +2610,66 @@ function groSingTok(w){
   if(w.length > 3 && w.endsWith("s") && !/(ss|us|is)$/.test(w)) return w.slice(0, -1);
   return w;
 }
+// R4 prep / quantifier-phrase strip (owner-approved: "strip the
+// phrasing, keep amounts"). Removes ONLY the listed phrasing from a
+// cleaned name so phrased variants merge onto the base item:
+// "Squeeze of lemon" -> "lemon", "A few curry leaves" -> "curry
+// leaves", "Lemon juice squeeze" / "Lemon juice — a squeeze" ->
+// "lemon juice" (a trailing squeeze is an amount, not an item — the
+// line stays quantity-less and contributes "+ more" as today).
+// Nothing else from the canonicalization map is applied: no synonym
+// merges, no either/or resolution, no junk drops, no section changes,
+// no judgment merges — "flaky" is deliberately NOT stripped, so
+// "Flaky sea salt" keeps its own line exactly as today.
+function groStripPhrase(s){
+  let n = String(s || ""), hit = false;
+  const eat = re => { const m = n.replace(re, ""); if(m !== n){ hit = true; n = m; } };
+  eat(/\s*[—–-]\s+a\s+squeezes?\s*$/i); // "lemon juice — a squeeze"
+  eat(/\s+squeezes?\s*$/i);             // "lemon juice squeeze"
+  // Prefix strips repeat until stable, so stacked phrasing
+  // ("few squeeze of lime juice") sheds every listed phrase.
+  for(let pass = 0; pass < 3; pass++){
+    const before = n;
+    eat(/^(?:a\s+)?squeezes?\s+of\s+/i);  // "squeeze(s) of lemon (juice)"
+    eat(/^lots\s+of\s+/i);                // "lots of chopped coriander"
+    eat(/^(?:a\s+)?few\s+/i);             // "a few / few curry leaves"
+    eat(/^sprigs?\s*$/i);                 // a bare "sprig" is not an item
+    eat(/^sprigs?\s+(?:of\s+)?/i);        // "sprig (of) curry leaves"
+    eat(/^(?:a\s+)?pinch\s+(?:of\s+)?/i); // "a pinch of / pinch of / pinch salt"
+    eat(/^heaped\s+(?:cups?|tablespoons?|tbsps?|teaspoons?|tsps?|tbsp|tsp)\s+/i);
+    eat(/^heaped\s+/i);                   // "heaped" (+ optional unit)
+    eat(/^(?:overripe|underripe)\s+/i);   // "overripe banana"
+    eat(/^(?:strands|stands)\s+of\s+/i);  // "strands of / stands of saffron"
+    if(n === before) break;
+  }
+  return { name: n.trim(), hit };
+}
+// Canonical form of a cleaned name: the merge key, plus — when the
+// R4 strip fired — the stripped display name. The display name folds
+// spelling variants and drops prep participles but keeps plurality
+// and form words, so a strip-affected line reads "curry leaves" /
+// "coriander" / "chilli powder" instead of the first-seen raw variant.
+const GRO_SPELL = { yoghurt: "yogurt", capsicum: "bell pepper",
+  aubergine: "eggplant", brinjal: "eggplant", cilantro: "coriander",
+  chillies: "chilli", chilies: "chilli", chili: "chilli" };
+const GRO_PREP_DROP = new Set(["finely", "roughly", "coarsely",
+  "chopped", "minced", "diced", "sliced", "grated", "crushed",
+  "peeled", "cubed", "thinly", "julienned", "torn"]);
+function groCanon(name){
+  const sp = groStripPhrase(name);
+  const toks = sp.name.toLowerCase().replace(/[^a-z\s]/g, " ").split(/\s+/).filter(Boolean);
+  const keyToks = toks.map(groSingTok).filter(t => !GRO_DROP.has(t));
+  let key = keyToks.join(" ");
+  key = GRO_ALIAS[key] || key || sp.name.toLowerCase().trim();
+  let disp = null;
+  if(sp.hit && sp.name){
+    const d = toks.map(t => GRO_SPELL[t] || t).filter(t => !GRO_PREP_DROP.has(t)).join(" ");
+    disp = GRO_ALIAS[d] || d || key;
+  }
+  return { key: sp.hit && !sp.name ? "" : key, disp };
+}
 function groKey(name){
-  const toks = name.toLowerCase().replace(/[^a-z\s]/g, " ").split(/\s+/)
-    .filter(Boolean).map(groSingTok).filter(t => !GRO_DROP.has(t));
-  const key = toks.join(" ");
-  return GRO_ALIAS[key] || key || name.toLowerCase().trim();
+  return groCanon(name).key;
 }
 // Store-section sorting by ingredient name. Staples (salt, water, oils,
 // common dry spices) are checked before the buy sections so they land in
@@ -2647,11 +2702,17 @@ function buildGrocery(){
   const items = new Map(); // key -> {name, section, amounts: Map unit->{lo,hi}, plain}
   const add = (name, amounts, section) => {
     if(!name) return;
-    let it = items.get(groKey(name));
+    const cn = groCanon(name);
+    if(!cn.key) return;
+    let it = items.get(cn.key);
     if(!it){
       it = { name, section: section || groSectionFor(name), amounts: new Map(), plain: false };
-      items.set(groKey(name), it);
+      items.set(cn.key, it);
     }
+    // A line whose key came from an R4 strip displays the stripped
+    // name, not the first-seen raw variant; all other lines keep
+    // today's first-seen display.
+    if(cn.disp && !it.disp) it.disp = cn.disp;
     if(amounts && amounts.length){
       for(const a of amounts){
         const cur = it.amounts.get(a.unit);
@@ -2692,7 +2753,7 @@ function buildGrocery(){
       if(unit) s += " " + unit;
       parts.push(s);
     }
-    let line = it.name;
+    let line = it.disp || it.name;
     if(parts.length) line += " — " + parts.join(" + ");
     if(it.plain && parts.length) line += " + more";
     (secs[it.section] = secs[it.section] || []).push(line);
