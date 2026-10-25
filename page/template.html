@@ -2840,7 +2840,7 @@ function planMarkdown(){
 }
 function planExportMd(){
   if(!planWeek) return;
-  downloadBlob(new Blob([planMarkdown()], { type: "text/markdown" }), "This week's plan.md");
+  shareOrDownload(new Blob([planMarkdown()], { type: "text/markdown" }), "This week's plan.md");
 }
 // ---- Export format chooser ----
 function closeExportMenu(){
