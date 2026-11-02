@@ -207,9 +207,14 @@
     #pvOverlay{align-items:center;padding:24px}
     .pv-sheet{border-radius:18px}
   }
-  #pvClose{position:absolute;top:10px;right:10px;width:36px;height:36px;border-radius:50%;
-    border:none;background:rgba(24,16,10,.62);color:#fff;font-size:19px;line-height:1;
-    cursor:pointer;z-index:3;font-family:inherit}
+  /* Sticky + floated, not absolute: the sheet scrolls, and an absolute
+     button scrolls away with the content (bug reported 2026-11-02 —
+     after reading down a recipe there was no visible way to close the
+     preview). Sticky keeps it pinned to the sheet's top-right corner;
+     the negative bottom margin keeps the layout unchanged at rest. */
+  #pvClose{position:sticky;top:10px;float:right;margin:10px 10px -46px 0;width:36px;height:36px;border-radius:50%;
+    border:none;background:rgba(24,16,10,.78);color:#fff;font-size:19px;line-height:1;
+    cursor:pointer;z-index:3;font-family:inherit;box-shadow:0 1px 6px rgba(0,0,0,.35)}
   #pvClose:active{transform:scale(.92)}
   #pvImg{width:100%;max-height:46vh;object-fit:cover;display:block;background:var(--chip)}
   .pv-body{padding:16px 18px 20px}
