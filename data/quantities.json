@@ -1,4 +1,573 @@
 {
+ "17903987895374440": {
+  "base": 1,
+  "base_stated": false,
+  "lines": [
+   {
+    "raw": "300 g chicken mince",
+    "qty": [
+     300.0,
+     null
+    ],
+    "rest": " g chicken mince"
+   },
+   {
+    "raw": "\u00bd tsp black pepper",
+    "qty": [
+     0.5,
+     null
+    ],
+    "rest": " tsp black pepper"
+   },
+   {
+    "raw": "1 tsp oregano",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " tsp oregano"
+   },
+   {
+    "raw": "1 tbsp ginger-garlic paste",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " tbsp ginger-garlic paste"
+   },
+   {
+    "raw": "Salt to taste"
+   },
+   {
+    "raw": "6 small tortillas",
+    "qty": [
+     6.0,
+     null
+    ],
+    "rest": " small tortillas"
+   },
+   {
+    "raw": "3 tbsp sour cream",
+    "qty": [
+     3.0,
+     null
+    ],
+    "rest": " tbsp sour cream"
+   },
+   {
+    "raw": "1\u20132 tbsp chopped jalape\u00f1os",
+    "qty": [
+     1.0,
+     2.0
+    ],
+    "rest": " tbsp chopped jalape\u00f1os"
+   },
+   {
+    "raw": "1-2 tbsp ketchup",
+    "qty": [
+     1.0,
+     2.0
+    ],
+    "rest": " tbsp ketchup"
+   },
+   {
+    "raw": "6 cheese slices",
+    "qty": [
+     6.0,
+     null
+    ],
+    "rest": " cheese slices"
+   },
+   {
+    "raw": "1 large onion, thinly sliced",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " large onion, thinly sliced"
+   },
+   {
+    "raw": "Oil/butter for cooking"
+   }
+  ]
+ },
+ "18135013444625287": {
+  "base": 1,
+  "base_stated": false,
+  "lines": [
+   {
+    "raw": "1- Peri Peri Chicken marination ingredients:"
+   },
+   {
+    "raw": "500g bonless chicken breast"
+   },
+   {
+    "raw": "1 tsp salt",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " tsp salt"
+   },
+   {
+    "raw": "\u00bd tsp coriander powder",
+    "qty": [
+     0.5,
+     null
+    ],
+    "rest": " tsp coriander powder"
+   },
+   {
+    "raw": "1\u00bd tsp chili flakes",
+    "qty": [
+     1.5,
+     null
+    ],
+    "rest": " tsp chili flakes"
+   },
+   {
+    "raw": "1 tsp black pepper powder",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " tsp black pepper powder"
+   },
+   {
+    "raw": "1 tbsp peprika powder",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " tbsp peprika powder"
+   },
+   {
+    "raw": "\u00bd tsp onion powder",
+    "qty": [
+     0.5,
+     null
+    ],
+    "rest": " tsp onion powder"
+   },
+   {
+    "raw": "\u00bd tbsp dry oregano",
+    "qty": [
+     0.5,
+     null
+    ],
+    "rest": " tbsp dry oregano"
+   },
+   {
+    "raw": "\u00bd tbsp dry parsley",
+    "qty": [
+     0.5,
+     null
+    ],
+    "rest": " tbsp dry parsley"
+   },
+   {
+    "raw": "2 tbsp lemon juice",
+    "qty": [
+     2.0,
+     null
+    ],
+    "rest": " tbsp lemon juice"
+   },
+   {
+    "raw": "1 tbsp oil",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " tbsp oil"
+   },
+   {
+    "raw": "1 tbsp ginger garlic paste",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " tbsp ginger garlic paste"
+   },
+   {
+    "raw": "2- Green tikka boti ingredients:"
+   },
+   {
+    "raw": "500g bonless chicken breast"
+   },
+   {
+    "raw": "1 tsp salt",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " tsp salt"
+   },
+   {
+    "raw": "1 tsp cumin powder",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " tsp cumin powder"
+   },
+   {
+    "raw": "1 tsp kasoori methi",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " tsp kasoori methi"
+   },
+   {
+    "raw": "1 tbsp lemon juice",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " tbsp lemon juice"
+   },
+   {
+    "raw": "2 tbsp fresh green chilies",
+    "qty": [
+     2.0,
+     null
+    ],
+    "rest": " tbsp fresh green chilies"
+   },
+   {
+    "raw": "1 tbsp oil",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " tbsp oil"
+   },
+   {
+    "raw": "1 tbsp ginger garlic paste",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " tbsp ginger garlic paste"
+   },
+   {
+    "raw": "2\u00bd tbsp fresh coriander and mint paste",
+    "qty": [
+     2.5,
+     null
+    ],
+    "rest": " tbsp fresh coriander and mint paste"
+   },
+   {
+    "raw": "\u2153 cup Yogurt",
+    "qty": [
+     0.3333333333333333,
+     null
+    ],
+    "rest": " cup Yogurt"
+   },
+   {
+    "raw": "\u00bc cup heavy cream",
+    "qty": [
+     0.25,
+     null
+    ],
+    "rest": " cup heavy cream"
+   },
+   {
+    "raw": "3- Chicken shawarma ingredients:"
+   },
+   {
+    "raw": "500g bonless chicken breast"
+   },
+   {
+    "raw": "1 tsp salt",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " tsp salt"
+   },
+   {
+    "raw": "1 tsp coriander powder",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " tsp coriander powder"
+   },
+   {
+    "raw": "1\u00bd tsp red chili powder",
+    "qty": [
+     1.5,
+     null
+    ],
+    "rest": " tsp red chili powder"
+   },
+   {
+    "raw": "\u00bd tsp black pepper powder",
+    "qty": [
+     0.5,
+     null
+    ],
+    "rest": " tsp black pepper powder"
+   },
+   {
+    "raw": "1 tbsp white vinigar",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " tbsp white vinigar"
+   },
+   {
+    "raw": "1 tbsp soya sauce",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " tbsp soya sauce"
+   },
+   {
+    "raw": "1 tbsp chilli sauce",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " tbsp chilli sauce"
+   },
+   {
+    "raw": "\u00bd tsp turmeric powder",
+    "qty": [
+     0.5,
+     null
+    ],
+    "rest": " tsp turmeric powder"
+   },
+   {
+    "raw": "1 tbsp oil",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " tbsp oil"
+   },
+   {
+    "raw": "1 tbsp ginger garlic paste",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " tbsp ginger garlic paste"
+   },
+   {
+    "raw": "4-Malai Tikka boti ingredients:"
+   },
+   {
+    "raw": "1 tsp salt",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " tsp salt"
+   },
+   {
+    "raw": "\u00bd tsp black pepper powder",
+    "qty": [
+     0.5,
+     null
+    ],
+    "rest": " tsp black pepper powder"
+   },
+   {
+    "raw": "\u00bd tsp white pepper powder",
+    "qty": [
+     0.5,
+     null
+    ],
+    "rest": " tsp white pepper powder"
+   },
+   {
+    "raw": "\u00bd tbsp fresh green chilies",
+    "qty": [
+     0.5,
+     null
+    ],
+    "rest": " tbsp fresh green chilies"
+   },
+   {
+    "raw": "\u00bd tsp garam masala",
+    "qty": [
+     0.5,
+     null
+    ],
+    "rest": " tsp garam masala"
+   },
+   {
+    "raw": "\u00bd tsp kasoori methi",
+    "qty": [
+     0.5,
+     null
+    ],
+    "rest": " tsp kasoori methi"
+   },
+   {
+    "raw": "1 tbsp lemon juice",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " tbsp lemon juice"
+   },
+   {
+    "raw": "1 tbsp ginger garlic paste",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " tbsp ginger garlic paste"
+   },
+   {
+    "raw": "1 tbsp cooking oil",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " tbsp cooking oil"
+   },
+   {
+    "raw": "\u00bd cup yogurt",
+    "qty": [
+     0.5,
+     null
+    ],
+    "rest": " cup yogurt"
+   },
+   {
+    "raw": "\u00bc cup heavy cream",
+    "qty": [
+     0.25,
+     null
+    ],
+    "rest": " cup heavy cream"
+   }
+  ]
+ },
+ "17890861653618685": {
+  "base": 1,
+  "base_stated": false,
+  "lines": [
+   {
+    "raw": "1 medium butternut squash (about 2\u00be lb / 1.2-1.3 kg), halved lengthwise",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " medium butternut squash (about 2\u00be lb / 1.2-1.3 kg), halved lengthwise"
+   },
+   {
+    "raw": "2 tsp olive oil",
+    "qty": [
+     2.0,
+     null
+    ],
+    "rest": " tsp olive oil"
+   },
+   {
+    "raw": "Pinch of salt, for roasting"
+   },
+   {
+    "raw": "1 cup (245 g) whole-milk ricotta, drained",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " cup (245 g) whole-milk ricotta, drained"
+   },
+   {
+    "raw": "1 large egg",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " large egg"
+   },
+   {
+    "raw": "\u00bd cup (45 g) finely grated Parmigiano-Reggiano",
+    "qty": [
+     0.5,
+     null
+    ],
+    "rest": " cup (45 g) finely grated Parmigiano-Reggiano"
+   },
+   {
+    "raw": "\u00be cup (95 g) all-purpose flour, plus more for shaping and dusting",
+    "qty": [
+     0.75,
+     null
+    ],
+    "rest": " cup (95 g) all-purpose flour, plus more for shaping and dusting"
+   },
+   {
+    "raw": "\u00bd tsp (3g) fine sea salt",
+    "qty": [
+     0.5,
+     null
+    ],
+    "rest": " tsp (3g) fine sea salt"
+   },
+   {
+    "raw": "Pinch of freshly grated nutmeg"
+   },
+   {
+    "raw": "6 tablespoons (85 g) unsalted butter, divided",
+    "qty": [
+     6.0,
+     null
+    ],
+    "rest": " tablespoons (85 g) unsalted butter, divided"
+   },
+   {
+    "raw": "10-12 fresh sage leaves",
+    "qty": [
+     10.0,
+     12.0
+    ],
+    "rest": " fresh sage leaves"
+   },
+   {
+    "raw": "\u2153 cup (30 g) finely grated Parmigiano-Reggiano",
+    "qty": [
+     0.3333333333333333,
+     null
+    ],
+    "rest": " cup (30 g) finely grated Parmigiano-Reggiano"
+   },
+   {
+    "raw": "1 cup (240 ml) reserved gnudi cooking water, as needed",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " cup (240 ml) reserved gnudi cooking water, as needed"
+   },
+   {
+    "raw": "2-3 tbsp heavy cream, optional (see notes)",
+    "qty": [
+     2.0,
+     3.0
+    ],
+    "rest": " tbsp heavy cream, optional (see notes)"
+   },
+   {
+    "raw": "Freshly ground black pepper, for serving"
+   },
+   {
+    "raw": "Shaved Parmigiano-Reggiano, for serving"
+   }
+  ]
+ },
  "17945558973087692": {
   "base": 40,
   "base_stated": true,
@@ -122,7 +691,7 @@
     "rest": " whole garlic bulbs (peeled)"
    },
    {
-    "raw": "½ cup olive oil (just enough to cover the cloves)",
+    "raw": "\u00bd cup olive oil (just enough to cover the cloves)",
     "qty": [
      0.5,
      null
@@ -130,7 +699,7 @@
     "rest": " cup olive oil (just enough to cover the cloves)"
    },
    {
-    "raw": "½ cup softened vegan butter",
+    "raw": "\u00bd cup softened vegan butter",
     "qty": [
      0.5,
      null
@@ -168,12 +737,12 @@
     "rest": " g spaghetti (or any pasta you like)"
    },
    {
-    "raw": "1 cup pasta’s cooking water",
+    "raw": "1 cup pasta\u2019s cooking water",
     "qty": [
      1.0,
      null
     ],
-    "rest": " cup pasta’s cooking water"
+    "rest": " cup pasta\u2019s cooking water"
    },
    {
     "raw": "Extra vegan Parmesan, basil, toasted breadcrumbs or chili oil, for topping (optional)"
@@ -193,7 +762,7 @@
     "rest": " cups cold cooked rice"
    },
    {
-    "raw": "1½–2 cups beech mushrooms",
+    "raw": "1\u00bd\u20132 cups beech mushrooms",
     "qty": [
      1.5,
      2.0
@@ -201,7 +770,7 @@
     "rest": " cups beech mushrooms"
    },
    {
-    "raw": "2–3 cloves garlic, minced",
+    "raw": "2\u20133 cloves garlic, minced",
     "qty": [
      2.0,
      3.0
@@ -209,7 +778,7 @@
     "rest": " cloves garlic, minced"
    },
    {
-    "raw": "2–3 tbsp chopped chives",
+    "raw": "2\u20133 tbsp chopped chives",
     "qty": [
      2.0,
      3.0
@@ -217,7 +786,7 @@
     "rest": " tbsp chopped chives"
    },
    {
-    "raw": "1½ tbsp butter, divided",
+    "raw": "1\u00bd tbsp butter, divided",
     "qty": [
      1.5,
      null
@@ -233,7 +802,7 @@
     "rest": " tsp neutral oil"
    },
    {
-    "raw": "1–2 tsp soy sauce, to taste",
+    "raw": "1\u20132 tsp soy sauce, to taste",
     "qty": [
      1.0,
      2.0
@@ -264,7 +833,7 @@
     "raw": "25g panko breadcrumbs"
    },
    {
-    "raw": "½ tsp red chilli powder",
+    "raw": "\u00bd tsp red chilli powder",
     "qty": [
      0.5,
      null
@@ -272,7 +841,7 @@
     "rest": " tsp red chilli powder"
    },
    {
-    "raw": "½ tsp garlic powder",
+    "raw": "\u00bd tsp garlic powder",
     "qty": [
      0.5,
      null
@@ -280,7 +849,7 @@
     "rest": " tsp garlic powder"
    },
    {
-    "raw": "¼ tsp black pepper",
+    "raw": "\u00bc tsp black pepper",
     "qty": [
      0.25,
      null
@@ -306,7 +875,7 @@
     "raw": "3g oil"
    },
    {
-    "raw": "3–4 garlic cloves, minced",
+    "raw": "3\u20134 garlic cloves, minced",
     "qty": [
      3.0,
      4.0
@@ -314,7 +883,7 @@
     "rest": " garlic cloves, minced"
    },
    {
-    "raw": "1–2 tsp water, as needed",
+    "raw": "1\u20132 tsp water, as needed",
     "qty": [
      1.0,
      2.0
@@ -583,7 +1152,7 @@
   "base_stated": false,
   "lines": [
    {
-    "raw": "Bhetki fillets – 600 g (6–7 pieces)"
+    "raw": "Bhetki fillets \u2013 600 g (6\u20137 pieces)"
    },
    {
     "raw": "1 medium onion",
@@ -602,7 +1171,7 @@
     "rest": " handful coriander bunch with roots"
    },
    {
-    "raw": "½ handful of parsley bunch",
+    "raw": "\u00bd handful of parsley bunch",
     "qty": [
      0.5,
      null
@@ -610,7 +1179,7 @@
     "rest": " handful of parsley bunch"
    },
    {
-    "raw": "3–4 green chillies",
+    "raw": "3\u20134 green chillies",
     "qty": [
      3.0,
      4.0
@@ -621,7 +1190,7 @@
     "raw": "1-inch ginger"
    },
    {
-    "raw": "5–6 garlic cloves",
+    "raw": "5\u20136 garlic cloves",
     "qty": [
      5.0,
      6.0
@@ -629,7 +1198,7 @@
     "rest": " garlic cloves"
    },
    {
-    "raw": "⅓ tsp Bengali garam masala",
+    "raw": "\u2153 tsp Bengali garam masala",
     "qty": [
      0.3333333333333333,
      null
@@ -637,7 +1206,7 @@
     "rest": " tsp Bengali garam masala"
    },
    {
-    "raw": "¼ tsp MSG",
+    "raw": "\u00bc tsp MSG",
     "qty": [
      0.25,
      null
@@ -645,7 +1214,7 @@
     "rest": " tsp MSG"
    },
    {
-    "raw": "⅓ tsp sugar",
+    "raw": "\u2153 tsp sugar",
     "qty": [
      0.3333333333333333,
      null
@@ -653,7 +1222,7 @@
     "rest": " tsp sugar"
    },
    {
-    "raw": "½ tsp black pepper",
+    "raw": "\u00bd tsp black pepper",
     "qty": [
      0.5,
      null
@@ -677,7 +1246,7 @@
     "rest": " egg"
    },
    {
-    "raw": "2½ tbsp flour",
+    "raw": "2\u00bd tbsp flour",
     "qty": [
      2.5,
      null
@@ -726,7 +1295,7 @@
     "rest": " tsp chilli flakes"
    },
    {
-    "raw": "⅓ tsp black pepper",
+    "raw": "\u2153 tsp black pepper",
     "qty": [
      0.3333333333333333,
      null
@@ -746,7 +1315,7 @@
     "raw": "vegetable oil"
    },
    {
-    "raw": "2–3 eggs for dipping",
+    "raw": "2\u20133 eggs for dipping",
     "qty": [
      2.0,
      3.0
@@ -1152,7 +1721,7 @@
     "rest": " tsp coriander powder"
    },
    {
-    "raw": "½ tsp garam masala",
+    "raw": "\u00bd tsp garam masala",
     "qty": [
      0.5,
      null
@@ -1306,7 +1875,7 @@
     "rest": " tsp green chillies (finely chopped)"
    },
    {
-    "raw": "¼ cup coriander leaves",
+    "raw": "\u00bc cup coriander leaves",
     "qty": [
      0.25,
      null
@@ -1384,7 +1953,7 @@
     "rest": " tsp chili powder"
    },
    {
-    "raw": "½ tsp paprika",
+    "raw": "\u00bd tsp paprika",
     "qty": [
      0.5,
      null
@@ -1392,7 +1961,7 @@
     "rest": " tsp paprika"
    },
    {
-    "raw": "½ tsp kosher salt",
+    "raw": "\u00bd tsp kosher salt",
     "qty": [
      0.5,
      null
@@ -1400,7 +1969,7 @@
     "rest": " tsp kosher salt"
    },
    {
-    "raw": "½ tsp black pepper",
+    "raw": "\u00bd tsp black pepper",
     "qty": [
      0.5,
      null
@@ -1408,7 +1977,7 @@
     "rest": " tsp black pepper"
    },
    {
-    "raw": "¼ cup buttermilk or milk (for brushing)",
+    "raw": "\u00bc cup buttermilk or milk (for brushing)",
     "qty": [
      0.25,
      null
@@ -1424,7 +1993,7 @@
     "rest": " small flour tortillas (street style)"
    },
    {
-    "raw": "Neutral oil for frying (about ¼ inch in skillet)"
+    "raw": "Neutral oil for frying (about \u00bc inch in skillet)"
    },
    {
     "raw": "1 cup all-purpose flour",
@@ -1459,7 +2028,7 @@
     "rest": " tsp kosher salt"
    },
    {
-    "raw": "¼–½ tsp cayenne",
+    "raw": "\u00bc\u2013\u00bd tsp cayenne",
     "qty": [
      0.25,
      0.5
@@ -1467,7 +2036,7 @@
     "rest": " tsp cayenne"
    },
    {
-    "raw": "½ tsp garlic powder",
+    "raw": "\u00bd tsp garlic powder",
     "qty": [
      0.5,
      null
@@ -1475,7 +2044,7 @@
     "rest": " tsp garlic powder"
    },
    {
-    "raw": "½ tsp onion powder",
+    "raw": "\u00bd tsp onion powder",
     "qty": [
      0.5,
      null
@@ -1483,7 +2052,7 @@
     "rest": " tsp onion powder"
    },
    {
-    "raw": "½ tsp black pepper",
+    "raw": "\u00bd tsp black pepper",
     "qty": [
      0.5,
      null
@@ -1507,7 +2076,7 @@
     "rest": " tsp cayenne"
    },
    {
-    "raw": "½ tsp garlic powder",
+    "raw": "\u00bd tsp garlic powder",
     "qty": [
      0.5,
      null
@@ -1515,7 +2084,7 @@
     "rest": " tsp garlic powder"
    },
    {
-    "raw": "½ tsp onion powder",
+    "raw": "\u00bd tsp onion powder",
     "qty": [
      0.5,
      null
@@ -1523,7 +2092,7 @@
     "rest": " tsp onion powder"
    },
    {
-    "raw": "½ tsp chili powder",
+    "raw": "\u00bd tsp chili powder",
     "qty": [
      0.5,
      null
@@ -1531,7 +2100,7 @@
     "rest": " tsp chili powder"
    },
    {
-    "raw": "½ tsp salt",
+    "raw": "\u00bd tsp salt",
     "qty": [
      0.5,
      null
@@ -1539,7 +2108,7 @@
     "rest": " tsp salt"
    },
    {
-    "raw": "¼ tsp black pepper",
+    "raw": "\u00bc tsp black pepper",
     "qty": [
      0.25,
      null
@@ -1631,7 +2200,7 @@
     "rest": " tbsp olive oil"
    },
    {
-    "raw": "½ tsp salt, or to taste",
+    "raw": "\u00bd tsp salt, or to taste",
     "qty": [
      0.5,
      null
@@ -1639,7 +2208,7 @@
     "rest": " tsp salt, or to taste"
    },
    {
-    "raw": "¼ tsp black pepper",
+    "raw": "\u00bc tsp black pepper",
     "qty": [
      0.25,
      null
@@ -1647,7 +2216,7 @@
     "rest": " tsp black pepper"
    },
    {
-    "raw": "100–120 g brie cheese, cut into small pieces",
+    "raw": "100\u2013120 g brie cheese, cut into small pieces",
     "qty": [
      100.0,
      120.0
@@ -1655,7 +2224,7 @@
     "rest": " g brie cheese, cut into small pieces"
    },
    {
-    "raw": "3–4 tbsp fig jam",
+    "raw": "3\u20134 tbsp fig jam",
     "qty": [
      3.0,
      4.0
@@ -1697,7 +2266,7 @@
     "rest": " sliced onions"
    },
    {
-    "raw": "¼ cup cashews",
+    "raw": "\u00bc cup cashews",
     "qty": [
      0.25,
      null
@@ -1848,7 +2417,7 @@
     "rest": " tablespoon peanut butter"
    },
    {
-    "raw": "½ teaspoon sugar",
+    "raw": "\u00bd teaspoon sugar",
     "qty": [
      0.5,
      null
@@ -1856,7 +2425,7 @@
     "rest": " teaspoon sugar"
    },
    {
-    "raw": "¼ teaspoon salt",
+    "raw": "\u00bc teaspoon salt",
     "qty": [
      0.25,
      null
@@ -1872,7 +2441,7 @@
     "rest": " cup thin coconut milk"
    },
    {
-    "raw": "½ cup water",
+    "raw": "\u00bd cup water",
     "qty": [
      0.5,
      null
@@ -1888,7 +2457,7 @@
     "rest": " cup cooked rice"
    },
    {
-    "raw": "⅓ cup cooked edamame beans",
+    "raw": "\u2153 cup cooked edamame beans",
     "qty": [
      0.3333333333333333,
      null
@@ -1896,7 +2465,7 @@
     "rest": " cup cooked edamame beans"
    },
    {
-    "raw": "½ lemon juice",
+    "raw": "\u00bd lemon juice",
     "qty": [
      0.5,
      null
@@ -1942,7 +2511,7 @@
     "rest": " cup buckwheat groats"
    },
    {
-    "raw": "⅓ cup chia seeds",
+    "raw": "\u2153 cup chia seeds",
     "qty": [
      0.3333333333333333,
      null
@@ -1950,7 +2519,7 @@
     "rest": " cup chia seeds"
    },
    {
-    "raw": "⅓ cup milled flaxseed",
+    "raw": "\u2153 cup milled flaxseed",
     "qty": [
      0.3333333333333333,
      null
@@ -1958,7 +2527,7 @@
     "rest": " cup milled flaxseed"
    },
    {
-    "raw": "½ cup chopped walnuts",
+    "raw": "\u00bd cup chopped walnuts",
     "qty": [
      0.5,
      null
@@ -1966,7 +2535,7 @@
     "rest": " cup chopped walnuts"
    },
    {
-    "raw": "½ cup sesame seeds",
+    "raw": "\u00bd cup sesame seeds",
     "qty": [
      0.5,
      null
@@ -1982,7 +2551,7 @@
     "rest": " Medjool dates, finely chopped"
    },
    {
-    "raw": "½ cup sunflower seeds",
+    "raw": "\u00bd cup sunflower seeds",
     "qty": [
      0.5,
      null
@@ -2017,7 +2586,7 @@
     "raw": "cinnamon, orange zest & juice (optional)"
    },
    {
-    "raw": "⅓ cup greek yoghurt or Skyr (to serve, per portion)",
+    "raw": "\u2153 cup greek yoghurt or Skyr (to serve, per portion)",
     "qty": [
      0.3333333333333333,
      null
@@ -2025,7 +2594,7 @@
     "rest": " cup greek yoghurt or Skyr (to serve, per portion)"
    },
    {
-    "raw": "⅓ cup frozen blueberries (to serve, per portion)",
+    "raw": "\u2153 cup frozen blueberries (to serve, per portion)",
     "qty": [
      0.3333333333333333,
      null
@@ -2671,7 +3240,7 @@
     "rest": " garlic clove"
    },
    {
-    "raw": "6–8 fresh figs, halved or quartered",
+    "raw": "6\u20138 fresh figs, halved or quartered",
     "qty": [
      6.0,
      8.0
@@ -2710,7 +3279,7 @@
     "raw": "Crushed pistachios (optional, for crunch)"
    },
    {
-    "raw": "Rosemary Hot Honey 🔥🍯 (comment Hot Honey and I’ll dm the recipe to you)"
+    "raw": "Rosemary Hot Honey \ud83d\udd25\ud83c\udf6f (comment Hot Honey and I\u2019ll dm the recipe to you)"
    }
   ]
  },
@@ -2841,7 +3410,7 @@
     "raw": "4oz @phillycreamchs cream cheese"
    },
    {
-    "raw": "@mezzetta sliced jalapeño peppers"
+    "raw": "@mezzetta sliced jalape\u00f1o peppers"
    },
    {
     "raw": "1 cup shredded mozzarella cheese",
@@ -2914,8 +3483,8 @@
   ]
  },
  "18132897259741249": {
-  "base": 1,
-  "base_stated": false,
+  "base": 45,
+  "base_stated": true,
   "lines": [
    {
     "raw": "2 large onions",
@@ -3141,7 +3710,7 @@
     "rest": " tbsp Dijon mustard"
    },
    {
-    "raw": "½ cup extra virgin olive oil",
+    "raw": "\u00bd cup extra virgin olive oil",
     "qty": [
      0.5,
      null
@@ -3637,12 +4206,12 @@
     "rest": " cup shredded cheddar cheese, plus more for topping"
    },
    {
-    "raw": "1 jalapeño, finely chopped, plus slices for topping",
+    "raw": "1 jalape\u00f1o, finely chopped, plus slices for topping",
     "qty": [
      1.0,
      null
     ],
-    "rest": " jalapeño, finely chopped, plus slices for topping"
+    "rest": " jalape\u00f1o, finely chopped, plus slices for topping"
    }
   ]
  },
@@ -3735,7 +4304,7 @@
     "raw": "Lettuce ( diced )"
    },
    {
-    "raw": "Jalapeños"
+    "raw": "Jalape\u00f1os"
    },
    {
     "raw": "Banana peppers"
@@ -3781,12 +4350,12 @@
     "rest": " tsp garlic powder"
    },
    {
-    "raw": "1 tsp sliced jalapeños ( optional )",
+    "raw": "1 tsp sliced jalape\u00f1os ( optional )",
     "qty": [
      1.0,
      null
     ],
-    "rest": " tsp sliced jalapeños ( optional )"
+    "rest": " tsp sliced jalape\u00f1os ( optional )"
    }
   ]
  },
@@ -4071,8 +4640,8 @@
   ]
  },
  "18210049489342953": {
-  "base": 1,
-  "base_stated": false,
+  "base": 30,
+  "base_stated": true,
   "lines": [
    {
     "raw": "1 1/2 pounds boneless skinless chicken thighs (or breasts), cut into 1-inch, bite-size pieces",
@@ -4276,7 +4845,7 @@
   "base_stated": false,
   "lines": [
    {
-    "raw": "½ cup white rice",
+    "raw": "\u00bd cup white rice",
     "qty": [
      0.5,
      null
@@ -4300,7 +4869,7 @@
     "rest": " cup whole milk + more if needed"
    },
    {
-    "raw": "½ tsp cinnamon",
+    "raw": "\u00bd tsp cinnamon",
     "qty": [
      0.5,
      null
@@ -4308,15 +4877,15 @@
     "rest": " tsp cinnamon"
    },
    {
-    "raw": "⅓ cup pumpkin purée",
+    "raw": "\u2153 cup pumpkin pur\u00e9e",
     "qty": [
      0.3333333333333333,
      null
     ],
-    "rest": " cup pumpkin purée"
+    "rest": " cup pumpkin pur\u00e9e"
    },
    {
-    "raw": "1–2 tbsp maple syrup",
+    "raw": "1\u20132 tbsp maple syrup",
     "qty": [
      1.0,
      2.0
@@ -4324,7 +4893,7 @@
     "rest": " tbsp maple syrup"
    },
    {
-    "raw": "½ tsp vanilla",
+    "raw": "\u00bd tsp vanilla",
     "qty": [
      0.5,
      null
@@ -4373,7 +4942,7 @@
     "raw": "Sourdough or any thick bread"
    },
    {
-    "raw": "½ cup cottage cheese",
+    "raw": "\u00bd cup cottage cheese",
     "qty": [
      0.5,
      null
@@ -4381,15 +4950,15 @@
     "rest": " cup cottage cheese"
    },
    {
-    "raw": "1 jalapeño (chopped, plus extra slices for topping)",
+    "raw": "1 jalape\u00f1o (chopped, plus extra slices for topping)",
     "qty": [
      1.0,
      null
     ],
-    "rest": " jalapeño (chopped, plus extra slices for topping)"
+    "rest": " jalape\u00f1o (chopped, plus extra slices for topping)"
    },
    {
-    "raw": "¼ cup cheddar cheese, grated",
+    "raw": "\u00bc cup cheddar cheese, grated",
     "qty": [
      0.25,
      null
@@ -4513,7 +5082,7 @@
     "rest": " tsp black pepper powder"
    },
    {
-    "raw": "4–5 tbsp coconut oil",
+    "raw": "4\u20135 tbsp coconut oil",
     "qty": [
      4.0,
      5.0
@@ -4529,7 +5098,7 @@
     "rest": " tsp mustard seeds"
    },
    {
-    "raw": "4–6 garlic cloves, crushed",
+    "raw": "4\u20136 garlic cloves, crushed",
     "qty": [
      4.0,
      6.0
@@ -4537,7 +5106,7 @@
     "rest": " garlic cloves, crushed"
    },
    {
-    "raw": "10–12 shallots, thinly sliced",
+    "raw": "10\u201312 shallots, thinly sliced",
     "qty": [
      10.0,
      12.0
@@ -4724,7 +5293,7 @@
   "base_stated": false,
   "lines": [
    {
-    "raw": "¾ cup milk of your choice",
+    "raw": "\u00be cup milk of your choice",
     "qty": [
      0.75,
      null
@@ -4754,7 +5323,7 @@
     "raw": "A little vanilla paste or extract"
    },
    {
-    "raw": "¼ cup hot water",
+    "raw": "\u00bc cup hot water",
     "qty": [
      0.25,
      null
@@ -5023,7 +5592,7 @@
     "rest": " tsp black pepper"
    },
    {
-    "raw": "1–2 tbsp milk or heavy cream, to thin",
+    "raw": "1\u20132 tbsp milk or heavy cream, to thin",
     "qty": [
      1.0,
      2.0
@@ -5251,20 +5820,20 @@
     "rest": " cup canned full-fat coconut milk (add 1/2 cup if you want it more brothy)"
    },
    {
-    "raw": "2 tbsp Trader Joe’s Thai red curry sauce",
+    "raw": "2 tbsp Trader Joe\u2019s Thai red curry sauce",
     "qty": [
      2.0,
      null
     ],
-    "rest": " tbsp Trader Joe’s Thai red curry sauce"
+    "rest": " tbsp Trader Joe\u2019s Thai red curry sauce"
    },
    {
-    "raw": "1 tbsp Trader Joe’s Soyaki sauce",
+    "raw": "1 tbsp Trader Joe\u2019s Soyaki sauce",
     "qty": [
      1.0,
      null
     ],
-    "rest": " tbsp Trader Joe’s Soyaki sauce"
+    "rest": " tbsp Trader Joe\u2019s Soyaki sauce"
    },
    {
     "raw": "Chili crunch, for topping @momofukugoods"
@@ -5290,7 +5859,7 @@
     "rest": " cup soaked moong dal"
    },
    {
-    "raw": "½ lauki, peeled and cut into cubes",
+    "raw": "\u00bd lauki, peeled and cut into cubes",
     "qty": [
      0.5,
      null
@@ -5314,7 +5883,7 @@
     "rest": " green chilli"
    },
    {
-    "raw": "½ tbsp jeera",
+    "raw": "\u00bd tbsp jeera",
     "qty": [
      0.5,
      null
@@ -5322,7 +5891,7 @@
     "rest": " tbsp jeera"
    },
    {
-    "raw": "½ tbsp haldi",
+    "raw": "\u00bd tbsp haldi",
     "qty": [
      0.5,
      null
@@ -5508,7 +6077,7 @@
     "rest": " garlic cloves, minced"
    },
    {
-    "raw": "3 – 4 Tbsp melted butter",
+    "raw": "3 \u2013 4 Tbsp melted butter",
     "qty": [
      3.0,
      4.0
@@ -5516,7 +6085,7 @@
     "rest": " Tbsp melted butter"
    },
    {
-    "raw": "1½ lb chicken breast, cut in bite-sized pieces",
+    "raw": "1\u00bd lb chicken breast, cut in bite-sized pieces",
     "qty": [
      1.5,
      null
@@ -5524,7 +6093,7 @@
     "rest": " lb chicken breast, cut in bite-sized pieces"
    },
    {
-    "raw": "1 ½ – 2 tsp Italian seasoning",
+    "raw": "1 \u00bd \u2013 2 tsp Italian seasoning",
     "qty": [
      1.5,
      2.0
@@ -5532,7 +6101,7 @@
     "rest": " tsp Italian seasoning"
    },
    {
-    "raw": "½ tsp onion powder",
+    "raw": "\u00bd tsp onion powder",
     "qty": [
      0.5,
      null
@@ -5540,7 +6109,7 @@
     "rest": " tsp onion powder"
    },
    {
-    "raw": "½ tsp garlic powder",
+    "raw": "\u00bd tsp garlic powder",
     "qty": [
      0.5,
      null
@@ -5548,7 +6117,7 @@
     "rest": " tsp garlic powder"
    },
    {
-    "raw": "½ tsp paprika",
+    "raw": "\u00bd tsp paprika",
     "qty": [
      0.5,
      null
@@ -5556,7 +6125,7 @@
     "rest": " tsp paprika"
    },
    {
-    "raw": "½ tsp sea salt",
+    "raw": "\u00bd tsp sea salt",
     "qty": [
      0.5,
      null
@@ -5564,7 +6133,7 @@
     "rest": " tsp sea salt"
    },
    {
-    "raw": "½ tsp pepper",
+    "raw": "\u00bd tsp pepper",
     "qty": [
      0.5,
      null
@@ -5572,7 +6141,7 @@
     "rest": " tsp pepper"
    },
    {
-    "raw": "½ cup freshly grated parmesan",
+    "raw": "\u00bd cup freshly grated parmesan",
     "qty": [
      0.5,
      null
@@ -5580,7 +6149,7 @@
     "rest": " cup freshly grated parmesan"
    },
    {
-    "raw": "¼ cup heavy cream, technically optional, but adds richness and creaminess",
+    "raw": "\u00bc cup heavy cream, technically optional, but adds richness and creaminess",
     "qty": [
      0.25,
      null
@@ -5651,12 +6220,12 @@
   "base_stated": false,
   "lines": [
    {
-    "raw": "8 medjool dates, pitted (if you can’t find medjool get large ones and pre-soak)",
+    "raw": "8 medjool dates, pitted (if you can\u2019t find medjool get large ones and pre-soak)",
     "qty": [
      8.0,
      null
     ],
-    "rest": " medjool dates, pitted (if you can’t find medjool get large ones and pre-soak)"
+    "rest": " medjool dates, pitted (if you can\u2019t find medjool get large ones and pre-soak)"
    },
    {
     "raw": "3 tbsp cacao powder",
@@ -5704,119 +6273,119 @@
   "base_stated": true,
   "lines": [
    {
-    "raw": "1 ½ cups all-purpose flour",
+    "raw": "1 \u00bd\u00a0cups\u00a0all-purpose flour",
     "qty": [
      1.5,
      null
     ],
-    "rest": " cups all-purpose flour"
+    "rest": "\u00a0cups\u00a0all-purpose flour"
    },
    {
-    "raw": "¼ cup cocoa powder (Dutch-process is preferred)",
+    "raw": "\u00bc\u00a0cup\u00a0cocoa powder\u00a0(Dutch-process is preferred)",
     "qty": [
      0.25,
      null
     ],
-    "rest": " cup cocoa powder (Dutch-process is preferred)"
+    "rest": "\u00a0cup\u00a0cocoa powder\u00a0(Dutch-process is preferred)"
    },
    {
-    "raw": "1 teaspoon baking soda",
+    "raw": "1\u00a0teaspoon\u00a0baking soda",
     "qty": [
      1.0,
      null
     ],
-    "rest": " teaspoon baking soda"
+    "rest": "\u00a0teaspoon\u00a0baking soda"
    },
    {
-    "raw": "¼ teaspoon baking powder",
+    "raw": "\u00bc\u00a0teaspoon\u00a0baking powder",
     "qty": [
      0.25,
      null
     ],
-    "rest": " teaspoon baking powder"
+    "rest": "\u00a0teaspoon\u00a0baking powder"
    },
    {
-    "raw": "½ teaspoon kosher salt",
+    "raw": "\u00bd\u00a0teaspoon\u00a0kosher salt",
     "qty": [
      0.5,
      null
     ],
-    "rest": " teaspoon kosher salt"
+    "rest": "\u00a0teaspoon\u00a0kosher salt"
    },
    {
-    "raw": "½ cup coconut sugar",
+    "raw": "\u00bd\u00a0cup\u00a0coconut sugar",
     "qty": [
      0.5,
      null
     ],
-    "rest": " cup coconut sugar"
+    "rest": "\u00a0cup\u00a0coconut sugar"
    },
    {
-    "raw": "⅓ cup coconut oil (softened but not melted)",
+    "raw": "\u2153\u00a0cup\u00a0coconut oil\u00a0(softened but not melted)",
     "qty": [
      0.3333333333333333,
      null
     ],
-    "rest": " cup coconut oil (softened but not melted)"
+    "rest": "\u00a0cup\u00a0coconut oil\u00a0(softened but not melted)"
    },
    {
-    "raw": "¼ cup runny tahini",
+    "raw": "\u00bc\u00a0cup\u00a0runny tahini",
     "qty": [
      0.25,
      null
     ],
-    "rest": " cup runny tahini"
+    "rest": "\u00a0cup\u00a0runny tahini"
    },
    {
-    "raw": "⅓ cup 2% plain Greek yogurt",
+    "raw": "\u2153\u00a0cup\u00a02% plain Greek yogurt",
     "qty": [
      0.3333333333333333,
      null
     ],
-    "rest": " cup 2% plain Greek yogurt"
+    "rest": "\u00a0cup\u00a02% plain Greek yogurt"
    },
    {
-    "raw": "1 large egg",
+    "raw": "1\u00a0large egg",
     "qty": [
      1.0,
      null
     ],
-    "rest": " large egg"
+    "rest": "\u00a0large egg"
    },
    {
-    "raw": "2 teaspoons vanilla extract",
+    "raw": "2\u00a0teaspoons\u00a0vanilla extract",
     "qty": [
      2.0,
      null
     ],
-    "rest": " teaspoons vanilla extract"
+    "rest": "\u00a0teaspoons\u00a0vanilla extract"
    },
    {
-    "raw": "1 teaspoon instant espresso powder",
+    "raw": "1\u00a0teaspoon\u00a0instant espresso powder",
     "qty": [
      1.0,
      null
     ],
-    "rest": " teaspoon instant espresso powder"
+    "rest": "\u00a0teaspoon\u00a0instant espresso powder"
    },
    {
-    "raw": "½ cup semi-sweet chocolate chips",
+    "raw": "\u00bd\u00a0cup\u00a0semi-sweet chocolate chips",
     "qty": [
      0.5,
      null
     ],
-    "rest": " cup semi-sweet chocolate chips"
+    "rest": "\u00a0cup\u00a0semi-sweet chocolate chips"
    },
    {
-    "raw": "½ cup chopped dark chocolate",
+    "raw": "\u00bd\u00a0cup\u00a0chopped dark chocolate",
     "qty": [
      0.5,
      null
     ],
-    "rest": " cup chopped dark chocolate"
+    "rest": "\u00a0cup\u00a0chopped dark chocolate"
    },
    {
-    "raw": "Flaky sea salt (for finishing)"
+    "raw": "Flaky sea salt\u00a0(for finishing)"
    }
   ]
  },
@@ -5836,7 +6405,7 @@
     "rest": " tbsp soy sauce"
    },
    {
-    "raw": "½ tbsp oyster sauce",
+    "raw": "\u00bd tbsp oyster sauce",
     "qty": [
      0.5,
      null
@@ -5852,7 +6421,7 @@
     "rest": " tbsp garlic powder"
    },
    {
-    "raw": "⅛ tsp salt",
+    "raw": "\u215b tsp salt",
     "qty": [
      0.125,
      null
@@ -5860,7 +6429,7 @@
     "rest": " tsp salt"
    },
    {
-    "raw": "⅛ tsp pepper",
+    "raw": "\u215b tsp pepper",
     "qty": [
      0.125,
      null
@@ -5876,7 +6445,7 @@
     "rest": " garlic cloves, minced"
    },
    {
-    "raw": "1 ½ tbsp Butter",
+    "raw": "1 \u00bd tbsp Butter",
     "qty": [
      1.5,
      null
@@ -5892,7 +6461,7 @@
     "rest": " tbsp Soy sauce"
    },
    {
-    "raw": "1 ½  tbsp honey",
+    "raw": "1 \u00bd  tbsp honey",
     "qty": [
      1.5,
      null
@@ -5900,12 +6469,12 @@
     "rest": "  tbsp honey"
    },
    {
-    "raw": "3 tbsp cornstarch + ½ tsp baking powder",
+    "raw": "3 tbsp cornstarch + \u00bd tsp baking powder",
     "qty": [
      3.0,
      null
     ],
-    "rest": " tbsp cornstarch + ½ tsp baking powder"
+    "rest": " tbsp cornstarch + \u00bd tsp baking powder"
    }
   ]
  },
@@ -5965,7 +6534,7 @@
     "rest": " garlic cloves, minced"
    },
    {
-    "raw": "1–2 tbsp water",
+    "raw": "1\u20132 tbsp water",
     "qty": [
      1.0,
      2.0
@@ -6017,7 +6586,7 @@
     "rest": " tbsp paprika"
    },
    {
-    "raw": "1–2 tsp ancho or regular chili powder",
+    "raw": "1\u20132 tsp ancho or regular chili powder",
     "qty": [
      1.0,
      2.0
@@ -6089,7 +6658,7 @@
     "rest": " cups shredded Mexican-style cheese"
    },
    {
-    "raw": "30–35 tortillas, preferably a corn/masa + flour blend",
+    "raw": "30\u201335 tortillas, preferably a corn/masa + flour blend",
     "qty": [
      30.0,
      35.0
@@ -6122,7 +6691,7 @@
     "rest": " grams cauliflower florets, approx. 3 cups, cut into 1 inch size florets"
    },
    {
-    "raw": "1 ½ teaspoons ginger garlic paste",
+    "raw": "1 \u00bd teaspoons ginger garlic paste",
     "qty": [
      1.5,
      null
@@ -6130,7 +6699,7 @@
     "rest": " teaspoons ginger garlic paste"
    },
    {
-    "raw": "⅛ teaspoon turmeric powder",
+    "raw": "\u215b teaspoon turmeric powder",
     "qty": [
      0.125,
      null
@@ -6138,15 +6707,15 @@
     "rest": " teaspoon turmeric powder"
    },
    {
-    "raw": "1 tablespoon + ¾ teaspoon kashmiri chilli powder",
+    "raw": "1 tablespoon + \u00be teaspoon kashmiri chilli powder",
     "qty": [
      1.0,
      null
     ],
-    "rest": " tablespoon + ¾ teaspoon kashmiri chilli powder"
+    "rest": " tablespoon + \u00be teaspoon kashmiri chilli powder"
    },
    {
-    "raw": "¾ teaspoon coriander powder",
+    "raw": "\u00be teaspoon coriander powder",
     "qty": [
      0.75,
      null
@@ -6154,7 +6723,7 @@
     "rest": " teaspoon coriander powder"
    },
    {
-    "raw": "¼ teaspoon cumin powder",
+    "raw": "\u00bc teaspoon cumin powder",
     "qty": [
      0.25,
      null
@@ -6162,7 +6731,7 @@
     "rest": " teaspoon cumin powder"
    },
    {
-    "raw": "¾ teaspoon salt",
+    "raw": "\u00be teaspoon salt",
     "qty": [
      0.75,
      null
@@ -6170,7 +6739,7 @@
     "rest": " teaspoon salt"
    },
    {
-    "raw": "¾ teaspoon sugar",
+    "raw": "\u00be teaspoon sugar",
     "qty": [
      0.75,
      null
@@ -6186,7 +6755,7 @@
     "rest": " sprigs curry leaves, finely chopped"
    },
    {
-    "raw": "2 ¼ tablespoons curds / yoghurt, whisked",
+    "raw": "2 \u00bc tablespoons curds / yoghurt, whisked",
     "qty": [
      2.25,
      null
@@ -6202,7 +6771,7 @@
     "rest": " tablespoons maida"
    },
    {
-    "raw": "1 ½ tablespoons corn flour",
+    "raw": "1 \u00bd tablespoons corn flour",
     "qty": [
      1.5,
      null
@@ -6210,7 +6779,7 @@
     "rest": " tablespoons corn flour"
    },
    {
-    "raw": "1 ½ teaspoons groundnut oil or any neutral cooking oil",
+    "raw": "1 \u00bd teaspoons groundnut oil or any neutral cooking oil",
     "qty": [
      1.5,
      null
@@ -6258,7 +6827,7 @@
     "rest": " green chillies, halved"
    },
    {
-    "raw": "½ teaspoon kashmiri chilli powder",
+    "raw": "\u00bd teaspoon kashmiri chilli powder",
     "qty": [
      0.5,
      null
@@ -6266,7 +6835,7 @@
     "rest": " teaspoon kashmiri chilli powder"
    },
    {
-    "raw": "¼ teaspoon fennel powder",
+    "raw": "\u00bc teaspoon fennel powder",
     "qty": [
      0.25,
      null
@@ -6315,12 +6884,12 @@
     "rest": " tsp vanilla bean paste"
    },
    {
-    "raw": "1/2 tsp instant coffee dissolved in 1/2 teaspoon water – optional",
+    "raw": "1/2 tsp instant coffee dissolved in 1/2 teaspoon water \u2013 optional",
     "qty": [
      0.5,
      null
     ],
-    "rest": " tsp instant coffee dissolved in 1/2 teaspoon water – optional"
+    "rest": " tsp instant coffee dissolved in 1/2 teaspoon water \u2013 optional"
    },
    {
     "raw": "3/4 tsp salt",
@@ -6369,7 +6938,7 @@
   "base_stated": false,
   "lines": [
    {
-    "raw": "½ cup California walnuts, toasted and cooled",
+    "raw": "\u00bd cup California walnuts, toasted and cooled",
     "qty": [
      0.5,
      null
@@ -6377,7 +6946,7 @@
     "rest": " cup California walnuts, toasted and cooled"
    },
    {
-    "raw": "¼ cup cilantro, tender leaves and stems",
+    "raw": "\u00bc cup cilantro, tender leaves and stems",
     "qty": [
      0.25,
      null
@@ -6417,7 +6986,7 @@
     "rest": " tsp sesame oil"
    },
    {
-    "raw": "½ a lime, juiced",
+    "raw": "\u00bd a lime, juiced",
     "qty": [
      0.5,
      null
@@ -6681,7 +7250,7 @@
     "rest": " tbsp sesame oil"
    },
    {
-    "raw": "½ onion, sliced",
+    "raw": "\u00bd onion, sliced",
     "qty": [
      0.5,
      null
@@ -6738,12 +7307,12 @@
     "rest": " cups almond flour"
    },
    {
-    "raw": "1 cup tahini (make sure it’s made of 100% sesame)",
+    "raw": "1 cup tahini (make sure it\u2019s made of 100% sesame)",
     "qty": [
      1.0,
      null
     ],
-    "rest": " cup tahini (make sure it’s made of 100% sesame)"
+    "rest": " cup tahini (make sure it\u2019s made of 100% sesame)"
    },
    {
     "raw": "1/2 cup pure maple syrup or raw honey",
@@ -6777,7 +7346,7 @@
     "raw": "Chicken thighs, about 300g, cut into small pieces"
    },
    {
-    "raw": "A handful of Thai basil 🌿 (or any basil)"
+    "raw": "A handful of Thai basil \ud83c\udf3f (or any basil)"
    },
    {
     "raw": "Soy sauce, about 1 tsp (Lee Kum Kee)"
@@ -6786,7 +7355,7 @@
     "raw": "Sesame oil, about 1 tsp (Ottogi)"
    },
    {
-    "raw": "White pepper powder, about ¼ tsp"
+    "raw": "White pepper powder, about \u00bc tsp"
    },
    {
     "raw": "Potato starch, about 1 tsp"
@@ -6811,7 +7380,7 @@
     "rest": " shallots, sliced"
    },
    {
-    "raw": "¼ onion, chopped",
+    "raw": "\u00bc onion, chopped",
     "qty": [
      0.25,
      null
@@ -7030,7 +7599,7 @@
     "rest": " large ripe bananas, mashed (about 1 cup) and 1 more on the top(optional g"
    },
    {
-    "raw": "½ cup cottage cheese (blend until creamy if desired)",
+    "raw": "\u00bd cup cottage cheese (blend until creamy if desired)",
     "qty": [
      0.5,
      null
@@ -7046,7 +7615,7 @@
     "rest": " eggs"
    },
    {
-    "raw": "¼ cup maple syrup( sugar free) or honey",
+    "raw": "\u00bc cup maple syrup( sugar free) or honey",
     "qty": [
      0.25,
      null
@@ -7054,7 +7623,7 @@
     "rest": " cup maple syrup( sugar free) or honey"
    },
    {
-    "raw": "¼ cup unsweetened almond milk (or any milk)",
+    "raw": "\u00bc cup unsweetened almond milk (or any milk)",
     "qty": [
      0.25,
      null
@@ -7070,7 +7639,7 @@
     "rest": " tsp vanilla extract"
    },
    {
-    "raw": "1½ cups whole wheat pastry flour or gluten-free all-purpose flour",
+    "raw": "1\u00bd cups whole wheat pastry flour or gluten-free all-purpose flour",
     "qty": [
      1.5,
      null
@@ -7078,7 +7647,7 @@
     "rest": " cups whole wheat pastry flour or gluten-free all-purpose flour"
    },
    {
-    "raw": "½ cup almond flour",
+    "raw": "\u00bd cup almond flour",
     "qty": [
      0.5,
      null
@@ -7094,7 +7663,7 @@
     "rest": " tsp baking powder"
    },
    {
-    "raw": "½ tsp baking soda",
+    "raw": "\u00bd tsp baking soda",
     "qty": [
      0.5,
      null
@@ -7102,7 +7671,7 @@
     "rest": " tsp baking soda"
    },
    {
-    "raw": "½ tsp cinnamon",
+    "raw": "\u00bd tsp cinnamon",
     "qty": [
      0.5,
      null
@@ -7113,7 +7682,7 @@
     "raw": "pinch of salt"
    },
    {
-    "raw": "optional: ⅓ cup dark chocolate chips or chopped walnuts"
+    "raw": "optional: \u2153 cup dark chocolate chips or chopped walnuts"
    }
   ]
  },
@@ -7613,7 +8182,7 @@
     "rest": " g coriander"
    },
    {
-    "raw": "1–2 whole red chillies",
+    "raw": "1\u20132 whole red chillies",
     "qty": [
      1.0,
      2.0
@@ -7645,7 +8214,7 @@
     "rest": " tbsp oyster sauce"
    },
    {
-    "raw": "½ tsp white pepper",
+    "raw": "\u00bd tsp white pepper",
     "qty": [
      0.5,
      null
@@ -7702,7 +8271,7 @@
     "raw": "500g thick Greek yoghurt"
    },
    {
-    "raw": "2–3 tbsp honey, plus more to taste",
+    "raw": "2\u20133 tbsp honey, plus more to taste",
     "qty": [
      2.0,
      3.0
@@ -7747,7 +8316,7 @@
     "rest": " cup broccoli florets"
    },
    {
-    "raw": "½ cup hung curd",
+    "raw": "\u00bd cup hung curd",
     "qty": [
      0.5,
      null
@@ -7755,12 +8324,12 @@
     "rest": " cup hung curd"
    },
    {
-    "raw": "1 tsp ginger–garlic paste",
+    "raw": "1 tsp ginger\u2013garlic paste",
     "qty": [
      1.0,
      null
     ],
-    "rest": " tsp ginger–garlic paste"
+    "rest": " tsp ginger\u2013garlic paste"
    },
    {
     "raw": "1 tsp crushed green chillies",
@@ -7803,7 +8372,7 @@
     "rest": " tsp fresh cream"
    },
    {
-    "raw": "½ tsp black pepper powder",
+    "raw": "\u00bd tsp black pepper powder",
     "qty": [
      0.5,
      null
@@ -7819,7 +8388,7 @@
     "rest": " tsp chaat masala"
    },
    {
-    "raw": "½ tsp salt (or to taste)",
+    "raw": "\u00bd tsp salt (or to taste)",
     "qty": [
      0.5,
      null
@@ -8216,12 +8785,12 @@
   "base_stated": true,
   "lines": [
    {
-    "raw": "175 g / ¾ cup Greek yogurt",
+    "raw": "175 g / \u00be cup Greek yogurt",
     "qty": [
      175.0,
      null
     ],
-    "rest": " g / ¾ cup Greek yogurt"
+    "rest": " g / \u00be cup Greek yogurt"
    },
    {
     "raw": "1 garlic clove, minced",
@@ -8232,10 +8801,10 @@
     "rest": " garlic clove, minced"
    },
    {
-    "raw": "Juice of ½ lemon"
+    "raw": "Juice of \u00bd lemon"
    },
    {
-    "raw": "2–3 tbsp olive oil",
+    "raw": "2\u20133 tbsp olive oil",
     "qty": [
      2.0,
      3.0
@@ -8257,7 +8826,7 @@
     "rest": " soft-boiled eggs, halved"
    },
    {
-    "raw": "½ avocado, sliced",
+    "raw": "\u00bd avocado, sliced",
     "qty": [
      0.5,
      null
@@ -8265,7 +8834,7 @@
     "rest": " avocado, sliced"
    },
    {
-    "raw": "5–6 cherry tomatoes, halved",
+    "raw": "5\u20136 cherry tomatoes, halved",
     "qty": [
      5.0,
      6.0
@@ -8273,12 +8842,12 @@
     "rest": " cherry tomatoes, halved"
    },
    {
-    "raw": "20 g / 1½ tbsp butter",
+    "raw": "20 g / 1\u00bd tbsp butter",
     "qty": [
      20.0,
      null
     ],
-    "rest": " g / 1½ tbsp butter"
+    "rest": " g / 1\u00bd tbsp butter"
    },
    {
     "raw": "1 tsp paprika",
@@ -8289,7 +8858,7 @@
     "rest": " tsp paprika"
    },
    {
-    "raw": "½ tsp chilli flakes",
+    "raw": "\u00bd tsp chilli flakes",
     "qty": [
      0.5,
      null
@@ -8643,7 +9212,7 @@
     "rest": " gram Anthony's Vital Wheat Gluten (1/4 cup) can be sub with Kodiak Mix or Sooji"
    },
    {
-    "raw": "1½ cup Minced Cabbage easy to mince in food processor",
+    "raw": "1\u00bd cup Minced Cabbage easy to mince in food processor",
     "qty": [
      1.5,
      null
@@ -8675,7 +9244,7 @@
     "rest": " large Galic Cloves"
    },
    {
-    "raw": "1¼ tsp Salt",
+    "raw": "1\u00bc tsp Salt",
     "qty": [
      1.25,
      null
@@ -8683,7 +9252,7 @@
     "rest": " tsp Salt"
    },
    {
-    "raw": "¼ tsp Turmeric Powder",
+    "raw": "\u00bc tsp Turmeric Powder",
     "qty": [
      0.25,
      null
@@ -8699,7 +9268,7 @@
     "rest": " tsp Cumin Coriander Powder"
    },
    {
-    "raw": "¼ tsp Garam Masala",
+    "raw": "\u00bc tsp Garam Masala",
     "qty": [
      0.25,
      null
@@ -8707,7 +9276,7 @@
     "rest": " tsp Garam Masala"
    },
    {
-    "raw": "½ tsp Red Chili Powder",
+    "raw": "\u00bd tsp Red Chili Powder",
     "qty": [
      0.5,
      null
@@ -8715,7 +9284,7 @@
     "rest": " tsp Red Chili Powder"
    },
    {
-    "raw": "⅓ cup Fat Free Plain Greek Yogurt, 85 grams",
+    "raw": "\u2153 cup Fat Free Plain Greek Yogurt, 85 grams",
     "qty": [
      0.3333333333333333,
      null
@@ -8723,7 +9292,7 @@
     "rest": " cup Fat Free Plain Greek Yogurt, 85 grams"
    },
    {
-    "raw": "⅓ cup Freshly Chopped Cilantro",
+    "raw": "\u2153 cup Freshly Chopped Cilantro",
     "qty": [
      0.3333333333333333,
      null
@@ -8758,7 +9327,7 @@
     "rest": " tbsp White Sesame Seeds"
    },
    {
-    "raw": "⅛ tsp Asafetida, Hing",
+    "raw": "\u215b tsp Asafetida, Hing",
     "qty": [
      0.125,
      null
@@ -8949,7 +9518,7 @@
   "base_stated": false,
   "lines": [
    {
-    "raw": "½ block firm tofu, cut into small cubes and dry-seared until golden brown",
+    "raw": "\u00bd block firm tofu, cut into small cubes and dry-seared until golden brown",
     "qty": [
      0.5,
      null
@@ -9008,7 +9577,7 @@
     "rest": " tsp soy sauce (Lee Kum Kee First Draw Authentic)"
    },
    {
-    "raw": "¼ tsp rice vinegar (Din Tai Fung)",
+    "raw": "\u00bc tsp rice vinegar (Din Tai Fung)",
     "qty": [
      0.25,
      null
@@ -9041,7 +9610,7 @@
   "base_stated": true,
   "lines": [
    {
-    "raw": "⅓ cup Rolled oats",
+    "raw": "\u2153 cup Rolled oats",
     "qty": [
      0.3333333333333333,
      null
@@ -9065,7 +9634,7 @@
     "rest": " tbsp Cocoa powder"
    },
    {
-    "raw": "½ tbsp Maple syrup",
+    "raw": "\u00bd tbsp Maple syrup",
     "qty": [
      0.5,
      null
@@ -9073,7 +9642,7 @@
     "rest": " tbsp Maple syrup"
    },
    {
-    "raw": "½ tsp Vanilla extract",
+    "raw": "\u00bd tsp Vanilla extract",
     "qty": [
      0.5,
      null
@@ -9089,7 +9658,7 @@
     "rest": " shot Espresso"
    },
    {
-    "raw": "⅓ cup Greek yogurt, plain, 2% fat",
+    "raw": "\u2153 cup Greek yogurt, plain, 2% fat",
     "qty": [
      0.3333333333333333,
      null
@@ -9097,7 +9666,7 @@
     "rest": " cup Greek yogurt, plain, 2% fat"
    },
    {
-    "raw": "⅓ cup 2% Milk",
+    "raw": "\u2153 cup 2% Milk",
     "qty": [
      0.3333333333333333,
      null
@@ -9105,7 +9674,7 @@
     "rest": " cup 2% Milk"
    },
    {
-    "raw": "½ cup Greek yogurt, plain, 2% fat",
+    "raw": "\u00bd cup Greek yogurt, plain, 2% fat",
     "qty": [
      0.5,
      null
@@ -9121,7 +9690,7 @@
     "rest": " tbsp Semi-sweet chocolate chips"
    },
    {
-    "raw": "½ tbsp 2% Milk",
+    "raw": "\u00bd tbsp 2% Milk",
     "qty": [
      0.5,
      null
@@ -9341,7 +9910,7 @@
     "rest": " stalks green onions, thinly sliced"
    },
    {
-    "raw": "½ cup neutral oil (i used avocado)",
+    "raw": "\u00bd cup neutral oil (i used avocado)",
     "qty": [
      0.5,
      null
@@ -9357,7 +9926,7 @@
     "rest": " tbsp minced ginger"
    },
    {
-    "raw": "½ tbsp minced garlic",
+    "raw": "\u00bd tbsp minced garlic",
     "qty": [
      0.5,
      null
@@ -9477,12 +10046,12 @@
     "raw": "250ml water"
    },
    {
-    "raw": "2 red chilli’s, diced",
+    "raw": "2 red chilli\u2019s, diced",
     "qty": [
      2.0,
      null
     ],
-    "rest": " red chilli’s, diced"
+    "rest": " red chilli\u2019s, diced"
    },
    {
     "raw": "1 spring onion, diced",
@@ -9622,7 +10191,7 @@
     "rest": " chicken breasts"
    },
    {
-    "raw": "2–3 slices ginger",
+    "raw": "2\u20133 slices ginger",
     "qty": [
      2.0,
      3.0
@@ -9638,7 +10207,7 @@
     "rest": " scallions / spring onions"
    },
    {
-    "raw": "2–3 cloves",
+    "raw": "2\u20133 cloves",
     "qty": [
      2.0,
      3.0
@@ -9719,7 +10288,7 @@
     "rest": " tsp sesame seeds"
    },
    {
-    "raw": "2–3 tbsp reserved chicken stock",
+    "raw": "2\u20133 tbsp reserved chicken stock",
     "qty": [
      2.0,
      3.0
@@ -9741,7 +10310,7 @@
     "rest": " slice sourdough bread"
    },
    {
-    "raw": "½ cup cottage cheese",
+    "raw": "\u00bd cup cottage cheese",
     "qty": [
      0.5,
      null
@@ -9770,7 +10339,7 @@
   "base_stated": true,
   "lines": [
    {
-    "raw": "½ cup oats flour",
+    "raw": "\u00bd cup oats flour",
     "qty": [
      0.5,
      null
@@ -9778,7 +10347,7 @@
     "rest": " cup oats flour"
    },
    {
-    "raw": "½ cup ragi flour",
+    "raw": "\u00bd cup ragi flour",
     "qty": [
      0.5,
      null
@@ -9810,7 +10379,7 @@
     "rest": " tbsp milk"
    },
    {
-    "raw": "⅓ cup brown sugar",
+    "raw": "\u2153 cup brown sugar",
     "qty": [
      0.3333333333333333,
      null
@@ -9818,7 +10387,7 @@
     "rest": " cup brown sugar"
    },
    {
-    "raw": "½ dark chocolate chunks (2 tbsp)",
+    "raw": "\u00bd dark chocolate chunks (2 tbsp)",
     "qty": [
      0.5,
      null
@@ -9826,7 +10395,7 @@
     "rest": " dark chocolate chunks (2 tbsp)"
    },
    {
-    "raw": "¼ tsp baking soda",
+    "raw": "\u00bc tsp baking soda",
     "qty": [
      0.25,
      null
@@ -9834,7 +10403,7 @@
     "rest": " tsp baking soda"
    },
    {
-    "raw": "¼ tsp baking powder",
+    "raw": "\u00bc tsp baking powder",
     "qty": [
      0.25,
      null
@@ -9842,7 +10411,7 @@
     "rest": " tsp baking powder"
    },
    {
-    "raw": "¼ tsp salt",
+    "raw": "\u00bc tsp salt",
     "qty": [
      0.25,
      null
@@ -9924,7 +10493,7 @@
     "rest": " tbsp ginger-garlic paste"
    },
    {
-    "raw": "1½ tsp Kashmiri chilli powder",
+    "raw": "1\u00bd tsp Kashmiri chilli powder",
     "qty": [
      1.5,
      null
@@ -9956,7 +10525,7 @@
     "rest": " tsp garam masala"
    },
    {
-    "raw": "½ tsp turmeric",
+    "raw": "\u00bd tsp turmeric",
     "qty": [
      0.5,
      null
@@ -10161,10 +10730,10 @@
     "raw": "Ghee: 3 tbsp"
    },
    {
-    "raw": "Cumin seeds: ½ tsp"
+    "raw": "Cumin seeds: \u00bd tsp"
    },
    {
-    "raw": "Whole garam masala ingredients: 4 cardamom, 6 cloves, ½ inch cinnamon, 1 mace"
+    "raw": "Whole garam masala ingredients: 4 cardamom, 6 cloves, \u00bd inch cinnamon, 1 mace"
    },
    {
     "raw": "2 bayleaves",
@@ -10272,7 +10841,7 @@
     "rest": " cups besan (chickpea flour)"
    },
    {
-    "raw": "¼ cup rice flour",
+    "raw": "\u00bc cup rice flour",
     "qty": [
      0.25,
      null
@@ -10280,7 +10849,7 @@
     "rest": " cup rice flour"
    },
    {
-    "raw": "¼ cup vital wheat gluten",
+    "raw": "\u00bc cup vital wheat gluten",
     "qty": [
      0.25,
      null
@@ -10288,7 +10857,7 @@
     "rest": " cup vital wheat gluten"
    },
    {
-    "raw": "¼ cup nutritional yeast",
+    "raw": "\u00bc cup nutritional yeast",
     "qty": [
      0.25,
      null
@@ -10296,7 +10865,7 @@
     "rest": " cup nutritional yeast"
    },
    {
-    "raw": "1–2 tsp ginger-garlic-green chili paste",
+    "raw": "1\u20132 tsp ginger-garlic-green chili paste",
     "qty": [
      1.0,
      2.0
@@ -10371,7 +10940,7 @@
     "raw": "Salt to taste"
    },
    {
-    "raw": "2–3 cups chopped spinach",
+    "raw": "2\u20133 cups chopped spinach",
     "qty": [
      2.0,
      3.0
@@ -10732,8 +11301,8 @@
   ]
  },
  "17952419160014867": {
-  "base": 1,
-  "base_stated": false,
+  "base": 12,
+  "base_stated": true,
   "lines": [
    {
     "raw": "Tofu:"
@@ -10843,7 +11412,7 @@
     "raw": "Garlic, Ginger, Jalapeno mixture"
    },
    {
-    "raw": "6–8 cloves of garlic",
+    "raw": "6\u20138 cloves of garlic",
     "qty": [
      6.0,
      8.0
@@ -10859,7 +11428,7 @@
     "rest": " inch ginger"
    },
    {
-    "raw": "½ jalapeno with seeds",
+    "raw": "\u00bd jalapeno with seeds",
     "qty": [
      0.5,
      null
@@ -10878,7 +11447,7 @@
     "rest": " teaspoons vegetable oil"
    },
    {
-    "raw": "6–7 large shishito peppers",
+    "raw": "6\u20137 large shishito peppers",
     "qty": [
      6.0,
      7.0
@@ -10910,7 +11479,7 @@
     "rest": " teaspoon cumin seeds"
    },
    {
-    "raw": "½ cup corn flour (makai ka atta)",
+    "raw": "\u00bd cup corn flour (makai ka atta)",
     "qty": [
      0.5,
      null
@@ -10964,7 +11533,7 @@
     "rest": " bay leaf"
    },
    {
-    "raw": "1 ½ teaspoon cumin seeds",
+    "raw": "1 \u00bd teaspoon cumin seeds",
     "qty": [
      1.5,
      null
@@ -10972,7 +11541,7 @@
     "rest": " teaspoon cumin seeds"
    },
    {
-    "raw": "¼ stick cinnamon",
+    "raw": "\u00bc stick cinnamon",
     "qty": [
      0.25,
      null
@@ -10980,7 +11549,7 @@
     "rest": " stick cinnamon"
    },
    {
-    "raw": "2–3 cardamom pods",
+    "raw": "2\u20133 cardamom pods",
     "qty": [
      2.0,
      3.0
@@ -11004,7 +11573,7 @@
     "rest": " cup red onion, finely chopped"
    },
    {
-    "raw": "½ cup cashew nuts",
+    "raw": "\u00bd cup cashew nuts",
     "qty": [
      0.5,
      null
@@ -11036,7 +11605,7 @@
     "rest": " cup water, divided"
    },
    {
-    "raw": "1 ½ teaspoons table salt",
+    "raw": "1 \u00bd teaspoons table salt",
     "qty": [
      1.5,
      null
@@ -11076,7 +11645,7 @@
     "rest": " teaspoons granulated sugar"
    },
    {
-    "raw": "¾ teaspoon turmeric",
+    "raw": "\u00be teaspoon turmeric",
     "qty": [
      0.75,
      null
@@ -11137,7 +11706,7 @@
     "raw": "green onion, chopped"
    },
    {
-    "raw": "jalapeño, sliced"
+    "raw": "jalape\u00f1o, sliced"
    },
    {
     "raw": "2 tablespoons minced garlic",
@@ -11295,23 +11864,23 @@
     "rest": " Huevos"
    },
    {
-    "raw": "1 Plátano",
+    "raw": "1 Pl\u00e1tano",
     "qty": [
      1.0,
      null
     ],
-    "rest": " Plátano"
+    "rest": " Pl\u00e1tano"
    },
    {
     "raw": "30g Cacao"
    },
    {
-    "raw": "1 Cucharadita de levadura química",
+    "raw": "1 Cucharadita de levadura qu\u00edmica",
     "qty": [
      1.0,
      null
     ],
-    "rest": " Cucharadita de levadura química"
+    "rest": " Cucharadita de levadura qu\u00edmica"
    }
   ]
  },
@@ -11320,15 +11889,15 @@
   "base_stated": true,
   "lines": [
    {
-    "raw": "1 can black beans, drained and rinsed - ½ cup maple syrup",
+    "raw": "1 can black beans, drained and rinsed\u2028- \u00bd cup maple syrup",
     "qty": [
      1.0,
      null
     ],
-    "rest": " can black beans, drained and rinsed - ½ cup maple syrup"
+    "rest": " can black beans, drained and rinsed\u2028- \u00bd cup maple syrup"
    },
    {
-    "raw": "¼ cup coconut oil",
+    "raw": "\u00bc cup coconut oil",
     "qty": [
      0.25,
      null
@@ -11336,7 +11905,7 @@
     "rest": " cup coconut oil"
    },
    {
-    "raw": "½ cup fresh-milled flour",
+    "raw": "\u00bd cup fresh-milled flour",
     "qty": [
      0.5,
      null
@@ -11344,7 +11913,7 @@
     "rest": " cup fresh-milled flour"
    },
    {
-    "raw": "¼ cup unsweetened cocoa powder",
+    "raw": "\u00bc cup unsweetened cocoa powder",
     "qty": [
      0.25,
      null
@@ -11352,7 +11921,7 @@
     "rest": " cup unsweetened cocoa powder"
    },
    {
-    "raw": "½ teaspoon baking powder",
+    "raw": "\u00bd teaspoon baking powder",
     "qty": [
      0.5,
      null
@@ -11360,7 +11929,7 @@
     "rest": " teaspoon baking powder"
    },
    {
-    "raw": "¼ teaspoon baking soda",
+    "raw": "\u00bc teaspoon baking soda",
     "qty": [
      0.25,
      null
@@ -11411,7 +11980,7 @@
     "rest": " ripe avocados"
    },
    {
-    "raw": "¼ cup cacao or cocoa powder",
+    "raw": "\u00bc cup cacao or cocoa powder",
     "qty": [
      0.25,
      null
@@ -11419,7 +11988,7 @@
     "rest": " cup cacao or cocoa powder"
    },
    {
-    "raw": "¼ cup maple syrup",
+    "raw": "\u00bc cup maple syrup",
     "qty": [
      0.25,
      null
@@ -11435,7 +12004,7 @@
     "rest": " teaspoon vanilla extract"
    },
    {
-    "raw": "¼ cup milk of choice",
+    "raw": "\u00bc cup milk of choice",
     "qty": [
      0.25,
      null
@@ -11907,10 +12476,10 @@
   "base_stated": true,
   "lines": [
    {
-    "raw": "For 450–500 g boneless chicken thighs"
+    "raw": "For 450\u2013500 g boneless chicken thighs"
    },
    {
-    "raw": "5–6 whole dried red chillies",
+    "raw": "5\u20136 whole dried red chillies",
     "qty": [
      5.0,
      6.0
@@ -11934,7 +12503,7 @@
     "rest": " tsp coriander seeds"
    },
    {
-    "raw": "¾ tsp cumin seeds",
+    "raw": "\u00be tsp cumin seeds",
     "qty": [
      0.75,
      null
@@ -11942,7 +12511,7 @@
     "rest": " tsp cumin seeds"
    },
    {
-    "raw": "¼ tsp shah jeera (caraway seeds)",
+    "raw": "\u00bc tsp shah jeera (caraway seeds)",
     "qty": [
      0.25,
      null
@@ -11958,7 +12527,7 @@
     "rest": " tsp smoked paprika"
    },
    {
-    "raw": "½ tsp black pepper",
+    "raw": "\u00bd tsp black pepper",
     "qty": [
      0.5,
      null
@@ -11966,7 +12535,7 @@
     "rest": " tsp black pepper"
    },
    {
-    "raw": "¾ tsp salt",
+    "raw": "\u00be tsp salt",
     "qty": [
      0.75,
      null
@@ -11974,7 +12543,7 @@
     "rest": " tsp salt"
    },
    {
-    "raw": "1½ tbsp olive oil",
+    "raw": "1\u00bd tbsp olive oil",
     "qty": [
      1.5,
      null
@@ -11990,7 +12559,7 @@
     "rest": " tbsp fresh lemon juice"
    },
    {
-    "raw": "½ tsp lemon zest",
+    "raw": "\u00bd tsp lemon zest",
     "qty": [
      0.5,
      null
@@ -12079,7 +12648,7 @@
     "rest": " eggs"
    },
    {
-    "raw": "½ cup butter",
+    "raw": "\u00bd cup butter",
     "qty": [
      0.5,
      null
@@ -12119,12 +12688,12 @@
     "rest": " cups Greek yoghurt"
    },
    {
-    "raw": "2 cups grated cheese (mix 1½ cups into the batter and sprinkle ½ cup on top.",
+    "raw": "2 cups grated cheese (mix 1\u00bd cups into the batter and sprinkle \u00bd cup on top.",
     "qty": [
      2.0,
      null
     ],
-    "rest": " cups grated cheese (mix 1½ cups into the batter and sprinkle ½ cup on top."
+    "rest": " cups grated cheese (mix 1\u00bd cups into the batter and sprinkle \u00bd cup on top."
    }
   ]
  },
@@ -12297,7 +12866,7 @@
     "rest": " large banana"
    },
    {
-    "raw": "1¼ cups unsweetened milk (300ml)",
+    "raw": "1\u00bc cups unsweetened milk (300ml)",
     "qty": [
      1.25,
      null
@@ -12434,7 +13003,7 @@
     "raw": "Chopped walnuts"
    },
    {
-    "raw": "Chopped dark chocolate 🍫"
+    "raw": "Chopped dark chocolate \ud83c\udf6b"
    }
   ]
  },
@@ -12457,7 +13026,7 @@
     "rest": " tbsp thick curd"
    },
    {
-    "raw": "4–5 cashews",
+    "raw": "4\u20135 cashews",
     "qty": [
      4.0,
      5.0
@@ -12495,7 +13064,7 @@
     "raw": "Handful of fresh coriander"
    },
    {
-    "raw": "½ tsp black pepper",
+    "raw": "\u00bd tsp black pepper",
     "qty": [
      0.5,
      null
@@ -12511,7 +13080,7 @@
     "rest": " tsp chole masala"
    },
    {
-    "raw": "½ tsp garam masala",
+    "raw": "\u00bd tsp garam masala",
     "qty": [
      0.5,
      null
@@ -12533,7 +13102,7 @@
     "raw": "Hot water as required"
    },
    {
-    "raw": "½ tsp kasuri methi",
+    "raw": "\u00bd tsp kasuri methi",
     "qty": [
      0.5,
      null
@@ -12549,7 +13118,7 @@
     "rest": " tbsp fresh cream"
    },
    {
-    "raw": "½ tsp pickle oil",
+    "raw": "\u00bd tsp pickle oil",
     "qty": [
      0.5,
      null
@@ -12569,15 +13138,15 @@
     "raw": "1/4th of a medium red onion"
    },
    {
-    "raw": "1/2 Serrano pepper (or jalapeño or green pepper)",
+    "raw": "1/2 Serrano pepper (or jalape\u00f1o or green pepper)",
     "qty": [
      0.5,
      null
     ],
-    "rest": " Serrano pepper (or jalapeño or green pepper)"
+    "rest": " Serrano pepper (or jalape\u00f1o or green pepper)"
    },
    {
-    "raw": "Masala’s- red chili, coriander, cumin, turmeric, Pav bhaji masala"
+    "raw": "Masala\u2019s- red chili, coriander, cumin, turmeric, Pav bhaji masala"
    },
    {
     "raw": "cilantro for garnish"
@@ -12835,7 +13404,7 @@
     "raw": "120g cottage cheese"
    },
    {
-    "raw": "½ avocado",
+    "raw": "\u00bd avocado",
     "qty": [
      0.5,
      null
@@ -13188,7 +13757,7 @@
     "raw": "Saffron"
    },
    {
-    "raw": "¼ tsp cardamom",
+    "raw": "\u00bc tsp cardamom",
     "qty": [
      0.25,
      null
@@ -13237,7 +13806,7 @@
     "rest": " cups chicken or bone broth"
    },
    {
-    "raw": "½ cup coconut milk",
+    "raw": "\u00bd cup coconut milk",
     "qty": [
      0.5,
      null
@@ -13245,7 +13814,7 @@
     "rest": " cup coconut milk"
    },
    {
-    "raw": "1–2 tbsp miso paste",
+    "raw": "1\u20132 tbsp miso paste",
     "qty": [
      1.0,
      2.0
@@ -13261,7 +13830,7 @@
     "rest": " tsp gochujang (optional for heat)"
    },
    {
-    "raw": "1–2 heads bok choy, chopped",
+    "raw": "1\u20132 heads bok choy, chopped",
     "qty": [
      1.0,
      2.0
@@ -13269,7 +13838,7 @@
     "rest": " heads bok choy, chopped"
    },
    {
-    "raw": "½ block tofu, cubed",
+    "raw": "\u00bd block tofu, cubed",
     "qty": [
      0.5,
      null
@@ -13277,7 +13846,7 @@
     "rest": " block tofu, cubed"
    },
    {
-    "raw": "6–8 chicken dumplings (frozen works great)",
+    "raw": "6\u20138 chicken dumplings (frozen works great)",
     "qty": [
      6.0,
      8.0
@@ -13305,7 +13874,7 @@
     "rest": " cup jasmine rice (rinsed)"
    },
    {
-    "raw": "1½ cups water",
+    "raw": "1\u00bd cups water",
     "qty": [
      1.5,
      null
@@ -13329,7 +13898,7 @@
     "rest": " tsp lime zest"
    },
    {
-    "raw": "1½ Tbsp lime juice",
+    "raw": "1\u00bd Tbsp lime juice",
     "qty": [
      1.5,
      null
@@ -13337,7 +13906,7 @@
     "rest": " Tbsp lime juice"
    },
    {
-    "raw": "½ cup chopped cilantro",
+    "raw": "\u00bd cup chopped cilantro",
     "qty": [
      0.5,
      null
@@ -13380,7 +13949,7 @@
     "rest": " Tbsp lime juice"
    },
    {
-    "raw": "¼ tsp garlic powder",
+    "raw": "\u00bc tsp garlic powder",
     "qty": [
      0.25,
      null
@@ -13388,7 +13957,7 @@
     "rest": " tsp garlic powder"
    },
    {
-    "raw": "½ tsp salt",
+    "raw": "\u00bd tsp salt",
     "qty": [
      0.5,
      null
@@ -13396,7 +13965,7 @@
     "rest": " tsp salt"
    },
    {
-    "raw": "¼ tsp onion powder",
+    "raw": "\u00bc tsp onion powder",
     "qty": [
      0.25,
      null
@@ -13404,7 +13973,7 @@
     "rest": " tsp onion powder"
    },
    {
-    "raw": "½ cup cilantro",
+    "raw": "\u00bd cup cilantro",
     "qty": [
      0.5,
      null
@@ -13412,7 +13981,7 @@
     "rest": " cup cilantro"
    },
    {
-    "raw": "Optional: ¼ jalapeño"
+    "raw": "Optional: \u00bc jalape\u00f1o"
    }
   ]
  },
@@ -13497,7 +14066,7 @@
     "rest": " eshallots, unpeeled, halved"
    },
    {
-    "raw": "⅓ cup fish sauce, extra to serve",
+    "raw": "\u2153 cup fish sauce, extra to serve",
     "qty": [
      0.3333333333333333,
      null
@@ -13530,7 +14099,7 @@
     "rest": " tsp fennel seeds"
    },
    {
-    "raw": "4–5 shallots, sliced",
+    "raw": "4\u20135 shallots, sliced",
     "qty": [
      4.0,
      5.0
@@ -13546,10 +14115,10 @@
     "rest": " sprig curry leaves"
    },
    {
-    "raw": "Crushed paste: 5–6 kanthari (bird’s eye) chillies, ½-inch ginger, 3 garlic cloves"
+    "raw": "Crushed paste: 5\u20136 kanthari (bird\u2019s eye) chillies, \u00bd-inch ginger, 3 garlic cloves"
    },
    {
-    "raw": "¼ tsp turmeric powder",
+    "raw": "\u00bc tsp turmeric powder",
     "qty": [
      0.25,
      null
@@ -13565,7 +14134,7 @@
     "rest": " tsp coriander powder"
    },
    {
-    "raw": "½ tsp garam masala",
+    "raw": "\u00bd tsp garam masala",
     "qty": [
      0.5,
      null
@@ -13576,7 +14145,7 @@
     "raw": "Salt, to taste"
    },
    {
-    "raw": "½ cup (120 ml) coconut milk",
+    "raw": "\u00bd cup (120 ml) coconut milk",
     "qty": [
      0.5,
      null
@@ -13584,7 +14153,7 @@
     "rest": " cup (120 ml) coconut milk"
    },
    {
-    "raw": "½ tsp sugar",
+    "raw": "\u00bd tsp sugar",
     "qty": [
      0.5,
      null
@@ -13601,7 +14170,7 @@
   "base_stated": true,
   "lines": [
    {
-    "raw": "½ ripe pineapple, roughly chopped",
+    "raw": "\u00bd ripe pineapple, roughly chopped",
     "qty": [
      0.5,
      null
@@ -13617,15 +14186,15 @@
     "rest": " ml / 1 cup soy kefir or dairy kefir"
    },
    {
-    "raw": "150 ml / ⅔ cup coconut water",
+    "raw": "150 ml / \u2154 cup coconut water",
     "qty": [
      150.0,
      null
     ],
-    "rest": " ml / ⅔ cup coconut water"
+    "rest": " ml / \u2154 cup coconut water"
    },
    {
-    "raw": "Juice of ½ to 1 lime"
+    "raw": "Juice of \u00bd to 1 lime"
    },
    {
     "raw": "Zest of 1 lime"
@@ -13646,7 +14215,7 @@
     "raw": "Water (just enough to cover)"
    },
    {
-    "raw": "1–2 tsp apple cider vinegar",
+    "raw": "1\u20132 tsp apple cider vinegar",
     "qty": [
      1.0,
      2.0
@@ -13783,7 +14352,7 @@
     "rest": " green chilies, chopped"
    },
    {
-    "raw": "½ onion, sliced",
+    "raw": "\u00bd onion, sliced",
     "qty": [
      0.5,
      null
@@ -13799,7 +14368,7 @@
     "rest": " g lamb or mutton (bone-in), medium pieces"
    },
    {
-    "raw": "¼ tsp turmeric powder",
+    "raw": "\u00bc tsp turmeric powder",
     "qty": [
      0.25,
      null
@@ -13810,7 +14379,7 @@
     "raw": "salt, to taste"
    },
    {
-    "raw": "½ cup plain yogurt",
+    "raw": "\u00bd cup plain yogurt",
     "qty": [
      0.5,
      null
@@ -13829,7 +14398,7 @@
     "raw": "a pinch of saffron"
    },
    {
-    "raw": "1½ tsp black pepper powder",
+    "raw": "1\u00bd tsp black pepper powder",
     "qty": [
      1.5,
      null
@@ -13845,7 +14414,7 @@
     "rest": " tsp garam masala powder"
    },
    {
-    "raw": "¼ cup chopped mint",
+    "raw": "\u00bc cup chopped mint",
     "qty": [
      0.25,
      null
@@ -13853,7 +14422,7 @@
     "rest": " cup chopped mint"
    },
    {
-    "raw": "¼ cup chopped cilantro",
+    "raw": "\u00bc cup chopped cilantro",
     "qty": [
      0.25,
      null
@@ -13861,7 +14430,7 @@
     "rest": " cup chopped cilantro"
    },
    {
-    "raw": "½ cup heavy cream",
+    "raw": "\u00bd cup heavy cream",
     "qty": [
      0.5,
      null
@@ -13917,12 +14486,12 @@
   "base_stated": false,
   "lines": [
    {
-    "raw": "1 cup moong dal (soaked 2–3 hrs)",
+    "raw": "1 cup moong dal (soaked 2\u20133 hrs)",
     "qty": [
      1.0,
      null
     ],
-    "rest": " cup moong dal (soaked 2–3 hrs)"
+    "rest": " cup moong dal (soaked 2\u20133 hrs)"
    },
    {
     "raw": "1 tsp ajwain",
@@ -13936,7 +14505,7 @@
     "raw": "A pinch of hing"
    },
    {
-    "raw": "1–2 green chillies, finely chopped",
+    "raw": "1\u20132 green chillies, finely chopped",
     "qty": [
      1.0,
      2.0
@@ -13944,7 +14513,7 @@
     "rest": " green chillies, finely chopped"
    },
    {
-    "raw": "½ tsp haldi",
+    "raw": "\u00bd tsp haldi",
     "qty": [
      0.5,
      null
@@ -14025,7 +14594,7 @@
     "rest": " green bell pepper, seeds and stem removed"
    },
    {
-    "raw": "½ medium white onion, cut into chunks",
+    "raw": "\u00bd medium white onion, cut into chunks",
     "qty": [
      0.5,
      null
@@ -14049,7 +14618,7 @@
     "rest": " tsp each smoked paprika, cumin, chili powder"
    },
    {
-    "raw": "¼ tsp each salt and pepper",
+    "raw": "\u00bc tsp each salt and pepper",
     "qty": [
      0.25,
      null
@@ -14114,7 +14683,7 @@
     "rest": " green chilli, finely chopped (optional)"
    },
    {
-    "raw": "¼ cup fresh coriander, finely chopped",
+    "raw": "\u00bc cup fresh coriander, finely chopped",
     "qty": [
      0.25,
      null
@@ -14122,7 +14691,7 @@
     "rest": " cup fresh coriander, finely chopped"
    },
    {
-    "raw": "¼ cup fresh mint, finely chopped",
+    "raw": "\u00bc cup fresh mint, finely chopped",
     "qty": [
      0.25,
      null
@@ -14219,7 +14788,7 @@
     "rest": " cups (1 litre) milk"
    },
    {
-    "raw": "½ cup sugar",
+    "raw": "\u00bd cup sugar",
     "qty": [
      0.5,
      null
@@ -14227,12 +14796,12 @@
     "rest": " cup sugar"
    },
    {
-    "raw": "1 cup almonds(soaked and peeled) + ¾ cup milk",
+    "raw": "1 cup almonds(soaked and peeled) + \u00be cup milk",
     "qty": [
      1.0,
      null
     ],
-    "rest": " cup almonds(soaked and peeled) + ¾ cup milk"
+    "rest": " cup almonds(soaked and peeled) + \u00be cup milk"
    },
    {
     "raw": "1 tbsp custard powder + 2 tbsp milk",
@@ -14251,7 +14820,7 @@
     "rest": " tsp saffron strands + 2 tbsp milk"
    },
    {
-    "raw": "½ tsp cardamom powder",
+    "raw": "\u00bd tsp cardamom powder",
     "qty": [
      0.5,
      null
@@ -14533,7 +15102,7 @@
     "rest": " tsp pepper powder"
    },
    {
-    "raw": "½ tsp turmeric",
+    "raw": "\u00bd tsp turmeric",
     "qty": [
      0.5,
      null
@@ -14549,7 +15118,7 @@
     "rest": " tsp lemon zest"
    },
    {
-    "raw": "2–3 tbsp olive oil",
+    "raw": "2\u20133 tbsp olive oil",
     "qty": [
      2.0,
      3.0
@@ -14557,7 +15126,7 @@
     "rest": " tbsp olive oil"
    },
    {
-    "raw": "½ tsp red chilli powder or 1 tsp paprika",
+    "raw": "\u00bd tsp red chilli powder or 1 tsp paprika",
     "qty": [
      0.5,
      null
@@ -14603,7 +15172,7 @@
     "raw": "Optional: Thai bird eye chillies/green chillies"
    },
    {
-    "raw": "½ tbsp chilli oil",
+    "raw": "\u00bd tbsp chilli oil",
     "qty": [
      0.5,
      null
@@ -14611,7 +15180,7 @@
     "rest": " tbsp chilli oil"
    },
    {
-    "raw": "2–3 tbsp honey",
+    "raw": "2\u20133 tbsp honey",
     "qty": [
      2.0,
      3.0
@@ -14650,7 +15219,7 @@
     "raw": "FOR THE PASTE"
    },
    {
-    "raw": "10–12 garlic cloves",
+    "raw": "10\u201312 garlic cloves",
     "qty": [
      10.0,
      12.0
@@ -14718,7 +15287,7 @@
     "raw": "250g prawns, diced"
    },
    {
-    "raw": "350g cooked shirataki rice (or 350g cooked white/basmati rice — approx. 130g raw)"
+    "raw": "350g cooked shirataki rice (or 350g cooked white/basmati rice \u2014 approx. 130g raw)"
    },
    {
     "raw": "Salt to taste"
@@ -14755,7 +15324,7 @@
     "raw": "Curry leaves"
    },
    {
-    "raw": "4–5 dry red chillies",
+    "raw": "4\u20135 dry red chillies",
     "qty": [
      4.0,
      5.0
@@ -14793,7 +15362,7 @@
     "raw": "Salt to taste"
    },
    {
-    "raw": "¼ tsp turmeric",
+    "raw": "\u00bc tsp turmeric",
     "qty": [
      0.25,
      null
@@ -15022,7 +15591,7 @@
     "raw": "Handful of chopped coriander"
    },
    {
-    "raw": "1–2 tbsp chilli oil",
+    "raw": "1\u20132 tbsp chilli oil",
     "qty": [
      1.0,
      2.0
@@ -15090,7 +15659,7 @@
     "rest": " stalk spring onion"
    },
    {
-    "raw": "½ tsp honey",
+    "raw": "\u00bd tsp honey",
     "qty": [
      0.5,
      null
@@ -15098,7 +15667,7 @@
     "rest": " tsp honey"
    },
    {
-    "raw": "1½ tbsp light soy sauce",
+    "raw": "1\u00bd tbsp light soy sauce",
     "qty": [
      1.5,
      null
@@ -15117,7 +15686,7 @@
     "raw": "Salt to taste"
    },
    {
-    "raw": "2–3 tbsp water (to blend)",
+    "raw": "2\u20133 tbsp water (to blend)",
     "qty": [
      2.0,
      3.0
@@ -15189,7 +15758,7 @@
     "raw": "Half of a white onion"
    },
    {
-    "raw": "Jalapeño (optional, depending on spice level)"
+    "raw": "Jalape\u00f1o (optional, depending on spice level)"
    },
    {
     "raw": "Salt & pepper"
@@ -15218,12 +15787,12 @@
     "raw": "Soda water"
    },
    {
-    "raw": "2 jalapeño slices",
+    "raw": "2 jalape\u00f1o slices",
     "qty": [
      2.0,
      null
     ],
-    "rest": " jalapeño slices"
+    "rest": " jalape\u00f1o slices"
    },
    {
     "raw": "1 tsp hot honey",
@@ -15342,7 +15911,7 @@
     "rest": " cloves Garlic - minced"
    },
    {
-    "raw": "1” Ginger - grated"
+    "raw": "1\u201d Ginger - grated"
    },
    {
     "raw": "2 stalks Green onion",
@@ -15452,12 +16021,12 @@
     "rest": " tsp chilli crisp"
    },
    {
-    "raw": "1 tbsp fresh chilli, sliced 🌶️",
+    "raw": "1 tbsp fresh chilli, sliced \ud83c\udf36\ufe0f",
     "qty": [
      1.0,
      null
     ],
-    "rest": " tbsp fresh chilli, sliced 🌶️"
+    "rest": " tbsp fresh chilli, sliced \ud83c\udf36\ufe0f"
    },
    {
     "raw": "2 tbsp soy sauce",
@@ -15468,15 +16037,15 @@
     "rest": " tbsp soy sauce"
    },
    {
-    "raw": "2 tbsp lime juice 🍋‍🟩",
+    "raw": "2 tbsp lime juice \ud83c\udf4b\u200d\ud83d\udfe9",
     "qty": [
      2.0,
      null
     ],
-    "rest": " tbsp lime juice 🍋‍🟩"
+    "rest": " tbsp lime juice \ud83c\udf4b\u200d\ud83d\udfe9"
    },
    {
-    "raw": "2–3 tbsp hot vegetable oil",
+    "raw": "2\u20133 tbsp hot vegetable oil",
     "qty": [
      2.0,
      3.0
@@ -15507,7 +16076,7 @@
     "rest": " oz Organic Super Firm Tofu I user Nasoya"
    },
    {
-    "raw": "½ cup Plain Greek Yogurt I use Fage Fat Free Plain Greek Yogurt",
+    "raw": "\u00bd cup Plain Greek Yogurt I use Fage Fat Free Plain Greek Yogurt",
     "qty": [
      0.5,
      null
@@ -15547,7 +16116,7 @@
     "rest": " tsp Garam Masala"
    },
    {
-    "raw": "1½ tsp Chaat Masala",
+    "raw": "1\u00bd tsp Chaat Masala",
     "qty": [
      1.5,
      null
@@ -15555,15 +16124,15 @@
     "rest": " tsp Chaat Masala"
    },
    {
-    "raw": "1 tsp Kashmiri Red Chili Powder ½ tsp of using regular spicy red chili powder",
+    "raw": "1 tsp Kashmiri Red Chili Powder \u00bd tsp of using regular spicy red chili powder",
     "qty": [
      1.0,
      null
     ],
-    "rest": " tsp Kashmiri Red Chili Powder ½ tsp of using regular spicy red chili powder"
+    "rest": " tsp Kashmiri Red Chili Powder \u00bd tsp of using regular spicy red chili powder"
    },
    {
-    "raw": "1½ tsp Roasted Cumin Powder",
+    "raw": "1\u00bd tsp Roasted Cumin Powder",
     "qty": [
      1.5,
      null
@@ -15571,7 +16140,7 @@
     "rest": " tsp Roasted Cumin Powder"
    },
    {
-    "raw": "½ tsp Turmeric Powder",
+    "raw": "\u00bd tsp Turmeric Powder",
     "qty": [
      0.5,
      null
@@ -15579,7 +16148,7 @@
     "rest": " tsp Turmeric Powder"
    },
    {
-    "raw": "¼ tsp Black Pepper Powder",
+    "raw": "\u00bc tsp Black Pepper Powder",
     "qty": [
      0.25,
      null
@@ -15587,7 +16156,7 @@
     "rest": " tsp Black Pepper Powder"
    },
    {
-    "raw": "½ tsp Salt",
+    "raw": "\u00bd tsp Salt",
     "qty": [
      0.5,
      null
@@ -15595,7 +16164,7 @@
     "rest": " tsp Salt"
    },
    {
-    "raw": "½ tsp Kasuri Methi",
+    "raw": "\u00bd tsp Kasuri Methi",
     "qty": [
      0.5,
      null
@@ -15627,18 +16196,18 @@
     "rest": " tsp Honey"
    },
    {
-    "raw": "1 medium Red Onion, sliced if using extra large onion, user ¾ of it",
+    "raw": "1 medium Red Onion, sliced if using extra large onion, user \u00be of it",
     "qty": [
      1.0,
      null
     ],
-    "rest": " medium Red Onion, sliced if using extra large onion, user ¾ of it"
+    "rest": " medium Red Onion, sliced if using extra large onion, user \u00be of it"
    },
    {
     "raw": "Cilantro Mint Yogurt Sauce"
    },
    {
-    "raw": "½ cup Fresh Cilantro washed/drained/roots removed",
+    "raw": "\u00bd cup Fresh Cilantro washed/drained/roots removed",
     "qty": [
      0.5,
      null
@@ -15646,7 +16215,7 @@
     "rest": " cup Fresh Cilantro washed/drained/roots removed"
    },
    {
-    "raw": "¼ cup Fresh Mint Leaves",
+    "raw": "\u00bc cup Fresh Mint Leaves",
     "qty": [
      0.25,
      null
@@ -15654,7 +16223,7 @@
     "rest": " cup Fresh Mint Leaves"
    },
    {
-    "raw": "½ tsp Roasted Cumin Powder",
+    "raw": "\u00bd tsp Roasted Cumin Powder",
     "qty": [
      0.5,
      null
@@ -15662,7 +16231,7 @@
     "rest": " tsp Roasted Cumin Powder"
    },
    {
-    "raw": "¼ tsp Black Pepper Powder",
+    "raw": "\u00bc tsp Black Pepper Powder",
     "qty": [
      0.25,
      null
@@ -15670,7 +16239,7 @@
     "rest": " tsp Black Pepper Powder"
    },
    {
-    "raw": "½ tsp Salt",
+    "raw": "\u00bd tsp Salt",
     "qty": [
      0.5,
      null
@@ -15678,7 +16247,7 @@
     "rest": " tsp Salt"
    },
    {
-    "raw": "½ Jalapeno 1 whole for more heat",
+    "raw": "\u00bd Jalapeno 1 whole for more heat",
     "qty": [
      0.5,
      null
@@ -15702,20 +16271,20 @@
     "rest": " tbsp Lemon Juice"
    },
    {
-    "raw": "½ cup Fage Fat Free Greek Yogurt ⅔ cup of only using greek yogurt, not sour cream",
+    "raw": "\u00bd cup Fage Fat Free Greek Yogurt \u2154 cup of only using greek yogurt, not sour cream",
     "qty": [
      0.5,
      null
     ],
-    "rest": " cup Fage Fat Free Greek Yogurt ⅔ cup of only using greek yogurt, not sour cream"
+    "rest": " cup Fage Fat Free Greek Yogurt \u2154 cup of only using greek yogurt, not sour cream"
    },
    {
-    "raw": "¼ cup Sour Cream skip if using ⅔ cup greek yogurt",
+    "raw": "\u00bc cup Sour Cream skip if using \u2154 cup greek yogurt",
     "qty": [
      0.25,
      null
     ],
-    "rest": " cup Sour Cream skip if using ⅔ cup greek yogurt"
+    "rest": " cup Sour Cream skip if using \u2154 cup greek yogurt"
    },
    {
     "raw": "If making kathi rolls"
@@ -15737,7 +16306,7 @@
     "rest": " English Cucumber, sliced"
    },
    {
-    "raw": "½ Red Onion, very thinly sliced",
+    "raw": "\u00bd Red Onion, very thinly sliced",
     "qty": [
      0.5,
      null
@@ -15745,7 +16314,7 @@
     "rest": " Red Onion, very thinly sliced"
    },
    {
-    "raw": "½ Green Pepper, very thinly sliced",
+    "raw": "\u00bd Green Pepper, very thinly sliced",
     "qty": [
      0.5,
      null
@@ -15822,7 +16391,7 @@
     "rest": " cups chapatti (whole wheat) flour"
    },
    {
-    "raw": "1½ cups tofu, grated",
+    "raw": "1\u00bd cups tofu, grated",
     "qty": [
      1.5,
      null
@@ -15862,7 +16431,7 @@
     "rest": " Tsp Turmeric powder"
    },
    {
-    "raw": "¼ Cup sesame seeds",
+    "raw": "\u00bc Cup sesame seeds",
     "qty": [
      0.25,
      null
@@ -15895,7 +16464,7 @@
     "rest": " large eggs"
    },
    {
-    "raw": "1/2–1 tbsp orange zest",
+    "raw": "1/2\u20131 tbsp orange zest",
     "qty": [
      0.5,
      1.0
@@ -16247,7 +16816,7 @@
     "raw": "Fresh coriander"
    },
    {
-    "raw": "½ inch ginger",
+    "raw": "\u00bd inch ginger",
     "qty": [
      0.5,
      null
@@ -16272,7 +16841,7 @@
     "raw": "Chilled water"
    },
    {
-    "raw": "(Optional) ½ cucumber"
+    "raw": "(Optional) \u00bd cucumber"
    }
   ]
  },
@@ -16465,7 +17034,7 @@
     "rest": " tsp Red Chilli Powder"
    },
    {
-    "raw": "¼ tsp Haldi",
+    "raw": "\u00bc tsp Haldi",
     "qty": [
      0.25,
      null
@@ -16497,7 +17066,7 @@
     "rest": " tsp Goda Masala"
    },
    {
-    "raw": "¼ tsp Garam Masala",
+    "raw": "\u00bc tsp Garam Masala",
     "qty": [
      0.25,
      null
@@ -16508,7 +17077,7 @@
     "raw": "Salt to taste"
    },
    {
-    "raw": "½ tsp Jeera",
+    "raw": "\u00bd tsp Jeera",
     "qty": [
      0.5,
      null
@@ -16519,7 +17088,7 @@
     "raw": "Few Curry Leaves"
    },
    {
-    "raw": "5–6 Garlic cloves",
+    "raw": "5\u20136 Garlic cloves",
     "qty": [
      5.0,
      6.0
@@ -16678,7 +17247,7 @@
     "rest": " large eggs"
    },
    {
-    "raw": "1/2–1 tbsp orange zest",
+    "raw": "1/2\u20131 tbsp orange zest",
     "qty": [
      0.5,
      1.0
@@ -17134,7 +17703,7 @@
   "base_stated": true,
   "lines": [
    {
-    "raw": "½ cup black sesame seeds, lightly roasted",
+    "raw": "\u00bd cup black sesame seeds, lightly roasted",
     "qty": [
      0.5,
      null
@@ -17142,7 +17711,7 @@
     "rest": " cup black sesame seeds, lightly roasted"
    },
    {
-    "raw": "½ cup white sesame seeds, lightly roasted",
+    "raw": "\u00bd cup white sesame seeds, lightly roasted",
     "qty": [
      0.5,
      null
@@ -17174,7 +17743,7 @@
     "rest": " Tbsp cold-pressed virgin coconut oil(extra virgin olive oil is an option too)"
    },
    {
-    "raw": "¼ tsp cardamom",
+    "raw": "\u00bc tsp cardamom",
     "qty": [
      0.25,
      null
@@ -17182,7 +17751,7 @@
     "rest": " tsp cardamom"
    },
    {
-    "raw": "¼ tsp dried ginger (optional anti-inflammatory)",
+    "raw": "\u00bc tsp dried ginger (optional anti-inflammatory)",
     "qty": [
      0.25,
      null
@@ -17389,7 +17958,7 @@
     "rest": " cup black sesame seeds"
    },
    {
-    "raw": "¾ cup pumpkin seeds",
+    "raw": "\u00be cup pumpkin seeds",
     "qty": [
      0.75,
      null
@@ -17397,7 +17966,7 @@
     "rest": " cup pumpkin seeds"
    },
    {
-    "raw": "½ cup sunflower seeds",
+    "raw": "\u00bd cup sunflower seeds",
     "qty": [
      0.5,
      null
@@ -17405,7 +17974,7 @@
     "rest": " cup sunflower seeds"
    },
    {
-    "raw": "½ cup walnuts",
+    "raw": "\u00bd cup walnuts",
     "qty": [
      0.5,
      null
@@ -17424,7 +17993,7 @@
     "rest": " cup deseeded dates (Medjool or any soft variety)"
    },
    {
-    "raw": "1–2 tsp ghee (as needed)",
+    "raw": "1\u20132 tsp ghee (as needed)",
     "qty": [
      1.0,
      2.0
@@ -17435,7 +18004,7 @@
     "raw": "Add-ins:"
    },
    {
-    "raw": "2–3 tsp moringa powder",
+    "raw": "2\u20133 tsp moringa powder",
     "qty": [
      2.0,
      3.0
@@ -17455,7 +18024,7 @@
   "base_stated": false,
   "lines": [
    {
-    "raw": "¾ cup water",
+    "raw": "\u00be cup water",
     "qty": [
      0.75,
      null
@@ -17463,7 +18032,7 @@
     "rest": " cup water"
    },
    {
-    "raw": "¾ cup oat milk",
+    "raw": "\u00be cup oat milk",
     "qty": [
      0.75,
      null
@@ -17471,7 +18040,7 @@
     "rest": " cup oat milk"
    },
    {
-    "raw": "½ cup amaranth (dry, not puffed), washed",
+    "raw": "\u00bd cup amaranth (dry, not puffed), washed",
     "qty": [
      0.5,
      null
@@ -17487,7 +18056,7 @@
     "rest": " cloves"
    },
    {
-    "raw": "¼ tsp ground Ceylon cinnamon",
+    "raw": "\u00bc tsp ground Ceylon cinnamon",
     "qty": [
      0.25,
      null
@@ -17495,7 +18064,7 @@
     "rest": " tsp ground Ceylon cinnamon"
    },
    {
-    "raw": "⅔ - 1 tsp cacao powder",
+    "raw": "\u2154 - 1 tsp cacao powder",
     "qty": [
      0.6666666666666666,
      1.0
@@ -17538,12 +18107,12 @@
     "raw": "Amaranth"
    },
    {
-    "raw": "1 cup amaranth (≈ 190 g)",
+    "raw": "1 cup amaranth (\u2248 190 g)",
     "qty": [
      1.0,
      null
     ],
-    "rest": " cup amaranth (≈ 190 g)"
+    "rest": " cup amaranth (\u2248 190 g)"
    },
    {
     "raw": "4 dried apricots",
@@ -17554,26 +18123,26 @@
     "rest": " dried apricots"
    },
    {
-    "raw": "1½ tbsp cashew butter (≈ 24 g)",
+    "raw": "1\u00bd tbsp cashew butter (\u2248 24 g)",
     "qty": [
      1.5,
      null
     ],
-    "rest": " tbsp cashew butter (≈ 24 g)"
+    "rest": " tbsp cashew butter (\u2248 24 g)"
    },
    {
-    "raw": "1¾ cups water (≈ 420 ml)",
+    "raw": "1\u00be cups water (\u2248 420 ml)",
     "qty": [
      1.75,
      null
     ],
-    "rest": " cups water (≈ 420 ml)"
+    "rest": " cups water (\u2248 420 ml)"
    },
    {
     "raw": "pinch salt"
    },
    {
-    "raw": "½ tsp cinnamon",
+    "raw": "\u00bd tsp cinnamon",
     "qty": [
      0.5,
      null
@@ -17581,7 +18150,7 @@
     "rest": " tsp cinnamon"
    },
    {
-    "raw": "½ tsp vanilla",
+    "raw": "\u00bd tsp vanilla",
     "qty": [
      0.5,
      null
@@ -17595,18 +18164,18 @@
     "raw": "Compote"
    },
    {
-    "raw": "1 cup raspberries (≈ 125 g)",
+    "raw": "1 cup raspberries (\u2248 125 g)",
     "qty": [
      1.0,
      null
     ],
-    "rest": " cup raspberries (≈ 125 g)"
+    "rest": " cup raspberries (\u2248 125 g)"
    },
    {
-    "raw": "zest ½ blood orange"
+    "raw": "zest \u00bd blood orange"
    },
    {
-    "raw": "juice ½ blood orange"
+    "raw": "juice \u00bd blood orange"
    },
    {
     "raw": "a few blood-orange segments"
@@ -17615,7 +18184,7 @@
     "raw": "Topping"
    },
    {
-    "raw": "1–2 tbsp pumpkin seed butter",
+    "raw": "1\u20132 tbsp pumpkin seed butter",
     "qty": [
      1.0,
      2.0
@@ -17623,7 +18192,7 @@
     "rest": " tbsp pumpkin seed butter"
    },
    {
-    "raw": "1–2 tbsp pistachios, chopped",
+    "raw": "1\u20132 tbsp pistachios, chopped",
     "qty": [
      1.0,
      2.0
@@ -17672,7 +18241,7 @@
   "base_stated": true,
   "lines": [
    {
-    "raw": "¼ tsp ajwain (carom seeds)",
+    "raw": "\u00bc tsp ajwain (carom seeds)",
     "qty": [
      0.25,
      null
@@ -17680,7 +18249,7 @@
     "rest": " tsp ajwain (carom seeds)"
    },
    {
-    "raw": "½ tsp fennel seeds",
+    "raw": "\u00bd tsp fennel seeds",
     "qty": [
      0.5,
      null
@@ -17688,7 +18257,7 @@
     "rest": " tsp fennel seeds"
    },
    {
-    "raw": "¼ tsp black seeds (kalonji)",
+    "raw": "\u00bc tsp black seeds (kalonji)",
     "qty": [
      0.25,
      null
@@ -17696,7 +18265,7 @@
     "rest": " tsp black seeds (kalonji)"
    },
    {
-    "raw": "¼ tsp methi seeds (fenugreek)",
+    "raw": "\u00bc tsp methi seeds (fenugreek)",
     "qty": [
      0.25,
      null
@@ -17704,7 +18273,7 @@
     "rest": " tsp methi seeds (fenugreek)"
    },
    {
-    "raw": "1–2 black cardamom pods",
+    "raw": "1\u20132 black cardamom pods",
     "qty": [
      1.0,
      2.0
@@ -17720,7 +18289,7 @@
     "rest": " small cinnamon stick (or a pinch of cinnamon powder)"
    },
    {
-    "raw": "¼ tsp jeera (cumin seeds)",
+    "raw": "\u00bc tsp jeera (cumin seeds)",
     "qty": [
      0.25,
      null
@@ -17840,7 +18409,7 @@
     "raw": "Juice of 1 lemon"
    },
    {
-    "raw": "1–2 tsp honey",
+    "raw": "1\u20132 tsp honey",
     "qty": [
      1.0,
      2.0
@@ -17916,7 +18485,7 @@
     "rest": " tbsp coriander powder"
    },
    {
-    "raw": "½ tbsp red chilli powder",
+    "raw": "\u00bd tbsp red chilli powder",
     "qty": [
      0.5,
      null
@@ -17932,7 +18501,7 @@
     "rest": " tsp turmeric"
    },
    {
-    "raw": "½ tbsp amchoor powder",
+    "raw": "\u00bd tbsp amchoor powder",
     "qty": [
      0.5,
      null
@@ -17960,28 +18529,28 @@
     "rest": " gm lobiya (black-eyed peas), soaked overnight"
    },
    {
-    "raw": "200 gm mushrooms 🍄",
+    "raw": "200 gm mushrooms \ud83c\udf44",
     "qty": [
      200.0,
      null
     ],
-    "rest": " gm mushrooms 🍄"
+    "rest": " gm mushrooms \ud83c\udf44"
    },
    {
-    "raw": "4 onions, sliced 🧅",
+    "raw": "4 onions, sliced \ud83e\uddc5",
     "qty": [
      4.0,
      null
     ],
-    "rest": " onions, sliced 🧅"
+    "rest": " onions, sliced \ud83e\uddc5"
    },
    {
-    "raw": "7–8 garlic cloves 🧄",
+    "raw": "7\u20138 garlic cloves \ud83e\uddc4",
     "qty": [
      7.0,
      8.0
     ],
-    "rest": " garlic cloves 🧄"
+    "rest": " garlic cloves \ud83e\uddc4"
    },
    {
     "raw": "1 inch ginger",
@@ -17992,31 +18561,31 @@
     "rest": " inch ginger"
    },
    {
-    "raw": "4–5 green chillies 🌶️",
+    "raw": "4\u20135 green chillies \ud83c\udf36\ufe0f",
     "qty": [
      4.0,
      5.0
     ],
-    "rest": " green chillies 🌶️"
+    "rest": " green chillies \ud83c\udf36\ufe0f"
    },
    {
-    "raw": "handful of cashews 🥜"
+    "raw": "handful of cashews \ud83e\udd5c"
    },
    {
-    "raw": "2 tbsp ghee or oil 🧈",
+    "raw": "2 tbsp ghee or oil \ud83e\uddc8",
     "qty": [
      2.0,
      null
     ],
-    "rest": " tbsp ghee or oil 🧈"
+    "rest": " tbsp ghee or oil \ud83e\uddc8"
    },
    {
-    "raw": "1 tbsp red chilli powder 🌶️",
+    "raw": "1 tbsp red chilli powder \ud83c\udf36\ufe0f",
     "qty": [
      1.0,
      null
     ],
-    "rest": " tbsp red chilli powder 🌶️"
+    "rest": " tbsp red chilli powder \ud83c\udf36\ufe0f"
    },
    {
     "raw": "1 tbsp coriander powder",
@@ -18027,7 +18596,7 @@
     "rest": " tbsp coriander powder"
    },
    {
-    "raw": "½ tbsp amchoor",
+    "raw": "\u00bd tbsp amchoor",
     "qty": [
      0.5,
      null
@@ -18043,10 +18612,10 @@
     "rest": " tsp garam masala"
    },
    {
-    "raw": "salt to taste 🧂"
+    "raw": "salt to taste \ud83e\uddc2"
    },
    {
-    "raw": "fresh coriander 🌿"
+    "raw": "fresh coriander \ud83c\udf3f"
    },
    {
     "raw": "2 tbsp besan (gram flour)",
@@ -18381,7 +18950,7 @@
     "rest": " Amul cheese cubes"
    },
    {
-    "raw": "½ cup yogurt",
+    "raw": "\u00bd cup yogurt",
     "qty": [
      0.5,
      null
@@ -18389,7 +18958,7 @@
     "rest": " cup yogurt"
    },
    {
-    "raw": "3–4 tbsp water",
+    "raw": "3\u20134 tbsp water",
     "qty": [
      3.0,
      4.0
@@ -18405,7 +18974,7 @@
     "rest": " tsp honey"
    },
    {
-    "raw": "3–4 garlic cloves",
+    "raw": "3\u20134 garlic cloves",
     "qty": [
      3.0,
      4.0
@@ -18416,7 +18985,7 @@
     "raw": "Salt to taste"
    },
    {
-    "raw": "½ tsp black pepper",
+    "raw": "\u00bd tsp black pepper",
     "qty": [
      0.5,
      null
@@ -18451,7 +19020,7 @@
     "rest": " tsp ginger-garlic paste"
    },
    {
-    "raw": "1–2 green chillies, chopped",
+    "raw": "1\u20132 green chillies, chopped",
     "qty": [
      1.0,
      2.0
@@ -18459,7 +19028,7 @@
     "rest": " green chillies, chopped"
    },
    {
-    "raw": "½ cup yogurt",
+    "raw": "\u00bd cup yogurt",
     "qty": [
      0.5,
      null
@@ -18467,7 +19036,7 @@
     "rest": " cup yogurt"
    },
    {
-    "raw": "½ tsp garam masala",
+    "raw": "\u00bd tsp garam masala",
     "qty": [
      0.5,
      null
@@ -18483,7 +19052,7 @@
     "rest": " tsp coriander powder"
    },
    {
-    "raw": "¼ tsp haldi (turmeric powder)",
+    "raw": "\u00bc tsp haldi (turmeric powder)",
     "qty": [
      0.25,
      null
@@ -18524,7 +19093,7 @@
     "rest": " cup flax seeds"
    },
    {
-    "raw": "½ cup pumpkin seeds",
+    "raw": "\u00bd cup pumpkin seeds",
     "qty": [
      0.5,
      null
@@ -18532,7 +19101,7 @@
     "rest": " cup pumpkin seeds"
    },
    {
-    "raw": "½ cup black sesame seeds",
+    "raw": "\u00bd cup black sesame seeds",
     "qty": [
      0.5,
      null
@@ -18666,7 +19235,7 @@
     "rest": " cup approx almond flour (140g) ( I used homemade almond-flour ground with the skins)"
    },
    {
-    "raw": "¼ tsp baking powder",
+    "raw": "\u00bc tsp baking powder",
     "qty": [
      0.25,
      null
@@ -18674,12 +19243,12 @@
     "rest": " tsp baking powder"
    },
    {
-    "raw": "2 tbsp melted salted butter 🧈",
+    "raw": "2 tbsp melted salted butter \ud83e\uddc8",
     "qty": [
      2.0,
      null
     ],
-    "rest": " tbsp melted salted butter 🧈"
+    "rest": " tbsp melted salted butter \ud83e\uddc8"
    },
    {
     "raw": "2 tbsp honey",
@@ -18690,7 +19259,7 @@
     "rest": " tbsp honey"
    },
    {
-    "raw": "½ tsp vanilla extract",
+    "raw": "\u00bd tsp vanilla extract",
     "qty": [
      0.5,
      null
@@ -18828,7 +19397,7 @@
     "rest": " cup black sesame seeds (toasted)"
    },
    {
-    "raw": "½ cup almond pulp (very well squeezed. sub: almond flour + 2 extra tbsp of ghee or oil)",
+    "raw": "\u00bd cup almond pulp (very well squeezed. sub: almond flour + 2 extra tbsp of ghee or oil)",
     "qty": [
      0.5,
      null
@@ -18863,7 +19432,7 @@
     "raw": "Pinch sea salt"
    },
    {
-    "raw": "¼ tsp cardamom",
+    "raw": "\u00bc tsp cardamom",
     "qty": [
      0.25,
      null
@@ -19044,7 +19613,7 @@
     "rest": " large eggs (200g)"
    },
    {
-    "raw": "1 ½ cups (150g) almond flour",
+    "raw": "1 \u00bd cups (150g) almond flour",
     "qty": [
      1.5,
      null
@@ -19052,7 +19621,7 @@
     "rest": " cups (150g) almond flour"
    },
    {
-    "raw": "⅓ cup (110g) honey",
+    "raw": "\u2153 cup (110g) honey",
     "qty": [
      0.3333333333333333,
      null
@@ -19100,7 +19669,7 @@
     "rest": " tbsp(10g) cinnamon"
    },
    {
-    "raw": "¼ cup sliced almonds (20g), optional, for topping",
+    "raw": "\u00bc cup sliced almonds (20g), optional, for topping",
     "qty": [
      0.25,
      null
@@ -19217,7 +19786,7 @@
     "rest": " tsp ginger garlic paste"
    },
    {
-    "raw": "½ tsp chilli powder",
+    "raw": "\u00bd tsp chilli powder",
     "qty": [
      0.5,
      null
@@ -19233,7 +19802,7 @@
     "rest": " tsp coriander powder"
    },
    {
-    "raw": "¼ tsp turmeric",
+    "raw": "\u00bc tsp turmeric",
     "qty": [
      0.25,
      null
@@ -19241,7 +19810,7 @@
     "rest": " tsp turmeric"
    },
    {
-    "raw": "½ tsp garam masala",
+    "raw": "\u00bd tsp garam masala",
     "qty": [
      0.5,
      null
@@ -19249,19 +19818,19 @@
     "rest": " tsp garam masala"
    },
    {
-    "raw": "120g tomato purée"
+    "raw": "120g tomato pur\u00e9e"
    },
    {
     "raw": "Salt to taste"
    },
    {
-    "raw": "220–250g chopped palak"
+    "raw": "220\u2013250g chopped palak"
    },
    {
     "raw": "200g soft paneer"
    },
    {
-    "raw": "⅓ cup hot water (for blending)",
+    "raw": "\u2153 cup hot water (for blending)",
     "qty": [
      0.3333333333333333,
      null
@@ -19283,7 +19852,7 @@
     "rest": " tbsp mustard oil"
    },
    {
-    "raw": "¾ tsp cumin seeds",
+    "raw": "\u00be tsp cumin seeds",
     "qty": [
      0.75,
      null
@@ -19406,7 +19975,7 @@
     "rest": " scoops Truvani Plant Based Unflavored Protein Powder 2 servings, can be sub with 1/4 cup chickpea flour"
    },
    {
-    "raw": "½ cup Vital Wheat Gluten can be sub with 1/2 cup whole wheat flour",
+    "raw": "\u00bd cup Vital Wheat Gluten can be sub with 1/2 cup whole wheat flour",
     "qty": [
      0.5,
      null
@@ -19414,7 +19983,7 @@
     "rest": " cup Vital Wheat Gluten can be sub with 1/2 cup whole wheat flour"
    },
    {
-    "raw": "½ cup Chickpea Flour, Besan",
+    "raw": "\u00bd cup Chickpea Flour, Besan",
     "qty": [
      0.5,
      null
@@ -19526,7 +20095,7 @@
     "rest": " tbsp Jaggery, gud"
    },
    {
-    "raw": "½ cup Avocado Oil more for cooking the thepla",
+    "raw": "\u00bd cup Avocado Oil more for cooking the thepla",
     "qty": [
      0.5,
      null
@@ -19542,7 +20111,7 @@
     "rest": " cup Fresh Fenugreek Leaves OR baby spinach washed, dried, finely chopped"
    },
    {
-    "raw": "½ cup Water only if needed to bind the dough",
+    "raw": "\u00bd cup Water only if needed to bind the dough",
     "qty": [
      0.5,
      null
@@ -19550,7 +20119,7 @@
     "rest": " cup Water only if needed to bind the dough"
    },
    {
-    "raw": "¼ cup Avocado Oil this is to cook the thepla",
+    "raw": "\u00bc cup Avocado Oil this is to cook the thepla",
     "qty": [
      0.25,
      null
@@ -19558,7 +20127,7 @@
     "rest": " cup Avocado Oil this is to cook the thepla"
    },
    {
-    "raw": "½ cup Rice Flour/Whole Wheat Flour/All Purpose Flour this is to roll the thepla",
+    "raw": "\u00bd cup Rice Flour/Whole Wheat Flour/All Purpose Flour this is to roll the thepla",
     "qty": [
      0.5,
      null
@@ -19575,7 +20144,7 @@
     "raw": "QUINOA CRUNCH BAR"
    },
    {
-    "raw": "½ cup puffed or cooked quinoa (lightly roasted if cooked)",
+    "raw": "\u00bd cup puffed or cooked quinoa (lightly roasted if cooked)",
     "qty": [
      0.5,
      null
@@ -19583,7 +20152,7 @@
     "rest": " cup puffed or cooked quinoa (lightly roasted if cooked)"
    },
    {
-    "raw": "¼ cup roasted peanuts (chopped)",
+    "raw": "\u00bc cup roasted peanuts (chopped)",
     "qty": [
      0.25,
      null
@@ -19686,19 +20255,19 @@
     "raw": "Coriander powder - 1 tsp"
    },
    {
-    "raw": "Cumin powder - ½ tsp"
+    "raw": "Cumin powder - \u00bd tsp"
    },
    {
-    "raw": "Red chili powder - ½ tsp"
+    "raw": "Red chili powder - \u00bd tsp"
    },
    {
-    "raw": "Garam masala - ½ tsp"
+    "raw": "Garam masala - \u00bd tsp"
    },
    {
-    "raw": "Turmeric - ½ tsp"
+    "raw": "Turmeric - \u00bd tsp"
    },
    {
-    "raw": "Salt – to taste"
+    "raw": "Salt \u2013 to taste"
    },
    {
     "raw": "IMMUNITY SHOT"
@@ -19741,7 +20310,7 @@
     "rest": " mozzarella string cheese sticks"
    },
    {
-    "raw": "1–2 tbsp pesto",
+    "raw": "1\u20132 tbsp pesto",
     "qty": [
      1.0,
      2.0
@@ -19760,7 +20329,7 @@
     "raw": "Shredded mozzarella"
    },
    {
-    "raw": "3–4 cherry tomatoes, halved",
+    "raw": "3\u20134 cherry tomatoes, halved",
     "qty": [
      3.0,
      4.0
@@ -19777,7 +20346,7 @@
   "base_stated": false,
   "lines": [
    {
-    "raw": "½ cups light olive oil",
+    "raw": "\u00bd cups light olive oil",
     "qty": [
      0.5,
      null
@@ -19793,12 +20362,12 @@
     "rest": " tsp Italian seasoning"
    },
    {
-    "raw": "½ tsp hot pepper flakes (or to taste if you don’t like the 🌶️)",
+    "raw": "\u00bd tsp hot pepper flakes (or to taste if you don\u2019t like the \ud83c\udf36\ufe0f)",
     "qty": [
      0.5,
      null
     ],
-    "rest": " tsp hot pepper flakes (or to taste if you don’t like the 🌶️)"
+    "rest": " tsp hot pepper flakes (or to taste if you don\u2019t like the \ud83c\udf36\ufe0f)"
    },
    {
     "raw": "1 tbsp chopped parsley",
@@ -19820,7 +20389,7 @@
     "rest": " clove of garlic, minced or grated"
    },
    {
-    "raw": "2–3 tbsp freshly grated parmesan",
+    "raw": "2\u20133 tbsp freshly grated parmesan",
     "qty": [
      2.0,
      3.0
@@ -20020,7 +20589,7 @@
   "base_stated": true,
   "lines": [
    {
-    "raw": "300–400 g Sweet potato, grated",
+    "raw": "300\u2013400 g Sweet potato, grated",
     "qty": [
      300.0,
      400.0
@@ -20225,7 +20794,7 @@
     "rest": " cup oat flour"
    },
    {
-    "raw": "½ cup peanut butter",
+    "raw": "\u00bd cup peanut butter",
     "qty": [
      0.5,
      null
@@ -20241,7 +20810,7 @@
     "rest": " tbsp maple syrup"
    },
    {
-    "raw": "⅓ cup vanilla protein powder",
+    "raw": "\u2153 cup vanilla protein powder",
     "qty": [
      0.3333333333333333,
      null
@@ -20660,12 +21229,12 @@
   "base_stated": false,
   "lines": [
    {
-    "raw": "1 cup moong dal (soaked 2–3 hours)",
+    "raw": "1 cup moong dal (soaked 2\u20133 hours)",
     "qty": [
      1.0,
      null
     ],
-    "rest": " cup moong dal (soaked 2–3 hours)"
+    "rest": " cup moong dal (soaked 2\u20133 hours)"
    },
    {
     "raw": "1 tsp ajwain",
@@ -20679,7 +21248,7 @@
     "raw": "A pinch of hing"
    },
    {
-    "raw": "1–2 green chillies, finely chopped",
+    "raw": "1\u20132 green chillies, finely chopped",
     "qty": [
      1.0,
      2.0
@@ -20687,7 +21256,7 @@
     "rest": " green chillies, finely chopped"
    },
    {
-    "raw": "½ tsp turmeric powder",
+    "raw": "\u00bd tsp turmeric powder",
     "qty": [
      0.5,
      null
@@ -20823,7 +21392,7 @@
     "rest": " cup thick curd"
    },
    {
-    "raw": "10–12 soaked cashews",
+    "raw": "10\u201312 soaked cashews",
     "qty": [
      10.0,
      12.0
@@ -20853,7 +21422,7 @@
     "rest": " tsp coriander powder"
    },
    {
-    "raw": "½ tsp garam masala",
+    "raw": "\u00bd tsp garam masala",
     "qty": [
      0.5,
      null
@@ -20861,7 +21430,7 @@
     "rest": " tsp garam masala"
    },
    {
-    "raw": "½ tsp chaat masala",
+    "raw": "\u00bd tsp chaat masala",
     "qty": [
      0.5,
      null
@@ -20907,7 +21476,7 @@
     "rest": " cloves"
    },
    {
-    "raw": "7–8 black peppercorns",
+    "raw": "7\u20138 black peppercorns",
     "qty": [
      7.0,
      8.0
@@ -21043,7 +21612,7 @@
     "raw": "Water (to loosen)"
    },
    {
-    "raw": "½ scoop vanilla protein",
+    "raw": "\u00bd scoop vanilla protein",
     "qty": [
      0.5,
      null
@@ -21051,7 +21620,7 @@
     "rest": " scoop vanilla protein"
    },
    {
-    "raw": "¼ cup oats",
+    "raw": "\u00bc cup oats",
     "qty": [
      0.25,
      null
@@ -21059,7 +21628,7 @@
     "rest": " cup oats"
    },
    {
-    "raw": "¾ cup Greek yogurt",
+    "raw": "\u00be cup Greek yogurt",
     "qty": [
      0.75,
      null
@@ -21215,7 +21784,7 @@
     "rest": " green chillies"
    },
    {
-    "raw": "½ cup Paneer",
+    "raw": "\u00bd cup Paneer",
     "qty": [
      0.5,
      null
@@ -21242,7 +21811,7 @@
     "rest": " cup Besan"
    },
    {
-    "raw": "½ tsp Haldi",
+    "raw": "\u00bd tsp Haldi",
     "qty": [
      0.5,
      null
@@ -21285,7 +21854,7 @@
     "rest": " tbsp sesame seeds"
    },
    {
-    "raw": "½ tsp Ajwain",
+    "raw": "\u00bd tsp Ajwain",
     "qty": [
      0.5,
      null
@@ -21486,7 +22055,7 @@
   "base_stated": false,
   "lines": [
    {
-    "raw": "½ cup rolled oats",
+    "raw": "\u00bd cup rolled oats",
     "qty": [
      0.5,
      null
@@ -21494,7 +22063,7 @@
     "rest": " cup rolled oats"
    },
    {
-    "raw": "1½ cups water or light broth",
+    "raw": "1\u00bd cups water or light broth",
     "qty": [
      1.5,
      null
@@ -21518,7 +22087,7 @@
     "rest": " small tomato, chopped"
    },
    {
-    "raw": "1–2 scallions, finely chopped",
+    "raw": "1\u20132 scallions, finely chopped",
     "qty": [
      1.0,
      2.0
@@ -21526,7 +22095,7 @@
     "rest": " scallions, finely chopped"
    },
    {
-    "raw": "½–1 tsp soy sauce, to taste",
+    "raw": "\u00bd\u20131 tsp soy sauce, to taste",
     "qty": [
      0.5,
      1.0
@@ -21534,7 +22103,7 @@
     "rest": " tsp soy sauce, to taste"
    },
    {
-    "raw": "½ tsp sesame oil",
+    "raw": "\u00bd tsp sesame oil",
     "qty": [
      0.5,
      null
@@ -21835,7 +22404,7 @@
     "rest": " tsp red chilli powder"
    },
    {
-    "raw": "Handful of fresh coriander leaves 🍃"
+    "raw": "Handful of fresh coriander leaves \ud83c\udf43"
    },
    {
     "raw": "1 tbsp oil",
@@ -21863,7 +22432,7 @@
     "raw": "For the Mug Cake"
    },
    {
-    "raw": "¼ cup almond flour or powdered oats",
+    "raw": "\u00bc cup almond flour or powdered oats",
     "qty": [
      0.25,
      null
@@ -21871,7 +22440,7 @@
     "rest": " cup almond flour or powdered oats"
    },
    {
-    "raw": "¾ tbsp cocoa powder",
+    "raw": "\u00be tbsp cocoa powder",
     "qty": [
      0.75,
      null
@@ -21879,10 +22448,10 @@
     "rest": " tbsp cocoa powder"
    },
    {
-    "raw": "Sweetener of choice (I used Stevia, you can use monkfruit/jaggery/sugar/mashed banana/date purée etc)"
+    "raw": "Sweetener of choice (I used Stevia, you can use monkfruit/jaggery/sugar/mashed banana/date pur\u00e9e etc)"
    },
    {
-    "raw": "½ tsp baking soda",
+    "raw": "\u00bd tsp baking soda",
     "qty": [
      0.5,
      null
@@ -21898,7 +22467,7 @@
     "rest": " tbsp Greek yogurt or thick curd"
    },
    {
-    "raw": "¾ tsp vinegar",
+    "raw": "\u00be tsp vinegar",
     "qty": [
      0.75,
      null
@@ -21906,7 +22475,7 @@
     "rest": " tsp vinegar"
    },
    {
-    "raw": "1½ tbsp milk",
+    "raw": "1\u00bd tbsp milk",
     "qty": [
      1.5,
      null
@@ -21964,7 +22533,7 @@
     "rest": " lb frozen mixed berries"
    },
    {
-    "raw": "½ cup honey",
+    "raw": "\u00bd cup honey",
     "qty": [
      0.5,
      null
@@ -21989,7 +22558,7 @@
     "raw": "Whole-Food Nutella Recipe"
    },
    {
-    "raw": "1½ cups raw hazelnuts",
+    "raw": "1\u00bd cups raw hazelnuts",
     "qty": [
      1.5,
      null
@@ -22005,7 +22574,7 @@
     "rest": " cup pitted dates"
    },
    {
-    "raw": "½ cup + 1 tbsp unsweetened nut milk",
+    "raw": "\u00bd cup + 1 tbsp unsweetened nut milk",
     "qty": [
      0.5,
      null
@@ -22029,7 +22598,7 @@
     "rest": " tsp vanilla extract"
    },
    {
-    "raw": "¼ tsp sea salt",
+    "raw": "\u00bc tsp sea salt",
     "qty": [
      0.25,
      null
@@ -22080,7 +22649,7 @@
     "rest": " tsp Ceylon cinnamon"
    },
    {
-    "raw": "½ tsp ginger",
+    "raw": "\u00bd tsp ginger",
     "qty": [
      0.5,
      null
@@ -22088,7 +22657,7 @@
     "rest": " tsp ginger"
    },
    {
-    "raw": "¼ tsp cloves",
+    "raw": "\u00bc tsp cloves",
     "qty": [
      0.25,
      null
@@ -22096,7 +22665,7 @@
     "rest": " tsp cloves"
    },
    {
-    "raw": "¼ tsp nutmeg",
+    "raw": "\u00bc tsp nutmeg",
     "qty": [
      0.25,
      null
@@ -22104,7 +22673,7 @@
     "rest": " tsp nutmeg"
    },
    {
-    "raw": "⅛ tsp salt",
+    "raw": "\u215b tsp salt",
     "qty": [
      0.125,
      null
@@ -22123,7 +22692,7 @@
     "rest": " cups Medjool dates"
    },
    {
-    "raw": "½ cup cashew butter",
+    "raw": "\u00bd cup cashew butter",
     "qty": [
      0.5,
      null
@@ -22131,7 +22700,7 @@
     "rest": " cup cashew butter"
    },
    {
-    "raw": "½ cup maple syrup or raw honey",
+    "raw": "\u00bd cup maple syrup or raw honey",
     "qty": [
      0.5,
      null
@@ -22155,7 +22724,7 @@
     "rest": " tsp vanilla extract"
    },
    {
-    "raw": "½ tsp sea salt",
+    "raw": "\u00bd tsp sea salt",
     "qty": [
      0.5,
      null
@@ -22163,7 +22732,7 @@
     "rest": " tsp sea salt"
    },
    {
-    "raw": "¾ tsp white miso paste",
+    "raw": "\u00be tsp white miso paste",
     "qty": [
      0.75,
      null
@@ -22171,7 +22740,7 @@
     "rest": " tsp white miso paste"
    },
    {
-    "raw": "½ cup boiling water",
+    "raw": "\u00bd cup boiling water",
     "qty": [
      0.5,
      null
@@ -22474,7 +23043,7 @@
     "raw": "15-20g dark chocolate (I used sugar free)"
    },
    {
-    "raw": "5g of soy crisps (can use honeycomb, but I couldn’t find any😅)"
+    "raw": "5g of soy crisps (can use honeycomb, but I couldn\u2019t find any\ud83d\ude05)"
    }
   ]
  },
@@ -22610,7 +23179,7 @@
     "rest": " to 3/4 cup powdered monkfruit or preferred powdered sweetener - make sure its POWDERED"
    },
    {
-    "raw": "Melted Lily’s milk chocolate chips (I used 2 tbsp to keep this lighter)"
+    "raw": "Melted Lily\u2019s milk chocolate chips (I used 2 tbsp to keep this lighter)"
    },
    {
     "raw": "Crushed hazelnuts (I used 2 tbsp, too, but use however much you like)"
@@ -22857,7 +23426,7 @@
     "rest": " g chia seeds (50 kcal, 2 g protein)"
    },
    {
-    "raw": "½ tbsp honey (30 kcal, 0 g protein)",
+    "raw": "\u00bd tbsp honey (30 kcal, 0 g protein)",
     "qty": [
      0.5,
      null
@@ -22920,7 +23489,7 @@
     "raw": "Bell pepper + onion (30 kcal, 2 g protein)"
    },
    {
-    "raw": "½ tbsp olive oil (45 kcal, 0 g protein)",
+    "raw": "\u00bd tbsp olive oil (45 kcal, 0 g protein)",
     "qty": [
      0.5,
      null
@@ -22947,7 +23516,7 @@
     "rest": " g low-fat paneer or cottage cheese (170 kcal, 28 g protein)"
    },
    {
-    "raw": "¼ avocado (60 kcal, 1 g protein)",
+    "raw": "\u00bc avocado (60 kcal, 1 g protein)",
     "qty": [
      0.25,
      null
@@ -23162,7 +23731,7 @@
     "rest": " cup moong dal (soaked for 30 mins)"
    },
    {
-    "raw": "½ cup channa dal (soaked for 30 mins)",
+    "raw": "\u00bd cup channa dal (soaked for 30 mins)",
     "qty": [
      0.5,
      null
@@ -23219,7 +23788,7 @@
     "raw": "Tadka"
    },
    {
-    "raw": "3–4 tbsp gingelly oil (Sesame oil)",
+    "raw": "3\u20134 tbsp gingelly oil (Sesame oil)",
     "qty": [
      3.0,
      4.0
@@ -23243,7 +23812,7 @@
     "rest": " tsp urad dal"
    },
    {
-    "raw": "3–4 dried red chillies",
+    "raw": "3\u20134 dried red chillies",
     "qty": [
      3.0,
      4.0
@@ -23251,7 +23820,7 @@
     "rest": " dried red chillies"
    },
    {
-    "raw": "8–10 curry leaves",
+    "raw": "8\u201310 curry leaves",
     "qty": [
      8.0,
      10.0
@@ -23259,7 +23828,7 @@
     "rest": " curry leaves"
    },
    {
-    "raw": "½ tsp hing",
+    "raw": "\u00bd tsp hing",
     "qty": [
      0.5,
      null
@@ -23328,7 +23897,7 @@
     "rest": " big onion, finely chopped"
    },
    {
-    "raw": "1–2 green chilies, chopped",
+    "raw": "1\u20132 green chilies, chopped",
     "qty": [
      1.0,
      2.0
@@ -23342,7 +23911,7 @@
     "raw": "Tamarind water (to taste)"
    },
    {
-    "raw": "½ tsp roasted jeera powder",
+    "raw": "\u00bd tsp roasted jeera powder",
     "qty": [
      0.5,
      null
@@ -23375,7 +23944,7 @@
     "rest": " finely chopped onion"
    },
    {
-    "raw": "12–14 garlic cloves, chopped",
+    "raw": "12\u201314 garlic cloves, chopped",
     "qty": [
      12.0,
      14.0
@@ -23386,7 +23955,7 @@
     "raw": "1-inch ginger, grated"
    },
    {
-    "raw": "2–3 green chilies, chopped",
+    "raw": "2\u20133 green chilies, chopped",
     "qty": [
      2.0,
      3.0
@@ -23394,7 +23963,7 @@
     "rest": " green chilies, chopped"
    },
    {
-    "raw": "½ tbsp oil + extra for pan-frying",
+    "raw": "\u00bd tbsp oil + extra for pan-frying",
     "qty": [
      0.5,
      null
@@ -23410,7 +23979,7 @@
     "rest": " tbsp soya sauce + 5 tbsp water (divided)"
    },
    {
-    "raw": "1½ tbsp chili tomato sauce",
+    "raw": "1\u00bd tbsp chili tomato sauce",
     "qty": [
      1.5,
      null
@@ -23418,12 +23987,12 @@
     "rest": " tbsp chili tomato sauce"
    },
    {
-    "raw": "1 tbsp cornflour + ½ cup water (slurry)",
+    "raw": "1 tbsp cornflour + \u00bd cup water (slurry)",
     "qty": [
      1.0,
      null
     ],
-    "rest": " tbsp cornflour + ½ cup water (slurry)"
+    "rest": " tbsp cornflour + \u00bd cup water (slurry)"
    },
    {
     "raw": "1 tbsp rice flour",
@@ -23574,7 +24143,7 @@
   "base_stated": false,
   "lines": [
    {
-    "raw": "½ inch ginger",
+    "raw": "\u00bd inch ginger",
     "qty": [
      0.5,
      null
@@ -23598,7 +24167,7 @@
     "rest": " green chillies"
    },
    {
-    "raw": "½ cup cabbage",
+    "raw": "\u00bd cup cabbage",
     "qty": [
      0.5,
      null
@@ -23614,7 +24183,7 @@
     "rest": " onion"
    },
    {
-    "raw": "½ capsicum",
+    "raw": "\u00bd capsicum",
     "qty": [
      0.5,
      null
@@ -23622,7 +24191,7 @@
     "rest": " capsicum"
    },
    {
-    "raw": "½ carrot",
+    "raw": "\u00bd carrot",
     "qty": [
      0.5,
      null
@@ -23630,7 +24199,7 @@
     "rest": " carrot"
    },
    {
-    "raw": "½ cup soaked moong dal (overnight soaked)",
+    "raw": "\u00bd cup soaked moong dal (overnight soaked)",
     "qty": [
      0.5,
      null
@@ -23638,7 +24207,7 @@
     "rest": " cup soaked moong dal (overnight soaked)"
    },
    {
-    "raw": "½ cup oats",
+    "raw": "\u00bd cup oats",
     "qty": [
      0.5,
      null
@@ -23646,7 +24215,7 @@
     "rest": " cup oats"
    },
    {
-    "raw": "½ cup paneer",
+    "raw": "\u00bd cup paneer",
     "qty": [
      0.5,
      null
@@ -23654,7 +24223,7 @@
     "rest": " cup paneer"
    },
    {
-    "raw": "½ tsp turmeric powder",
+    "raw": "\u00bd tsp turmeric powder",
     "qty": [
      0.5,
      null
@@ -23721,7 +24290,7 @@
     "rest": " tbsp sesame seeds"
    },
    {
-    "raw": "For Tadka Dahi –"
+    "raw": "For Tadka Dahi \u2013"
    },
    {
     "raw": "1 Cup Fresh curd",
@@ -23770,7 +24339,7 @@
     "raw": "Salt to taste"
    },
    {
-    "raw": "For tadka –"
+    "raw": "For tadka \u2013"
    },
    {
     "raw": "1 tbsp oil",
@@ -24130,7 +24699,7 @@
     "rest": " medium tomatoes, chopped"
    },
    {
-    "raw": "6–7 garlic cloves",
+    "raw": "6\u20137 garlic cloves",
     "qty": [
      6.0,
      7.0
@@ -24203,7 +24772,7 @@
     "rest": " tsp haldi (turmeric powder)"
    },
    {
-    "raw": "½ tbsp coriander powder",
+    "raw": "\u00bd tbsp coriander powder",
     "qty": [
      0.5,
      null
@@ -24231,7 +24800,7 @@
   "base_stated": false,
   "lines": [
    {
-    "raw": "½ cup +1 tsp ghee, divided",
+    "raw": "\u00bd cup +1 tsp ghee, divided",
     "qty": [
      0.5,
      null
@@ -24239,7 +24808,7 @@
     "rest": " cup +1 tsp ghee, divided"
    },
    {
-    "raw": "⅔ cup gond, 50 gms",
+    "raw": "\u2154 cup gond, 50 gms",
     "qty": [
      0.6666666666666666,
      null
@@ -24247,7 +24816,7 @@
     "rest": " cup gond, 50 gms"
    },
    {
-    "raw": "½ cup + 2 tablespoons chopped cashews, 50 gms",
+    "raw": "\u00bd cup + 2 tablespoons chopped cashews, 50 gms",
     "qty": [
      0.5,
      null
@@ -24255,7 +24824,7 @@
     "rest": " cup + 2 tablespoons chopped cashews, 50 gms"
    },
    {
-    "raw": "¼ cup + 1 tablespoon chopped almonds, 50 gms",
+    "raw": "\u00bc cup + 1 tablespoon chopped almonds, 50 gms",
     "qty": [
      0.25,
      null
@@ -24263,7 +24832,7 @@
     "rest": " cup + 1 tablespoon chopped almonds, 50 gms"
    },
    {
-    "raw": "¼ cup + 2 tablespoons melon seeds, 50 gms",
+    "raw": "\u00bc cup + 2 tablespoons melon seeds, 50 gms",
     "qty": [
      0.25,
      null
@@ -24287,7 +24856,7 @@
     "rest": " tablespoon khus khus"
    },
    {
-    "raw": "¼ cup grated khopra, 25 gms",
+    "raw": "\u00bc cup grated khopra, 25 gms",
     "qty": [
      0.25,
      null
@@ -24320,12 +24889,12 @@
     "raw": "Cake ingredients:"
    },
    {
-    "raw": "150 g millet flour (single or mixed),25–30 g almond flour, 1 tsp baking powder, ½ tsp baking soda, 1 cup milk, 1 tsp vinegar, 1 tsp cinnamon powder, 60 g monk fruit sweetener, 20 g desi khand, 70 g extra virgin olive oil, 1 tsp vanilla extract, 2–3 grated carrots, 1 cup chopped walnuts, Zest of 1 lemon (only yellow part) + a pinch of sugar",
+    "raw": "150 g millet flour (single or mixed),25\u201330 g almond flour, 1 tsp baking powder, \u00bd tsp baking soda, 1 cup milk, 1 tsp vinegar, 1 tsp cinnamon powder, 60 g monk fruit sweetener, 20 g desi khand, 70 g extra virgin olive oil, 1 tsp vanilla extract, 2\u20133 grated carrots, 1 cup chopped walnuts, Zest of 1 lemon (only yellow part) + a pinch of sugar",
     "qty": [
      150.0,
      null
     ],
-    "rest": " g millet flour (single or mixed),25–30 g almond flour, 1 tsp baking powder, ½ tsp baking soda, 1 cup milk, 1 tsp vinegar, 1 tsp cinnamon powder, 60 g monk fruit sweetener, 20 g desi khand, 70 g extra virgin olive oil, 1 tsp vanilla extract, 2–3 grated carrots, 1 cup chopped walnuts, Zest of 1 lemon (only yellow part) + a pinch of sugar"
+    "rest": " g millet flour (single or mixed),25\u201330 g almond flour, 1 tsp baking powder, \u00bd tsp baking soda, 1 cup milk, 1 tsp vinegar, 1 tsp cinnamon powder, 60 g monk fruit sweetener, 20 g desi khand, 70 g extra virgin olive oil, 1 tsp vanilla extract, 2\u20133 grated carrots, 1 cup chopped walnuts, Zest of 1 lemon (only yellow part) + a pinch of sugar"
    },
    {
     "raw": "Frosting:"
@@ -24345,7 +24914,7 @@
   "base_stated": false,
   "lines": [
    {
-    "raw": "½ cup raw honey",
+    "raw": "\u00bd cup raw honey",
     "qty": [
      0.5,
      null
@@ -24890,7 +25459,7 @@
     "rest": " tsp cumin seeds"
    },
    {
-    "raw": "2–3 dried red chillies",
+    "raw": "2\u20133 dried red chillies",
     "qty": [
      2.0,
      3.0
@@ -24898,7 +25467,7 @@
     "rest": " dried red chillies"
    },
    {
-    "raw": "2–3 green chillies, slit",
+    "raw": "2\u20133 green chillies, slit",
     "qty": [
      2.0,
      3.0
@@ -24906,7 +25475,7 @@
     "rest": " green chillies, slit"
    },
    {
-    "raw": "7–8 curry leaves",
+    "raw": "7\u20138 curry leaves",
     "qty": [
      7.0,
      8.0
@@ -25011,12 +25580,12 @@
     "rest": " g baby corn, chopped"
    },
    {
-    "raw": "2 tbsp ginger–garlic paste",
+    "raw": "2 tbsp ginger\u2013garlic paste",
     "qty": [
      2.0,
      null
     ],
-    "rest": " tbsp ginger–garlic paste"
+    "rest": " tbsp ginger\u2013garlic paste"
    },
    {
     "raw": "2 tsp jeera powder",
@@ -25059,7 +25628,7 @@
     "rest": " tsp kalonji (nigella) seeds"
    },
    {
-    "raw": "3–4 tbsp ghee",
+    "raw": "3\u20134 tbsp ghee",
     "qty": [
      3.0,
      4.0
@@ -25070,7 +25639,7 @@
     "raw": "Salt to taste"
    },
    {
-    "raw": "I’ve used 1 large cup (approx 250 g) of raw basmati rice, cooked with 1 tsp turmeric powder."
+    "raw": "I\u2019ve used 1 large cup (approx 250 g) of raw basmati rice, cooked with 1 tsp turmeric powder."
    }
   ]
  },
@@ -25169,7 +25738,7 @@
     "raw": "Oil of your choice"
    },
    {
-    "raw": "Cumin seeds ½ tsp"
+    "raw": "Cumin seeds \u00bd tsp"
    },
    {
     "raw": "1 medium onion, chopped",
@@ -25240,7 +25809,7 @@
     "raw": "White sesame seeds about 1 tbsp"
    },
    {
-    "raw": "Lemon zest ½ tsp"
+    "raw": "Lemon zest \u00bd tsp"
    },
    {
     "raw": "Pinch salt"
@@ -25303,28 +25872,28 @@
     "rest": " stick of cinnamon"
    },
    {
-    "raw": "1 onion – roughly chopped",
+    "raw": "1 onion \u2013 roughly chopped",
     "qty": [
      1.0,
      null
     ],
-    "rest": " onion – roughly chopped"
+    "rest": " onion \u2013 roughly chopped"
    },
    {
-    "raw": "2 green chilies – roughly chopped",
+    "raw": "2 green chilies \u2013 roughly chopped",
     "qty": [
      2.0,
      null
     ],
-    "rest": " green chilies – roughly chopped"
+    "rest": " green chilies \u2013 roughly chopped"
    },
    {
-    "raw": "4 cloves garlic – roughly chopped",
+    "raw": "4 cloves garlic \u2013 roughly chopped",
     "qty": [
      4.0,
      null
     ],
-    "rest": " cloves garlic – roughly chopped"
+    "rest": " cloves garlic \u2013 roughly chopped"
    },
    {
     "raw": "1/2 inch ginger nub",
@@ -25335,12 +25904,12 @@
     "rest": " inch ginger nub"
    },
    {
-    "raw": "1 large tomato – roughly chopped",
+    "raw": "1 large tomato \u2013 roughly chopped",
     "qty": [
      1.0,
      null
     ],
-    "rest": " large tomato – roughly chopped"
+    "rest": " large tomato \u2013 roughly chopped"
    },
    {
     "raw": "1/4 cup cashews",
@@ -25383,12 +25952,12 @@
     "rest": " cup frozen peas"
    },
    {
-    "raw": "1 bunch methi, around 1/3 cup – chopped and rinsed",
+    "raw": "1 bunch methi, around 1/3 cup \u2013 chopped and rinsed",
     "qty": [
      1.0,
      null
     ],
-    "rest": " bunch methi, around 1/3 cup – chopped and rinsed"
+    "rest": " bunch methi, around 1/3 cup \u2013 chopped and rinsed"
    },
    {
     "raw": "2 tsp dried fenugreek",
@@ -25480,7 +26049,7 @@
     "rest": " medium-sized sitaphal (custard apples)"
    },
    {
-    "raw": "2–3 cardamoms (crushed)",
+    "raw": "2\u20133 cardamoms (crushed)",
     "qty": [
      2.0,
      3.0
@@ -25494,15 +26063,15 @@
   "base_stated": true,
   "lines": [
    {
-    "raw": "3 medium sized potatoes – chopped into tiny cubes",
+    "raw": "3 medium sized potatoes \u2013 chopped into tiny cubes",
     "qty": [
      3.0,
      null
     ],
-    "rest": " medium sized potatoes – chopped into tiny cubes"
+    "rest": " medium sized potatoes \u2013 chopped into tiny cubes"
    },
    {
-    "raw": "4–5 tbsp gingelly oil (sesame oil)",
+    "raw": "4\u20135 tbsp gingelly oil (sesame oil)",
     "qty": [
      4.0,
      5.0
@@ -25526,18 +26095,18 @@
     "rest": " tsp jeera"
    },
    {
-    "raw": "2 dried red chillies – chopped",
+    "raw": "2 dried red chillies \u2013 chopped",
     "qty": [
      2.0,
      null
     ],
-    "rest": " dried red chillies – chopped"
+    "rest": " dried red chillies \u2013 chopped"
    },
    {
-    "raw": "A big handful of curry leaves – finely chopped"
+    "raw": "A big handful of curry leaves \u2013 finely chopped"
    },
    {
-    "raw": "¼ tsp asafoetida (hing)",
+    "raw": "\u00bc tsp asafoetida (hing)",
     "qty": [
      0.25,
      null
@@ -25553,7 +26122,7 @@
     "rest": " tsp turmeric powder"
    },
    {
-    "raw": "½ tsp sambar powder",
+    "raw": "\u00bd tsp sambar powder",
     "qty": [
      0.5,
      null
@@ -25638,32 +26207,32 @@
   "base_stated": false,
   "lines": [
    {
-    "raw": "200g peach gum 200克桃胶"
+    "raw": "200g peach gum 200\u514b\u6843\u80f6"
    },
    {
-    "raw": "Snow fungus / Tremella 1 piece 银耳1朵"
+    "raw": "Snow fungus / Tremella 1 piece \u94f6\u80331\u6735"
    },
    {
-    "raw": "10 pitted red dates 红枣去核10颗",
+    "raw": "10 pitted red dates \u7ea2\u67a3\u53bb\u683810\u9897",
     "qty": [
      10.0,
      null
     ],
-    "rest": " pitted red dates 红枣去核10颗"
+    "rest": " pitted red dates \u7ea2\u67a3\u53bb\u683810\u9897"
    },
    {
-    "raw": "1 handful dried longan 一把龙眼干",
+    "raw": "1 handful dried longan \u4e00\u628a\u9f99\u773c\u5e72",
     "qty": [
      1.0,
      null
     ],
-    "rest": " handful dried longan 一把龙眼干"
+    "rest": " handful dried longan \u4e00\u628a\u9f99\u773c\u5e72"
    },
    {
-    "raw": "Goji berries 适量枸杞"
+    "raw": "Goji berries \u9002\u91cf\u67b8\u675e"
    },
    {
-    "raw": "Rock sugar to taste 冰糖适量"
+    "raw": "Rock sugar to taste \u51b0\u7cd6\u9002\u91cf"
    },
    {
     "raw": "Optional : Add oat or almond milk"
@@ -25821,7 +26390,7 @@
     "rest": " lemon zest"
    },
    {
-    "raw": "½ lemon juice",
+    "raw": "\u00bd lemon juice",
     "qty": [
      0.5,
      null
@@ -25848,7 +26417,7 @@
     "rest": " ml double cream"
    },
    {
-    "raw": "⅓ cup parmesan",
+    "raw": "\u2153 cup parmesan",
     "qty": [
      0.3333333333333333,
      null
@@ -25993,7 +26562,7 @@
   "base_stated": true,
   "lines": [
    {
-    "raw": "1 ½ tablespoons sunflower oil or any neutral cooking oil",
+    "raw": "1 \u00bd tablespoons sunflower oil or any neutral cooking oil",
     "qty": [
      1.5,
      null
@@ -26009,7 +26578,7 @@
     "rest": " grams butter, divided"
    },
    {
-    "raw": "½ teaspoon cumin seeds, jeera",
+    "raw": "\u00bd teaspoon cumin seeds, jeera",
     "qty": [
      0.5,
      null
@@ -26057,7 +26626,7 @@
     "rest": " teaspoons coriander powder"
    },
    {
-    "raw": "¼ teaspoon turmeric powder",
+    "raw": "\u00bc teaspoon turmeric powder",
     "qty": [
      0.25,
      null
@@ -26073,7 +26642,7 @@
     "rest": " tablespoon + 1 teaspoon pav bhaji masala"
    },
    {
-    "raw": "1 ¾ teaspoon salt",
+    "raw": "1 \u00be teaspoon salt",
     "qty": [
      1.75,
      null
@@ -26105,7 +26674,7 @@
     "rest": " green capsicum, cubed"
    },
    {
-    "raw": "1 ⅓ carrots, peeled & roughly chopped",
+    "raw": "1 \u2153 carrots, peeled & roughly chopped",
     "qty": [
      1.3333333333333333,
      null
@@ -26113,15 +26682,15 @@
     "rest": " carrots, peeled & roughly chopped"
    },
    {
-    "raw": "⅓ beetroot, peeled & chopped into ¼ inch cubes",
+    "raw": "\u2153 beetroot, peeled & chopped into \u00bc inch cubes",
     "qty": [
      0.3333333333333333,
      null
     ],
-    "rest": " beetroot, peeled & chopped into ¼ inch cubes"
+    "rest": " beetroot, peeled & chopped into \u00bc inch cubes"
    },
    {
-    "raw": "⅓ cup fresh or frozen green peas",
+    "raw": "\u2153 cup fresh or frozen green peas",
     "qty": [
      0.3333333333333333,
      null
@@ -26129,7 +26698,7 @@
     "rest": " cup fresh or frozen green peas"
    },
    {
-    "raw": "½ cup soya granules, hydrated",
+    "raw": "\u00bd cup soya granules, hydrated",
     "qty": [
      0.5,
      null
@@ -26145,7 +26714,7 @@
     "rest": " teaspoon garlic paste"
    },
    {
-    "raw": "⅔ teaspoon kasuri methi",
+    "raw": "\u2154 teaspoon kasuri methi",
     "qty": [
      0.6666666666666666,
      null
@@ -26153,7 +26722,7 @@
     "rest": " teaspoon kasuri methi"
    },
    {
-    "raw": "½ lemon juice",
+    "raw": "\u00bd lemon juice",
     "qty": [
      0.5,
      null
@@ -26161,7 +26730,7 @@
     "rest": " lemon juice"
    },
    {
-    "raw": "2 – 2 ½ cups water",
+    "raw": "2 \u2013 2 \u00bd cups water",
     "qty": [
      2.0,
      2.5
@@ -26180,7 +26749,7 @@
     "raw": "For serving"
    },
    {
-    "raw": "10 – 12 pav",
+    "raw": "10 \u2013 12 pav",
     "qty": [
      10.0,
      12.0
@@ -26188,7 +26757,7 @@
     "rest": " pav"
    },
    {
-    "raw": "½ cup finely chopped onions",
+    "raw": "\u00bd cup finely chopped onions",
     "qty": [
      0.5,
      null
@@ -26622,7 +27191,7 @@
   "base_stated": true,
   "lines": [
    {
-    "raw": "½ kg tomatoes (roughly chopped)",
+    "raw": "\u00bd kg tomatoes (roughly chopped)",
     "qty": [
      0.5,
      null
@@ -26646,12 +27215,12 @@
     "rest": " tsp fenugreek seeds (menthye)"
    },
    {
-    "raw": "1 tsp mustard seeds (sasive) – for roasting",
+    "raw": "1 tsp mustard seeds (sasive) \u2013 for roasting",
     "qty": [
      1.0,
      null
     ],
-    "rest": " tsp mustard seeds (sasive) – for roasting"
+    "rest": " tsp mustard seeds (sasive) \u2013 for roasting"
    },
    {
     "raw": "1 tsp salt (adjust to taste)",
@@ -26678,15 +27247,15 @@
     "rest": " tbsp oil (enne)"
    },
    {
-    "raw": "1–2 tsp mustard seeds (sasive) – for tempering",
+    "raw": "1\u20132 tsp mustard seeds (sasive) \u2013 for tempering",
     "qty": [
      1.0,
      2.0
     ],
-    "rest": " tsp mustard seeds (sasive) – for tempering"
+    "rest": " tsp mustard seeds (sasive) \u2013 for tempering"
    },
    {
-    "raw": "1–2 tbsp garlic (belulli), finely chopped",
+    "raw": "1\u20132 tbsp garlic (belulli), finely chopped",
     "qty": [
      1.0,
      2.0
@@ -26708,7 +27277,7 @@
     "rest": " cup cowpeas (lobia / alasande kalu), washed"
    },
    {
-    "raw": "1 ½ tomatoes, roughly sliced",
+    "raw": "1 \u00bd tomatoes, roughly sliced",
     "qty": [
      1.5,
      null
@@ -26716,7 +27285,7 @@
     "rest": " tomatoes, roughly sliced"
    },
    {
-    "raw": "4–5 garlic cloves",
+    "raw": "4\u20135 garlic cloves",
     "qty": [
      4.0,
      5.0
@@ -26732,7 +27301,7 @@
     "rest": " tablespoon cashews"
    },
    {
-    "raw": "2–3 dry red chilies",
+    "raw": "2\u20133 dry red chilies",
     "qty": [
      2.0,
      3.0
@@ -26780,7 +27349,7 @@
     "rest": " teaspoon turmeric powder"
    },
    {
-    "raw": "½ cup chopped onion",
+    "raw": "\u00bd cup chopped onion",
     "qty": [
      0.5,
      null
@@ -26805,7 +27374,7 @@
     "rest": " g thin red poha (flattened rice)"
    },
    {
-    "raw": "½ fresh coconut, grated",
+    "raw": "\u00bd fresh coconut, grated",
     "qty": [
      0.5,
      null
@@ -26813,7 +27382,7 @@
     "rest": " fresh coconut, grated"
    },
    {
-    "raw": "½ tsp turmeric powder",
+    "raw": "\u00bd tsp turmeric powder",
     "qty": [
      0.5,
      null
@@ -26837,7 +27406,7 @@
     "rest": " tbsp coriander seed powder"
    },
    {
-    "raw": "5–6 tsp sugar",
+    "raw": "5\u20136 tsp sugar",
     "qty": [
      5.0,
      6.0
@@ -26848,7 +27417,7 @@
     "raw": "Salt to taste"
    },
    {
-    "raw": "½–¾ cup water (to moisten)",
+    "raw": "\u00bd\u2013\u00be cup water (to moisten)",
     "qty": [
      0.5,
      0.75
@@ -26895,7 +27464,7 @@
     "rest": " garlic cloves"
    },
    {
-    "raw": "½ tsp salt",
+    "raw": "\u00bd tsp salt",
     "qty": [
      0.5,
      null
@@ -26942,7 +27511,7 @@
     "rest": " tsp red chilli powder"
    },
    {
-    "raw": "½ tsp turmeric",
+    "raw": "\u00bd tsp turmeric",
     "qty": [
      0.5,
      null
@@ -26961,7 +27530,7 @@
     "raw": "A pinch of hing"
    },
    {
-    "raw": "½ tsp ajwain",
+    "raw": "\u00bd tsp ajwain",
     "qty": [
      0.5,
      null
@@ -26996,7 +27565,7 @@
     "raw": "About 1 cup besan (gram flour), or a little more as needed"
    },
    {
-    "raw": "1–2 tsp oil for mixing + oil for shallow-frying",
+    "raw": "1\u20132 tsp oil for mixing + oil for shallow-frying",
     "qty": [
      1.0,
      2.0
@@ -27261,7 +27830,7 @@
     "rest": " small onion, thinly sliced"
    },
    {
-    "raw": "1–2 green chilies, chopped",
+    "raw": "1\u20132 green chilies, chopped",
     "qty": [
      1.0,
      2.0
@@ -27277,7 +27846,7 @@
     "rest": " tbsp fresh coriander leaves, chopped"
    },
    {
-    "raw": "½ tsp salt (adjust to taste)",
+    "raw": "\u00bd tsp salt (adjust to taste)",
     "qty": [
      0.5,
      null
@@ -27285,7 +27854,7 @@
     "rest": " tsp salt (adjust to taste)"
    },
    {
-    "raw": "½ tsp sugar",
+    "raw": "\u00bd tsp sugar",
     "qty": [
      0.5,
      null
@@ -27317,7 +27886,7 @@
     "rest": " tbsp mustard oil (or ghee)"
    },
    {
-    "raw": "½ tsp turmeric powder",
+    "raw": "\u00bd tsp turmeric powder",
     "qty": [
      0.5,
      null
@@ -27386,7 +27955,7 @@
   "base_stated": true,
   "lines": [
    {
-    "raw": "3–4 green chillies, slit",
+    "raw": "3\u20134 green chillies, slit",
     "qty": [
      3.0,
      4.0
@@ -27426,12 +27995,12 @@
     "rest": " cup boiled tuvar dal (pressure cook with a pinch of turmeric)"
    },
    {
-    "raw": "¼ tsp asafoetida (hing) – if using compound hing, dissolve in 2–3 tbsp water",
+    "raw": "\u00bc tsp asafoetida (hing) \u2013 if using compound hing, dissolve in 2\u20133 tbsp water",
     "qty": [
      0.25,
      null
     ],
-    "rest": " tsp asafoetida (hing) – if using compound hing, dissolve in 2–3 tbsp water"
+    "rest": " tsp asafoetida (hing) \u2013 if using compound hing, dissolve in 2\u20133 tbsp water"
    },
    {
     "raw": "2-3 cups water (extra, for rasam base)",
@@ -27442,7 +28011,7 @@
     "rest": " cups water (extra, for rasam base)"
    },
    {
-    "raw": "1–1½ tomatoes, roughly chopped",
+    "raw": "1\u20131\u00bd tomatoes, roughly chopped",
     "qty": [
      1.0,
      1.5
@@ -27456,7 +28025,7 @@
     "raw": "A handful of coriander leaves, finely chopped"
    },
    {
-    "raw": "3–4 tbsp fresh lime juice",
+    "raw": "3\u20134 tbsp fresh lime juice",
     "qty": [
      3.0,
      4.0
@@ -27497,7 +28066,7 @@
     "rest": " tsp cumin (jeera) seeds"
    },
    {
-    "raw": "2–3 dried red chillies",
+    "raw": "2\u20133 dried red chillies",
     "qty": [
      2.0,
      3.0
@@ -27517,15 +28086,15 @@
   "base_stated": true,
   "lines": [
    {
-    "raw": "1 cup Jeeraga Samba Rice (preferred) or Basmati Rice – soaked for minimum 30-40 mins, drained",
+    "raw": "1 cup Jeeraga Samba Rice (preferred) or Basmati Rice \u2013 soaked for minimum 30-40 mins, drained",
     "qty": [
      1.0,
      null
     ],
-    "rest": " cup Jeeraga Samba Rice (preferred) or Basmati Rice – soaked for minimum 30-40 mins, drained"
+    "rest": " cup Jeeraga Samba Rice (preferred) or Basmati Rice \u2013 soaked for minimum 30-40 mins, drained"
    },
    {
-    "raw": "5–6 tbsp good quality ghee",
+    "raw": "5\u20136 tbsp good quality ghee",
     "qty": [
      5.0,
      6.0
@@ -27541,7 +28110,7 @@
     "rest": " tbsp grated ginger (or ginger paste)"
    },
    {
-    "raw": "4–5 slit green chillies (large, mild ones)",
+    "raw": "4\u20135 slit green chillies (large, mild ones)",
     "qty": [
      4.0,
      5.0
@@ -27576,7 +28145,7 @@
     "rest": " star anise"
    },
    {
-    "raw": "4–5 cardamom pods",
+    "raw": "4\u20135 cardamom pods",
     "qty": [
      4.0,
      5.0
@@ -27598,7 +28167,7 @@
     "raw": "Liquid & seasoning:"
    },
    {
-    "raw": "1-1¼ cups coconut milk ( use the same cup used for measuring rice )",
+    "raw": "1-1\u00bc cups coconut milk ( use the same cup used for measuring rice )",
     "qty": [
      1.0,
      1.25
@@ -27606,7 +28175,7 @@
     "rest": " cups coconut milk ( use the same cup used for measuring rice )"
    },
    {
-    "raw": "Salt – about 1 tbsp (or to taste)"
+    "raw": "Salt \u2013 about 1 tbsp (or to taste)"
    },
    {
     "raw": "For garnish:"
@@ -28001,7 +28570,7 @@
     "rest": " g paneer (cut into cubes)"
    },
    {
-    "raw": "½ tsp black pepper",
+    "raw": "\u00bd tsp black pepper",
     "qty": [
      0.5,
      null
@@ -28068,7 +28637,7 @@
     "rest": " turai (chopped)"
    },
    {
-    "raw": "6–7 garlic cloves",
+    "raw": "6\u20137 garlic cloves",
     "qty": [
      6.0,
      7.0
@@ -28079,7 +28648,7 @@
     "raw": "1-inch ginger"
    },
    {
-    "raw": "4–5 green chilies",
+    "raw": "4\u20135 green chilies",
     "qty": [
      4.0,
      5.0
@@ -28139,50 +28708,50 @@
   "base_stated": false,
   "lines": [
    {
-    "raw": "8–10 dried red chillies 🌶️",
+    "raw": "8\u201310 dried red chillies \ud83c\udf36\ufe0f",
     "qty": [
      8.0,
      10.0
     ],
-    "rest": " dried red chillies 🌶️"
+    "rest": " dried red chillies \ud83c\udf36\ufe0f"
    },
    {
-    "raw": "12 garlic cloves 🧄",
+    "raw": "12 garlic cloves \ud83e\uddc4",
     "qty": [
      12.0,
      null
     ],
-    "rest": " garlic cloves 🧄"
+    "rest": " garlic cloves \ud83e\uddc4"
    },
    {
-    "raw": "½ medium butternut squash or pumpkin 🎃",
+    "raw": "\u00bd medium butternut squash or pumpkin \ud83c\udf83",
     "qty": [
      0.5,
      null
     ],
-    "rest": " medium butternut squash or pumpkin 🎃"
+    "rest": " medium butternut squash or pumpkin \ud83c\udf83"
    },
    {
-    "raw": "1 small red onion 🧅",
+    "raw": "1 small red onion \ud83e\uddc5",
     "qty": [
      1.0,
      null
     ],
-    "rest": " small red onion 🧅"
+    "rest": " small red onion \ud83e\uddc5"
    },
    {
-    "raw": "1 tbsp mustard oil (for sautéing)",
+    "raw": "1 tbsp mustard oil (for saut\u00e9ing)",
     "qty": [
      1.0,
      null
     ],
-    "rest": " tbsp mustard oil (for sautéing)"
+    "rest": " tbsp mustard oil (for saut\u00e9ing)"
    },
    {
-    "raw": "Salt 🧂 (to taste)"
+    "raw": "Salt \ud83e\uddc2 (to taste)"
    },
    {
-    "raw": "Handful of fresh coriander leaves 🌿"
+    "raw": "Handful of fresh coriander leaves \ud83c\udf3f"
    },
    {
     "raw": "Juice of 1 lemon"
@@ -28326,12 +28895,12 @@
   "base_stated": true,
   "lines": [
    {
-    "raw": "1 cup kozhukattai flour ( I’ve used Anil )",
+    "raw": "1 cup kozhukattai flour ( I\u2019ve used Anil )",
     "qty": [
      1.0,
      null
     ],
-    "rest": " cup kozhukattai flour ( I’ve used Anil )"
+    "rest": " cup kozhukattai flour ( I\u2019ve used Anil )"
    },
    {
     "raw": "2 cups water ( use the same cup )",
@@ -28369,7 +28938,7 @@
     "rest": " tsp hing"
    },
    {
-    "raw": "1 ½ tsp mustard seeds",
+    "raw": "1 \u00bd tsp mustard seeds",
     "qty": [
      1.5,
      null
@@ -28385,7 +28954,7 @@
     "rest": " tsp urad dal"
    },
    {
-    "raw": "2–3 dried red chilies",
+    "raw": "2\u20133 dried red chilies",
     "qty": [
      2.0,
      3.0
@@ -28401,7 +28970,7 @@
     "rest": " sprig curry leaves"
    },
    {
-    "raw": "2–3 tsp sesame oil",
+    "raw": "2\u20133 tsp sesame oil",
     "qty": [
      2.0,
      3.0
@@ -28409,7 +28978,7 @@
     "rest": " tsp sesame oil"
    },
    {
-    "raw": "¼–½ cup grated coconut",
+    "raw": "\u00bc\u2013\u00bd cup grated coconut",
     "qty": [
      0.25,
      0.5
@@ -28540,7 +29109,7 @@
     "rest": " cups flour"
    },
    {
-    "raw": "¾ cup cocoa powder",
+    "raw": "\u00be cup cocoa powder",
     "qty": [
      0.75,
      null
@@ -28572,7 +29141,7 @@
     "rest": " tsp salt"
    },
    {
-    "raw": "½ cup neutral oil",
+    "raw": "\u00bd cup neutral oil",
     "qty": [
      0.5,
      null
@@ -28596,7 +29165,7 @@
     "rest": " tsp vanilla extract"
    },
    {
-    "raw": "½ cup sourdough discard",
+    "raw": "\u00bd cup sourdough discard",
     "qty": [
      0.5,
      null
@@ -28604,7 +29173,7 @@
     "rest": " cup sourdough discard"
    },
    {
-    "raw": "¼ cup sour cream",
+    "raw": "\u00bc cup sour cream",
     "qty": [
      0.25,
      null
@@ -28612,7 +29181,7 @@
     "rest": " cup sour cream"
    },
    {
-    "raw": "¾ cup buttermilk",
+    "raw": "\u00be cup buttermilk",
     "qty": [
      0.75,
      null
@@ -28620,7 +29189,7 @@
     "rest": " cup buttermilk"
    },
    {
-    "raw": "1 ¼ cups maple syrup",
+    "raw": "1 \u00bc cups maple syrup",
     "qty": [
      1.25,
      null
@@ -28628,7 +29197,7 @@
     "rest": " cups maple syrup"
    },
    {
-    "raw": "½ cup honey",
+    "raw": "\u00bd cup honey",
     "qty": [
      0.5,
      null
@@ -28644,16 +29213,16 @@
     "rest": " cup hot water"
    },
    {
-    "raw": "Yogurt: 1 ½ cups"
+    "raw": "Yogurt: 1 \u00bd cups"
    },
    {
-    "raw": "•Butter: 2 tablespoons"
+    "raw": "\u2022Butter: 2 tablespoons"
    },
    {
-    "raw": "•Chocolate protein powder: 1-2 cups depending how you like the consistency"
+    "raw": "\u2022Chocolate protein powder: 1-2 cups depending how you like the consistency"
    },
    {
-    "raw": "•Milk: 2 tbsp"
+    "raw": "\u2022Milk: 2 tbsp"
    }
   ]
  },
@@ -28822,7 +29391,7 @@
     "rest": " cup coconut flour (can sub 3/4 more almond flour)"
    },
    {
-    "raw": "½ tsp baking powder",
+    "raw": "\u00bd tsp baking powder",
     "qty": [
      0.5,
      null
@@ -28830,7 +29399,7 @@
     "rest": " tsp baking powder"
    },
    {
-    "raw": "½ cup shredded cheese (like gruyere or mild cheddar)",
+    "raw": "\u00bd cup shredded cheese (like gruyere or mild cheddar)",
     "qty": [
      0.5,
      null
@@ -29068,46 +29637,46 @@
     "rest": " orta boy patates"
    },
    {
-    "raw": "Tuz ve zeytinyağı"
+    "raw": "Tuz ve zeytinya\u011f\u0131"
    },
    {
     "raw": "Maydonoz"
    },
    {
-    "raw": "Taze soğan"
+    "raw": "Taze so\u011fan"
    },
    {
     "raw": "Limon"
    },
    {
-    "raw": "Sosu için"
+    "raw": "Sosu i\u00e7in"
    },
    {
-    "raw": "1 yemek kaşığı domates salçası",
+    "raw": "1 yemek ka\u015f\u0131\u011f\u0131 domates sal\u00e7as\u0131",
     "qty": [
      1.0,
      null
     ],
-    "rest": " yemek kaşığı domates salçası"
+    "rest": " yemek ka\u015f\u0131\u011f\u0131 domates sal\u00e7as\u0131"
    },
    {
-    "raw": "1 çay kaşığı tuz,",
+    "raw": "1 \u00e7ay ka\u015f\u0131\u011f\u0131 tuz,",
     "qty": [
      1.0,
      null
     ],
-    "rest": " çay kaşığı tuz,"
+    "rest": " \u00e7ay ka\u015f\u0131\u011f\u0131 tuz,"
    },
    {
-    "raw": "Göz kararı pul biber, karabiber, kimyon"
+    "raw": "G\u00f6z karar\u0131 pul biber, karabiber, kimyon"
    },
    {
-    "raw": "1 diş sarımsak",
+    "raw": "1 di\u015f sar\u0131msak",
     "qty": [
      1.0,
      null
     ],
-    "rest": " diş sarımsak"
+    "rest": " di\u015f sar\u0131msak"
    }
   ]
  },
@@ -29197,7 +29766,7 @@
     "raw": "200g ripe banana (about 2 medium, mashed)"
    },
    {
-    "raw": "120–130g blended paste (from ~8–10 dates + 4–5 anjeer soaked in hot water and blended)"
+    "raw": "120\u2013130g blended paste (from ~8\u201310 dates + 4\u20135 anjeer soaked in hot water and blended)"
    },
    {
     "raw": "50g ghee, melted"
@@ -29239,7 +29808,7 @@
     "rest": " tsp baking powder"
    },
    {
-    "raw": "½ tsp baking soda",
+    "raw": "\u00bd tsp baking soda",
     "qty": [
      0.5,
      null
@@ -29247,7 +29816,7 @@
     "rest": " tsp baking soda"
    },
    {
-    "raw": "½ tsp cinnamon powder",
+    "raw": "\u00bd tsp cinnamon powder",
     "qty": [
      0.5,
      null
@@ -29289,7 +29858,7 @@
     "rest": " tablespoon chili powder (or 1 tsp Sichuan pepper powder for Sichuan-style)"
    },
    {
-    "raw": "½ tsp salt",
+    "raw": "\u00bd tsp salt",
     "qty": [
      0.5,
      null
@@ -29662,10 +30231,10 @@
     "rest": " tsp five spice"
    },
    {
-    "raw": "rice paper recipes, here’s another banger: rice paper scallion pancakes with a sesame soy sauce (Gluten free & vegan!) you can find more rice paper recipes like this in my page @klopokitchen_ 😊"
+    "raw": "rice paper recipes, here\u2019s another banger: rice paper scallion pancakes with a sesame soy sauce (Gluten free & vegan!) you can find more rice paper recipes like this in my page @klopokitchen_ \ud83d\ude0a"
    },
    {
-    "raw": "RECIPE 👇"
+    "raw": "RECIPE \ud83d\udc47"
    },
    {
     "raw": "2 stalks green onions, chopped",
@@ -29756,7 +30325,7 @@
     "raw": "Salt to taste"
    },
    {
-    "raw": "½ tsp jeera (cumin) powder",
+    "raw": "\u00bd tsp jeera (cumin) powder",
     "qty": [
      0.5,
      null
@@ -29767,7 +30336,7 @@
     "raw": "For Tempering:"
    },
    {
-    "raw": "1–2 tsp ghee",
+    "raw": "1\u20132 tsp ghee",
     "qty": [
      1.0,
      2.0
@@ -29775,7 +30344,7 @@
     "rest": " tsp ghee"
    },
    {
-    "raw": "½ tsp cumin seeds",
+    "raw": "\u00bd tsp cumin seeds",
     "qty": [
      0.5,
      null
@@ -29786,7 +30355,7 @@
     "raw": "A pinch of hing (asafoetida)"
    },
    {
-    "raw": "8–10 curry leaves",
+    "raw": "8\u201310 curry leaves",
     "qty": [
      8.0,
      10.0
@@ -29838,12 +30407,12 @@
     "rest": " g Walnut"
    },
    {
-    "raw": "4 tomato purée",
+    "raw": "4 tomato pur\u00e9e",
     "qty": [
      4.0,
      null
     ],
-    "rest": " tomato purée"
+    "rest": " tomato pur\u00e9e"
    },
    {
     "raw": "15 ML coconut oil",
@@ -29989,7 +30558,7 @@
     "rest": " tsp cumin seeds (jeera)"
    },
    {
-    "raw": "¼ tsp baking soda",
+    "raw": "\u00bc tsp baking soda",
     "qty": [
      0.25,
      null
@@ -29997,7 +30566,7 @@
     "rest": " tsp baking soda"
    },
    {
-    "raw": "½ tsp salt",
+    "raw": "\u00bd tsp salt",
     "qty": [
      0.5,
      null
@@ -30035,7 +30604,7 @@
   "base_stated": false,
   "lines": [
    {
-    "raw": "½ cup rolled oats",
+    "raw": "\u00bd cup rolled oats",
     "qty": [
      0.5,
      null
@@ -30043,7 +30612,7 @@
     "rest": " cup rolled oats"
    },
    {
-    "raw": "½ banana",
+    "raw": "\u00bd banana",
     "qty": [
      0.5,
      null
@@ -30051,7 +30620,7 @@
     "rest": " banana"
    },
    {
-    "raw": "½ tsp vanilla extract",
+    "raw": "\u00bd tsp vanilla extract",
     "qty": [
      0.5,
      null
@@ -30067,7 +30636,7 @@
     "rest": " tsp baking powder"
    },
    {
-    "raw": "½ tsp cinnamon",
+    "raw": "\u00bd tsp cinnamon",
     "qty": [
      0.5,
      null
@@ -30083,7 +30652,7 @@
     "rest": " egg"
    },
    {
-    "raw": "¼ cup cottage cheese",
+    "raw": "\u00bc cup cottage cheese",
     "qty": [
      0.25,
      null
@@ -30091,7 +30660,7 @@
     "rest": " cup cottage cheese"
    },
    {
-    "raw": "½ cup spinach",
+    "raw": "\u00bd cup spinach",
     "qty": [
      0.5,
      null
@@ -30235,7 +30804,7 @@
   "base_stated": true,
   "lines": [
    {
-    "raw": "½ cup all purpose flour, spooned and leveled",
+    "raw": "\u00bd cup all purpose flour, spooned and leveled",
     "qty": [
      0.5,
      null
@@ -30243,37 +30812,37 @@
     "rest": " cup all purpose flour, spooned and leveled"
    },
    {
-    "raw": "▢1 tsp baking powder"
+    "raw": "\u25a21 tsp baking powder"
    },
    {
-    "raw": "▢½ tsp salt, reduce by half if your cottage cheese is particularly salty"
+    "raw": "\u25a2\u00bd tsp salt, reduce by half if your cottage cheese is particularly salty"
    },
    {
     "raw": "Wet Ingredients"
    },
    {
-    "raw": "▢¾ cup low fat cottage cheese, I use 2%"
+    "raw": "\u25a2\u00be cup low fat cottage cheese, I use 2%"
    },
    {
-    "raw": "▢2 large egg"
+    "raw": "\u25a22 large egg"
    },
    {
-    "raw": "▢½ Tbsp olive oil, or melted butter"
+    "raw": "\u25a2\u00bd Tbsp olive oil, or melted butter"
    },
    {
-    "raw": "▢½ Tbsp vanilla extract"
+    "raw": "\u25a2\u00bd Tbsp vanilla extract"
    },
    {
-    "raw": "▢1 ½ Tbsp maple syrup"
+    "raw": "\u25a21 \u00bd Tbsp maple syrup"
    },
    {
-    "raw": "▢⅔ cup blueberries, washed and thoroughly dried"
+    "raw": "\u25a2\u2154 cup blueberries, washed and thoroughly dried"
    },
    {
     "raw": "For cooking"
    },
    {
-    "raw": "▢salted butter"
+    "raw": "\u25a2salted butter"
    }
   ]
  },
@@ -30354,7 +30923,7 @@
     "rest": " cups white rice"
    },
    {
-    "raw": "~½ cup lentils"
+    "raw": "~\u00bd cup lentils"
    },
    {
     "raw": "2 cups water",
@@ -30675,106 +31244,106 @@
   "base_stated": true,
   "lines": [
    {
-    "raw": "small-medium onion"
+    "raw": "small-medium\u00a0onion"
    },
    {
-    "raw": "1 tbsp olive oil for frying",
+    "raw": "1 tbsp\u00a0olive oil for frying",
     "qty": [
      1.0,
      null
     ],
-    "rest": " tbsp olive oil for frying"
+    "rest": " tbsp\u00a0olive oil for frying"
    },
    {
-    "raw": "3 cloves of garlic",
+    "raw": "3 cloves\u00a0of garlic",
     "qty": [
      3.0,
      null
     ],
-    "rest": " cloves of garlic"
+    "rest": " cloves\u00a0of garlic"
    },
    {
-    "raw": "1 red bell pepper",
+    "raw": "1\u00a0red bell pepper",
     "qty": [
      1.0,
      null
     ],
-    "rest": " red bell pepper"
+    "rest": "\u00a0red bell pepper"
    },
    {
-    "raw": "1 can lentils (19 fl oz)",
+    "raw": "1 can\u00a0lentils (19 fl oz)",
     "qty": [
      1.0,
      null
     ],
-    "rest": " can lentils (19 fl oz)"
+    "rest": " can\u00a0lentils (19 fl oz)"
    },
    {
-    "raw": "1 can coconut milk (light or full-fat, 13.5 fl oz)",
+    "raw": "1 can\u00a0coconut milk (light or full-fat, 13.5 fl oz)",
     "qty": [
      1.0,
      null
     ],
-    "rest": " can coconut milk (light or full-fat, 13.5 fl oz)"
+    "rest": " can\u00a0coconut milk (light or full-fat, 13.5 fl oz)"
    },
    {
-    "raw": "1 tbsp tomato paste",
+    "raw": "1 tbsp\u00a0tomato paste",
     "qty": [
      1.0,
      null
     ],
-    "rest": " tbsp tomato paste"
+    "rest": " tbsp\u00a0tomato paste"
    },
    {
-    "raw": "1 tsp curry powder",
+    "raw": "1 tsp\u00a0curry powder",
     "qty": [
      1.0,
      null
     ],
-    "rest": " tsp curry powder"
+    "rest": " tsp\u00a0curry powder"
    },
    {
-    "raw": "1/2 tsp cumin powder",
+    "raw": "1/2 tsp\u00a0cumin powder",
     "qty": [
      0.5,
      null
     ],
-    "rest": " tsp cumin powder"
+    "rest": " tsp\u00a0cumin powder"
    },
    {
-    "raw": "1/2 tsp garlic powder",
+    "raw": "1/2 tsp\u00a0garlic powder",
     "qty": [
      0.5,
      null
     ],
-    "rest": " tsp garlic powder"
+    "rest": " tsp\u00a0garlic powder"
    },
    {
-    "raw": "1/2 tsp turmeric powder",
+    "raw": "1/2 tsp\u00a0turmeric powder",
     "qty": [
      0.5,
      null
     ],
-    "rest": " tsp turmeric powder"
+    "rest": " tsp\u00a0turmeric powder"
    },
    {
-    "raw": "Pinch of salt and pepper"
+    "raw": "Pinch\u00a0of salt and pepper"
    },
    {
-    "raw": "1-2 cups kale or spinach",
+    "raw": "1-2 cups\u00a0kale or spinach",
     "qty": [
      1.0,
      2.0
     ],
-    "rest": " cups kale or spinach"
+    "rest": " cups\u00a0kale or spinach"
    },
    {
-    "raw": "1/4 cup chopped cilantro",
+    "raw": "1/4 cup\u00a0chopped cilantro",
     "qty": [
      0.25,
      null
     ],
-    "rest": " cup chopped cilantro"
+    "rest": " cup\u00a0chopped cilantro"
    },
    {
     "raw": "Rice or naan"
@@ -30810,7 +31379,7 @@
     "rest": " Green Chilli"
    },
    {
-    "raw": "1½ cup Tamarind approx",
+    "raw": "1\u00bd cup Tamarind approx",
     "qty": [
      1.5,
      null
@@ -30928,7 +31497,7 @@
     "raw": "Lemon juice"
    },
    {
-    "raw": "Chopped onions 🧅"
+    "raw": "Chopped onions \ud83e\uddc5"
    },
    {
     "raw": "1 tbsp thick tamarind pulp",
@@ -31280,7 +31849,7 @@
     "rest": " tsp turmeric"
    },
    {
-    "raw": "¼ tsp black pepper",
+    "raw": "\u00bc tsp black pepper",
     "qty": [
      0.25,
      null
@@ -31340,7 +31909,7 @@
     "rest": " tbsp chopped coriander leaves"
    },
    {
-    "raw": "½ tbsp lemon rind, grated or finely chopped",
+    "raw": "\u00bd tbsp lemon rind, grated or finely chopped",
     "qty": [
      0.5,
      null
@@ -31416,6 +31985,45 @@
      null
     ],
     "rest": " tablespoon fenugreek seeds"
+   }
+  ]
+ },
+ "18139705627364921": {
+  "base": 4,
+  "base_stated": true,
+  "lines": [
+   {
+    "raw": "2 cups coconut water",
+    "qty": [
+     2.0,
+     null
+    ],
+    "rest": " cups coconut water"
+   },
+   {
+    "raw": "1 cup raw (soaked) organic pumpkin seeds",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " cup raw (soaked) organic pumpkin seeds"
+   },
+   {
+    "raw": "Dash of sea salt"
+   },
+   {
+    "raw": "Dash of cinnamon & nutmeg"
+   },
+   {
+    "raw": "Dash of vanilla"
+   },
+   {
+    "raw": "2 pitted dates",
+    "qty": [
+     2.0,
+     null
+    ],
+    "rest": " pitted dates"
    }
   ]
  },
@@ -32690,7 +33298,7 @@
     "rest": " tbsp olive oil"
    },
    {
-    "raw": "yogurt jalapeño dressing"
+    "raw": "yogurt jalape\u00f1o dressing"
    },
    {
     "raw": "1 cup greek yogurt",
@@ -32736,12 +33344,12 @@
     "rest": " tbsp honey"
    },
    {
-    "raw": "1 jalapeño seeds removed and washed",
+    "raw": "1 jalape\u00f1o seeds removed and washed",
     "qty": [
      1.0,
      null
     ],
-    "rest": " jalapeño seeds removed and washed"
+    "rest": " jalape\u00f1o seeds removed and washed"
    },
    {
     "raw": "2 cloves of garlic",
@@ -33125,7 +33733,7 @@
     "rest": " small cinnamon stick"
    },
    {
-    "raw": "½ teaspoon fennel seeds (crushed)",
+    "raw": "\u00bd teaspoon fennel seeds (crushed)",
     "qty": [
      0.5,
      null
@@ -34684,12 +35292,12 @@
     "rest": " tsp amchoor powder"
    },
    {
-    "raw": "2 Tbsp powdered sugar- we like chiwda that has a distinct sweet undertone. If you don’t start with 1 Tbsp, taste and add more as needed",
+    "raw": "2 Tbsp powdered sugar- we like chiwda that has a distinct sweet undertone. If you don\u2019t start with 1 Tbsp, taste and add more as needed",
     "qty": [
      2.0,
      null
     ],
-    "rest": " Tbsp powdered sugar- we like chiwda that has a distinct sweet undertone. If you don’t start with 1 Tbsp, taste and add more as needed"
+    "rest": " Tbsp powdered sugar- we like chiwda that has a distinct sweet undertone. If you don\u2019t start with 1 Tbsp, taste and add more as needed"
    },
    {
     "raw": "Salt, to taste"
@@ -36035,7 +36643,7 @@
     "rest": " Tsp Salt"
    },
    {
-    "raw": "½ Tsp Carom Seeds",
+    "raw": "\u00bd Tsp Carom Seeds",
     "qty": [
      0.5,
      null
@@ -36043,7 +36651,7 @@
     "rest": " Tsp Carom Seeds"
    },
    {
-    "raw": "½ Tsp Garam Masala Powder",
+    "raw": "\u00bd Tsp Garam Masala Powder",
     "qty": [
      0.5,
      null
@@ -36126,7 +36734,7 @@
     "rest": " Tsp Red Chilli Powder"
    },
    {
-    "raw": "½ Tsp Turmeric Powder",
+    "raw": "\u00bd Tsp Turmeric Powder",
     "qty": [
      0.5,
      null
@@ -36298,7 +36906,7 @@
     "rest": " tsp garlic powder"
    },
    {
-    "raw": "¼ tsp chili flakes",
+    "raw": "\u00bc tsp chili flakes",
     "qty": [
      0.25,
      null
@@ -37316,7 +37924,7 @@
     "rest": " heaped tbsp (~40g) higher-protein yoghurt of choice"
    },
    {
-    "raw": "Optional - 150g silken tofu (don’t knock it till’ you try it)"
+    "raw": "Optional - 150g silken tofu (don\u2019t knock it till\u2019 you try it)"
    },
    {
     "raw": "OR ~15g protein powder of choice"
@@ -37570,12 +38178,12 @@
     "rest": " tbsp jeera seeds"
    },
    {
-    "raw": "3 1” cinnamon",
+    "raw": "3 1\u201d cinnamon",
     "qty": [
      3.0,
      null
     ],
-    "rest": " 1” cinnamon"
+    "rest": " 1\u201d cinnamon"
    },
    {
     "raw": "2 tsps fennel seeds",
@@ -38681,12 +39289,12 @@
     "rest": " cup white onion chopped"
    },
    {
-    "raw": "1 green jalapeño- finely chopped",
+    "raw": "1 green jalape\u00f1o- finely chopped",
     "qty": [
      1.0,
      null
     ],
-    "rest": " green jalapeño- finely chopped"
+    "rest": " green jalape\u00f1o- finely chopped"
    },
    {
     "raw": "1 red hot pepper- finely chopped",
@@ -39506,6 +40114,78 @@
    }
   ]
  },
+ "18033079921952867": {
+  "base": 1,
+  "base_stated": false,
+  "lines": [
+   {
+    "raw": "1 cup Masoor lentil",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " cup Masoor lentil"
+   },
+   {
+    "raw": "4-5 cups of water",
+    "qty": [
+     4.0,
+     5.0
+    ],
+    "rest": " cups of water"
+   },
+   {
+    "raw": "Salt"
+   },
+   {
+    "raw": "Turmeric"
+   },
+   {
+    "raw": "Tadka/Baghar"
+   },
+   {
+    "raw": "1-2 clove sliced garlic",
+    "qty": [
+     1.0,
+     2.0
+    ],
+    "rest": " clove sliced garlic"
+   },
+   {
+    "raw": "1/3 cup chopped onion",
+    "qty": [
+     0.3333333333333333,
+     null
+    ],
+    "rest": " cup chopped onion"
+   },
+   {
+    "raw": "Ghee"
+   },
+   {
+    "raw": "2-3 thinly sliced lemon",
+    "qty": [
+     2.0,
+     3.0
+    ],
+    "rest": " thinly sliced lemon"
+   },
+   {
+    "raw": "Cilantro chopped"
+   },
+   {
+    "raw": "2 green chilies",
+    "qty": [
+     2.0,
+     null
+    ],
+    "rest": " green chilies"
+   },
+   {
+    "raw": "Kaffir lime leaves (recommended)"
+   }
+  ]
+ },
  "17875908618080066": {
   "base": 25,
   "base_stated": true,
@@ -39926,7 +40606,7 @@
   "base_stated": false,
   "lines": [
    {
-    "raw": "Ingredients for za’atar chicken"
+    "raw": "Ingredients for za\u2019atar chicken"
    },
    {
     "raw": "1 lb chicken thighs chopped in medium pieces",
@@ -40139,7 +40819,7 @@
     "rest": " tablespoons olive oil"
    },
    {
-    "raw": "¼ cup plain yogurt, I used Balkan-Style but any works",
+    "raw": "\u00bc cup plain yogurt, I used Balkan-Style but any works",
     "qty": [
      0.25,
      null
@@ -40147,7 +40827,7 @@
     "rest": " cup plain yogurt, I used Balkan-Style but any works"
    },
    {
-    "raw": "½ tablespoon salt, to taste",
+    "raw": "\u00bd tablespoon salt, to taste",
     "qty": [
      0.5,
      null
@@ -40155,7 +40835,7 @@
     "rest": " tablespoon salt, to taste"
    },
    {
-    "raw": "¼ tablespoon pepper, to taste",
+    "raw": "\u00bc tablespoon pepper, to taste",
     "qty": [
      0.25,
      null
@@ -40163,7 +40843,7 @@
     "rest": " tablespoon pepper, to taste"
    },
    {
-    "raw": "1 ½ tablespoons dried oregano",
+    "raw": "1 \u00bd tablespoons dried oregano",
     "qty": [
      1.5,
      null
@@ -40372,7 +41052,7 @@
     "rest": " tbsp tahini"
    },
    {
-    "raw": "¼ teaspoon salt",
+    "raw": "\u00bc teaspoon salt",
     "qty": [
      0.25,
      null
@@ -40388,7 +41068,7 @@
     "rest": " oz milk chocolate bars roughly chopped"
    },
    {
-    "raw": "10½ oz pistachio cream",
+    "raw": "10\u00bd oz pistachio cream",
     "qty": [
      10.5,
      null
@@ -40454,7 +41134,7 @@
     "rest": " cup Rice"
    },
    {
-    "raw": "½ cup Chana Dal",
+    "raw": "\u00bd cup Chana Dal",
     "qty": [
      0.5,
      null
@@ -40462,7 +41142,7 @@
     "rest": " cup Chana Dal"
    },
    {
-    "raw": "¼ cup Tuar Dal",
+    "raw": "\u00bc cup Tuar Dal",
     "qty": [
      0.25,
      null
@@ -40478,7 +41158,7 @@
     "rest": " tbsp Urad Dal"
    },
    {
-    "raw": "½ cup Dahi",
+    "raw": "\u00bd cup Dahi",
     "qty": [
      0.5,
      null
@@ -40497,7 +41177,7 @@
     "raw": "Pinch of Hing"
    },
    {
-    "raw": "¼ tsp Haldi",
+    "raw": "\u00bc tsp Haldi",
     "qty": [
      0.25,
      null
@@ -40505,7 +41185,7 @@
     "rest": " tsp Haldi"
    },
    {
-    "raw": "¼ tsp Red Chilli Powder",
+    "raw": "\u00bc tsp Red Chilli Powder",
     "qty": [
      0.25,
      null
@@ -40513,7 +41193,7 @@
     "rest": " tsp Red Chilli Powder"
    },
    {
-    "raw": "½ tsp Lemon Juice",
+    "raw": "\u00bd tsp Lemon Juice",
     "qty": [
      0.5,
      null
@@ -40521,7 +41201,7 @@
     "rest": " tsp Lemon Juice"
    },
    {
-    "raw": "½ cup Corn Kernels steamed",
+    "raw": "\u00bd cup Corn Kernels steamed",
     "qty": [
      0.5,
      null
@@ -40529,7 +41209,7 @@
     "rest": " cup Corn Kernels steamed"
    },
    {
-    "raw": "¾ cup Doodhi grated",
+    "raw": "\u00be cup Doodhi grated",
     "qty": [
      0.75,
      null
@@ -40537,7 +41217,7 @@
     "rest": " cup Doodhi grated"
    },
    {
-    "raw": "½ cup Carrot grated",
+    "raw": "\u00bd cup Carrot grated",
     "qty": [
      0.5,
      null
@@ -40545,7 +41225,7 @@
     "rest": " cup Carrot grated"
    },
    {
-    "raw": "¼ cup Coriander leaves chopped",
+    "raw": "\u00bc cup Coriander leaves chopped",
     "qty": [
      0.25,
      null
@@ -40663,12 +41343,12 @@
     "rest": " cup condensed milk"
    },
    {
-    "raw": "1/2 cup mango purée",
+    "raw": "1/2 cup mango pur\u00e9e",
     "qty": [
      0.5,
      null
     ],
-    "rest": " cup mango purée"
+    "rest": " cup mango pur\u00e9e"
    }
   ]
  },
@@ -41968,7 +42648,7 @@
     "rest": " tsp red chilli powder"
    },
    {
-    "raw": "½ tsp turmeric powder",
+    "raw": "\u00bd tsp turmeric powder",
     "qty": [
      0.5,
      null
@@ -41984,7 +42664,7 @@
     "rest": " tsp coriander powder"
    },
    {
-    "raw": "½ tsp garam masala",
+    "raw": "\u00bd tsp garam masala",
     "qty": [
      0.5,
      null
@@ -41992,7 +42672,7 @@
     "rest": " tsp garam masala"
    },
    {
-    "raw": "½ cup chopped tomatoes",
+    "raw": "\u00bd cup chopped tomatoes",
     "qty": [
      0.5,
      null
@@ -42153,12 +42833,12 @@
     "raw": "For coating:"
    },
    {
-    "raw": "1/2 cup flour ( 1/4 cup Wheat 🌾 flour & 1/4 cup all purpose flour )",
+    "raw": "1/2 cup flour ( 1/4 cup Wheat \ud83c\udf3e flour & 1/4 cup all purpose flour )",
     "qty": [
      0.5,
      null
     ],
-    "rest": " cup flour ( 1/4 cup Wheat 🌾 flour & 1/4 cup all purpose flour )"
+    "rest": " cup flour ( 1/4 cup Wheat \ud83c\udf3e flour & 1/4 cup all purpose flour )"
    },
    {
     "raw": "1/4 cup corn flour",
@@ -42169,12 +42849,12 @@
     "rest": " cup corn flour"
    },
    {
-    "raw": "1.5 tsp red chilli 🌶️ powder",
+    "raw": "1.5 tsp red chilli \ud83c\udf36\ufe0f powder",
     "qty": [
      1.5,
      null
     ],
-    "rest": " tsp red chilli 🌶️ powder"
+    "rest": " tsp red chilli \ud83c\udf36\ufe0f powder"
    },
    {
     "raw": "1/2 tsp turmeric",
@@ -42242,20 +42922,20 @@
     "rest": " tbsp grated ginger"
    },
    {
-    "raw": "3-4 no’s green chilies",
+    "raw": "3-4 no\u2019s green chilies",
     "qty": [
      3.0,
      4.0
     ],
-    "rest": " no’s green chilies"
+    "rest": " no\u2019s green chilies"
    },
    {
-    "raw": "2 no’s red chilli 🌶️",
+    "raw": "2 no\u2019s red chilli \ud83c\udf36\ufe0f",
     "qty": [
      2.0,
      null
     ],
-    "rest": " no’s red chilli 🌶️"
+    "rest": " no\u2019s red chilli \ud83c\udf36\ufe0f"
    },
    {
     "raw": "1 medium size onion chopped",
@@ -42266,12 +42946,12 @@
     "rest": " medium size onion chopped"
    },
    {
-    "raw": "2-3 sprigs curry leaves 🍃",
+    "raw": "2-3 sprigs curry leaves \ud83c\udf43",
     "qty": [
      2.0,
      3.0
     ],
-    "rest": " sprigs curry leaves 🍃"
+    "rest": " sprigs curry leaves \ud83c\udf43"
    },
    {
     "raw": "1 tsp black pepper powder",
@@ -42401,12 +43081,12 @@
     "rest": " tbsp Dijon Mustard"
    },
    {
-    "raw": "1/2 cup pickled Jalapeños or Pickles, finely chopped",
+    "raw": "1/2 cup pickled Jalape\u00f1os or Pickles, finely chopped",
     "qty": [
      0.5,
      null
     ],
-    "rest": " cup pickled Jalapeños or Pickles, finely chopped"
+    "rest": " cup pickled Jalape\u00f1os or Pickles, finely chopped"
    },
    {
     "raw": "1-2 tbsp Salsa Mocha, Garlic Chili Crisp, or Sriracha",
@@ -42743,12 +43423,12 @@
     "rest": " mangoes chopped up"
    },
    {
-    "raw": "1/2 a jalapeño or 3-4 chopped Thai chilies",
+    "raw": "1/2 a jalape\u00f1o or 3-4 chopped Thai chilies",
     "qty": [
      0.5,
      null
     ],
-    "rest": " a jalapeño or 3-4 chopped Thai chilies"
+    "rest": " a jalape\u00f1o or 3-4 chopped Thai chilies"
    },
    {
     "raw": "1 Persian cucumber chopped",
@@ -42887,12 +43567,12 @@
     "rest": " pav bhindi/lady finger"
    },
    {
-    "raw": "4 Medium size Potatoes 🥔",
+    "raw": "4 Medium size Potatoes \ud83e\udd54",
     "qty": [
      4.0,
      null
     ],
-    "rest": " Medium size Potatoes 🥔"
+    "rest": " Medium size Potatoes \ud83e\udd54"
    },
    {
     "raw": "4 tsp mustard oil",
@@ -42919,12 +43599,12 @@
     "rest": " tsp cumin seeds"
    },
    {
-    "raw": "2 dry red chilli 🌶️",
+    "raw": "2 dry red chilli \ud83c\udf36\ufe0f",
     "qty": [
      2.0,
      null
     ],
-    "rest": " dry red chilli 🌶️"
+    "rest": " dry red chilli \ud83c\udf36\ufe0f"
    },
    {
     "raw": "1/2 tsp turmeric powder",
@@ -43126,7 +43806,7 @@
     "rest": " tsp Salt"
    },
    {
-    "raw": "(optional) 1 tsp MSG & NO IT’S NOT BAD FOR YOU!!!"
+    "raw": "(optional) 1 tsp MSG & NO IT\u2019S NOT BAD FOR YOU!!!"
    }
   ]
  },
@@ -43575,12 +44255,12 @@
     "rest": " +1/2 cup oats flour (made with rolled oats)"
    },
    {
-    "raw": "1/2 cup unsweetened cocoa powder (reduce if you don’t like the intense  taste of chocolate)",
+    "raw": "1/2 cup unsweetened cocoa powder (reduce if you don\u2019t like the intense  taste of chocolate)",
     "qty": [
      0.5,
      null
     ],
-    "rest": " cup unsweetened cocoa powder (reduce if you don’t like the intense  taste of chocolate)"
+    "rest": " cup unsweetened cocoa powder (reduce if you don\u2019t like the intense  taste of chocolate)"
    },
    {
     "raw": "1 tsp baking powder",
@@ -44049,12 +44729,12 @@
     "rest": " tsp of sesame oil"
    },
    {
-    "raw": "2 cups of any rice. I used the Trader Joe’s brown rice it’s my favorite. But basmati also works great. Ideally should be short grain",
+    "raw": "2 cups of any rice. I used the Trader Joe\u2019s brown rice it\u2019s my favorite. But basmati also works great. Ideally should be short grain",
     "qty": [
      2.0,
      null
     ],
-    "rest": " cups of any rice. I used the Trader Joe’s brown rice it’s my favorite. But basmati also works great. Ideally should be short grain"
+    "rest": " cups of any rice. I used the Trader Joe\u2019s brown rice it\u2019s my favorite. But basmati also works great. Ideally should be short grain"
    },
    {
     "raw": "Seasonings: 1/2 tsp of salt, 1/2 tsp of white sugar, 1 tsp of chicken powder I use the @shaheenroastery brand"
@@ -45108,7 +45788,7 @@
     "rest": " cup shredded mexican blend cheese"
    },
    {
-    "raw": "Optional Add In’s: Few Dashes Hot Sauce, Cilantro, Black Beans, Corn"
+    "raw": "Optional Add In\u2019s: Few Dashes Hot Sauce, Cilantro, Black Beans, Corn"
    }
   ]
  },
@@ -45684,12 +46364,12 @@
     "rest": " (over)ripe bananas"
    },
    {
-    "raw": "60 ml oil / ¼ cup",
+    "raw": "60 ml oil / \u00bc cup",
     "qty": [
      60.0,
      null
     ],
-    "rest": " ml oil / ¼ cup"
+    "rest": " ml oil / \u00bc cup"
    },
    {
     "raw": "1 tsp vanilla flavouring",
@@ -45708,12 +46388,12 @@
     "rest": " grams of oatmeal / 3 cups"
    },
    {
-    "raw": "75 grams unsalted nuts / ½ cup",
+    "raw": "75 grams unsalted nuts / \u00bd cup",
     "qty": [
      75.0,
      null
     ],
-    "rest": " grams unsalted nuts / ½ cup"
+    "rest": " grams unsalted nuts / \u00bd cup"
    },
    {
     "raw": "cinnamon / cardamom / gingerbread spices"
@@ -46069,12 +46749,12 @@
     "rest": " cup oats"
    },
    {
-    "raw": "2 cup water (i don’t consider it as an extra ingredient lol)",
+    "raw": "2 cup water (i don\u2019t consider it as an extra ingredient lol)",
     "qty": [
      2.0,
      null
     ],
-    "rest": " cup water (i don’t consider it as an extra ingredient lol)"
+    "rest": " cup water (i don\u2019t consider it as an extra ingredient lol)"
    },
    {
     "raw": "vanilla (optional)"
@@ -46403,7 +47083,7 @@
     "rest": " tbs/80g softened unsalted butter"
    },
    {
-    "raw": "¼ cup light brown sugar",
+    "raw": "\u00bc cup light brown sugar",
     "qty": [
      0.25,
      null
@@ -46425,7 +47105,7 @@
     "raw": "Vanilla cream (optional):"
    },
    {
-    "raw": "½ cup cold heavy cream",
+    "raw": "\u00bd cup cold heavy cream",
     "qty": [
      0.5,
      null
@@ -46433,12 +47113,12 @@
     "rest": " cup cold heavy cream"
    },
    {
-    "raw": "1 tbs vanilla bean paste (try to get this over vanilla extract. It’ll make a huge difference)",
+    "raw": "1 tbs vanilla bean paste (try to get this over vanilla extract. It\u2019ll make a huge difference)",
     "qty": [
      1.0,
      null
     ],
-    "rest": " tbs vanilla bean paste (try to get this over vanilla extract. It’ll make a huge difference)"
+    "rest": " tbs vanilla bean paste (try to get this over vanilla extract. It\u2019ll make a huge difference)"
    },
    {
     "raw": "1 tbs powdered sugar",
@@ -46536,7 +47216,7 @@
     "rest": " tablespoons of salted butter"
    },
    {
-    "raw": "1 ½ cups white onions, chopped",
+    "raw": "1 \u00bd cups white onions, chopped",
     "qty": [
      1.5,
      null
@@ -46584,7 +47264,7 @@
     "rest": " cloves garlic, grated"
    },
    {
-    "raw": "2 ½ cups broth",
+    "raw": "2 \u00bd cups broth",
     "qty": [
      2.5,
      null
@@ -46611,12 +47291,12 @@
     "raw": "One cup half and half or milk"
    },
    {
-    "raw": "1/3 cup sour cream or crème fraiche",
+    "raw": "1/3 cup sour cream or cr\u00e8me fraiche",
     "qty": [
      0.3333333333333333,
      null
     ],
-    "rest": " cup sour cream or crème fraiche"
+    "rest": " cup sour cream or cr\u00e8me fraiche"
    },
    {
     "raw": "3 tablespoons chopped parsley",
@@ -46636,7 +47316,7 @@
     "raw": "Thai Basil Stir Fry"
    },
    {
-    "raw": "½ cup red onion or shallot (diced or shallots roughly chopped)",
+    "raw": "\u00bd cup red onion or shallot (diced or shallots roughly chopped)",
     "qty": [
      0.5,
      null
@@ -46660,7 +47340,7 @@
     "rest": " garlic cloves minced"
    },
    {
-    "raw": "½ cup Thai basil or regular basil",
+    "raw": "\u00bd cup Thai basil or regular basil",
     "qty": [
      0.5,
      null
@@ -47167,36 +47847,36 @@
     "rest": " cups puffed amaranth (store bought or home made, tips below)"
    },
    {
-    "raw": "1 cup nuts of choice- I’ve used cashews – roughly chopped",
+    "raw": "1 cup nuts of choice- I\u2019ve used cashews \u2013 roughly chopped",
     "qty": [
      1.0,
      null
     ],
-    "rest": " cup nuts of choice- I’ve used cashews – roughly chopped"
+    "rest": " cup nuts of choice- I\u2019ve used cashews \u2013 roughly chopped"
    },
    {
-    "raw": "1 cup seeds of choice- I’ve used pumpkin and sunflower seeds",
+    "raw": "1 cup seeds of choice- I\u2019ve used pumpkin and sunflower seeds",
     "qty": [
      1.0,
      null
     ],
-    "rest": " cup seeds of choice- I’ve used pumpkin and sunflower seeds"
+    "rest": " cup seeds of choice- I\u2019ve used pumpkin and sunflower seeds"
    },
    {
-    "raw": "1/4 cup nut butter - I’ve used almond",
+    "raw": "1/4 cup nut butter - I\u2019ve used almond",
     "qty": [
      0.25,
      null
     ],
-    "rest": " cup nut butter - I’ve used almond"
+    "rest": " cup nut butter - I\u2019ve used almond"
    },
    {
-    "raw": "1/4 cup date syrup or liquid jaggery, make sure it’s runny and not too thick",
+    "raw": "1/4 cup date syrup or liquid jaggery, make sure it\u2019s runny and not too thick",
     "qty": [
      0.25,
      null
     ],
-    "rest": " cup date syrup or liquid jaggery, make sure it’s runny and not too thick"
+    "rest": " cup date syrup or liquid jaggery, make sure it\u2019s runny and not too thick"
    },
    {
     "raw": "pinch salt"
@@ -47810,7 +48490,7 @@
     "rest": " mini tortilla wraps"
    },
    {
-    "raw": "Optional: a drizzle of garlic & herb dressing 🤤"
+    "raw": "Optional: a drizzle of garlic & herb dressing \ud83e\udd24"
    }
   ]
  },
@@ -47967,7 +48647,7 @@
     "rest": " Tbsp Fish Sauce"
    },
    {
-    "raw": "Vegan Modification: Sub in 1 lb. mixed mushrooms (or small diced tofu) for shrimp (sauté the veggie filling before folding the dumplings); sub in soy sauce for fish sauce in the sauce"
+    "raw": "Vegan Modification: Sub in 1 lb. mixed mushrooms (or small diced tofu) for shrimp (saut\u00e9 the veggie filling before folding the dumplings); sub in soy sauce for fish sauce in the sauce"
    }
   ]
  },
@@ -48343,7 +49023,7 @@
   "base_stated": true,
   "lines": [
    {
-    "raw": "400g oyster mushrooms (it’s a lot but they reduce in size, and if you have too many, I’m sure you’ll find a use for them - they’re delicious)"
+    "raw": "400g oyster mushrooms (it\u2019s a lot but they reduce in size, and if you have too many, I\u2019m sure you\u2019ll find a use for them - they\u2019re delicious)"
    },
    {
     "raw": "1 tbsp sweet white miso paste (I used @clearspringuk )",
@@ -48894,12 +49574,12 @@
     "rest": " Avocado, sliced"
    },
    {
-    "raw": "1/2 Jalapeño, seeds removed and diced small",
+    "raw": "1/2 Jalape\u00f1o, seeds removed and diced small",
     "qty": [
      0.5,
      null
     ],
-    "rest": " Jalapeño, seeds removed and diced small"
+    "rest": " Jalape\u00f1o, seeds removed and diced small"
    }
   ]
  },
@@ -49441,7 +50121,7 @@
     "rest": " teaspoon Shaoxing rice wine (optional)"
    },
    {
-    "raw": "¾ teaspoon salt",
+    "raw": "\u00be teaspoon salt",
     "qty": [
      0.75,
      null
@@ -49468,7 +50148,7 @@
     "rest": " large egg"
    },
    {
-    "raw": "½ cup potato starch packed",
+    "raw": "\u00bd cup potato starch packed",
     "qty": [
      0.5,
      null
@@ -49522,7 +50202,7 @@
     "raw": "For the candied walnuts:"
    },
    {
-    "raw": "½ cup walnut (halves or pieces)",
+    "raw": "\u00bd cup walnut (halves or pieces)",
     "qty": [
      0.5,
      null
@@ -49676,12 +50356,12 @@
     "rest": " boneless skinless chicken thighs"
    },
    {
-    "raw": "2 tbsp tandoori masala (I’ve used shaan)",
+    "raw": "2 tbsp tandoori masala (I\u2019ve used shaan)",
     "qty": [
      2.0,
      null
     ],
-    "rest": " tbsp tandoori masala (I’ve used shaan)"
+    "rest": " tbsp tandoori masala (I\u2019ve used shaan)"
    },
    {
     "raw": "1 tbsp coriander powder",
@@ -49791,12 +50471,12 @@
     "rest": " green pepper diced"
    },
    {
-    "raw": "2 tbsp tomato purée",
+    "raw": "2 tbsp tomato pur\u00e9e",
     "qty": [
      2.0,
      null
     ],
-    "rest": " tbsp tomato purée"
+    "rest": " tbsp tomato pur\u00e9e"
    },
    {
     "raw": "1 tsp coriander powder",
@@ -50099,12 +50779,12 @@
     "rest": " cup kacchi ghani oil"
    },
    {
-    "raw": "2 tbsp salt ( I’m using pink salt so it’s lighter, be careful & add less if using white)",
+    "raw": "2 tbsp salt ( I\u2019m using pink salt so it\u2019s lighter, be careful & add less if using white)",
     "qty": [
      2.0,
      null
     ],
-    "rest": " tbsp salt ( I’m using pink salt so it’s lighter, be careful & add less if using white)"
+    "rest": " tbsp salt ( I\u2019m using pink salt so it\u2019s lighter, be careful & add less if using white)"
    },
    {
     "raw": "1 tsp amchur",
@@ -50382,7 +51062,7 @@
     "rest": " tsp garlic powder"
    },
    {
-    "raw": "¼ tsp chili flakes",
+    "raw": "\u00bc tsp chili flakes",
     "qty": [
      0.25,
      null
@@ -50892,10 +51572,10 @@
     "rest": " tbsp Chopped coriander"
    },
    {
-    "raw": "To assemble I’ve used"
+    "raw": "To assemble I\u2019ve used"
    },
    {
-    "raw": "I’ve used wheat & white wraps which has only 183 calories per wrap)"
+    "raw": "I\u2019ve used wheat & white wraps which has only 183 calories per wrap)"
    },
    {
     "raw": "Lettuce"
@@ -51206,7 +51886,7 @@
     "rest": " Tbsp Maldon salt"
    },
    {
-    "raw": "Zest of ½ a Lemon"
+    "raw": "Zest of \u00bd a Lemon"
    }
   ]
  },
@@ -51758,12 +52438,12 @@
     "rest": " bell pepper (any color) diced"
    },
    {
-    "raw": "1 jalapeño pepper diced",
+    "raw": "1 jalape\u00f1o pepper diced",
     "qty": [
      1.0,
      null
     ],
-    "rest": " jalapeño pepper diced"
+    "rest": " jalape\u00f1o pepper diced"
    },
    {
     "raw": "2 cans beans",
@@ -51782,12 +52462,12 @@
     "rest": " cans diced tomatoes"
    },
    {
-    "raw": "1 package trader joe’s soyrizo (can sub any brand soyrizo or real chorizo if cooked)",
+    "raw": "1 package trader joe\u2019s soyrizo (can sub any brand soyrizo or real chorizo if cooked)",
     "qty": [
      1.0,
      null
     ],
-    "rest": " package trader joe’s soyrizo (can sub any brand soyrizo or real chorizo if cooked)"
+    "rest": " package trader joe\u2019s soyrizo (can sub any brand soyrizo or real chorizo if cooked)"
    },
    {
     "raw": "1 tbsp tomato paste",
@@ -52343,12 +53023,12 @@
     "raw": "For the Crostini:"
    },
    {
-    "raw": "1 large Artisanal Baguette, cut into ¾” slices",
+    "raw": "1 large Artisanal Baguette, cut into \u00be\u201d slices",
     "qty": [
      1.0,
      null
     ],
-    "rest": " large Artisanal Baguette, cut into ¾” slices"
+    "rest": " large Artisanal Baguette, cut into \u00be\u201d slices"
    },
    {
     "raw": "2 tbsp. Olive Oil",
@@ -52381,7 +53061,7 @@
     "rest": " Fresh Figs, thinly sliced"
    },
    {
-    "raw": "¼ cup Honey, or substitute with hot honey",
+    "raw": "\u00bc cup Honey, or substitute with hot honey",
     "qty": [
      0.25,
      null
@@ -52490,7 +53170,7 @@
     "rest": " cup butter, softened (226g)"
    },
    {
-    "raw": "⅓ cup sugar (70g)",
+    "raw": "\u2153 cup sugar (70g)",
     "qty": [
      0.3333333333333333,
      null
@@ -52498,7 +53178,7 @@
     "rest": " cup sugar (70g)"
    },
    {
-    "raw": "⅓ cup light brown sugar, tightly packed (70g)",
+    "raw": "\u2153 cup light brown sugar, tightly packed (70g)",
     "qty": [
      0.3333333333333333,
      null
@@ -52522,7 +53202,7 @@
     "rest": " teaspoon vanilla extract"
    },
    {
-    "raw": "½ teaspoon almond extract",
+    "raw": "\u00bd teaspoon almond extract",
     "qty": [
      0.5,
      null
@@ -52546,7 +53226,7 @@
     "rest": " teaspooons cornstarch"
    },
    {
-    "raw": "½ teaspoon salt",
+    "raw": "\u00bd teaspoon salt",
     "qty": [
      0.5,
      null
@@ -52554,7 +53234,7 @@
     "rest": " teaspoon salt"
    },
    {
-    "raw": "½ cup sugar (for rolling)",
+    "raw": "\u00bd cup sugar (for rolling)",
     "qty": [
      0.5,
      null
@@ -52562,7 +53242,7 @@
     "rest": " cup sugar (for rolling)"
    },
    {
-    "raw": "½ cup strawberry or other red jam/preserves (105g)",
+    "raw": "\u00bd cup strawberry or other red jam/preserves (105g)",
     "qty": [
      0.5,
      null
@@ -52573,7 +53253,7 @@
     "raw": "Icing:"
    },
    {
-    "raw": "½ cup confectioners sugar",
+    "raw": "\u00bd cup confectioners sugar",
     "qty": [
      0.5,
      null
@@ -52581,7 +53261,7 @@
     "rest": " cup confectioners sugar"
    },
    {
-    "raw": "1 ½ tablespoons milk",
+    "raw": "1 \u00bd tablespoons milk",
     "qty": [
      1.5,
      null
@@ -52589,7 +53269,7 @@
     "rest": " tablespoons milk"
    },
    {
-    "raw": "½ teaspoon vanilla",
+    "raw": "\u00bd teaspoon vanilla",
     "qty": [
      0.5,
      null
@@ -52667,12 +53347,12 @@
     "rest": " tsp salt to taste"
    },
    {
-    "raw": "1 tbsp sriracha (optional 🔥)",
+    "raw": "1 tbsp sriracha (optional \ud83d\udd25)",
     "qty": [
      1.0,
      null
     ],
-    "rest": " tbsp sriracha (optional 🔥)"
+    "rest": " tbsp sriracha (optional \ud83d\udd25)"
    },
    {
     "raw": "0.5 cup passata",
@@ -53589,12 +54269,12 @@
     "rest": " tsp hing / asafoetida"
    },
    {
-    "raw": "1 medium sliced onion 🧅",
+    "raw": "1 medium sliced onion \ud83e\uddc5",
     "qty": [
      1.0,
      null
     ],
-    "rest": " medium sliced onion 🧅"
+    "rest": " medium sliced onion \ud83e\uddc5"
    },
    {
     "raw": "1.5 tsp salt (as per taste)",
@@ -53621,12 +54301,12 @@
     "rest": " tsp turmeric"
    },
    {
-    "raw": "2-3 tbsp water (add after adding the spices so that they don’t burn)",
+    "raw": "2-3 tbsp water (add after adding the spices so that they don\u2019t burn)",
     "qty": [
      2.0,
      3.0
     ],
-    "rest": " tbsp water (add after adding the spices so that they don’t burn)"
+    "rest": " tbsp water (add after adding the spices so that they don\u2019t burn)"
    },
    {
     "raw": "200g paneer"
@@ -53656,7 +54336,7 @@
     "rest": " tsp garam masala"
    },
    {
-    "raw": "Handful of chopped coriander leaves 🍃"
+    "raw": "Handful of chopped coriander leaves \ud83c\udf43"
    }
   ]
  },
@@ -53822,28 +54502,28 @@
     "rest": " cup fresh peas ( shelled)"
    },
    {
-    "raw": "5-6 beans ( cut into 1 “ pieces)",
+    "raw": "5-6 beans ( cut into 1 \u201c pieces)",
     "qty": [
      5.0,
      6.0
     ],
-    "rest": " beans ( cut into 1 “ pieces)"
+    "rest": " beans ( cut into 1 \u201c pieces)"
    },
    {
-    "raw": "1 small carrot ( peeled and cut into  1 “ pieces)",
+    "raw": "1 small carrot ( peeled and cut into  1 \u201c pieces)",
     "qty": [
      1.0,
      null
     ],
-    "rest": " small carrot ( peeled and cut into  1 “ pieces)"
+    "rest": " small carrot ( peeled and cut into  1 \u201c pieces)"
    },
    {
-    "raw": "1 small potato ( peeled and cut into 1” pieces)",
+    "raw": "1 small potato ( peeled and cut into 1\u201d pieces)",
     "qty": [
      1.0,
      null
     ],
-    "rest": " small potato ( peeled and cut into 1” pieces)"
+    "rest": " small potato ( peeled and cut into 1\u201d pieces)"
    },
    {
     "raw": "1/4 teaspoon turmeric powder",
@@ -53892,12 +54572,12 @@
     "rest": " medium size garlic pods( peeled)"
    },
    {
-    "raw": "1/2 “ ginger piece ( you add a little more if you like the taste of ginger)",
+    "raw": "1/2 \u201c ginger piece ( you add a little more if you like the taste of ginger)",
     "qty": [
      0.5,
      null
     ],
-    "rest": " “ ginger piece ( you add a little more if you like the taste of ginger)"
+    "rest": " \u201c ginger piece ( you add a little more if you like the taste of ginger)"
    },
    {
     "raw": "10 shallots/sambar onion",
@@ -53972,10 +54652,10 @@
     "rest": " cloves"
    },
    {
-    "raw": "1/4” nutmeg piece or 1/8 teaspoon nutmeg powder"
+    "raw": "1/4\u201d nutmeg piece or 1/8 teaspoon nutmeg powder"
    },
    {
-    "raw": "1” cinnamon stick"
+    "raw": "1\u201d cinnamon stick"
    },
    {
     "raw": "1/4 teaspoon black peppercorns",
@@ -54321,12 +55001,12 @@
     "rest": " tablespoons green onion ,black pepper."
    },
    {
-    "raw": "1 sliced jalapeño",
+    "raw": "1 sliced jalape\u00f1o",
     "qty": [
      1.0,
      null
     ],
-    "rest": " sliced jalapeño"
+    "rest": " sliced jalape\u00f1o"
    },
    {
     "raw": "1/2 cup heavy whipping cream",
@@ -54345,7 +55025,7 @@
     "rest": " cup shredded mozzarella"
    },
    {
-    "raw": "Garnish with paprika, jalapeño and hot sauce"
+    "raw": "Garnish with paprika, jalape\u00f1o and hot sauce"
    }
   ]
  },
@@ -54400,7 +55080,7 @@
   "base_stated": true,
   "lines": [
    {
-    "raw": "1–4 tsp red chili flakes (based on spice tolerance & heat of the flakes)",
+    "raw": "1\u20134 tsp red chili flakes (based on spice tolerance & heat of the flakes)",
     "qty": [
      1.0,
      4.0
@@ -54408,7 +55088,7 @@
     "rest": " tsp red chili flakes (based on spice tolerance & heat of the flakes)"
    },
    {
-    "raw": "1–2 cloves of garlic, very finely minced or grated",
+    "raw": "1\u20132 cloves of garlic, very finely minced or grated",
     "qty": [
      1.0,
      2.0
@@ -54688,7 +55368,7 @@
     "rest": " cloves Garlic"
    },
    {
-    "raw": "1½ inches Ginger",
+    "raw": "1\u00bd inches Ginger",
     "qty": [
      1.5,
      null
@@ -54696,7 +55376,7 @@
     "rest": " inches Ginger"
    },
    {
-    "raw": "3 – 4 Green Chilies, use Serrano Peppers as replacement, adjust the spice as required",
+    "raw": "3 \u2013 4 Green Chilies, use Serrano Peppers as replacement, adjust the spice as required",
     "qty": [
      3.0,
      4.0
@@ -54720,7 +55400,7 @@
     "rest": " Bay leaves"
    },
    {
-    "raw": "½ Cinnamon stick, Stick",
+    "raw": "\u00bd Cinnamon stick, Stick",
     "qty": [
      0.5,
      null
@@ -54728,7 +55408,7 @@
     "rest": " Cinnamon stick, Stick"
    },
    {
-    "raw": "4 – 5 Cardamoms",
+    "raw": "4 \u2013 5 Cardamoms",
     "qty": [
      4.0,
      5.0
@@ -54736,7 +55416,7 @@
     "rest": " Cardamoms"
    },
    {
-    "raw": "8 – 10 Peppercorns",
+    "raw": "8 \u2013 10 Peppercorns",
     "qty": [
      8.0,
      10.0
@@ -54744,7 +55424,7 @@
     "rest": " Peppercorns"
    },
    {
-    "raw": "4 – 5 Cloves",
+    "raw": "4 \u2013 5 Cloves",
     "qty": [
      4.0,
      5.0
@@ -54760,7 +55440,7 @@
     "rest": " medium Tomatoes, finely chopped"
    },
    {
-    "raw": "½ teaspoon Turmeric Powder",
+    "raw": "\u00bd teaspoon Turmeric Powder",
     "qty": [
      0.5,
      null
@@ -54843,7 +55523,7 @@
     "rest": " Green Chilies, slit lengthwise"
    },
    {
-    "raw": "½ inch Ginger, julienned",
+    "raw": "\u00bd inch Ginger, julienned",
     "qty": [
      0.5,
      null
@@ -55640,7 +56320,7 @@
     "raw": "Thandai Masala"
    },
    {
-    "raw": "10 – 12 Almonds, blanched and peeled",
+    "raw": "10 \u2013 12 Almonds, blanched and peeled",
     "qty": [
      10.0,
      12.0
@@ -55648,7 +56328,7 @@
     "rest": " Almonds, blanched and peeled"
    },
    {
-    "raw": "10 – 12 Cashews",
+    "raw": "10 \u2013 12 Cashews",
     "qty": [
      10.0,
      12.0
@@ -55656,7 +56336,7 @@
     "rest": " Cashews"
    },
    {
-    "raw": "10 – 12 Raisins",
+    "raw": "10 \u2013 12 Raisins",
     "qty": [
      10.0,
      12.0
@@ -55664,7 +56344,7 @@
     "rest": " Raisins"
    },
    {
-    "raw": "10 – 12 Cardamom Pods",
+    "raw": "10 \u2013 12 Cardamom Pods",
     "qty": [
      10.0,
      12.0
@@ -55672,7 +56352,7 @@
     "rest": " Cardamom Pods"
    },
    {
-    "raw": "25 – 30 Black Peppercorns",
+    "raw": "25 \u2013 30 Black Peppercorns",
     "qty": [
      25.0,
      30.0
@@ -55688,7 +56368,7 @@
     "rest": " Teaspoon Poppy Seeds"
    },
    {
-    "raw": "1 ½ Teaspoons Fennel Seeds",
+    "raw": "1 \u00bd Teaspoons Fennel Seeds",
     "qty": [
      1.5,
      null
@@ -55723,7 +56403,7 @@
     "rest": " Pinches Saffron"
    },
    {
-    "raw": "⅓ Cup Sugar",
+    "raw": "\u2153 Cup Sugar",
     "qty": [
      0.3333333333333333,
      null
@@ -55748,7 +56428,7 @@
     "raw": "Broth Ingredients"
    },
    {
-    "raw": "½ pineapple cut into large chunks",
+    "raw": "\u00bd pineapple cut into large chunks",
     "qty": [
      0.5,
      null
@@ -55856,7 +56536,7 @@
     "rest": " oz firm tofu pressed, cut into cubes, and pan-fried"
    },
    {
-    "raw": "¼-½ cup white part of leek",
+    "raw": "\u00bc-\u00bd cup white part of leek",
     "qty": [
      0.25,
      0.5
@@ -55864,7 +56544,7 @@
     "rest": " cup white part of leek"
    },
    {
-    "raw": "¼-½ cup the white part of the lemongrass",
+    "raw": "\u00bc-\u00bd cup the white part of the lemongrass",
     "qty": [
      0.25,
      0.5
@@ -55921,7 +56601,7 @@
     "raw": "Banana flower"
    },
    {
-    "raw": "Jalapenô slices"
+    "raw": "Jalapen\u00f4 slices"
    }
   ]
  },
@@ -56068,7 +56748,7 @@
     "rest": " medium sized potatoes, boiled and peeled"
    },
    {
-    "raw": "3–4 tablespoon ghee for shallow frying",
+    "raw": "3\u20134 tablespoon ghee for shallow frying",
     "qty": [
      3.0,
      4.0
