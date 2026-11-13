@@ -217,6 +217,7 @@
     cursor:pointer;z-index:3;font-family:inherit;box-shadow:0 1px 6px rgba(0,0,0,.35)}
   #pvClose:active{transform:scale(.92)}
   #pvImg{width:100%;max-height:46vh;object-fit:cover;display:block;background:var(--chip)}
+  #pvImgLink{display:block;cursor:pointer}
   .pv-body{padding:16px 18px 20px}
   .pv-body h2{margin:0 34px 10px 0;font-size:23px;font-weight:800;line-height:1.22;letter-spacing:-.3px}
   .pv-meta{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:6px}
@@ -567,7 +568,7 @@
       <button id="pvPrevTop" type="button">← Prev</button>
       <button id="pvNextTop" type="button">Next →</button>
     </div>
-    <img id="pvImg" alt="" style="display:none">
+    <a id="pvImgLink" href="#" target="_blank" rel="noopener" aria-label="Open this recipe on Instagram"><img id="pvImg" alt="" style="display:none"></a>
     <div class="pv-body">
       <h2 id="pvTitle"></h2>
       <div id="pvMeta" class="pv-meta"></div>
@@ -1709,6 +1710,9 @@ function fillPreview(){
   document.getElementById("pvNote").hidden =
     !(r.recipe_in_comments && !r.recipe_ingredients && !r.recipe_method);
   document.getElementById("pvWatch").href = r.link;
+  // The preview photo is tappable: same destination as "Watch on
+  // Instagram", so the post is one tap away without scrolling down.
+  document.getElementById("pvImgLink").href = r.link;
   document.getElementById("pvCount").textContent = (pvIdx + 1) + " of " + pvList.length;
   document.getElementById("pvPrev").disabled = pvIdx === 0;
   document.getElementById("pvNext").disabled = pvIdx === pvList.length - 1;
