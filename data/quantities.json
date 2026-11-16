@@ -1,4 +1,436 @@
 {
+ "18201149476387777": {
+  "base": 1,
+  "base_stated": false,
+  "lines": [
+   {
+    "raw": "4 boneless, skinless chicken thighs",
+    "qty": [
+     4.0,
+     null
+    ],
+    "rest": " boneless, skinless chicken thighs"
+   },
+   {
+    "raw": "2 heads garlic, cloves peeled",
+    "qty": [
+     2.0,
+     null
+    ],
+    "rest": " heads garlic, cloves peeled"
+   },
+   {
+    "raw": "3 tbsp butter, divided",
+    "qty": [
+     3.0,
+     null
+    ],
+    "rest": " tbsp butter, divided"
+   },
+   {
+    "raw": "1 tbsp olive oil",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " tbsp olive oil"
+   },
+   {
+    "raw": "Salt & black pepper"
+   },
+   {
+    "raw": "For the sauce:"
+   },
+   {
+    "raw": "1\u00bd tbsp white miso paste",
+    "qty": [
+     1.5,
+     null
+    ],
+    "rest": " tbsp white miso paste"
+   },
+   {
+    "raw": "1 tbsp honey",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " tbsp honey"
+   },
+   {
+    "raw": "1 tbsp soy sauce",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " tbsp soy sauce"
+   },
+   {
+    "raw": "1 tsp rice wine vinegar",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " tsp rice wine vinegar"
+   },
+   {
+    "raw": "\u2154 cup chicken broth, plus more as needed",
+    "qty": [
+     0.6666666666666666,
+     null
+    ],
+    "rest": " cup chicken broth, plus more as needed"
+   },
+   {
+    "raw": "\u00bd tsp ground ginger",
+    "qty": [
+     0.5,
+     null
+    ],
+    "rest": " tsp ground ginger"
+   },
+   {
+    "raw": "2 tsp cornstarch",
+    "qty": [
+     2.0,
+     null
+    ],
+    "rest": " tsp cornstarch"
+   },
+   {
+    "raw": "1 tsp lemon juice",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " tsp lemon juice"
+   }
+  ]
+ },
+ "17889401688492321": {
+  "base": 15,
+  "base_stated": true,
+  "lines": [
+   {
+    "raw": "2 eggs",
+    "qty": [
+     2.0,
+     null
+    ],
+    "rest": " eggs"
+   },
+   {
+    "raw": "2 cups (250 g) all-purpose flour",
+    "qty": [
+     2.0,
+     null
+    ],
+    "rest": " cups (250 g) all-purpose flour"
+   },
+   {
+    "raw": "1 cup (240 ml) milk",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " cup (240 ml) milk"
+   },
+   {
+    "raw": "2 tsp baking powder",
+    "qty": [
+     2.0,
+     null
+    ],
+    "rest": " tsp baking powder"
+   },
+   {
+    "raw": "1 tsp salt",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " tsp salt"
+   },
+   {
+    "raw": "2 cups (200 g) grated mozzarella or cheese of choice",
+    "qty": [
+     2.0,
+     null
+    ],
+    "rest": " cups (200 g) grated mozzarella or cheese of choice"
+   },
+   {
+    "raw": "1 handful green onions (scallions), chopped",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " handful green onions (scallions), chopped"
+   },
+   {
+    "raw": "3-4 garlic cloves, minced",
+    "qty": [
+     3.0,
+     4.0
+    ],
+    "rest": " garlic cloves, minced"
+   }
+  ]
+ },
+ "17902108182376163": {
+  "base": 1,
+  "base_stated": false,
+  "lines": [
+   {
+    "raw": "One packet of nai bai"
+   },
+   {
+    "raw": "1 tbsp of oyster sauce",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " tbsp of oyster sauce"
+   },
+   {
+    "raw": "1 tbsp of sesame oil",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " tbsp of sesame oil"
+   },
+   {
+    "raw": "1/2 tablespoon of fried garlic",
+    "qty": [
+     0.5,
+     null
+    ],
+    "rest": " tablespoon of fried garlic"
+   }
+  ]
+ },
+ "18111235645993913": {
+  "base": 30,
+  "base_stated": true,
+  "lines": [
+   {
+    "raw": "14 ounce block extra firm tofu",
+    "qty": [
+     14.0,
+     null
+    ],
+    "rest": " ounce block extra firm tofu"
+   },
+   {
+    "raw": "1 tablespoon neutral oil such as canola",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " tablespoon neutral oil such as canola"
+   },
+   {
+    "raw": "\u00bc teaspoon kosher salt",
+    "qty": [
+     0.25,
+     null
+    ],
+    "rest": " teaspoon kosher salt"
+   },
+   {
+    "raw": "\u00bc teaspoon freshly ground black pepper",
+    "qty": [
+     0.25,
+     null
+    ],
+    "rest": " teaspoon freshly ground black pepper"
+   },
+   {
+    "raw": "2 tablespoons lemon juice about 1 small lemon",
+    "qty": [
+     2.0,
+     null
+    ],
+    "rest": " tablespoons lemon juice about 1 small lemon"
+   },
+   {
+    "raw": "1 tablespoon honey",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " tablespoon honey"
+   },
+   {
+    "raw": "1 \u00bd teaspoons lemon pepper seasoning see note #1!",
+    "qty": [
+     1.5,
+     null
+    ],
+    "rest": " teaspoons lemon pepper seasoning see note #1!"
+   },
+   {
+    "raw": "1 teaspoon lemon zest about 1 small lemon",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " teaspoon lemon zest about 1 small lemon"
+   },
+   {
+    "raw": "1 teaspoon corn starch optional!",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " teaspoon corn starch optional!"
+   }
+  ]
+ },
+ "18150164764544768": {
+  "base": 4,
+  "base_stated": true,
+  "lines": [
+   {
+    "raw": "CHOCOLATE CUSTARD OATS"
+   },
+   {
+    "raw": "180g whole rolled oats"
+   },
+   {
+    "raw": "1 litre milk",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " litre milk"
+   },
+   {
+    "raw": "200\u2013300ml water"
+   },
+   {
+    "raw": "6 tbsp cacao powder",
+    "qty": [
+     6.0,
+     null
+    ],
+    "rest": " tbsp cacao powder"
+   },
+   {
+    "raw": "4 tbsp honey",
+    "qty": [
+     4.0,
+     null
+    ],
+    "rest": " tbsp honey"
+   },
+   {
+    "raw": "1 tsp vanilla",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " tsp vanilla"
+   },
+   {
+    "raw": "A pinch of salt"
+   },
+   {
+    "raw": "3 large egg yolks, room temperature",
+    "qty": [
+     3.0,
+     null
+    ],
+    "rest": " large egg yolks, room temperature"
+   },
+   {
+    "raw": "To serve:"
+   },
+   {
+    "raw": "Thick Greek yoghurt"
+   },
+   {
+    "raw": "Raspberry chia jam"
+   },
+   {
+    "raw": "Dark chocolate, for grating"
+   },
+   {
+    "raw": "RASPBERRY CHIA JAM"
+   },
+   {
+    "raw": "250g frozen raspberries"
+   },
+   {
+    "raw": "2 tbsp chia seeds",
+    "qty": [
+     2.0,
+     null
+    ],
+    "rest": " tbsp chia seeds"
+   },
+   {
+    "raw": "A little lemon zest"
+   },
+   {
+    "raw": "A small drizzle of maple syrup"
+   }
+  ]
+ },
+ "18021275585736156": {
+  "base": 5,
+  "base_stated": true,
+  "lines": [
+   {
+    "raw": "sea bass"
+   },
+   {
+    "raw": "salt"
+   },
+   {
+    "raw": "pepper"
+   },
+   {
+    "raw": "avocado oil"
+   },
+   {
+    "raw": "1 tbsp butter",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " tbsp butter"
+   },
+   {
+    "raw": "3 garlic cloves",
+    "qty": [
+     3.0,
+     null
+    ],
+    "rest": " garlic cloves"
+   },
+   {
+    "raw": "rosemary"
+   },
+   {
+    "raw": "3 tbsp water",
+    "qty": [
+     3.0,
+     null
+    ],
+    "rest": " tbsp water"
+   },
+   {
+    "raw": "6 tbsp cold butter",
+    "qty": [
+     6.0,
+     null
+    ],
+    "rest": " tbsp cold butter"
+   }
+  ]
+ },
  "17903987895374440": {
   "base": 1,
   "base_stated": false,
