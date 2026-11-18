@@ -13,6 +13,15 @@ enough to produce an updated page:
   <!--__CARDS__--> <- static pre-rendered cards, one per recipe, with the
                       192x192 WebP thumbnails generated from assets/thumbs/
 
+The Baby Food mode rides the same machinery from data/baby/ (files the
+weekly refresh never touches — it copies only the top-level data files):
+  /*__BABY_INDEX__*/ / /*__BABY_QUANT__*/ / /*__BABY_CUISINE__*/ /
+  /*__BABY_PREP__*/ <- the baby equivalents, same transforms
+  <!--__BABY_CARDS__--> <- static baby cards in the hidden #babyCards
+                      div; the page harvests their photos into THUMBS
+                      exactly as it does the main cards, then JS-renders
+                      the grid from the active dataset.
+
 To refresh the template after the Muse artifact page changes design, run:
 
   python3 build_page.py --extract path/to/fresh-export.html
@@ -36,14 +45,16 @@ DATA = os.path.join(ROOT, "data")
 THUMB_DIR = os.path.join(ROOT, "assets", "thumbs")
 
 BLOBS = ["INDEX", "QUANT", "CUISINE", "PREP"]
+BABY_BLOBS = ["BABY_INDEX", "BABY_QUANT", "BABY_CUISINE", "BABY_PREP"]
+BABY_DATA = os.path.join(DATA, "baby")
 INDEX_KEY_ORDER = [
     "category", "extract_source", "groups", "id", "ingredients", "link",
     "meals", "recipe_ingredients", "recipe_method", "tags", "text", "title",
 ]
 
 
-def load_json(name):
-    with open(os.path.join(DATA, name), encoding="utf-8") as f:
+def load_json(name, base=None):
+    with open(os.path.join(base or DATA, name), encoding="utf-8") as f:
         return json.load(f)
 
 
@@ -177,10 +188,11 @@ def card_html(recipe, quant_ids, group_rank):
 
 def build():
     template = open(TPL, encoding="utf-8").read()
-    for name in BLOBS:
+    for name in BLOBS + BABY_BLOBS:
         ph = "/*__%s__*/null" % name
         assert template.count(ph) == 1, "placeholder %s missing" % ph
     assert template.count("<!--__CARDS__-->") == 1, "cards placeholder missing"
+    assert template.count("<!--__BABY_CARDS__-->") == 1, "baby cards placeholder missing"
 
     index = load_json("index.json")
     payloads = {
@@ -191,6 +203,15 @@ def build():
     }
     quant_ids = set(payloads["QUANT"])
 
+    baby_index = load_json("index.json", BABY_DATA)
+    baby_payloads = {
+        "BABY_INDEX": page_index(baby_index),
+        "BABY_QUANT": page_quant(load_json("quantities.json", BABY_DATA)),
+        "BABY_CUISINE": page_cuisine(load_json("cuisine_judged.json", BABY_DATA)),
+        "BABY_PREP": load_json("prep_hints.json", BABY_DATA),
+    }
+    baby_quant_ids = set(baby_payloads["BABY_QUANT"])
+
     # Canonical ingredient-group order, read from the template itself so
     # badge order follows the page's own taxonomy.
     m = re.search(r"const INGREDIENT_GROUPS = (\[.*?\]);", template, re.S)
@@ -198,13 +219,18 @@ def build():
     group_rank = {g: i for i, g in enumerate(canonical)}
 
     page = template
-    for name, payload in payloads.items():
+    for name, payload in {**payloads, **baby_payloads}.items():
         page = page.replace("/*__%s__*/null" % name, dumps(payload))
     cards = "\n".join(
         card_html(r, quant_ids, group_rank)
         for r in index["recipes"]
     )
     page = page.replace("<!--__CARDS__-->", cards)
+    baby_cards = "\n".join(
+        card_html(r, baby_quant_ids, group_rank)
+        for r in baby_index["recipes"]
+    )
+    page = page.replace("<!--__BABY_CARDS__-->", baby_cards)
 
     total = payloads["INDEX"]["meta"]["total"]
     page = re.sub(r'(<p id="sub">)[\d,]+ saved recipes',
@@ -214,8 +240,9 @@ def build():
 
     with open(OUT, "w", encoding="utf-8") as f:
         f.write(page)
-    print("built %s: %d recipes, %.1f MB"
-          % (OUT, len(payloads["INDEX"]["recipes"]), len(page) / 1e6))
+    print("built %s: %d recipes + %d baby, %.1f MB"
+          % (OUT, len(payloads["INDEX"]["recipes"]),
+             len(baby_payloads["BABY_INDEX"]["recipes"]), len(page) / 1e6))
 
 
 # ----------------------------------------------------------------- extract
@@ -229,7 +256,7 @@ def extract(export_path):
     text = open(export_path, encoding="utf-8").read()
     spans = []  # (start, end, replacement)
 
-    for name in BLOBS:
+    for name in BLOBS + BABY_BLOBS:
         marker = "const %s = " % name
         at = text.find(marker)
         assert at >= 0, "blob %s not found in export" % name
@@ -245,6 +272,8 @@ def extract(export_path):
     # The static cards form one contiguous run (separated only by
     # whitespace) starting just after the results div. The page's JS also
     # contains "<article" strings, but those are not contiguous with it.
+    # The baby cards live in their own later div, so the run breaks at
+    # the markup between the two blocks and counts the main cards only.
     starts = [m.start() for m in re.finditer(r'<article class="card"', text)
               if m.start() >= cstart]
     assert starts, "no static cards found"
@@ -257,6 +286,23 @@ def extract(export_path):
         count += 1
     assert count >= 1000, "too few static cards: %d" % count
     spans.append((starts[0], end, "<!--__CARDS__-->"))
+
+    # The baby cards: one contiguous run inside the hidden #babyCards div.
+    bdiv = text.find('<div id="babyCards"')
+    assert bdiv >= 0, "babyCards div not found"
+    bstart = text.find(">", bdiv) + 1
+    bstarts = [m.start() for m in re.finditer(r'<article class="card"', text)
+               if m.start() >= bstart]
+    assert bstarts, "no static baby cards found"
+    bend = None
+    bcount = 0
+    for s in bstarts:
+        if bend is not None and text[bend:s].strip():
+            break
+        bend = text.find("</article>", s) + len("</article>")
+        bcount += 1
+    assert bcount >= 100, "too few static baby cards: %d" % bcount
+    spans.append((bstarts[0], bend, "<!--__BABY_CARDS__-->"))
 
     for start, end, repl in sorted(spans, reverse=True):
         text = text[:start] + repl + text[end:]

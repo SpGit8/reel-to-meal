@@ -324,6 +324,18 @@
     height:38px;padding:0 15px;font-size:13.5px;font-weight:700;cursor:pointer;
     color:var(--bg);font-family:inherit;white-space:nowrap;line-height:1}
   #planBtn:active{transform:scale(.97)}
+  /* Recipes / Baby Food mode switch: a segmented control under the
+     search row, inside the sticky bar so it stays on screen. Same
+     pill language as the rest of the page; the active half carries
+     the accent fill. */
+  .modeseg{display:flex;gap:4px;margin-top:8px;background:var(--chip);
+    border:1px solid var(--border);border-radius:999px;padding:3px}
+  .modeseg button{flex:1;border:none;background:transparent;border-radius:999px;
+    height:38px;font-size:14px;font-weight:700;cursor:pointer;color:var(--muted);
+    font-family:inherit}
+  .modeseg button[aria-selected="true"]{background:var(--accent);color:#fff;
+    box-shadow:0 1px 4px rgba(0,0,0,.18)}
+  .modeseg button:active{transform:scale(.98)}
   #resultline{min-width:0}
   #plOverlay{position:fixed;inset:0;background:rgba(20,13,8,.58);z-index:55;
     display:flex;align-items:flex-end;justify-content:center}
@@ -514,6 +526,10 @@
       <button id="heroToggle" type="button" aria-expanded="false" aria-controls="heroBody" aria-label="Show ingredient chips">▾</button>
       <button id="planBtn" type="button">Plan a week</button>
     </div>
+    <div class="modeseg" role="tablist" aria-label="Recipe collection">
+      <button id="modeRecipes" type="button" role="tab" aria-selected="true">Recipes</button>
+      <button id="modeBaby" type="button" role="tab" aria-selected="false">Baby Food</button>
+    </div>
     <div id="heroBody">
       <label for="q">What's in your kitchen?</label>
       <div class="hintline"><span class="hint">Try:</span><span id="examples"></span></div>
@@ -553,6 +569,9 @@
   </div>
   <div id="results">
 <!--__CARDS__-->
+</div>
+  <div id="babyCards" style="display:none">
+<!--__BABY_CARDS__-->
 </div>
   <div id="pager" style="display:none">
     <button id="prev">← Prev</button><span id="pagenum"></span><button id="next">Next →</button>
@@ -668,7 +687,15 @@
 
 <script>
 const INDEX = /*__INDEX__*/null;
-const RECIPES = INDEX.recipes;
+const BABY_INDEX = /*__BABY_INDEX__*/null;
+// Active dataset: Recipes by default; #baby-food opens Baby Food mode
+// directly (the shareable link). The browse/search/grid/preview code
+// reads RECIPES / A_INDEX / A_QUANT / A_CUISINE / A_PREP; the meal-plan
+// generator always reads the main INDEX / QUANT / PREP, so it stays on
+// the main collection. setMode() (before init) swaps the active set.
+let mode = (window.location.hash === "#baby-food") ? "baby" : "recipes";
+let RECIPES = mode === "baby" ? BABY_INDEX.recipes : INDEX.recipes;
+let A_INDEX = mode === "baby" ? BABY_INDEX : INDEX;
 // Serving-scaler data, keyed by recipe id: [baseServings, baseStated(1/0),
 // parsedLines]. Each parsed line is [lineIndex, lo, hi, restLen] — hi is
 // present only for ranges; a 3-element line is [lineIndex, lo, restLen].
@@ -677,9 +704,13 @@ const RECIPES = INDEX.recipes;
 // time, so no ingredient text is duplicated here. Recipes absent from
 // QUANT have no parsed quantities and show no stepper.
 const QUANT = /*__QUANT__*/null;
+const BABY_QUANT = /*__BABY_QUANT__*/null;
+let A_QUANT = mode === "baby" ? BABY_QUANT : QUANT;
 
 // Each photo exists exactly once in this page: in the pre-rendered static
-// card for its recipe in #results. The recipe data carries no thumbnail
+// card for its recipe in #results (Baby Food photos live the same way in
+// the hidden #babyCards block, and are harvested into THUMBS too, so the
+// JS-rendered grid reuses them in either mode). The recipe data carries no thumbnail
 // reference of its own. Before the first render replaces those static
 // cards, harvest each card's <img> src keyed by the card's recipe id, so
 // JS-rendered cards reuse the very same image reference (an inline
@@ -693,9 +724,11 @@ const QUANT = /*__QUANT__*/null;
 // recipe id -> cuisine for the 797 labeled recipes; the rest are
 // unclassified and appear under no cuisine tile.
 const CUISINE = /*__CUISINE__*/null;
+const BABY_CUISINE = /*__BABY_CUISINE__*/null;
+let A_CUISINE = mode === "baby" ? BABY_CUISINE : CUISINE;
 
 const THUMBS = {};
-document.querySelectorAll("#results article.card[data-id]").forEach(c => {
+document.querySelectorAll("#results article.card[data-id], #babyCards article.card[data-id]").forEach(c => {
   const img = c.querySelector("img.thumb");
   if(!img) return;
   const src = img.getAttribute("src");
@@ -842,7 +875,7 @@ function passesFilters(r){
   if(state.full && !hasFullRecipe(r)) return false;
   if(state.meal !== "all" && !r.meals.includes(state.meal)) return false;
   if(state.cat !== "all" && !inGroup(r, state.cat)) return false;
-  if(state.cuisine !== "all" && CUISINE[r.id] !== state.cuisine) return false;
+  if(state.cuisine !== "all" && A_CUISINE[r.id] !== state.cuisine) return false;
   for(const t of state.tags){ if(!r.tags.includes(t)) return false; }
   return true;
 }
@@ -871,7 +904,7 @@ function scrollToResults(){
 function renderChips(){
   const box = document.getElementById("chips");
   box.innerHTML = "";
-  for(const ing of INDEX.meta.top_ingredients.slice(0, 10)){
+  for(const ing of A_INDEX.meta.top_ingredients.slice(0, 10)){
     const b = el("button", ing, "chip" + (state.q.some(q => sing(norm(q)) === sing(ing)) ? " on" : ""));
     b.onclick = () => toggleQuery(ing);
     box.appendChild(b);
@@ -1007,7 +1040,7 @@ function renderCuisines(){
   const box = document.getElementById("cuisines");
   box.innerHTML = "";
   const counts = {};
-  for(const r of RECIPES){ const c = CUISINE[r.id]; if(c) counts[c] = (counts[c] || 0) + 1; }
+  for(const r of RECIPES){ const c = A_CUISINE[r.id]; if(c) counts[c] = (counts[c] || 0) + 1; }
   const names = Object.keys(counts).sort((a,b) =>
     (counts[b] - counts[a]) || a.localeCompare(b, undefined, {sensitivity: "base"}));
   const shown = browseOpen.cuisines ? names : names.slice(0, CUISINES_SHOWN);
@@ -1137,6 +1170,11 @@ function card(r, matchedTerms, listIndex){
 // These are the recipes the green card dot marks and the results row's
 // "Full recipe" toggle filters to.
 function hasFullRecipe(r){
+  return !!A_QUANT[r.id] && !!(r.recipe_method && r.recipe_method.trim());
+}
+// Same check against the MAIN dataset only, for the meal-plan generator
+// (which always deals from the main collection, whatever mode is showing).
+function hasFullRecipeMain(r){
   return !!QUANT[r.id] && !!(r.recipe_method && r.recipe_method.trim());
 }
 // A recipe is worth previewing when it has an extracted recipe (ingredients
@@ -1338,6 +1376,8 @@ function setRecipeText(container, text){
 // only recipes with a text-supported prep step appear at all
 // (generated by data/detect_prep.py; see data/prep_hints.json).
 const PREP = /*__PREP__*/null;
+const BABY_PREP = /*__BABY_PREP__*/null;
+let A_PREP = mode === "baby" ? BABY_PREP : PREP;
 // ---- Serving scaler ----
 // pvServ is the serving count chosen in the open preview; fillPreview
 // resets it to the recipe's base count on every open/flip.
@@ -1359,7 +1399,7 @@ function ingLinesOf(r){
 }
 function renderIngs(r){
   const ingText = document.getElementById("pvIngText");
-  const qd = QUANT[r.id];
+  const qd = A_QUANT[r.id];
   if(!qd || pvServ === qd[0]){
     // At the recipe's own serving count, the lines are the creator's text,
     // rendered exactly as written.
@@ -1394,7 +1434,7 @@ function renderIngs(r){
 // supports a pill appear in PREP at all; the pill renders directly under
 // its ingredient line. Line indices match ingLinesOf()'s split.
 function addPrepPills(r){
-  const hints = PREP[r.id];
+  const hints = A_PREP[r.id];
   if(!hints) return;
   const ps = Array.from(document.getElementById("pvIngText").children);
   for(const k of Object.keys(hints)){
@@ -1584,7 +1624,7 @@ function chipMethodNumbers(){
   });
 }
 function updateScaleUI(r){
-  const qd = QUANT[r.id];
+  const qd = A_QUANT[r.id];
   const box = document.getElementById("pvScale");
   const note = document.getElementById("pvScaleNote");
   if(!qd){ box.hidden = true; note.hidden = true; return; }
@@ -1604,7 +1644,7 @@ function hideScale(){
 }
 function stepServ(d){
   const r = pvList[pvIdx];
-  if(!r || !QUANT[r.id]) return;
+  if(!r || !A_QUANT[r.id]) return;
   pvServ = d > 0 ? Math.min(24, pvServ + 1) : Math.max(1, pvServ - 1);
   updateScaleUI(r);
   renderIngs(r);
@@ -1641,6 +1681,9 @@ function fillPreview(){
   // stepping to another recipe closes it and restores the button.
   document.getElementById("pvPlanPick").hidden = true;
   document.getElementById("pvAddPlan").textContent = "Add to this week's plan";
+  // The meal-plan generator stays on the main collection: no add-to-plan
+  // action in Baby Food mode.
+  document.getElementById("pvAddPlan").style.display = mode === "baby" ? "none" : "";
   const meta = document.getElementById("pvMeta");
   meta.innerHTML = "";
   cardGroups(r).forEach((g, i) => meta.appendChild(el("span", g, "badge" + (i ? " alt" : ""))));
@@ -1676,7 +1719,7 @@ function fillPreview(){
     ings.style.display = "none";
     // Recipes with parsed quantities get the serving scaler; it starts at
     // the recipe's base count, where lines render verbatim.
-    const qd = QUANT[r.id];
+    const qd = A_QUANT[r.id];
     pvServ = qd ? qd[0] : 0;
     updateScaleUI(r);
     renderIngs(r);
@@ -1720,9 +1763,53 @@ function fillPreview(){
   document.getElementById("pvNextTop").disabled = pvIdx === pvList.length - 1;
 }
 
-function init(){
+// ---- Recipes / Baby Food mode ----
+// Switching swaps the ENTIRE dataset the browse/search/grid/preview code
+// reads (RECIPES + the A_* aliases), clears the search text and every
+// filter, and updates the URL hash: #baby-food opens Baby Food mode
+// directly; no hash means Recipes mode, identical to before. The
+// meal-plan pill is visible only in Recipes mode. The initial call
+// (from init) only affirms the dataset the hash selected at load and
+// sets the control states — it does not re-render.
+function setMode(m, opts){
+  opts = opts || {};
+  mode = m;
+  RECIPES = mode === "baby" ? BABY_INDEX.recipes : INDEX.recipes;
+  A_INDEX = mode === "baby" ? BABY_INDEX : INDEX;
+  A_QUANT = mode === "baby" ? BABY_QUANT : QUANT;
+  A_CUISINE = mode === "baby" ? BABY_CUISINE : CUISINE;
+  A_PREP = mode === "baby" ? BABY_PREP : PREP;
+  document.getElementById("modeRecipes").setAttribute("aria-selected", mode === "recipes" ? "true" : "false");
+  document.getElementById("modeBaby").setAttribute("aria-selected", mode === "baby" ? "true" : "false");
+  document.getElementById("planBtn").style.display = mode === "baby" ? "none" : "";
   document.getElementById("sub").textContent =
-    INDEX.meta.total.toLocaleString() + " saved recipes · tap a tile, or search by ingredient";
+    A_INDEX.meta.total.toLocaleString() +
+    (mode === "baby" ? " saved baby food recipes · tap a tile, or search by ingredient"
+                     : " saved recipes · tap a tile, or search by ingredient");
+  if(opts.initial) return;
+  // A preview belongs to the dataset it was opened from; close it rather
+  // than leave it stepping through the other dataset's list.
+  if(!document.getElementById("pvOverlay").hidden) closePreview();
+  state.q = []; state.meal = "all"; state.cat = "all"; state.cuisine = "all";
+  state.tags.clear(); state.full = false; state.page = 0;
+  shuffled = null;
+  document.getElementById("q").value = "";
+  setHero(true);
+  // replaceState, not a hash assignment: no scroll jump, no extra
+  // history entry per toggle — the URL still carries the shareable hash.
+  if(history.replaceState){
+    history.replaceState(null, "", mode === "baby" ? "#baby-food"
+      : location.pathname + location.search);
+  } else if(mode === "baby"){
+    location.hash = "baby-food";
+  } else {
+    location.hash = "";
+  }
+  sync();
+}
+
+function init(){
+  setMode(mode, { initial: true });
   const q = document.getElementById("q");
   // Typed facet routing: a whole comma-separated segment that exactly
   // names a browse facet (case-insensitive) sets that facet's state
@@ -1746,6 +1833,12 @@ function init(){
   }
   q.addEventListener("keydown", e => { if(e.key === "Enter") submitQuery(); });
   document.getElementById("find").onclick = submitQuery;
+  document.getElementById("modeRecipes").onclick = () => { if(mode !== "recipes") setMode("recipes"); };
+  document.getElementById("modeBaby").onclick = () => { if(mode !== "baby") setMode("baby"); };
+  window.addEventListener("hashchange", () => {
+    const m = location.hash === "#baby-food" ? "baby" : "recipes";
+    if(m !== mode) setMode(m);
+  });
   const ex = document.getElementById("examples");
   ["chicken, rice", "peanut butter, oats"].forEach(txt => {
     const b = el("button", txt.replace(/,\s*/g, " + "), "example");
@@ -1844,10 +1937,10 @@ function dinnerFamily(r){
   return "other";
 }
 const PLAN_POOLS = {
-  b: RECIPES.filter(r => r.meals && r.meals.includes("breakfast")),
-  l: RECIPES.filter(r => r.meals && r.meals.includes("lunch")),
-  d: RECIPES.filter(r => r.meals && r.meals.includes("dinner") && planHasText(r)),
-  s: RECIPES.filter(r => r.meals && r.meals.includes("snack"))
+  b: INDEX.recipes.filter(r => r.meals && r.meals.includes("breakfast")),
+  l: INDEX.recipes.filter(r => r.meals && r.meals.includes("lunch")),
+  d: INDEX.recipes.filter(r => r.meals && r.meals.includes("dinner") && planHasText(r)),
+  s: INDEX.recipes.filter(r => r.meals && r.meals.includes("snack"))
 };
 // "Meal prep friendly" and "high protein" tags weigh a recipe up, and a
 // full recipe (green dot: quantities + method) weighs it up a little
@@ -1856,7 +1949,7 @@ function planWeight(r){
   let w = 1;
   if(r.tags && r.tags.includes("meal prep friendly")) w += 2;
   if(r.tags && r.tags.includes("high protein")) w += 2;
-  if(hasFullRecipe(r)) w += 1.5;
+  if(hasFullRecipeMain(r)) w += 1.5;
   return w;
 }
 // Weighted pick from a pool, skipping recipes already in the week; when
@@ -1969,7 +2062,7 @@ function renderPickResults(){
   }
   const used = planUsedIds();
   const hits = [];
-  for(const r of RECIPES){
+  for(const r of INDEX.recipes){
     if(used.has(r.id)) continue;
     if(terms.every(t => termHits(t, recipeHay(r)))) hits.push(r);
   }
@@ -1982,7 +2075,7 @@ function renderPickResults(){
   for(const r of show){
     const b = el("button", null, "pl-pick-row");
     b.type = "button";
-    if(hasFullRecipe(r)){
+    if(hasFullRecipeMain(r)){
       const d = el("span", null, "mdot inl");
       d.title = "Full recipe";
       b.appendChild(d);
