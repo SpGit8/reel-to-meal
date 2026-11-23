@@ -1,4 +1,70 @@
 {
+ "17934501726164067": {
+  "base": 1,
+  "base_stated": true,
+  "lines": [
+   {
+    "raw": "35g blanched hazelnuts, roughly chopped"
+   },
+   {
+    "raw": "3 medjool dates, stone removed, roughly chopped",
+    "qty": [
+     3.0,
+     null
+    ],
+    "rest": " medjool dates, stone removed, roughly chopped"
+   },
+   {
+    "raw": "4 large garlic cloves, finely sliced",
+    "qty": [
+     4.0,
+     null
+    ],
+    "rest": " large garlic cloves, finely sliced"
+   },
+   {
+    "raw": "1 tbsp capers",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " tbsp capers"
+   },
+   {
+    "raw": "1 tsp pul biber",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " tsp pul biber"
+   },
+   {
+    "raw": "225g Purple sprouting broccoli"
+   },
+   {
+    "raw": "1 lemon",
+    "qty": [
+     1.0,
+     null
+    ],
+    "rest": " lemon"
+   },
+   {
+    "raw": "Salt"
+   },
+   {
+    "raw": "3 heaped table spoons of Greek Yogurt",
+    "qty": [
+     3.0,
+     null
+    ],
+    "rest": " heaped table spoons of Greek Yogurt"
+   },
+   {
+    "raw": "Handful of fresh Mint, to garnish"
+   }
+  ]
+ },
  "18201149476387777": {
   "base": 1,
   "base_stated": false,
